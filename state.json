@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 4,
+  "revision": 5,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -291,6 +291,10 @@
   "persistence_probe": {
     "id": "ai4se-first-checkpoint-20261103",
     "origin": "local-preparation-via-github-connector",
-    "note": "cloud read not yet verified"
+    "note": "cloud read not yet verified",
+    "cloud_write": {
+      "task_id": "01a1a07d-21f2-714f-be53-194b9ba6c02c",
+      "at": "2026-11-03T08:28:16.840757+00:00"
+    }
   }
 }
