@@ -1,0 +1,458 @@
+{
+  "task_id": "01a1a08f-a324-70c0-893a-7367656b902a",
+  "started_at": "2026-11-03T08:47:38.272017+00:00",
+  "source_commit": "3c2a92039b21045053ea39d783578622cdc67a3b",
+  "transport": "Unmodified repository CLI executed as subprocess; no monkeypatch or custom transport",
+  "proxy_preserved": true,
+  "tls_verification": true,
+  "network_authorization": "exec_command additional_permissions.network.enabled=true",
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "started_at": "2026-11-03T08:47:38.956011+00:00",
+      "finished_at": "2026-11-03T08:47:39.434430+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_competing_cloud_tasks_reject_stale_push (test_git_storage.GitPersistenceTests.test_competing_cloud_tasks_reject_stale_push) ... ok\ntest_fresh_checkout_reads_prior_checkpoint_without_changing_working_files (test_git_storage.GitPersistenceTests.test_fresh_checkout_reads_prior_checkpoint_without_changing_working_files) ... ok\ntest_cross_listing_preserves_primary_and_secondary_categories (test_pipeline.PipelineTests.test_cross_listing_preserves_primary_and_secondary_categories) ... ok\ntest_doi_merges_formal_record (test_pipeline.PipelineTests.test_doi_merges_formal_record) ... ok\ntest_dry_run_byte_identical_state (test_pipeline.PipelineTests.test_dry_run_byte_identical_state) ... ok\ntest_empty_digest_no_message (test_pipeline.PipelineTests.test_empty_digest_no_message) ... ok\ntest_expired_idempotency_requires_reconciliation (test_pipeline.PipelineTests.test_expired_idempotency_requires_reconciliation) ... ok\ntest_failed_source_keeps_cursor (test_pipeline.PipelineTests.test_failed_source_keeps_cursor) ... ok\ntest_html_escapes_paper_content (test_pipeline.PipelineTests.test_html_escapes_paper_content) ... ok\ntest_inflight_lease_blocks_second_sender (test_pipeline.PipelineTests.test_inflight_lease_blocks_second_sender) ... ok\ntest_ingest_same_batch_not_new (test_pipeline.PipelineTests.test_ingest_same_batch_not_new) ... ok\ntest_new_store_reads_previous_process_state (test_pipeline.PipelineTests.test_new_store_reads_previous_process_state) ... ok\ntest_new_version_requires_new_review (test_pipeline.PipelineTests.test_new_version_requires_new_review) ... ok\ntest_pagination_uses_total_and_offset (test_pipeline.PipelineTests.test_pagination_uses_total_and_offset) ... ok\ntest_partial_source_retains_rows (test_pipeline.PipelineTests.test_partial_source_retains_rows) ... ok\ntest_recipient_cannot_be_overridden (test_pipeline.PipelineTests.test_recipient_cannot_be_overridden) ... ok\ntest_rss_empty_channel_valid_but_error_page_rejected (test_pipeline.PipelineTests.test_rss_empty_channel_valid_but_error_page_rejected) ... ok\ntest_send_failure_preserves_pending_content (test_pipeline.PipelineTests.test_send_failure_preserves_pending_content) ... ok\ntest_sent_replay_does_not_call_provider_or_reselect (test_pipeline.PipelineTests.test_sent_replay_does_not_call_provider_or_reselect) ... ok\ntest_stale_writer_rejected (test_pipeline.PipelineTests.test_stale_writer_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 0.299s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "paper_digest.cli",
+        "--storage",
+        "git",
+        "collect",
+        "--rss",
+        "--out",
+        "var/cloud-candidates.json"
+      ],
+      "started_at": "2026-11-03T08:47:39.434874+00:00",
+      "finished_at": "2026-11-03T08:48:37.476453+00:00",
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"ok\",\n  \"new_versions\": 968,\n  \"review_queue\": 596,\n  \"coverage\": [\n    {\n      \"source\": \"arxiv-api\",\n      \"query\": \"cat:cs.SE\",\n      \"from\": \"2026-10-04T08:47:40.196738+00:00\",\n      \"to\": \"2026-11-03T08:47:40.196738+00:00\",\n      \"pages\": 8,\n      \"status\": \"ok\",\n      \"count\": 780,\n      \"total\": 780\n    },\n    {\n      \"source\": \"arxiv-api\",\n      \"query\": \"(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\\\"software engineering\\\" OR all:\\\"program repair\\\" OR all:\\\"bug fix\\\" OR all:\\\"coding agent\\\" OR all:\\\"software agent\\\" OR all:\\\"SWE-bench\\\" OR all:\\\"cross-repository\\\" OR all:\\\"fault localization\\\" OR all:\\\"regression test\\\")\",\n      \"from\": \"2026-10-04T08:47:40.196738+00:00\",\n      \"to\": \"2026-11-03T08:47:40.196738+00:00\",\n      \"pages\": 6,\n      \"status\": \"ok\",\n      \"count\": 560,\n      \"total\": 560\n    },\n    {\n      \"source\": \"arxiv-rss:cs.SE\",\n      \"status\": \"ok\",\n      \"count\": 0,\n      \"public_batch_at\": \"Tue, 03 Nov 2026 00:00:00 -0500\",\n      \"response_bytes\": 892\n    },\n    {\n      \"source\": \"arxiv-rss:cs.AI\",\n      \"status\": \"ok\",\n      \"count\": 0,\n      \"public_batch_at\": \"Tue, 03 Nov 2026 00:00:00 -0500\",\n      \"response_bytes\": 892\n    },\n    {\n      \"source\": \"arxiv-rss:cs.CL\",\n      \"status\": \"ok\",\n      \"count\": 0,\n      \"public_batch_at\": \"Tue, 03 Nov 2026 00:00:00 -0500\",\n      \"response_bytes\": 892\n    },\n    {\n      \"source\": \"arxiv-rss:cs.LG\",\n      \"status\": \"ok\",\n      \"count\": 0,\n      \"public_batch_at\": \"Tue, 03 Nov 2026 00:00:00 -0500\",\n      \"response_bytes\": 892\n    }\n  ]\n}\n",
+      "stderr": "",
+      "parsed_stdout": {
+        "status": "ok",
+        "new_versions": 968,
+        "review_queue": 596,
+        "coverage": [
+          {
+            "source": "arxiv-api",
+            "query": "cat:cs.SE",
+            "from": "2026-10-04T08:47:40.196738+00:00",
+            "to": "2026-11-03T08:47:40.196738+00:00",
+            "pages": 8,
+            "status": "ok",
+            "count": 780,
+            "total": 780
+          },
+          {
+            "source": "arxiv-api",
+            "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+            "from": "2026-10-04T08:47:40.196738+00:00",
+            "to": "2026-11-03T08:47:40.196738+00:00",
+            "pages": 6,
+            "status": "ok",
+            "count": 560,
+            "total": 560
+          },
+          {
+            "source": "arxiv-rss:cs.SE",
+            "status": "ok",
+            "count": 0,
+            "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+            "response_bytes": 892
+          },
+          {
+            "source": "arxiv-rss:cs.AI",
+            "status": "ok",
+            "count": 0,
+            "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+            "response_bytes": 892
+          },
+          {
+            "source": "arxiv-rss:cs.CL",
+            "status": "ok",
+            "count": 0,
+            "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+            "response_bytes": 892
+          },
+          {
+            "source": "arxiv-rss:cs.LG",
+            "status": "ok",
+            "count": 0,
+            "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+            "response_bytes": 892
+          }
+        ]
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "paper_digest.cli",
+        "--storage",
+        "git",
+        "seed",
+        "--ids",
+        "2609.33382",
+        "2603.03194",
+        "2407.01489",
+        "2611.01484"
+      ],
+      "started_at": "2026-11-03T08:48:37.997969+00:00",
+      "finished_at": "2026-11-03T08:48:40.352587+00:00",
+      "exit_code": 0,
+      "stdout": "{\"records\": 4, \"new_versions\": 0}\n",
+      "stderr": "",
+      "parsed_stdout": {
+        "records": 4,
+        "new_versions": 0
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "paper_digest.cli",
+        "--storage",
+        "git",
+        "preview",
+        "--kind",
+        "daily",
+        "--out",
+        "var/cloud-daily"
+      ],
+      "started_at": "2026-11-03T08:48:40.782672+00:00",
+      "finished_at": "2026-11-03T08:48:41.479711+00:00",
+      "exit_code": 0,
+      "stdout": "{\"id\": \"b1552944cb8878b8fb03272d4e1abfe0\", \"papers\": 1, \"queued\": false, \"html\": \"var/cloud-daily.html\"}\n",
+      "stderr": "",
+      "parsed_stdout": {
+        "id": "b1552944cb8878b8fb03272d4e1abfe0",
+        "papers": 1,
+        "queued": false,
+        "html": "var/cloud-daily.html"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "paper_digest.cli",
+        "--storage",
+        "git",
+        "preview",
+        "--kind",
+        "history",
+        "--out",
+        "var/cloud-history"
+      ],
+      "started_at": "2026-11-03T08:48:41.480266+00:00",
+      "finished_at": "2026-11-03T08:48:42.049389+00:00",
+      "exit_code": 0,
+      "stdout": "{\"id\": \"70849d806da51fac48e919e06d267951\", \"papers\": 4, \"queued\": false, \"html\": \"var/cloud-history.html\"}\n",
+      "stderr": "",
+      "parsed_stdout": {
+        "id": "70849d806da51fac48e919e06d267951",
+        "papers": 4,
+        "queued": false,
+        "html": "var/cloud-history.html"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "paper_digest.cli",
+        "--storage",
+        "git",
+        "preview",
+        "--kind",
+        "weekly",
+        "--out",
+        "var/cloud-weekly"
+      ],
+      "started_at": "2026-11-03T08:48:42.050365+00:00",
+      "finished_at": "2026-11-03T08:48:42.736499+00:00",
+      "exit_code": 0,
+      "stdout": "{\"id\": \"ad7505ad40c6d5829c55d658f4f5c37c\", \"papers\": 4, \"queued\": false, \"html\": \"var/cloud-weekly.html\"}\n",
+      "stderr": "",
+      "parsed_stdout": {
+        "id": "ad7505ad40c6d5829c55d658f4f5c37c",
+        "papers": 4,
+        "queued": false,
+        "html": "var/cloud-weekly.html"
+      }
+    }
+  ],
+  "before": {
+    "sha": "b9c60f8016337237371943063245f6ce296138f9",
+    "papers": 4,
+    "reviews": 4,
+    "outbox": {},
+    "cursors": {},
+    "state_sha256": "c494e5f1e1800a38a8a29556c97bbada7a1b6bb3d1f4d096bf4df28d82631113",
+    "last_run": {
+      "id": "local-prepare-20261103",
+      "at": "2026-11-03T08:22:00+00:00",
+      "type": "seed-preview",
+      "coverage": [
+        {
+          "source": "selected-arxiv-records",
+          "status": "ok",
+          "count": 4
+        },
+        {
+          "source": "30-day-remaining-reviews",
+          "status": "partial",
+          "note": "remaining candidates not yet reviewed"
+        }
+      ]
+    }
+  },
+  "after_collect": {
+    "sha": "cc9da527e35314ac7f341752cf2cd90162ff3655",
+    "papers": 972,
+    "reviews": 4,
+    "outbox": {},
+    "cursors": {
+      "arxiv": "2026-11-03T08:47:40.196738+00:00"
+    },
+    "state_sha256": "8df50259b2005e15115ac41110d961615eb13c4003309dee9b24fe2c14de3fb1",
+    "last_run": {
+      "id": "812f2a2d1c8a4439b73bf8d3ebcbb04b",
+      "at": "2026-11-03T08:48:35.657148+00:00",
+      "type": "collect",
+      "from": "2026-10-04T08:47:40.196738+00:00",
+      "to": "2026-11-03T08:47:40.196738+00:00",
+      "coverage": [
+        {
+          "source": "arxiv-api",
+          "query": "cat:cs.SE",
+          "from": "2026-10-04T08:47:40.196738+00:00",
+          "to": "2026-11-03T08:47:40.196738+00:00",
+          "pages": 8,
+          "status": "ok",
+          "count": 780,
+          "total": 780
+        },
+        {
+          "source": "arxiv-api",
+          "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+          "from": "2026-10-04T08:47:40.196738+00:00",
+          "to": "2026-11-03T08:47:40.196738+00:00",
+          "pages": 6,
+          "status": "ok",
+          "count": 560,
+          "total": 560
+        },
+        {
+          "source": "arxiv-rss:cs.SE",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.AI",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.CL",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.LG",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        }
+      ],
+      "new_versions": 968,
+      "status": "ok",
+      "discovery_candidates": []
+    }
+  },
+  "candidates_file": {
+    "path": "var/cloud-candidates.json",
+    "sha256": "c534703d1a3042cecb2a29efa8932b6fd969373015b19091049276ed0bafb14e",
+    "bytes": 1487717,
+    "run": {
+      "id": "812f2a2d1c8a4439b73bf8d3ebcbb04b",
+      "at": "2026-11-03T08:48:35.657148+00:00",
+      "type": "collect",
+      "from": "2026-10-04T08:47:40.196738+00:00",
+      "to": "2026-11-03T08:47:40.196738+00:00",
+      "coverage": [
+        {
+          "source": "arxiv-api",
+          "query": "cat:cs.SE",
+          "from": "2026-10-04T08:47:40.196738+00:00",
+          "to": "2026-11-03T08:47:40.196738+00:00",
+          "pages": 8,
+          "status": "ok",
+          "count": 780,
+          "total": 780
+        },
+        {
+          "source": "arxiv-api",
+          "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+          "from": "2026-10-04T08:47:40.196738+00:00",
+          "to": "2026-11-03T08:47:40.196738+00:00",
+          "pages": 6,
+          "status": "ok",
+          "count": 560,
+          "total": 560
+        },
+        {
+          "source": "arxiv-rss:cs.SE",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.AI",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.CL",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.LG",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        }
+      ],
+      "new_versions": 968,
+      "status": "ok",
+      "discovery_candidates": []
+    },
+    "review_queue_count": 596,
+    "additional_candidates_count": 0
+  },
+  "before_preview": {
+    "sha": "a878cca0c557c3cc87955cddb9c12e48be0df9f8",
+    "papers": 972,
+    "reviews": 4,
+    "outbox": {},
+    "cursors": {
+      "arxiv": "2026-11-03T08:47:40.196738+00:00"
+    },
+    "state_sha256": "39c1fe2d8568211cfaf00a93dfc31770c79e95284c96eb9c3b813dfc3841c2ef",
+    "last_run": {
+      "id": "1cce017d12904d39afe5ab3e1b8bf963",
+      "at": "2026-11-03T08:48:38.797338+00:00",
+      "type": "seed",
+      "coverage": [
+        {
+          "source": "arxiv-id-lookup",
+          "status": "ok",
+          "count": 4
+        }
+      ]
+    }
+  },
+  "after_preview": {
+    "sha": "a878cca0c557c3cc87955cddb9c12e48be0df9f8",
+    "papers": 972,
+    "reviews": 4,
+    "outbox": {},
+    "cursors": {
+      "arxiv": "2026-11-03T08:47:40.196738+00:00"
+    },
+    "state_sha256": "39c1fe2d8568211cfaf00a93dfc31770c79e95284c96eb9c3b813dfc3841c2ef",
+    "last_run": {
+      "id": "1cce017d12904d39afe5ab3e1b8bf963",
+      "at": "2026-11-03T08:48:38.797338+00:00",
+      "type": "seed",
+      "coverage": [
+        {
+          "source": "arxiv-id-lookup",
+          "status": "ok",
+          "count": 4
+        }
+      ]
+    }
+  },
+  "checks": {
+    "preview_remote_head_unchanged": true,
+    "preview_state_unchanged": true,
+    "outbox_empty": true,
+    "existing_send_status_unchanged": true
+  },
+  "previews": {
+    "var/cloud-daily.html": {
+      "sha256": "96742f359feb3596ede4be1c713247a5e342a982eb5f3bfab89f4d413f3cd5bf",
+      "bytes": 3025,
+      "content": "<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"></head><body style=\"margin:0;background:#f4f6f8;color:#17212b;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif\"><main style=\"max-width:680px;margin:auto;padding:20px;background:white\"><h2 style=\"font-size:20px;line-height:1.4\">AI4SE 论文日报 · 2026-11-03</h2><p style=\"line-height:1.8;white-space:pre-line\">最值得读：优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。</p><h2 style=\"font-size:20px;line-height:1.4\">CrossSWE: Benchmarking Cross-Repository Joint Development for Coding Agents</h2><p style=\"line-height:1.8;white-space:pre-line\">优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。\n\n作者：Silin Chen, Yuling Shi, Heng Lian, Zihan Zhang, Xiaodong Gu, Haotian Lin, Zhensu Sun\n\n收录性质：历史论文／近期补收，不属于今日新投稿\n\n投稿：2026-11-01T03:16:52Z\n\n版本更新：2026-11-01T03:16:52Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:16:43.088849+00:00\n\n发表状态：arXiv预印本；正式录用未核实\n\n相关等级：P1；直接涉及多仓库联合修改与接口一致性；其缺陷修复子集与本课题高度相关。\n\n任务分类：① 多仓库协同修改\n\n任务设置：多目标仓库一起修改，联合测试通过才算成功。参与仓库已给定；不能用它直接验证从生态中发现目标仓库的能力。\n\n作者方法：枚举各仓库原始/修复版本组合：部分修复应失败，全部修复应通过，以验证联合必要性。\n\n作者实验依据：正文报告171个实例，附录A.2将22个标为Bug fixing；§5.4的44.2%指GPT失败轨迹中的跨仓库不一致，不能解释为所有任务或所有模型的比例。\n\n对本课题的建议：建议先核对22个bugfix任务，再与WideSWE比较测试协议、泄漏控制和任务重叠；借鉴混合版本验证来建立跨仓库契约测试。以上为研究建议。\n\n精读／复现建议：精读§3.1–3.2、§5.2、§5.4、Limitations和附录A.2。先复现两仓库实例；不同基准分数不直接比较。\n\n核查范围：已核查正文</p><p><a href=\"https://arxiv.org/abs/2611.01484\">原文</a> · <a href=\"https://huggingface.co/datasets/CrossSWE/CrossSWE-Bench\">数据/评测发布页（独立代码仓库待核查）</a> · <a href=\"https://arxiv.org/html/2611.01484v1\">依据</a></p><h2 style=\"font-size:20px;line-height:1.4\">检索覆盖与限制</h2><p style=\"line-height:1.8;white-space:pre-line\">arxiv-id-lookup: ok</p><h2 style=\"font-size:20px;line-height:1.4\">审读进度</h2><p style=\"line-height:1.8;white-space:pre-line\">状态中共 972 条论文记录，已有当前版本审核 4 条。其余未审核记录不代表不相关。周来源和待配置会议/期刊见来源台账，本次报告不代表全量筛选完成。</p></main></body></html>"
+    },
+    "var/cloud-daily.md": {
+      "sha256": "3ac817e2dc6cfcbe76cc1393765ca12033a718ea025341b52a4bc5b875af3732",
+      "bytes": 2265,
+      "content": "## AI4SE 论文日报 · 2026-11-03\n\n最值得读：优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。\n\n## CrossSWE: Benchmarking Cross-Repository Joint Development for Coding Agents\n\n优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。\n\n作者：Silin Chen, Yuling Shi, Heng Lian, Zihan Zhang, Xiaodong Gu, Haotian Lin, Zhensu Sun\n\n收录性质：历史论文／近期补收，不属于今日新投稿\n\n投稿：2026-11-01T03:16:52Z\n\n版本更新：2026-11-01T03:16:52Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:16:43.088849+00:00\n\n发表状态：arXiv预印本；正式录用未核实\n\n相关等级：P1；直接涉及多仓库联合修改与接口一致性；其缺陷修复子集与本课题高度相关。\n\n任务分类：① 多仓库协同修改\n\n任务设置：多目标仓库一起修改，联合测试通过才算成功。参与仓库已给定；不能用它直接验证从生态中发现目标仓库的能力。\n\n作者方法：枚举各仓库原始/修复版本组合：部分修复应失败，全部修复应通过，以验证联合必要性。\n\n作者实验依据：正文报告171个实例，附录A.2将22个标为Bug fixing；§5.4的44.2%指GPT失败轨迹中的跨仓库不一致，不能解释为所有任务或所有模型的比例。\n\n对本课题的建议：建议先核对22个bugfix任务，再与WideSWE比较测试协议、泄漏控制和任务重叠；借鉴混合版本验证来建立跨仓库契约测试。以上为研究建议。\n\n精读／复现建议：精读§3.1–3.2、§5.2、§5.4、Limitations和附录A.2。先复现两仓库实例；不同基准分数不直接比较。\n\n核查范围：已核查正文\n\n[原文](https://arxiv.org/abs/2611.01484) · [数据/评测发布页（独立代码仓库待核查）](https://huggingface.co/datasets/CrossSWE/CrossSWE-Bench) · [依据](https://arxiv.org/html/2611.01484v1)\n\n## 检索覆盖与限制\n\narxiv-id-lookup: ok\n\n## 审读进度\n\n状态中共 972 条论文记录，已有当前版本审核 4 条。其余未审核记录不代表不相关。周来源和待配置会议/期刊见来源台账，本次报告不代表全量筛选完成。"
+    },
+    "var/cloud-history.html": {
+      "sha256": "336fbbcb7f5c2b92b9dcbb7ecdf9585bf37d172f4e61f7877b20bd92eb5cd891",
+      "bytes": 8665,
+      "content": "<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"></head><body style=\"margin:0;background:#f4f6f8;color:#17212b;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif\"><main style=\"max-width:680px;margin:auto;padding:20px;background:white\"><h2 style=\"font-size:20px;line-height:1.4\">AI4SE 初始阅读清单 · 历史回顾 · 2026-11-03</h2><p style=\"line-height:1.8;white-space:pre-line\">最值得读：共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。</p><h2 style=\"font-size:20px;line-height:1.4\">WideSWE: Can Coding Agents Coordinate Changes Across Repositories?</h2><p style=\"line-height:1.8;white-space:pre-line\">共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。\n\n作者：Baoyi Wang, Xingliang Wang, Jinyang Wu, Keming Wu, Chen Zhi, Jianwei Yin\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2026-09-27T09:02:49Z\n\n版本更新：2026-09-27T09:02:49Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122542+00:00\n\n发表状态：arXiv 预印本；未核实正式录用\n\n相关等级：P1；直接对应跨仓库协同修复；研究时应单独报告 bugfix 子集。\n\n任务分类：① 多仓库协同修改\n\n任务设置：至少两个目标仓库需要实质修改；上下文仓库可供参考。所有目标仓库的要求和回归检查通过才算任务成功。\n\n作者方法：从关联变更构建共享请求与历史环境，审查隐藏测试；比较联合执行与逐仓库独立执行。\n\n作者实验依据：正文 §2 定义任务，§4 与附录 B/C 分析遗漏目标、已识别但未交付、修改后仍失败。独立执行比较不匹配整项任务的总预算，不能作等预算因果结论。\n\n对本课题的建议：建议采用目标仓库召回率、接口契约检查和所有目标联合通过率；区分定位、交付和验证失败。以上为本课题建议。\n\n精读／复现建议：精读 §2.1、§2.3、§4.3、附录 B.1/C/D；先复现 bugfix 子集，并对齐任务总预算。\n\n核查范围：已核查正文</p><p><a href=\"https://arxiv.org/abs/2609.33382\">原文</a> · <a href=\"https://github.com/ZJU-ACES-ISE/WideSWE\">代码</a> · <a href=\"https://huggingface.co/datasets/wangbaoyi/WideSWE\">数据</a> · <a href=\"https://arxiv.org/html/2609.33382v1\">依据</a></p><h2 style=\"font-size:20px;line-height:1.4\">CrossSWE: Benchmarking Cross-Repository Joint Development for Coding Agents</h2><p style=\"line-height:1.8;white-space:pre-line\">优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。\n\n作者：Silin Chen, Yuling Shi, Heng Lian, Zihan Zhang, Xiaodong Gu, Haotian Lin, Zhensu Sun\n\n收录性质：历史论文／近期补收，不属于今日新投稿\n\n投稿：2026-11-01T03:16:52Z\n\n版本更新：2026-11-01T03:16:52Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:16:43.088849+00:00\n\n发表状态：arXiv预印本；正式录用未核实\n\n相关等级：P1；直接涉及多仓库联合修改与接口一致性；其缺陷修复子集与本课题高度相关。\n\n任务分类：① 多仓库协同修改\n\n任务设置：多目标仓库一起修改，联合测试通过才算成功。参与仓库已给定；不能用它直接验证从生态中发现目标仓库的能力。\n\n作者方法：枚举各仓库原始/修复版本组合：部分修复应失败，全部修复应通过，以验证联合必要性。\n\n作者实验依据：正文报告171个实例，附录A.2将22个标为Bug fixing；§5.4的44.2%指GPT失败轨迹中的跨仓库不一致，不能解释为所有任务或所有模型的比例。\n\n对本课题的建议：建议先核对22个bugfix任务，再与WideSWE比较测试协议、泄漏控制和任务重叠；借鉴混合版本验证来建立跨仓库契约测试。以上为研究建议。\n\n精读／复现建议：精读§3.1–3.2、§5.2、§5.4、Limitations和附录A.2。先复现两仓库实例；不同基准分数不直接比较。\n\n核查范围：已核查正文</p><p><a href=\"https://arxiv.org/abs/2611.01484\">原文</a> · <a href=\"https://huggingface.co/datasets/CrossSWE/CrossSWE-Bench\">数据/评测发布页（独立代码仓库待核查）</a> · <a href=\"https://arxiv.org/html/2611.01484v1\">依据</a></p><h2 style=\"font-size:20px;line-height:1.4\">Agentless: Demystifying LLM-based Software Engineering Agents</h2><p style=\"line-height:1.8;white-space:pre-line\">Agentless 将定位、修复与补丁验证拆成简洁流程，可作为方法消融参照。\n\n作者：Chunqiu Steven Xia, Yinlin Deng, Soren Dunn, Lingming Zhang\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2024-07-01T17:24:45Z\n\n版本更新：2024-10-29T17:29:27Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122320+00:00\n\n发表状态：当前仅核实 arXiv 记录；正式发表状态待核查\n\n相关等级：P2；定位与验证有迁移价值；SWE-bench 覆盖多个项目，每项修复仍针对一个目标仓库。\n\n任务分类：④ 多仓库数据集、单目标任务\n\n任务设置：依据摘要和官方代码说明，未发现单项任务要求修改多个目标仓库的证据；不据此宣称跨仓库协同能力。\n\n作者方法：分层定位文件与编辑位置，生成候选补丁，用回归及复现测试筛选。\n\n作者实验依据：摘要报告 SWE-bench Lite 实验；此条未核查论文正文，不复述历史排名、费用或将其当作当前性能。方法细节另核对官方 README。\n\n对本课题的建议：建议增加仓库级定位步骤，比较简洁流水线与自主 Agent；需要独立设计多目标联合验证，不能直接外推现有结果。\n\n精读／复现建议：后续精读定位与补丁验证章节，并核对官方版本；先作为单目标基线，再做有控制的跨仓库扩展。\n\n核查范围：仅摘要</p><p><a href=\"https://arxiv.org/abs/2407.01489\">原文</a> · <a href=\"https://github.com/OpenAutoCoder/Agentless\">代码</a> · <a href=\"https://github.com/OpenAutoCoder/Agentless\">依据</a></p><h2 style=\"font-size:20px;line-height:1.4\">BeyondSWE: Can Current Code Agent Survive Beyond Single-Repo Bug Fixing?</h2><p style=\"line-height:1.8;white-space:pre-line\">BeyondSWE 的 CrossRepo 用外部软件证据帮助修复一个目标仓库。\n\n作者：Guoxin Chen, Fanzhe Meng, Jiale Zhao, Minghao Li, Daixuan Cheng, Huatong Song, Jie Chen, Yuzhi Lin, Hui Chen, Xin Zhao, Ruihua Song, Chang Liu, Cheng Chen, Kai Jia, Ji-Rong Wen\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2026-03-03T17:52:01Z\n\n版本更新：2026-05-26T12:00:46Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122470+00:00\n\n发表状态：arXiv 预印本；未核实正式录用\n\n相关等级：P2；检索证据与版本对齐的方法可迁移；CrossRepo 不是多目标仓库协同修改任务。\n\n任务分类：② 外部仓库辅助单目标修复\n\n任务设置：此条只归类 CrossRepo 子任务；整套基准另有领域修复、依赖迁移与文档到仓库生成，不能统一视作协同修复。\n\n作者方法：SearchSWE 为编码流程加入搜索与取证，比较外部信息能否转化为本地可执行修改。\n\n作者实验依据：v2 §3.1–3.2 核查目标与知识范围，§5 与附录 B 分析版本错配及上下文污染；此处不混用 v1/v2 分数。\n\n对本课题的建议：建议将外部证据记录为带版本和来源的接口约束，再为每个目标仓库生成验证义务。该迁移方案尚待实验。\n\n精读／复现建议：精读 v2 §3.2、§4、§5.3 与附录 B；作为外部检索消融参考，不能直接替代 WideSWE 主评测。\n\n核查范围：已核查正文</p><p><a href=\"https://arxiv.org/abs/2603.03194\">原文</a> · <a href=\"https://github.com/AweAI-Team/BeyondSWE\">代码</a> · <a href=\"https://huggingface.co/datasets/AweAI-Team/BeyondSWE\">数据</a> · <a href=\"https://arxiv.org/html/2603.03194v2\">依据</a></p><h2 style=\"font-size:20px;line-height:1.4\">检索覆盖与限制</h2><p style=\"line-height:1.8;white-space:pre-line\">arxiv-id-lookup: ok</p><h2 style=\"font-size:20px;line-height:1.4\">审读进度</h2><p style=\"line-height:1.8;white-space:pre-line\">状态中共 972 条论文记录，已有当前版本审核 4 条。其余未审核记录不代表不相关。周来源和待配置会议/期刊见来源台账，本次报告不代表全量筛选完成。</p></main></body></html>"
+    },
+    "var/cloud-history.md": {
+      "sha256": "5c6933cc47095f4b283488d29701e38035df095f7611b3a5e40ed18c13bb607f",
+      "bytes": 7490,
+      "content": "## AI4SE 初始阅读清单 · 历史回顾 · 2026-11-03\n\n最值得读：共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。\n\n## WideSWE: Can Coding Agents Coordinate Changes Across Repositories?\n\n共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。\n\n作者：Baoyi Wang, Xingliang Wang, Jinyang Wu, Keming Wu, Chen Zhi, Jianwei Yin\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2026-09-27T09:02:49Z\n\n版本更新：2026-09-27T09:02:49Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122542+00:00\n\n发表状态：arXiv 预印本；未核实正式录用\n\n相关等级：P1；直接对应跨仓库协同修复；研究时应单独报告 bugfix 子集。\n\n任务分类：① 多仓库协同修改\n\n任务设置：至少两个目标仓库需要实质修改；上下文仓库可供参考。所有目标仓库的要求和回归检查通过才算任务成功。\n\n作者方法：从关联变更构建共享请求与历史环境，审查隐藏测试；比较联合执行与逐仓库独立执行。\n\n作者实验依据：正文 §2 定义任务，§4 与附录 B/C 分析遗漏目标、已识别但未交付、修改后仍失败。独立执行比较不匹配整项任务的总预算，不能作等预算因果结论。\n\n对本课题的建议：建议采用目标仓库召回率、接口契约检查和所有目标联合通过率；区分定位、交付和验证失败。以上为本课题建议。\n\n精读／复现建议：精读 §2.1、§2.3、§4.3、附录 B.1/C/D；先复现 bugfix 子集，并对齐任务总预算。\n\n核查范围：已核查正文\n\n[原文](https://arxiv.org/abs/2609.33382) · [代码](https://github.com/ZJU-ACES-ISE/WideSWE) · [数据](https://huggingface.co/datasets/wangbaoyi/WideSWE) · [依据](https://arxiv.org/html/2609.33382v1)\n\n## CrossSWE: Benchmarking Cross-Repository Joint Development for Coding Agents\n\n优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。\n\n作者：Silin Chen, Yuling Shi, Heng Lian, Zihan Zhang, Xiaodong Gu, Haotian Lin, Zhensu Sun\n\n收录性质：历史论文／近期补收，不属于今日新投稿\n\n投稿：2026-11-01T03:16:52Z\n\n版本更新：2026-11-01T03:16:52Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:16:43.088849+00:00\n\n发表状态：arXiv预印本；正式录用未核实\n\n相关等级：P1；直接涉及多仓库联合修改与接口一致性；其缺陷修复子集与本课题高度相关。\n\n任务分类：① 多仓库协同修改\n\n任务设置：多目标仓库一起修改，联合测试通过才算成功。参与仓库已给定；不能用它直接验证从生态中发现目标仓库的能力。\n\n作者方法：枚举各仓库原始/修复版本组合：部分修复应失败，全部修复应通过，以验证联合必要性。\n\n作者实验依据：正文报告171个实例，附录A.2将22个标为Bug fixing；§5.4的44.2%指GPT失败轨迹中的跨仓库不一致，不能解释为所有任务或所有模型的比例。\n\n对本课题的建议：建议先核对22个bugfix任务，再与WideSWE比较测试协议、泄漏控制和任务重叠；借鉴混合版本验证来建立跨仓库契约测试。以上为研究建议。\n\n精读／复现建议：精读§3.1–3.2、§5.2、§5.4、Limitations和附录A.2。先复现两仓库实例；不同基准分数不直接比较。\n\n核查范围：已核查正文\n\n[原文](https://arxiv.org/abs/2611.01484) · [数据/评测发布页（独立代码仓库待核查）](https://huggingface.co/datasets/CrossSWE/CrossSWE-Bench) · [依据](https://arxiv.org/html/2611.01484v1)\n\n## Agentless: Demystifying LLM-based Software Engineering Agents\n\nAgentless 将定位、修复与补丁验证拆成简洁流程，可作为方法消融参照。\n\n作者：Chunqiu Steven Xia, Yinlin Deng, Soren Dunn, Lingming Zhang\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2024-07-01T17:24:45Z\n\n版本更新：2024-10-29T17:29:27Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122320+00:00\n\n发表状态：当前仅核实 arXiv 记录；正式发表状态待核查\n\n相关等级：P2；定位与验证有迁移价值；SWE-bench 覆盖多个项目，每项修复仍针对一个目标仓库。\n\n任务分类：④ 多仓库数据集、单目标任务\n\n任务设置：依据摘要和官方代码说明，未发现单项任务要求修改多个目标仓库的证据；不据此宣称跨仓库协同能力。\n\n作者方法：分层定位文件与编辑位置，生成候选补丁，用回归及复现测试筛选。\n\n作者实验依据：摘要报告 SWE-bench Lite 实验；此条未核查论文正文，不复述历史排名、费用或将其当作当前性能。方法细节另核对官方 README。\n\n对本课题的建议：建议增加仓库级定位步骤，比较简洁流水线与自主 Agent；需要独立设计多目标联合验证，不能直接外推现有结果。\n\n精读／复现建议：后续精读定位与补丁验证章节，并核对官方版本；先作为单目标基线，再做有控制的跨仓库扩展。\n\n核查范围：仅摘要\n\n[原文](https://arxiv.org/abs/2407.01489) · [代码](https://github.com/OpenAutoCoder/Agentless) · [依据](https://github.com/OpenAutoCoder/Agentless)\n\n## BeyondSWE: Can Current Code Agent Survive Beyond Single-Repo Bug Fixing?\n\nBeyondSWE 的 CrossRepo 用外部软件证据帮助修复一个目标仓库。\n\n作者：Guoxin Chen, Fanzhe Meng, Jiale Zhao, Minghao Li, Daixuan Cheng, Huatong Song, Jie Chen, Yuzhi Lin, Hui Chen, Xin Zhao, Ruihua Song, Chang Liu, Cheng Chen, Kai Jia, Ji-Rong Wen\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2026-03-03T17:52:01Z\n\n版本更新：2026-05-26T12:00:46Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122470+00:00\n\n发表状态：arXiv 预印本；未核实正式录用\n\n相关等级：P2；检索证据与版本对齐的方法可迁移；CrossRepo 不是多目标仓库协同修改任务。\n\n任务分类：② 外部仓库辅助单目标修复\n\n任务设置：此条只归类 CrossRepo 子任务；整套基准另有领域修复、依赖迁移与文档到仓库生成，不能统一视作协同修复。\n\n作者方法：SearchSWE 为编码流程加入搜索与取证，比较外部信息能否转化为本地可执行修改。\n\n作者实验依据：v2 §3.1–3.2 核查目标与知识范围，§5 与附录 B 分析版本错配及上下文污染；此处不混用 v1/v2 分数。\n\n对本课题的建议：建议将外部证据记录为带版本和来源的接口约束，再为每个目标仓库生成验证义务。该迁移方案尚待实验。\n\n精读／复现建议：精读 v2 §3.2、§4、§5.3 与附录 B；作为外部检索消融参考，不能直接替代 WideSWE 主评测。\n\n核查范围：已核查正文\n\n[原文](https://arxiv.org/abs/2603.03194) · [代码](https://github.com/AweAI-Team/BeyondSWE) · [数据](https://huggingface.co/datasets/AweAI-Team/BeyondSWE) · [依据](https://arxiv.org/html/2603.03194v2)\n\n## 检索覆盖与限制\n\narxiv-id-lookup: ok\n\n## 审读进度\n\n状态中共 972 条论文记录，已有当前版本审核 4 条。其余未审核记录不代表不相关。周来源和待配置会议/期刊见来源台账，本次报告不代表全量筛选完成。"
+    },
+    "var/cloud-weekly.html": {
+      "sha256": "7e0ecca819ea7bf365beee37541d07544683779a3659de4dc6d9e91cb8fa9023",
+      "bytes": 9126,
+      "content": "<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"></head><body style=\"margin:0;background:#f4f6f8;color:#17212b;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif\"><main style=\"max-width:680px;margin:auto;padding:20px;background:white\"><h2 style=\"font-size:20px;line-height:1.4\">AI4SE 本周阅读回顾 · 2026-11-03</h2><p style=\"line-height:1.8;white-space:pre-line\">最值得读：共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。</p><h2 style=\"font-size:20px;line-height:1.4\">WideSWE: Can Coding Agents Coordinate Changes Across Repositories?</h2><p style=\"line-height:1.8;white-space:pre-line\">共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。\n\n作者：Baoyi Wang, Xingliang Wang, Jinyang Wu, Keming Wu, Chen Zhi, Jianwei Yin\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2026-09-27T09:02:49Z\n\n版本更新：2026-09-27T09:02:49Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122542+00:00\n\n发表状态：arXiv 预印本；未核实正式录用\n\n相关等级：P1；直接对应跨仓库协同修复；研究时应单独报告 bugfix 子集。\n\n任务分类：① 多仓库协同修改\n\n任务设置：至少两个目标仓库需要实质修改；上下文仓库可供参考。所有目标仓库的要求和回归检查通过才算任务成功。\n\n作者方法：从关联变更构建共享请求与历史环境，审查隐藏测试；比较联合执行与逐仓库独立执行。\n\n作者实验依据：正文 §2 定义任务，§4 与附录 B/C 分析遗漏目标、已识别但未交付、修改后仍失败。独立执行比较不匹配整项任务的总预算，不能作等预算因果结论。\n\n对本课题的建议：建议采用目标仓库召回率、接口契约检查和所有目标联合通过率；区分定位、交付和验证失败。以上为本课题建议。\n\n精读／复现建议：精读 §2.1、§2.3、§4.3、附录 B.1/C/D；先复现 bugfix 子集，并对齐任务总预算。\n\n核查范围：已核查正文</p><p><a href=\"https://arxiv.org/abs/2609.33382\">原文</a> · <a href=\"https://github.com/ZJU-ACES-ISE/WideSWE\">代码</a> · <a href=\"https://huggingface.co/datasets/wangbaoyi/WideSWE\">数据</a> · <a href=\"https://arxiv.org/html/2609.33382v1\">依据</a></p><h2 style=\"font-size:20px;line-height:1.4\">CrossSWE: Benchmarking Cross-Repository Joint Development for Coding Agents</h2><p style=\"line-height:1.8;white-space:pre-line\">优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。\n\n作者：Silin Chen, Yuling Shi, Heng Lian, Zihan Zhang, Xiaodong Gu, Haotian Lin, Zhensu Sun\n\n收录性质：历史论文／近期补收，不属于今日新投稿\n\n投稿：2026-11-01T03:16:52Z\n\n版本更新：2026-11-01T03:16:52Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:16:43.088849+00:00\n\n发表状态：arXiv预印本；正式录用未核实\n\n相关等级：P1；直接涉及多仓库联合修改与接口一致性；其缺陷修复子集与本课题高度相关。\n\n任务分类：① 多仓库协同修改\n\n任务设置：多目标仓库一起修改，联合测试通过才算成功。参与仓库已给定；不能用它直接验证从生态中发现目标仓库的能力。\n\n作者方法：枚举各仓库原始/修复版本组合：部分修复应失败，全部修复应通过，以验证联合必要性。\n\n作者实验依据：正文报告171个实例，附录A.2将22个标为Bug fixing；§5.4的44.2%指GPT失败轨迹中的跨仓库不一致，不能解释为所有任务或所有模型的比例。\n\n对本课题的建议：建议先核对22个bugfix任务，再与WideSWE比较测试协议、泄漏控制和任务重叠；借鉴混合版本验证来建立跨仓库契约测试。以上为研究建议。\n\n精读／复现建议：精读§3.1–3.2、§5.2、§5.4、Limitations和附录A.2。先复现两仓库实例；不同基准分数不直接比较。\n\n核查范围：已核查正文</p><p><a href=\"https://arxiv.org/abs/2611.01484\">原文</a> · <a href=\"https://huggingface.co/datasets/CrossSWE/CrossSWE-Bench\">数据/评测发布页（独立代码仓库待核查）</a> · <a href=\"https://arxiv.org/html/2611.01484v1\">依据</a></p><h2 style=\"font-size:20px;line-height:1.4\">Agentless: Demystifying LLM-based Software Engineering Agents</h2><p style=\"line-height:1.8;white-space:pre-line\">Agentless 将定位、修复与补丁验证拆成简洁流程，可作为方法消融参照。\n\n作者：Chunqiu Steven Xia, Yinlin Deng, Soren Dunn, Lingming Zhang\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2024-07-01T17:24:45Z\n\n版本更新：2024-10-29T17:29:27Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122320+00:00\n\n发表状态：当前仅核实 arXiv 记录；正式发表状态待核查\n\n相关等级：P2；定位与验证有迁移价值；SWE-bench 覆盖多个项目，每项修复仍针对一个目标仓库。\n\n任务分类：④ 多仓库数据集、单目标任务\n\n任务设置：依据摘要和官方代码说明，未发现单项任务要求修改多个目标仓库的证据；不据此宣称跨仓库协同能力。\n\n作者方法：分层定位文件与编辑位置，生成候选补丁，用回归及复现测试筛选。\n\n作者实验依据：摘要报告 SWE-bench Lite 实验；此条未核查论文正文，不复述历史排名、费用或将其当作当前性能。方法细节另核对官方 README。\n\n对本课题的建议：建议增加仓库级定位步骤，比较简洁流水线与自主 Agent；需要独立设计多目标联合验证，不能直接外推现有结果。\n\n精读／复现建议：后续精读定位与补丁验证章节，并核对官方版本；先作为单目标基线，再做有控制的跨仓库扩展。\n\n核查范围：仅摘要</p><p><a href=\"https://arxiv.org/abs/2407.01489\">原文</a> · <a href=\"https://github.com/OpenAutoCoder/Agentless\">代码</a> · <a href=\"https://github.com/OpenAutoCoder/Agentless\">依据</a></p><h2 style=\"font-size:20px;line-height:1.4\">BeyondSWE: Can Current Code Agent Survive Beyond Single-Repo Bug Fixing?</h2><p style=\"line-height:1.8;white-space:pre-line\">BeyondSWE 的 CrossRepo 用外部软件证据帮助修复一个目标仓库。\n\n作者：Guoxin Chen, Fanzhe Meng, Jiale Zhao, Minghao Li, Daixuan Cheng, Huatong Song, Jie Chen, Yuzhi Lin, Hui Chen, Xin Zhao, Ruihua Song, Chang Liu, Cheng Chen, Kai Jia, Ji-Rong Wen\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2026-03-03T17:52:01Z\n\n版本更新：2026-05-26T12:00:46Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122470+00:00\n\n发表状态：arXiv 预印本；未核实正式录用\n\n相关等级：P2；检索证据与版本对齐的方法可迁移；CrossRepo 不是多目标仓库协同修改任务。\n\n任务分类：② 外部仓库辅助单目标修复\n\n任务设置：此条只归类 CrossRepo 子任务；整套基准另有领域修复、依赖迁移与文档到仓库生成，不能统一视作协同修复。\n\n作者方法：SearchSWE 为编码流程加入搜索与取证，比较外部信息能否转化为本地可执行修改。\n\n作者实验依据：v2 §3.1–3.2 核查目标与知识范围，§5 与附录 B 分析版本错配及上下文污染；此处不混用 v1/v2 分数。\n\n对本课题的建议：建议将外部证据记录为带版本和来源的接口约束，再为每个目标仓库生成验证义务。该迁移方案尚待实验。\n\n精读／复现建议：精读 v2 §3.2、§4、§5.3 与附录 B；作为外部检索消融参考，不能直接替代 WideSWE 主评测。\n\n核查范围：已核查正文</p><p><a href=\"https://arxiv.org/abs/2603.03194\">原文</a> · <a href=\"https://github.com/AweAI-Team/BeyondSWE\">代码</a> · <a href=\"https://huggingface.co/datasets/AweAI-Team/BeyondSWE\">数据</a> · <a href=\"https://arxiv.org/html/2603.03194v2\">依据</a></p><h2 style=\"font-size:20px;line-height:1.4\">本周样本与行动</h2><p style=\"line-height:1.8;white-space:pre-line\">仅总结本周收集且已审读选入本报告的 4 篇：① 多仓库协同修改、② 外部仓库辅助单目标修复、④ 多仓库数据集、单目标任务。这些样本不足以推断整个领域的确定趋势。\n\n复现实验与精读行动见各篇建议；新增基准须核对任务目标仓库数量与所有目标联合成功指标。</p><h2 style=\"font-size:20px;line-height:1.4\">检索覆盖与限制</h2><p style=\"line-height:1.8;white-space:pre-line\">arxiv-id-lookup: ok</p><h2 style=\"font-size:20px;line-height:1.4\">审读进度</h2><p style=\"line-height:1.8;white-space:pre-line\">状态中共 972 条论文记录，已有当前版本审核 4 条。其余未审核记录不代表不相关。周来源和待配置会议/期刊见来源台账，本次报告不代表全量筛选完成。</p></main></body></html>"
+    },
+    "var/cloud-weekly.md": {
+      "sha256": "50c2e633a63d5efdde13ae7ab7ad08484b3d7e01151b0d62ba85005df4eb73ba",
+      "bytes": 7858,
+      "content": "## AI4SE 本周阅读回顾 · 2026-11-03\n\n最值得读：共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。\n\n## WideSWE: Can Coding Agents Coordinate Changes Across Repositories?\n\n共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。\n\n作者：Baoyi Wang, Xingliang Wang, Jinyang Wu, Keming Wu, Chen Zhi, Jianwei Yin\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2026-09-27T09:02:49Z\n\n版本更新：2026-09-27T09:02:49Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122542+00:00\n\n发表状态：arXiv 预印本；未核实正式录用\n\n相关等级：P1；直接对应跨仓库协同修复；研究时应单独报告 bugfix 子集。\n\n任务分类：① 多仓库协同修改\n\n任务设置：至少两个目标仓库需要实质修改；上下文仓库可供参考。所有目标仓库的要求和回归检查通过才算任务成功。\n\n作者方法：从关联变更构建共享请求与历史环境，审查隐藏测试；比较联合执行与逐仓库独立执行。\n\n作者实验依据：正文 §2 定义任务，§4 与附录 B/C 分析遗漏目标、已识别但未交付、修改后仍失败。独立执行比较不匹配整项任务的总预算，不能作等预算因果结论。\n\n对本课题的建议：建议采用目标仓库召回率、接口契约检查和所有目标联合通过率；区分定位、交付和验证失败。以上为本课题建议。\n\n精读／复现建议：精读 §2.1、§2.3、§4.3、附录 B.1/C/D；先复现 bugfix 子集，并对齐任务总预算。\n\n核查范围：已核查正文\n\n[原文](https://arxiv.org/abs/2609.33382) · [代码](https://github.com/ZJU-ACES-ISE/WideSWE) · [数据](https://huggingface.co/datasets/wangbaoyi/WideSWE) · [依据](https://arxiv.org/html/2609.33382v1)\n\n## CrossSWE: Benchmarking Cross-Repository Joint Development for Coding Agents\n\n优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。\n\n作者：Silin Chen, Yuling Shi, Heng Lian, Zihan Zhang, Xiaodong Gu, Haotian Lin, Zhensu Sun\n\n收录性质：历史论文／近期补收，不属于今日新投稿\n\n投稿：2026-11-01T03:16:52Z\n\n版本更新：2026-11-01T03:16:52Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:16:43.088849+00:00\n\n发表状态：arXiv预印本；正式录用未核实\n\n相关等级：P1；直接涉及多仓库联合修改与接口一致性；其缺陷修复子集与本课题高度相关。\n\n任务分类：① 多仓库协同修改\n\n任务设置：多目标仓库一起修改，联合测试通过才算成功。参与仓库已给定；不能用它直接验证从生态中发现目标仓库的能力。\n\n作者方法：枚举各仓库原始/修复版本组合：部分修复应失败，全部修复应通过，以验证联合必要性。\n\n作者实验依据：正文报告171个实例，附录A.2将22个标为Bug fixing；§5.4的44.2%指GPT失败轨迹中的跨仓库不一致，不能解释为所有任务或所有模型的比例。\n\n对本课题的建议：建议先核对22个bugfix任务，再与WideSWE比较测试协议、泄漏控制和任务重叠；借鉴混合版本验证来建立跨仓库契约测试。以上为研究建议。\n\n精读／复现建议：精读§3.1–3.2、§5.2、§5.4、Limitations和附录A.2。先复现两仓库实例；不同基准分数不直接比较。\n\n核查范围：已核查正文\n\n[原文](https://arxiv.org/abs/2611.01484) · [数据/评测发布页（独立代码仓库待核查）](https://huggingface.co/datasets/CrossSWE/CrossSWE-Bench) · [依据](https://arxiv.org/html/2611.01484v1)\n\n## Agentless: Demystifying LLM-based Software Engineering Agents\n\nAgentless 将定位、修复与补丁验证拆成简洁流程，可作为方法消融参照。\n\n作者：Chunqiu Steven Xia, Yinlin Deng, Soren Dunn, Lingming Zhang\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2024-07-01T17:24:45Z\n\n版本更新：2024-10-29T17:29:27Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122320+00:00\n\n发表状态：当前仅核实 arXiv 记录；正式发表状态待核查\n\n相关等级：P2；定位与验证有迁移价值；SWE-bench 覆盖多个项目，每项修复仍针对一个目标仓库。\n\n任务分类：④ 多仓库数据集、单目标任务\n\n任务设置：依据摘要和官方代码说明，未发现单项任务要求修改多个目标仓库的证据；不据此宣称跨仓库协同能力。\n\n作者方法：分层定位文件与编辑位置，生成候选补丁，用回归及复现测试筛选。\n\n作者实验依据：摘要报告 SWE-bench Lite 实验；此条未核查论文正文，不复述历史排名、费用或将其当作当前性能。方法细节另核对官方 README。\n\n对本课题的建议：建议增加仓库级定位步骤，比较简洁流水线与自主 Agent；需要独立设计多目标联合验证，不能直接外推现有结果。\n\n精读／复现建议：后续精读定位与补丁验证章节，并核对官方版本；先作为单目标基线，再做有控制的跨仓库扩展。\n\n核查范围：仅摘要\n\n[原文](https://arxiv.org/abs/2407.01489) · [代码](https://github.com/OpenAutoCoder/Agentless) · [依据](https://github.com/OpenAutoCoder/Agentless)\n\n## BeyondSWE: Can Current Code Agent Survive Beyond Single-Repo Bug Fixing?\n\nBeyondSWE 的 CrossRepo 用外部软件证据帮助修复一个目标仓库。\n\n作者：Guoxin Chen, Fanzhe Meng, Jiale Zhao, Minghao Li, Daixuan Cheng, Huatong Song, Jie Chen, Yuzhi Lin, Hui Chen, Xin Zhao, Ruihua Song, Chang Liu, Cheng Chen, Kai Jia, Ji-Rong Wen\n\n收录性质：研究种子／超出近30天窗口，不属于新增\n\n投稿：2026-03-03T17:52:01Z\n\n版本更新：2026-05-26T12:00:46Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:13:04.122470+00:00\n\n发表状态：arXiv 预印本；未核实正式录用\n\n相关等级：P2；检索证据与版本对齐的方法可迁移；CrossRepo 不是多目标仓库协同修改任务。\n\n任务分类：② 外部仓库辅助单目标修复\n\n任务设置：此条只归类 CrossRepo 子任务；整套基准另有领域修复、依赖迁移与文档到仓库生成，不能统一视作协同修复。\n\n作者方法：SearchSWE 为编码流程加入搜索与取证，比较外部信息能否转化为本地可执行修改。\n\n作者实验依据：v2 §3.1–3.2 核查目标与知识范围，§5 与附录 B 分析版本错配及上下文污染；此处不混用 v1/v2 分数。\n\n对本课题的建议：建议将外部证据记录为带版本和来源的接口约束，再为每个目标仓库生成验证义务。该迁移方案尚待实验。\n\n精读／复现建议：精读 v2 §3.2、§4、§5.3 与附录 B；作为外部检索消融参考，不能直接替代 WideSWE 主评测。\n\n核查范围：已核查正文\n\n[原文](https://arxiv.org/abs/2603.03194) · [代码](https://github.com/AweAI-Team/BeyondSWE) · [数据](https://huggingface.co/datasets/AweAI-Team/BeyondSWE) · [依据](https://arxiv.org/html/2603.03194v2)\n\n## 本周样本与行动\n\n仅总结本周收集且已审读选入本报告的 4 篇：① 多仓库协同修改、② 外部仓库辅助单目标修复、④ 多仓库数据集、单目标任务。这些样本不足以推断整个领域的确定趋势。\n\n复现实验与精读行动见各篇建议；新增基准须核对任务目标仓库数量与所有目标联合成功指标。\n\n## 检索覆盖与限制\n\narxiv-id-lookup: ok\n\n## 审读进度\n\n状态中共 972 条论文记录，已有当前版本审核 4 条。其余未审核记录不代表不相关。周来源和待配置会议/期刊见来源台账，本次报告不代表全量筛选完成。"
+    }
+  },
+  "handoff": {
+    "next": "Review collected candidate abstracts/full text with evidence and explicit scope; confirm fixed recipient and mail service in this Cloud chat before configuring mail; verify supported scheduling bridge and short startup test before enabling schedule.",
+    "mail_sent": false,
+    "enqueued": false,
+    "scheduler_created": false,
+    "external_service_installed": false
+  },
+  "finished_at": "2026-11-03T08:48:43.403938+00:00",
+  "tests_count": 20,
+  "environment_id": "ccarenv_b64_Y2NhcmVudl8xOWFhNzBkODZhZjQ4MTkxYjMxNGIzMzQ3NjIzODIyZQ",
+  "notes": [
+    "RSS zero counts were parsed as valid official RSS channels by original repository parser; API collection returned nonzero results.",
+    "Review queue is a recall heuristic, not final relevance screening.",
+    "var retained; only this evidence file added to source commit."
+  ]
+}
