@@ -15,11 +15,12 @@ test_pagination_uses_total_and_offset (test_pipeline.PipelineTests.test_paginati
 test_partial_source_retains_rows (test_pipeline.PipelineTests.test_partial_source_retains_rows) ... ok
 test_recipient_cannot_be_overridden (test_pipeline.PipelineTests.test_recipient_cannot_be_overridden) ... ok
 test_rss_empty_channel_valid_but_error_page_rejected (test_pipeline.PipelineTests.test_rss_empty_channel_valid_but_error_page_rejected) ... ok
+test_seed_enrichment_does_not_hide_partial_collection (test_pipeline.PipelineTests.test_seed_enrichment_does_not_hide_partial_collection) ... ok
 test_send_failure_preserves_pending_content (test_pipeline.PipelineTests.test_send_failure_preserves_pending_content) ... ok
 test_sent_replay_does_not_call_provider_or_reselect (test_pipeline.PipelineTests.test_sent_replay_does_not_call_provider_or_reselect) ... ok
 test_stale_writer_rejected (test_pipeline.PipelineTests.test_stale_writer_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 20 tests in 1.021s
+Ran 21 tests in 1.015s
 
 OK

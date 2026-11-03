@@ -164,6 +164,13 @@ class PipelineTests(unittest.TestCase):
     def test_empty_digest_no_message(self):
         self.assertIsNone(render(empty(), "daily"))
 
+    def test_seed_enrichment_does_not_hide_partial_collection(self):
+        state, _, _ = fixture()
+        state['runs'] = [
+            {'type': 'collect', 'coverage': [{'source': 's2-citations', 'status': 'failed'}]},
+            {'type': 'seed', 'coverage': [{'source': 'arxiv-id-lookup', 'status': 'ok'}]}]
+        self.assertIn('s2-citations: failed', render(state, 'daily')['markdown'])
+
     def test_rss_empty_channel_valid_but_error_page_rejected(self):
         self.assertEqual(parse_rss(b'<rss><channel><pubDate>today</pubDate></channel></rss>', 'cs.SE'), [])
         with self.assertRaises(ValueError):
