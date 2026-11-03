@@ -1,3 +1,5 @@
+test_competing_cloud_tasks_reject_stale_push (test_git_storage.GitPersistenceTests.test_competing_cloud_tasks_reject_stale_push) ... ok
+test_fresh_checkout_reads_prior_checkpoint_without_changing_working_files (test_git_storage.GitPersistenceTests.test_fresh_checkout_reads_prior_checkpoint_without_changing_working_files) ... ok
 test_cross_listing_preserves_primary_and_secondary_categories (test_pipeline.PipelineTests.test_cross_listing_preserves_primary_and_secondary_categories) ... ok
 test_doi_merges_formal_record (test_pipeline.PipelineTests.test_doi_merges_formal_record) ... ok
 test_dry_run_byte_identical_state (test_pipeline.PipelineTests.test_dry_run_byte_identical_state) ... ok
@@ -18,6 +20,6 @@ test_sent_replay_does_not_call_provider_or_reselect (test_pipeline.PipelineTests
 test_stale_writer_rejected (test_pipeline.PipelineTests.test_stale_writer_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 18 tests in 0.016s
+Ran 20 tests in 1.042s
 
 OK

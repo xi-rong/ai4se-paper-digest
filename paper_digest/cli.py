@@ -5,7 +5,7 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from .collectors import Arxiv, iso, rss, weekly, upsert, shortlist
-from .storage import LocalStore, GitHubStore
+from .storage import LocalStore, GitHubStore, GitStore
 from .review import add_reviews
 from .reports import render
 from .mailer import send
@@ -15,7 +15,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="AI4SE paper digest; no scheduler or credentials bundled")
     parser.add_argument("--config", default="config.json")
     parser.add_argument("--state", default="var/state.json")
-    parser.add_argument("--storage", choices=["local", "github"], default=None)
+    parser.add_argument("--storage", choices=["local", "github", "git"], default=None)
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("status")
     ids = sub.add_parser("seed")
@@ -37,7 +37,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
     cfg = json.loads(Path(args.config).read_text())
     mode = args.storage or cfg["storage"]["mode"]
-    store = GitHubStore(cfg["storage"]) if mode == "github" else LocalStore(args.state)
+    store = (GitHubStore(cfg["storage"]) if mode == "github" else
+             GitStore(cfg["storage"]) if mode == "git" else LocalStore(args.state))
     state, revision = store.load()
     if args.command == "status":
         print(json.dumps({"revision": state["revision"], "papers": len(state["papers"]),

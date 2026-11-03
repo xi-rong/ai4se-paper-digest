@@ -20,7 +20,11 @@ python3 -m paper_digest.cli status
 
 ## 跨任务状态
 
-`config.json.storage.mode` 初始 local，只用于准备和测试。正式用 `--storage github`，通过 GitHub Contents API 读写 `digest-state:state.json`；分支预先建立。源码在 main，状态分支不使用 Actions。
+`config.json.storage.mode` 初始 local，只用于准备和测试。状态分支 `digest-state:state.json` 已创建，源码在main，状态不使用Actions。
+
+优先在云端实测 `--storage git`：复用环境原生Git授权，通过fetch/show读取、临时index构建提交，再用分支头的`--force-with-lease`做比较后更新。新提交以前次分支头为父提交；竞争写入会拒绝，不覆盖他人的更新。它不切换工作区、不打印或读取密钥。此后端已用两个独立本地clone与bare remote做跨次读写和竞争写入测试；真实云端push仍需另验。若push验证成功，无需新增GitHub token。
+
+备选 `--storage github` 通过 Contents API 的blob SHA比较更新；大于1MB的响应通过Git Blob API读取。已有GitHub插件/原生git授权不自动代表Python HTTPS凭证已配置。
 
 配置保险库：Settings → Codex Cloud → Personal vault → Add → Network secret；Key=`DIGEST_GITHUB_TOKEN`，Allowed domains=`api.github.com`，Applies to=本环境。使用仅限此私有仓库的 fine-grained token，Contents Read/Write；原始值不能进聊天、日志或源码。GitHub 插件已连接不代表 Python 自动继承同一凭证。
 

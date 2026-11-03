@@ -17,7 +17,9 @@ Seed records outside the initial window use `seed_only:true`.
 
 ## Persistence and delivery
 Published VM snapshots and uncommitted task files are NOT shared mutable storage.
-Production must use GitHub CAS state (`--storage github`), after cross-task verification.
+Production must use remote GitHub state after cross-task verification. Prefer
+`--storage git` if native Cloud Git push works; it uses a branch-head lease without a
+new token. Otherwise use `--storage github` with a scoped HTTPS vault credential.
 Use one `digest-state` branch, scoped Contents read/write credential, HTTPS only.
 Never expose secrets or commit them. Network secret placeholders work only at allowed
 HTTPS destinations; do not reuse them for SMTP or git/SSH.
