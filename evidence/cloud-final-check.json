@@ -1,0 +1,111 @@
+{
+  "task_id": "01a1a08f-a324-70c0-893a-7367656b902a",
+  "started_at": "2026-11-03T08:52:17.690247+00:00",
+  "source_commit": "d94b2af7cad41e2d649d512bd83aa2fe5c46b1a7",
+  "original_cli": true,
+  "proxy_and_tls_preserved": true,
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "started_at": "2026-11-03T08:52:17.692922+00:00",
+      "finished_at": "2026-11-03T08:52:18.198755+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_competing_cloud_tasks_reject_stale_push (test_git_storage.GitPersistenceTests.test_competing_cloud_tasks_reject_stale_push) ... ok\ntest_fresh_checkout_reads_prior_checkpoint_without_changing_working_files (test_git_storage.GitPersistenceTests.test_fresh_checkout_reads_prior_checkpoint_without_changing_working_files) ... ok\ntest_cross_listing_preserves_primary_and_secondary_categories (test_pipeline.PipelineTests.test_cross_listing_preserves_primary_and_secondary_categories) ... ok\ntest_doi_merges_formal_record (test_pipeline.PipelineTests.test_doi_merges_formal_record) ... ok\ntest_dry_run_byte_identical_state (test_pipeline.PipelineTests.test_dry_run_byte_identical_state) ... ok\ntest_empty_digest_no_message (test_pipeline.PipelineTests.test_empty_digest_no_message) ... ok\ntest_expired_idempotency_requires_reconciliation (test_pipeline.PipelineTests.test_expired_idempotency_requires_reconciliation) ... ok\ntest_failed_source_keeps_cursor (test_pipeline.PipelineTests.test_failed_source_keeps_cursor) ... ok\ntest_html_escapes_paper_content (test_pipeline.PipelineTests.test_html_escapes_paper_content) ... ok\ntest_inflight_lease_blocks_second_sender (test_pipeline.PipelineTests.test_inflight_lease_blocks_second_sender) ... ok\ntest_ingest_same_batch_not_new (test_pipeline.PipelineTests.test_ingest_same_batch_not_new) ... ok\ntest_new_store_reads_previous_process_state (test_pipeline.PipelineTests.test_new_store_reads_previous_process_state) ... ok\ntest_new_version_requires_new_review (test_pipeline.PipelineTests.test_new_version_requires_new_review) ... ok\ntest_pagination_uses_total_and_offset (test_pipeline.PipelineTests.test_pagination_uses_total_and_offset) ... ok\ntest_partial_source_retains_rows (test_pipeline.PipelineTests.test_partial_source_retains_rows) ... ok\ntest_recipient_cannot_be_overridden (test_pipeline.PipelineTests.test_recipient_cannot_be_overridden) ... ok\ntest_rss_empty_channel_valid_but_error_page_rejected (test_pipeline.PipelineTests.test_rss_empty_channel_valid_but_error_page_rejected) ... ok\ntest_seed_enrichment_does_not_hide_partial_collection (test_pipeline.PipelineTests.test_seed_enrichment_does_not_hide_partial_collection) ... ok\ntest_send_failure_preserves_pending_content (test_pipeline.PipelineTests.test_send_failure_preserves_pending_content) ... ok\ntest_sent_replay_does_not_call_provider_or_reselect (test_pipeline.PipelineTests.test_sent_replay_does_not_call_provider_or_reselect) ... ok\ntest_stale_writer_rejected (test_pipeline.PipelineTests.test_stale_writer_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.303s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "paper_digest.cli",
+        "--storage",
+        "git",
+        "preview",
+        "--kind",
+        "daily",
+        "--out",
+        "var/cloud-final-daily"
+      ],
+      "started_at": "2026-11-03T08:52:18.883988+00:00",
+      "finished_at": "2026-11-03T08:52:19.689296+00:00",
+      "exit_code": 0,
+      "stdout": "{\"id\": \"b1552944cb8878b8fb03272d4e1abfe0\", \"papers\": 1, \"queued\": false, \"html\": \"var/cloud-final-daily.html\"}\n",
+      "stderr": ""
+    }
+  ],
+  "tests_count": 21,
+  "before_remote_sha": "a878cca0c557c3cc87955cddb9c12e48be0df9f8",
+  "after_remote_sha": "a878cca0c557c3cc87955cddb9c12e48be0df9f8",
+  "latest_run_type": "seed",
+  "latest_collect_coverage": [
+    {
+      "source": "arxiv-api",
+      "query": "cat:cs.SE",
+      "from": "2026-10-04T08:47:40.196738+00:00",
+      "to": "2026-11-03T08:47:40.196738+00:00",
+      "pages": 8,
+      "status": "ok",
+      "count": 780,
+      "total": 780
+    },
+    {
+      "source": "arxiv-api",
+      "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+      "from": "2026-10-04T08:47:40.196738+00:00",
+      "to": "2026-11-03T08:47:40.196738+00:00",
+      "pages": 6,
+      "status": "ok",
+      "count": 560,
+      "total": 560
+    },
+    {
+      "source": "arxiv-rss:cs.SE",
+      "status": "ok",
+      "count": 0,
+      "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+      "response_bytes": 892
+    },
+    {
+      "source": "arxiv-rss:cs.AI",
+      "status": "ok",
+      "count": 0,
+      "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+      "response_bytes": 892
+    },
+    {
+      "source": "arxiv-rss:cs.CL",
+      "status": "ok",
+      "count": 0,
+      "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+      "response_bytes": 892
+    },
+    {
+      "source": "arxiv-rss:cs.LG",
+      "status": "ok",
+      "count": 0,
+      "public_batch_at": "Tue, 03 Nov 2026 00:00:00 -0500",
+      "response_bytes": 892
+    }
+  ],
+  "checks": {
+    "all_commands_passed": true,
+    "recent_collect_coverage_in_markdown": true,
+    "recent_collect_coverage_in_html": true,
+    "remote_head_unchanged": true,
+    "remote_state_unchanged": true,
+    "outbox_empty": true
+  },
+  "preview_markdown": "## AI4SE 论文日报 · 2026-11-03\n\n最值得读：优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。\n\n## CrossSWE: Benchmarking Cross-Repository Joint Development for Coding Agents\n\n优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。\n\n作者：Silin Chen, Yuling Shi, Heng Lian, Zihan Zhang, Xiaodong Gu, Haotian Lin, Zhensu Sun\n\n收录性质：历史论文／近期补收，不属于今日新投稿\n\n投稿：2026-11-01T03:16:52Z\n\n版本更新：2026-11-01T03:16:52Z\n\n公开批次：API未提供／RSS待核查\n\n首次发现：2026-11-03T08:16:43.088849+00:00\n\n发表状态：arXiv预印本；正式录用未核实\n\n相关等级：P1；直接涉及多仓库联合修改与接口一致性；其缺陷修复子集与本课题高度相关。\n\n任务分类：① 多仓库协同修改\n\n任务设置：多目标仓库一起修改，联合测试通过才算成功。参与仓库已给定；不能用它直接验证从生态中发现目标仓库的能力。\n\n作者方法：枚举各仓库原始/修复版本组合：部分修复应失败，全部修复应通过，以验证联合必要性。\n\n作者实验依据：正文报告171个实例，附录A.2将22个标为Bug fixing；§5.4的44.2%指GPT失败轨迹中的跨仓库不一致，不能解释为所有任务或所有模型的比例。\n\n对本课题的建议：建议先核对22个bugfix任务，再与WideSWE比较测试协议、泄漏控制和任务重叠；借鉴混合版本验证来建立跨仓库契约测试。以上为研究建议。\n\n精读／复现建议：精读§3.1–3.2、§5.2、§5.4、Limitations和附录A.2。先复现两仓库实例；不同基准分数不直接比较。\n\n核查范围：已核查正文\n\n[原文](https://arxiv.org/abs/2611.01484) · [数据/评测发布页（独立代码仓库待核查）](https://huggingface.co/datasets/CrossSWE/CrossSWE-Bench) · [依据](https://arxiv.org/html/2611.01484v1)\n\n## 检索覆盖与限制\n\narxiv-api: ok\narxiv-api: ok\narxiv-rss:cs.SE: ok\narxiv-rss:cs.AI: ok\narxiv-rss:cs.CL: ok\narxiv-rss:cs.LG: ok\n\n## 审读进度\n\n状态中共 972 条论文记录，已有当前版本审核 4 条。其余未审核记录不代表不相关。周来源和待配置会议/期刊见来源台账，本次报告不代表全量筛选完成。",
+  "finished_at": "2026-11-03T08:52:20.243896+00:00",
+  "handoff": "Next continuation: read docs/CLOUD_HANDOFF.md and docs/ACCEPTANCE.md; continue candidate review, fixed recipient/mail service, native Cloud scheduling bridge. Do not repeat completed preparation.",
+  "mail_sent": false,
+  "schedule_created": false
+}
