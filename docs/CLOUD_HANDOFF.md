@@ -11,7 +11,12 @@
 - 发布后复验已成功：20项测试，arXiv200，4篇种子/两份reviews/预览，dry-run状态哈希不变且outbox为空。另一个新VM成功读旧探针，再写 `b9c60f8016337237371943063245f6ce296138f9` 并重读；跨任务状态已验证。证据 `evidence/cloud-postpublish-validation.json`，由云任务提交 `dc9903c886ba688930e0a4d7987b4d3ae908e732`。该首轮网络诊断使用临时transport instrumentation保留精确错误，原始CLI不替换transport的完整采集复验另记。
 - 近30天本地最初采集合并970条，连同种子总973条。随后原始CLI已在新云任务完整运行：`collect --rss`退出0，新增968条，远端总972条；596条候选待审核，4条已审核。两次30天窗口起点不同，不能把计数差直接当成漏采；各自API分页均完整。全量云端元数据现已保存私有状态分支，非仅存在VM。
 - 原始CLI四篇重跑 `new_versions=0`；日报/历史/周报预览均成功，前后远端头与状态哈希不变、outbox为空，已有send状态未变；证据见 `evidence/cloud-original-cli-validation.json`。
+- 最终源码d94b2af的21项测试已在云端通过，原始日报CLI确认保留collect覆盖且不修改远端状态；证据 `evidence/cloud-final-check.json`，云任务提交260dafc。
 - 日报/周报预览已生成；真实邮件、定时桥接和关机验证均未完成。没有外部调度/额外模型API/付费服务。
+
+## 下一阶段直接复制到云端聊天
+
+> 继续本仓库的个人 AI4SE 论文追踪系统。先读 AGENTS.md、docs/CLOUD_HANDOFF.md、docs/ACCEPTANCE.md 与最新 evidence，跳过已通过的环境创建、发布、21项测试、原始CLI采集、跨任务状态和dry-run验证。先运行 `python3 -m paper_digest.cli --storage git status` 读取私有digest-state；从已保存的596条候选继续摘要/正文审读，优先跨仓库bugfix，扩大已验证的阅读清单并记录未审核范围。补齐会议具体论文列表、期刊官方接口、作者ID等来源；S2 429与DBLP挑战要如实标注。然后请我确认固定收件地址与邮件服务；仅在云端保险库填凭证，测试完整HTML邮件和发送失败保留待发。最后实测原生云定时任务通过受支持工具启动指定编程环境的桥接，安排短期测试并保留日志；未证实前不要启用正式日报或外部调度。关机测试由我配合。未授权购买服务，不用GitHub Actions。所有新审核、发送记录通过GitStore持久保存，预览不得消耗待发。
 
 ## 创建和发布
 
@@ -32,7 +37,7 @@ python3 -m paper_digest.cli preview --kind history --out var/cloud-preview
 
 保存命令输出、云端任务链接与运行时间。所有错误处理后再点击 Publish，等待 Environment published。发布不是启动新任务；在发布环境点击 Start a new task 才测试快照可复现性。
 
-## 云端新对话可直接复制
+## 环境重建时的完整验证提示（正常续接无需重复）
 
 > 继续这个仓库中的个人 AI4SE 论文日报项目。先读 AGENTS.md、docs/PLATFORM_EVIDENCE.md、docs/OPERATIONS.md、docs/SOURCES.md，确认当前确实在 Codex Cloud。不要购买服务、不要用 GitHub Actions、不要创建本地定时器。先运行测试和 seed/review/history preview，给出云端任务与日志证据。检查私有 digest-state 分支已有状态，先实测 --storage git 复用云端原生 Git 授权；通过 GitStore 做带分支头比较的探针写入并记录 SHA，若成功无需新增 token。只有原生 Git 写入确实不可用时，才请我在 Personal vault 配置 DIGEST_GITHUB_TOKEN（api.github.com 专用 HTTPS 网络密钥），并改用 --storage github。随后在第二个新的云端聊天读取该探针，验证跨任务持久化，不以 VM 本地文件替代。执行近30天 arXiv 回顾和 RSS，将候选交由你阅读摘要/正文，写 review JSON，再生成历史清单；明确来源失败及未接入范围。之后取得我的固定收件地址和邮件服务选择，通过保险库配置并发测试邮件。最后实查原生云端定时能否绑定/启动此环境，安排一次短期启动测试，记录配置、预期与实际时间、运行 ID 和日志。若没有受支持的衔接，不虚构；给出具体缺口与需我选择的最小外部替代。各项验收成功后才启用 Asia/Shanghai 每日14:17、周日20:17；无新增不发空日报。关机运行由我配合验证。更新 evidence 与逐项验收表。
 

@@ -7,11 +7,11 @@
 | 私有代码仓库 | 已验证 | xi-rong/ai4se-paper-digest，Private |
 | Codex Cloud 创建/发布 | 已验证 | environment-published.json，界面16:37发布确认 |
 | 从新云任务运行 | 已验证 | 01a1a08f，运行环境connected/running |
-| 云端测试 | 已验证 | 20项通过，源码53a2d1c；后续小幅更新本地测试仍通过 |
+| 云端测试 | 已验证 | 最终源码d94b2af，21项通过；cloud-final-check.json |
 | 真实云端论文请求 | 已验证 | arXiv200，四篇元数据；首轮保留精确错误使用临时transport诊断，未修改源码 |
 | 原始CLI完整采集 | 已验证 | cloud-original-cli-validation.json：collect退出0，14页API、4类RSS，状态分支972条论文；再次seed四篇new_versions=0 |
 | 中文HTML/Markdown报告 | 已生成 | daily-preview、history与weekly样例；当前仅4条经过审读 |
-| dry-run不消费状态 | 已验证 | 新云任务前后SHA256一致，outbox为空 |
+| dry-run不消费状态 | 已验证 | 原始CLI预览前后远端头与完整状态不变，outbox为空；日报保留最近collect覆盖 |
 | 跨云任务共享持久状态 | 已验证 | de97ddf旧探针→新VM读取→b9c60f8新探针并重读 |
 | 同批数据重复/发送去重 | 测试通过，真实发送待验证 | 单元测试覆盖重复入库、重复发送跳过；没有真的发送过邮件 |
 | 邮件失败不丢内容 | 故障测试通过 | provider失败保留retry与正文；真实服务失败演练待配置 |

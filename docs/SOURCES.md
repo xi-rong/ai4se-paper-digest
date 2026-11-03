@@ -4,8 +4,8 @@
 
 | 来源 | 实现 | 准备阶段状态 |
 |---|---|---|
-| arXiv 官方 API | 元数据、分类、版本、DOI、分页，3.1秒间隔，退避/超时 | 种子3篇真实请求已验证；近30天采集另看 evidence/local-collection.json |
-| arXiv RSS cs.SE/cs.AI/cs.CL/cs.LG | 公告批次、announce type、交叉分类观测；仅RSS ID待API补齐 | 本地请求和RSS结构已验证；此次官方返回空channel（非解析错误），不能据此声称当天无论文 |
+| arXiv 官方 API | 元数据、分类、版本、DOI、分页，3.1秒间隔，退避/超时 | 已接入并验证（云端）：原始CLI近30天14页查询成功，数据已持久化；见cloud-original-cli-validation.json |
+| arXiv RSS cs.SE/cs.AI/cs.CL/cs.LG | 公告批次、announce type、交叉分类观测；仅RSS ID待API补齐 | 已接入并验证（云端）：4个有效空channel，保留批次时间；不能据此声称当天无论文 |
 | Semantic Scholar 新引用 | seed citations 分页 | 暂不可用：本地实测请求失败；seed探针返回HTTP429，不把它当作零引用 |
 | Semantic Scholar 作者新作 | author ID/papers 分页 | 待配置作者 ID，未猜重名作者 |
 | Semantic Scholar 推荐 | recommendations API，最多100候选 | 暂不可用：本地实测请求失败；不等于没有相关推荐 |
