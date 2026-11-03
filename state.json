@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 7,
+  "revision": 8,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -24,12 +24,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2407.01489",
-      "discovered_at": "2026-11-03T08:13:04.122320+00:00",
+      "discovered_at": "2026-11-03T08:48:38.797012+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:13:04.122320+00:00",
-      "last_seen_at": "2026-11-03T08:13:04.122590+00:00",
+      "last_seen_at": "2026-11-03T08:48:38.797290+00:00",
       "processing_status": "reviewed",
       "send_status": "unsent"
     },
@@ -64,12 +64,12 @@
       ],
       "primary_category": "cs.CL",
       "url": "https://arxiv.org/abs/2603.03194",
-      "discovered_at": "2026-11-03T08:13:04.122470+00:00",
+      "discovered_at": "2026-11-03T08:48:38.797205+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:13:04.122470+00:00",
-      "last_seen_at": "2026-11-03T08:13:04.122604+00:00",
+      "last_seen_at": "2026-11-03T08:48:38.797310+00:00",
       "processing_status": "reviewed",
       "send_status": "unsent"
     },
@@ -94,12 +94,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2609.33382",
-      "discovered_at": "2026-11-03T08:13:04.122542+00:00",
+      "discovered_at": "2026-11-03T08:48:38.797252+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:13:04.122542+00:00",
-      "last_seen_at": "2026-11-03T08:13:04.122613+00:00",
+      "last_seen_at": "2026-11-03T08:48:38.797316+00:00",
       "processing_status": "reviewed",
       "send_status": "unsent"
     },
@@ -125,12 +125,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01484",
-      "discovered_at": "2026-11-03T08:48:02.430207+00:00",
+      "discovered_at": "2026-11-03T08:48:38.797075+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:16:43.088849+00:00",
-      "last_seen_at": "2026-11-03T08:48:22.392529+00:00",
+      "last_seen_at": "2026-11-03T08:48:38.797302+00:00",
       "processing_status": "reviewed",
       "send_status": "unsent"
     },
@@ -31172,6 +31172,18 @@
       "new_versions": 968,
       "status": "ok",
       "discovery_candidates": []
+    },
+    {
+      "id": "1cce017d12904d39afe5ab3e1b8bf963",
+      "at": "2026-11-03T08:48:38.797338+00:00",
+      "type": "seed",
+      "coverage": [
+        {
+          "source": "arxiv-id-lookup",
+          "status": "ok",
+          "count": 4
+        }
+      ]
     }
   ],
   "cursors": {
