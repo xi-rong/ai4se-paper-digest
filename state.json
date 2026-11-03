@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 5,
+  "revision": 6,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -295,6 +295,11 @@
     "cloud_write": {
       "task_id": "01a1a07d-21f2-714f-be53-194b9ba6c02c",
       "at": "2026-11-03T08:28:16.840757+00:00"
+    },
+    "cloud_read_probe": {
+      "task_id": "01a1a08f-a324-70c0-893a-7367656b902a",
+      "at": "2026-11-03T08:40:24.403898+00:00",
+      "read_sha": "de97ddfc44fa3678f474e12df4c2da0e4c02a1f2"
     }
   }
 }
