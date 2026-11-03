@@ -1,0 +1,169 @@
+import copy
+import io
+import json
+import os
+import tempfile
+import unittest
+from contextlib import redirect_stdout
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from unittest.mock import patch
+from paper_digest import cli
+from paper_digest.collectors import Arxiv, parse_atom, upsert, iso
+from paper_digest.http import RequestError
+from paper_digest.mailer import send
+from paper_digest.reports import render, selected
+from paper_digest.review import add_reviews
+from paper_digest.storage import empty, LocalStore, Conflict
+
+
+def fixture():
+    state = empty()
+    p = {"id": "arxiv:2609.33382", "arxiv_id": "2609.33382", "version": 1,
+         "title": "A <script> benchmark", "abstract": "software repair agent", "authors": ["A"],
+         "submitted_at": iso(), "updated_at": iso(), "url": "https://arxiv.org/abs/2609.33382",
+         "sources": ["arxiv-api"]}
+    upsert(state, [p])
+    r = {"paper_id": p["id"], "version": 1, "priority": "P1", "task_type": "multi_repo_coordinated",
+         "summary_zh": "测试", "relevance_reason": "test", "task_setting": "2 targets", "method": "test",
+         "evidence": "test", "research_use": "test", "reading_advice": "test", "basis": "abstract",
+         "evidence_urls": [p["url"]], "publication_status": "preprint", "links": []}
+    add_reviews(state, [r])
+    return state, p, r
+
+
+class PipelineTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.path = Path(self.tmp.name) / "state.json"
+        self.store = LocalStore(self.path)
+        self.cfg = json.loads(Path("config.json").read_text())
+        self.cfg["mail"].update(provider="resend", recipient="reader@example.org", sender="sender@example.org")
+
+    def persist(self, state):
+        self.store.save(state, None)
+
+    def test_new_store_reads_previous_process_state(self):
+        state, _, _ = fixture()
+        self.persist(state)
+        other = LocalStore(self.path)
+        self.assertEqual(other.load()[0]["papers"], state["papers"])
+
+    def test_stale_writer_rejected(self):
+        a, rev = self.store.load()
+        b = copy.deepcopy(a)
+        self.store.save(a, rev)
+        with self.assertRaises(Conflict):
+            self.store.save(b, rev)
+
+    def test_dry_run_byte_identical_state(self):
+        state, _, _ = fixture()
+        self.persist(state)
+        before = self.path.read_bytes()
+        with redirect_stdout(io.StringIO()):
+            cli.main(["--state", str(self.path), "preview", "--out", str(self.path.parent / "preview")])
+        self.assertEqual(before, self.path.read_bytes())
+        self.assertFalse(self.store.load()[0]["outbox"])
+
+    def test_ingest_same_batch_not_new(self):
+        state, paper, _ = fixture()
+        discovered = state["papers"][paper["id"]]["first_discovered_at"]
+        self.assertEqual(upsert(state, [paper]), 0)
+        self.assertEqual(state["papers"][paper["id"]]["first_discovered_at"], discovered)
+        self.assertEqual(len(state["papers"]), 1)
+
+    def test_new_version_requires_new_review(self):
+        state, paper, _ = fixture()
+        paper["version"] = 2
+        upsert(state, [paper])
+        self.assertIsNone(render(state, "daily"))
+
+    def test_doi_merges_formal_record(self):
+        state, paper, _ = fixture()
+        paper["doi"] = "10.1000/test"
+        upsert(state, [paper])
+        upsert(state, [{"id": "doi:10.1000/test", "doi": "10.1000/test", "sources": ["dblp"]}])
+        self.assertEqual(len(state["papers"]), 1)
+
+    def test_html_escapes_paper_content(self):
+        state, _, _ = fixture()
+        doc = render(state, "daily")
+        self.assertNotIn("<script>", doc["html"])
+        self.assertIn("&lt;script&gt;", doc["html"])
+
+    def test_partial_source_retains_rows(self):
+        arxiv = Arxiv(self.cfg)
+        with patch.object(arxiv, "fetch", side_effect=[b"<broken>", b"<broken>"]):
+            rows, coverage = arxiv.collect(datetime.now(timezone.utc), datetime.now(timezone.utc))
+        self.assertEqual(rows, [])
+        self.assertTrue(all(c["status"] == "failed" for c in coverage))
+
+    def test_failed_source_keeps_cursor(self):
+        with patch("paper_digest.collectors.Arxiv.fetch", side_effect=RequestError(503)), redirect_stdout(io.StringIO()):
+            code = cli.main(["--state", str(self.path), "collect", "--out", str(self.path.parent / "c.json")])
+        state, _ = self.store.load()
+        self.assertEqual(code, 2)
+        self.assertNotIn("arxiv", state["cursors"])
+        self.assertEqual(state["runs"][-1]["status"], "partial")
+
+    def test_pagination_uses_total_and_offset(self):
+        arxiv = Arxiv(self.cfg)
+        self.cfg["arxiv"]["queries"] = ["cat:cs.SE"]
+        with patch.object(arxiv, "fetch", return_value=b"data") as fetch, patch("paper_digest.collectors.parse_atom", side_effect=[([{"id": "1"}], 2), ([{"id": "2"}], 2)]):
+            rows, coverage = arxiv.collect(datetime.now(timezone.utc), datetime.now(timezone.utc))
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(fetch.call_args_list[1].args[0]["start"], 1)
+        self.assertEqual(coverage[0]["status"], "ok")
+
+    def queued(self):
+        state, _, _ = fixture()
+        message = render(state, "daily")
+        state["outbox"][message["id"]] = message
+        self.persist(state)
+        return message["id"]
+
+    def test_send_failure_preserves_pending_content(self):
+        mid = self.queued()
+        before = self.store.load()[0]["outbox"][mid]["html"]
+        with patch.dict(os.environ, {"DIGEST_MAIL_TOKEN": "test-placeholder"}), patch("paper_digest.mailer.request", side_effect=RequestError(503, True)):
+            self.assertEqual(send(self.store, self.cfg, mid, recipient="reader@example.org"), "retry")
+        state, _ = self.store.load()
+        self.assertEqual(state["outbox"][mid]["html"], before)
+        self.assertNotEqual(state["papers"]["arxiv:2609.33382"]["send_status"], "sent")
+
+    def test_sent_replay_does_not_call_provider_or_reselect(self):
+        mid = self.queued()
+        with patch.dict(os.environ, {"DIGEST_MAIL_TOKEN": "test-placeholder"}), patch("paper_digest.mailer.request", return_value=(b'{"id":"provider-1"}', {})) as request:
+            self.assertEqual(send(self.store, self.cfg, mid, recipient="reader@example.org"), "sent")
+            self.assertEqual(send(self.store, self.cfg, mid, recipient="reader@example.org"), "already_sent")
+            self.assertEqual(request.call_count, 1)
+        self.assertIsNone(render(self.store.load()[0], "daily"))
+
+    def test_recipient_cannot_be_overridden(self):
+        mid = self.queued()
+        with self.assertRaises(ValueError):
+            send(self.store, self.cfg, mid, recipient="someone-else@example.org")
+
+    def test_inflight_lease_blocks_second_sender(self):
+        mid = self.queued()
+        state, rev = self.store.load()
+        state["outbox"][mid].update(status="sending", lease_until=(datetime.now(timezone.utc) + timedelta(minutes=5)).isoformat())
+        self.store.save(state, rev)
+        with patch.dict(os.environ, {"DIGEST_MAIL_TOKEN": "test-placeholder"}), self.assertRaises(ValueError):
+            send(self.store, self.cfg, mid, recipient="reader@example.org")
+
+    def test_expired_idempotency_requires_reconciliation(self):
+        mid = self.queued()
+        state, rev = self.store.load()
+        state["outbox"][mid]["first_attempt_at"] = (datetime.now(timezone.utc) - timedelta(hours=25)).isoformat()
+        self.store.save(state, rev)
+        with patch.dict(os.environ, {"DIGEST_MAIL_TOKEN": "test-placeholder"}), self.assertRaises(ValueError):
+            send(self.store, self.cfg, mid, recipient="reader@example.org")
+
+    def test_empty_digest_no_message(self):
+        self.assertIsNone(render(empty(), "daily"))
+
+
+if __name__ == "__main__":
+    unittest.main()

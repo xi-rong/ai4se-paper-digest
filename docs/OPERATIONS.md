@@ -1,0 +1,54 @@
+# 操作、持久化与邮件
+
+## 手动与预览
+
+所有命令在仓库根目录使用 Python 3.11+。源目录即可运行，无需 pip：
+
+```sh
+python3 -m paper_digest.cli collect --rss --out var/candidates.json
+python3 -m paper_digest.cli collect --weekly --rss --out var/weekly-candidates.json
+python3 -m paper_digest.cli review var/reviews.json
+python3 -m paper_digest.cli preview --kind history --out var/history
+python3 -m paper_digest.cli preview --kind daily --out var/daily
+python3 -m paper_digest.cli preview --kind weekly --out var/weekly
+python3 -m paper_digest.cli status
+```
+
+首次采集默认近30天；每日从最后完整成功水位往前回查7天，漏跑后自动扩展窗口。任何 arXiv 查询失败/截断都不推进全局水位，已取得记录保留。RSS 用于核对公告批次/交叉分类；未知 ID 进入补充候选，必须再通过 `seed --ids ...` 补齐元数据。官方 API 检索按全部分类属性覆盖交叉分类，主分类另存。
+
+短名单不是自动审核。运行中的 Codex Agent 审读摘要或正文，按 seed-reviews 字段写 JSON 再导入。无额外模型 API。原生 Agent 只有在定时启动链路验证后才能无人值守分析；Python 脚本单独运行不自动产生研究结论。
+
+## 跨任务状态
+
+`config.json.storage.mode` 初始 local，只用于准备和测试。正式用 `--storage github`，通过 GitHub Contents API 读写 `digest-state:state.json`；分支预先建立。源码在 main，状态分支不使用 Actions。
+
+配置保险库：Settings → Codex Cloud → Personal vault → Add → Network secret；Key=`DIGEST_GITHUB_TOKEN`，Allowed domains=`api.github.com`，Applies to=本环境。使用仅限此私有仓库的 fine-grained token，Contents Read/Write；原始值不能进聊天、日志或源码。GitHub 插件已连接不代表 Python 自动继承同一凭证。
+
+本地存储使用进程锁+原子替换，GitHub 用 blob SHA 比较后更新（CAS）。冲突直接退出，重新加载后重做，不盲目覆盖。没有跨网络永久锁。发送前持久抢占10分钟租约，外部操作后重新读取并核对租约。每条消息保存完整正文、事件集合、发送尝试、提供商 ID。
+
+精确 arXiv ID 和正式 DOI 合并；arXiv 自身 DOI 与正式 DOI 不同，需来源提供明确映射再关联。题目相似匹配只可供人工核对。JSON 随历史增长，个人规模先保持简单；仓库状态超过约500KB应分片/迁移，当前无自动归档。仓库读写 API 有额度，实际费用取决于 GitHub 计划，未购买额外存储。
+
+## 完整邮件
+
+当前没有已连接的无人值守发送插件。Resend HTTPS 适配器作为可选方案，尚未选择/开通/真实验证，不默认购买。也可在用户确认后实现其他邮件 API。未启用 SMTP。
+
+用户确认收件地址后填 `mail.recipient`，填已验证发件人 `mail.sender`、`mail.provider=resend`。在 Personal vault 加 Network secret `DIGEST_MAIL_TOKEN`，目的地仅 `api.resend.com`；请求头会携带占位值，由云代理替换。须测试云端实际注入。不要将网络密钥用于 SMTP。
+
+```sh
+python3 -m paper_digest.cli --storage github preview --kind daily --out var/daily --enqueue
+python3 -m paper_digest.cli --storage github send MESSAGE_ID --to FIXED_CONFIRMED_ADDRESS
+```
+
+先确认 HTTPS 服务账户、域名要求及当前价格，再配置。官方接口：https://resend.com/docs/api-reference/emails/send-email 。幂等键保存24小时：https://resend.com/docs/dashboard/emails/idempotency-keys 。本程序23小时后停止自动重试并要求对账，避免供应商窗口到期重复邮件；即使 API 返回 ID，也只证明受理，不保证入箱。发送后状态保存失败会留下发送中记录，应在窗口内以原正文/原键重试，超时先核对服务日志。
+
+失败保留 retry 与正文，收集继续；无人值守故障通知尚无独立监控链路，未验证前不能承诺必达。固定收件地址之外不发送，GitHub 资料邮箱不能代替确认。
+
+## 调度、暂停与恢复
+
+当前 schedule.enabled=false；这是意图配置，不是平台定时任务。没有安装 cron，没有 Actions。正式期望 Asia/Shanghai 日报14:17、周日20:17，仅指启动时间。改配置不会自动更改平台任务，必须同步编辑平台定时配置并复核下次运行。
+
+待云端定时接入后，通过 Scheduled 暂停/恢复对应两个任务，并留存配置和日志证据。现在手动执行即可，退出聊天不会启动任何未配置的定时任务。恢复后先处理待发箱再生成新日报；部分失败的采集从未推进水位补查。
+
+## 成本边界
+
+当前新增付费服务=0，未购买模型 API、邮件套餐或外部调度。Codex 云运行消耗当前计划/额度，不能把已有订阅视为无限免费。邮件、外部调度和数据库仅在用户选择后按官方当期价格估算。本版本不部署常驻服务。

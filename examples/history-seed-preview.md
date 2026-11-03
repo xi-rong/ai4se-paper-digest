@@ -1,0 +1,115 @@
+## AI4SE 初始阅读清单 · 历史回顾 · 2026-11-03
+
+最值得读：共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。
+
+## WideSWE: Can Coding Agents Coordinate Changes Across Repositories?
+
+共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。
+
+作者：Baoyi Wang, Xingliang Wang, Jinyang Wu, Keming Wu, Chen Zhi, Jianwei Yin
+
+收录性质：研究种子／超出近30天窗口，不属于新增
+
+投稿：2026-09-27T09:02:49Z
+
+版本更新：2026-09-27T09:02:49Z
+
+公开批次：API未提供／RSS待核查
+
+首次发现：2026-11-03T08:13:04.122542+00:00
+
+发表状态：arXiv 预印本；未核实正式录用
+
+相关等级：P1；直接对应跨仓库协同修复；研究时应单独报告 bugfix 子集。
+
+任务分类：① 多仓库协同修改
+
+任务设置：至少两个目标仓库需要实质修改；上下文仓库可供参考。所有目标仓库的要求和回归检查通过才算任务成功。
+
+作者方法：从关联变更构建共享请求与历史环境，审查隐藏测试；比较联合执行与逐仓库独立执行。
+
+作者实验依据：正文 §2 定义任务，§4 与附录 B/C 分析遗漏目标、已识别但未交付、修改后仍失败。独立执行比较不匹配整项任务的总预算，不能作等预算因果结论。
+
+对本课题的建议：建议采用目标仓库召回率、接口契约检查和所有目标联合通过率；区分定位、交付和验证失败。以上为本课题建议。
+
+精读／复现建议：精读 §2.1、§2.3、§4.3、附录 B.1/C/D；先复现 bugfix 子集，并对齐任务总预算。
+
+核查范围：已核查正文
+
+[原文](https://arxiv.org/abs/2609.33382) · [代码](https://github.com/ZJU-ACES-ISE/WideSWE) · [数据](https://huggingface.co/datasets/wangbaoyi/WideSWE) · [依据](https://arxiv.org/html/2609.33382v1)
+
+## Agentless: Demystifying LLM-based Software Engineering Agents
+
+Agentless 将定位、修复与补丁验证拆成简洁流程，可作为方法消融参照。
+
+作者：Chunqiu Steven Xia, Yinlin Deng, Soren Dunn, Lingming Zhang
+
+收录性质：研究种子／超出近30天窗口，不属于新增
+
+投稿：2024-07-01T17:24:45Z
+
+版本更新：2024-10-29T17:29:27Z
+
+公开批次：API未提供／RSS待核查
+
+首次发现：2026-11-03T08:13:04.122320+00:00
+
+发表状态：当前仅核实 arXiv 记录；正式发表状态待核查
+
+相关等级：P2；定位与验证有迁移价值；SWE-bench 覆盖多个项目，每项修复仍针对一个目标仓库。
+
+任务分类：④ 多仓库数据集、单目标任务
+
+任务设置：依据摘要和官方代码说明，未发现单项任务要求修改多个目标仓库的证据；不据此宣称跨仓库协同能力。
+
+作者方法：分层定位文件与编辑位置，生成候选补丁，用回归及复现测试筛选。
+
+作者实验依据：摘要报告 SWE-bench Lite 实验；此条未核查论文正文，不复述历史排名、费用或将其当作当前性能。方法细节另核对官方 README。
+
+对本课题的建议：建议增加仓库级定位步骤，比较简洁流水线与自主 Agent；需要独立设计多目标联合验证，不能直接外推现有结果。
+
+精读／复现建议：后续精读定位与补丁验证章节，并核对官方版本；先作为单目标基线，再做有控制的跨仓库扩展。
+
+核查范围：仅摘要
+
+[原文](https://arxiv.org/abs/2407.01489) · [代码](https://github.com/OpenAutoCoder/Agentless) · [依据](https://github.com/OpenAutoCoder/Agentless)
+
+## BeyondSWE: Can Current Code Agent Survive Beyond Single-Repo Bug Fixing?
+
+BeyondSWE 的 CrossRepo 用外部软件证据帮助修复一个目标仓库。
+
+作者：Guoxin Chen, Fanzhe Meng, Jiale Zhao, Minghao Li, Daixuan Cheng, Huatong Song, Jie Chen, Yuzhi Lin, Hui Chen, Xin Zhao, Ruihua Song, Chang Liu, Cheng Chen, Kai Jia, Ji-Rong Wen
+
+收录性质：研究种子／超出近30天窗口，不属于新增
+
+投稿：2026-03-03T17:52:01Z
+
+版本更新：2026-05-26T12:00:46Z
+
+公开批次：API未提供／RSS待核查
+
+首次发现：2026-11-03T08:13:04.122470+00:00
+
+发表状态：arXiv 预印本；未核实正式录用
+
+相关等级：P2；检索证据与版本对齐的方法可迁移；CrossRepo 不是多目标仓库协同修改任务。
+
+任务分类：② 外部仓库辅助单目标修复
+
+任务设置：此条只归类 CrossRepo 子任务；整套基准另有领域修复、依赖迁移与文档到仓库生成，不能统一视作协同修复。
+
+作者方法：SearchSWE 为编码流程加入搜索与取证，比较外部信息能否转化为本地可执行修改。
+
+作者实验依据：v2 §3.1–3.2 核查目标与知识范围，§5 与附录 B 分析版本错配及上下文污染；此处不混用 v1/v2 分数。
+
+对本课题的建议：建议将外部证据记录为带版本和来源的接口约束，再为每个目标仓库生成验证义务。该迁移方案尚待实验。
+
+精读／复现建议：精读 v2 §3.2、§4、§5.3 与附录 B；作为外部检索消融参考，不能直接替代 WideSWE 主评测。
+
+核查范围：已核查正文
+
+[原文](https://arxiv.org/abs/2603.03194) · [代码](https://github.com/AweAI-Team/BeyondSWE) · [数据](https://huggingface.co/datasets/AweAI-Team/BeyondSWE) · [依据](https://arxiv.org/html/2603.03194v2)
+
+## 检索覆盖与限制
+
+arxiv-id-lookup: ok
