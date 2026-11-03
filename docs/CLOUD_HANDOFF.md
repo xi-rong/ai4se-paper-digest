@@ -2,6 +2,16 @@
 
 仓库：https://github.com/xi-rong/ai4se-paper-digest （Private）
 
+## 本轮已完成的准备
+
+- 环境名 `ai4se-paper-digest`，Only me；环境配置ID `a039e561-c476-487a-a822-3ef38e05576b~asenvcfg_7e4878ae5d008191adb165121a5f320f`。
+- 北京时间2026-11-03 16:37界面明确确认发布，列表ready/runnable=true。发布不是系统验收，见evidence/environment-published.json。
+- 设置任务 `01a1a07d-21f2-714f-be53-194b9ba6c02c` 运行20项测试通过；GitStore复用云端授权写入并读回 `digest-state`，提交 `de97ddfc44fa3678f474e12df4c2da0e4c02a1f2`，不需要新增GitHub token。
+- 设置VM的arXiv受旧网络策略拒绝，未绕过；首次新任务启动容器HTTP400，不能标为论文API失败。发布成功后的复验任务 `01a1a08f-a324-70c0-893a-7367656b902a` 的最终结果应优先查看。
+- 发布后复验已成功：20项测试，arXiv200，4篇种子/两份reviews/预览，dry-run状态哈希不变且outbox为空。另一个新VM成功读旧探针，再写 `b9c60f8016337237371943063245f6ce296138f9` 并重读；跨任务状态已验证。证据 `evidence/cloud-postpublish-validation.json`，由云任务提交 `dc9903c886ba688930e0a4d7987b4d3ae908e732`。该首轮网络诊断使用临时transport instrumentation保留精确错误，原始CLI不替换transport的完整采集复验另记。
+- 近30天本地采集合并970条新论文/版本记录，连同种子总973条；只完成4条审核，不声称其余不相关。远端初始状态仅有4条精选及探针；全量元数据仍在本地var中，需后续云端采集后保存远端。
+- 日报/周报预览已生成；真实邮件、定时桥接和关机验证均未完成。没有外部调度/额外模型API/付费服务。
+
 ## 创建和发布
 
 Settings → Codex Cloud → Environments → Create environment，或新聊天 Work in → Cloud → 选择环境 → 创建环境。
@@ -27,9 +37,9 @@ python3 -m paper_digest.cli preview --kind history --out var/cloud-preview
 
 ## 待补证据
 
-- 环境 ID、发布状态与环境页链接：设置完成后记录。
-- 新云任务重跑：待验证。
-- 私有 GitHub 状态跨云任务读写：待验证（连接工具与 Python 凭证分别验证）。
+- 环境 ID、发布状态：已记录于evidence/environment-published.json；设置页为当前云端设置聊天的环境面板。
+- 新云任务运行、arXiv请求、预览：已验证；原始CLI完整采集复验见最新证据。
+- 私有 GitHub 状态跨云任务读写：GitStore已验证，无新增凭证；备选HTTPS令牌模式仍未配置/实测。
 - 完整日报真实邮件：待收件地址及服务。
 - 云端定时桥接、短期测试与关机执行：待验证。
 

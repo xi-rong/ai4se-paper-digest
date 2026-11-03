@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-11-03T08:30:00Z",
+  "clash_ui": {
+    "version": "2.5.9",
+    "tun_enabled": true,
+    "system_proxy_enabled": false,
+    "mode": "rule",
+    "mixed_port": 7897,
+    "displayed_country": "US",
+    "displayed_asn": "AS14061",
+    "displayed_provider": "DigitalOcean, LLC"
+  },
+  "comparison": "current route and explicit proxy use same hashed egress; not a different-IP A/B test",
+  "changes_to_clash": false
+}

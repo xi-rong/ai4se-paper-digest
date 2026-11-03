@@ -15,7 +15,7 @@
       "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")"
     ]
   },
-  "semantic_scholar": {"seed": "ARXIV:2609.33382", "authors": [], "enabled": true},
+  "semantic_scholar": {"seed": "ARXIV:2609.33382", "authors": [], "enabled": true, "token_env": "DIGEST_S2_TOKEN"},
   "dblp": {"queries": ["cross repository repair", "software engineering agents"], "enabled": true},
   "github_releases": ["ZJU-ACES-ISE/WideSWE"],
   "venue_lists": [],

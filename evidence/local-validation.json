@@ -4,11 +4,15 @@
   "paper_records": 973,
   "reviewed_current_versions": 4,
   "outbox_count": 0,
-  "tests": "18 passed",
+  "tests": "20 passed",
   "remote_state_branch": "digest-state",
   "remote_state_commit": "dd9bec64d4db18f62d0cfb2ec86f91d46b72783b",
   "notes": [
     "Remote checkpoint contains four selected records; full 30-day corpus remains local until cloud collection/persistence validated.",
     "No email or scheduler enabled."
-  ]
+  ],
+  "cloud_tests": "20 passed",
+  "cloud_arxiv_status": 200,
+  "cloud_cross_task_persistence": true,
+  "published": true
 }

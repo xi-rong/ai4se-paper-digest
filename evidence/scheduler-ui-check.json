@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-11-03T08:38:00Z",
+  "url": "https://chatgpt.com/scheduled?automationMode=create",
+  "created_task": false,
+  "observed_fields": [
+    "name",
+    "prompt",
+    "recurrence",
+    "time",
+    "end_recurrence"
+  ],
+  "observed_detail_text": "即使此设备离线，也会在云端运行。聊天、项目、模型和推理设置不适用于云端任务",
+  "codex_environment_picker_present": false,
+  "conclusion": "Cloud scheduled tasks exist in this account; no direct Codex Cloud environment binding exposed in this form. Prompt-based supported-tool bridge remains untested. Draft cancelled without saving.",
+  "recorded_at_utc": "2026-11-03T08:39:51.827389+00:00"
+}

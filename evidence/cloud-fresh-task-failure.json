@@ -1,0 +1,26 @@
+{
+  "thread": {
+    "id": "01a1a08a-b119-745c-848f-006e757e803c",
+    "kind": "codex",
+    "hostId": "durable",
+    "title": "AI4SE 云端最小验收与网络核验",
+    "preview": "",
+    "status": {
+      "type": "idle"
+    },
+    "cwd": "/workspace",
+    "createdAt": 1793694806,
+    "updatedAt": 1793694843
+  },
+  "turns": [
+    {
+      "id": "01a1a08a-b73a-7414-bdae-7c0883d11870",
+      "startedAt": 1793694807,
+      "completedAt": 1793694843,
+      "status": "completed",
+      "final": [
+        "云端验收被环境启动失败阻塞，**未通过验收**。\n\n任务：`01a1a08a-b119-745c-848f-006e757e803c`  \n核验时间：2026-11-03 16:33:42（北京时间）\n\n| 验证项 | 结果 |\n|---|---|\n| 实际环境 | 容器创建失败：`container_service_failed`，HTTP 400；执行命令也确认无可用环境 |\n| Spec revision | 配置与观测均为 `1`，观测为当前状态 |\n| 网络状态 | `offline`；restricted 策略状态为 `unknown`，不能认定已生效 |\n| 额外允许域名 | api.github.com、api.semanticscholar.org、arxiv.org、dblp.org、export.arxiv.org、github.com、raw.githubusercontent.com、rss.arxiv.org |\n| 代理与 TLS | 无法读取运行时配置或实测；未关闭代理、未禁用 TLS |\n| 保留诊断 | 无记录：`history_status=not_found` |\n| 源码 SHA、AGENTS.md、交接文档 | 环境不可用，未读取 |\n| 20 项测试 | 全部未执行 |\n| arXiv、Semantic Scholar、DBLP | 均未发起请求，不能标为 API 失败 |\n| GitStore 远端状态与 SHA、跨任务读写 | 未执行 |\n| seed、reviews 导入、预览、state 哈希、空 outbox | 未执行 |\n| evidence 文件及 main 提交推送 | 未完成，无可用文件系统与执行环境 |\n\n未发送邮件、未创建定时任务、未安装外部服务，也未使用本机 Clash 出口。\n\n需要用户在云端环境界面重试启动；若仍出现 HTTP 400，联系平台支持处理容器创建失败。环境恢复后才能继续执行验收并提交证据；`runnable=true` 本身不能证明环境实际可用。"
+      ]
+    }
+  ]
+}

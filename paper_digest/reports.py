@@ -77,7 +77,7 @@ def render(state, kind, coverage=None, max_papers=10, now=None):
         blocks.append((paper["title"], "\n\n".join(body), links))
     if kind == "weekly":
         types = sorted({TASK_LABEL[r["task_type"]] for _, r in items})
-        blocks.append(("本周样本与行动", f"仅总结本周实际收集的 {len(items)} 篇：" + "、".join(types)
+        blocks.append(("本周样本与行动", f"仅总结本周收集且已审读选入本报告的 {len(items)} 篇：" + "、".join(types)
                        + "。这些样本不足以推断整个领域的确定趋势。\n\n复现实验与精读行动见各篇建议；新增基准须核对任务目标仓库数量与所有目标联合成功指标。"))
     coverage = coverage if coverage is not None else (state["runs"][-1].get("coverage", []) if state["runs"] else [])
     blocks.append(("检索覆盖与限制", "\n".join(f"{c['source']}: {c['status']}" for c in coverage)

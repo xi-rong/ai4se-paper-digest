@@ -34,6 +34,8 @@ python3 -m paper_digest.cli status
 
 ## 完整邮件
 
+Semantic Scholar若需要官方key，可在同一云端保险库添加`DIGEST_S2_TOKEN`，Allowed domains仅`api.semanticscholar.org`，程序用`x-api-key`头发送。它是文献服务凭证，不是模型API。当前未配置，未认证共享限流仍可能返回429，失败需保留而不能报告为零引用。
+
 当前没有已连接的无人值守发送插件。Resend HTTPS 适配器作为可选方案，尚未选择/开通/真实验证，不默认购买。也可在用户确认后实现其他邮件 API。未启用 SMTP。
 
 用户确认收件地址后填 `mail.recipient`，填已验证发件人 `mail.sender`、`mail.provider=resend`。在 Personal vault 加 Network secret `DIGEST_MAIL_TOKEN`，目的地仅 `api.resend.com`；请求头会携带占位值，由云代理替换。须测试云端实际注入。不要将网络密钥用于 SMTP。

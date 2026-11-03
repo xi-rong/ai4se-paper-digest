@@ -9,12 +9,12 @@
 
 | 能力 | 官方说明与实际检查 | 当前结论 |
 |---|---|---|
-| A 创建/发布/启动 Codex Cloud | 文档有 Work in → Cloud → Create environment → Publish；账号列表最初为空；网页实际出现创建入口且能访问新私有仓库 | 创建与发布正在实施，最终证据见交接状态 |
-| B 定时启动指定编程环境 | 文档区分网页定时任务与本地项目；当前 automation_update schema 仅 local cron / 当前聊天 heartbeat，无 environmentConfigId 参数 | 未找到可直接绑定 Codex Cloud 环境的已验证调度；不可宣称绝对不支持所有账号 |
+| A 创建/发布/启动 Codex Cloud | 已创建Only me环境；北京时间16:37界面确认发布；其后新任务01a1a08f运行20项测试与真实arXiv请求成功 | 创建、发布、从新任务运行已验证，完整日报系统仍未验收 |
+| B 定时启动指定编程环境 | 工具schema无environmentConfigId；实际打开网页Scheduled创建表单，只有提示/频率/时间等，无编程环境选择；明确显示聊天/项目/模型/推理设置不适用于云任务 | 云端定时能力存在，但直接绑定编程环境未验证；通过支持工具启动环境的衔接待实测，未启用正式任务 |
 | C 关闭电脑仍运行 | Cloud 环境文档说明任务可在电脑睡眠时继续；本地项目调度需电脑与 app 在线 | 原生云端单次任务有文档支持；本项目关机测试待验证 |
-| D 来源/模型/邮件/存储网络 | 环境可配置允许域名、直接变量及 HTTPS 网络密钥 | 本地真实 arXiv 已通；所有云端目标待实测 |
+| D 来源/模型/邮件/存储网络 | 新VM额外域名已enforced，保留HTTPS代理和TLS；arXiv200、S2 429、DBLP202；原生Git读写成功 | arXiv/存储云端实测；S2/DBLP暂不可用；邮件目的地及凭证待配置。分析由当前Codex完成，无额外模型API |
 | E 无人值守完整邮件 | 未连接邮件发送插件；任务通知邮件与自定义 HTML 正文发送不同 | HTTPS 适配器已实现，真实发信待固定收件人/服务凭证 |
-| F 跨任务状态 | 新任务使用发布快照，各自工作文件分离；重要数据需持久保存 | GitHub 私有状态分支 + CAS 实现；远端读写和新云任务读取需分别验证 |
+| F 跨任务状态 | 设置任务写de97ddf，新云任务读到匹配探针，再写b9c60f8并重读；论文发送状态未变 | 两个真实云任务共享私有分支状态已验证；原生Git授权，无新增token |
 
 工具实测：`list_cloud_environments({})` 初始返回 `environments: []`、`nextCursor: null`。GitHub 插件可读写新私有仓库。GitHub 插件没有创建仓库工具，因此通过已登录 GitHub 网页创建；创建后插件核实 visibility=private。桌面 app 的 Computer Use 被安全策略禁止；通过 Edge 的公开 UI 创建环境，不访问隐藏接口。
 

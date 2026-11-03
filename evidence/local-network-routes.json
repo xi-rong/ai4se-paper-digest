@@ -1,0 +1,64 @@
+[
+  {
+    "route": "current_route",
+    "target": "egress",
+    "at": "2026-11-03T08:30:21.154872+00:00",
+    "status": 200,
+    "content_type": "application/json",
+    "egress_hash": "ada70a4485cb8bde"
+  },
+  {
+    "route": "current_route",
+    "target": "arxiv",
+    "at": "2026-11-03T08:30:25.106648+00:00",
+    "status": 200,
+    "content_type": "application/atom+xml; charset=utf-8"
+  },
+  {
+    "route": "current_route",
+    "target": "s2",
+    "at": "2026-11-03T08:30:28.745673+00:00",
+    "error_type": "HTTPError",
+    "http_status": 429,
+    "reason_type": "str"
+  },
+  {
+    "route": "current_route",
+    "target": "dblp",
+    "at": "2026-11-03T08:30:32.374952+00:00",
+    "status": 202,
+    "content_type": "text/html; charset=utf-8",
+    "challenge": "anti_bot"
+  },
+  {
+    "route": "explicit_clash_http",
+    "target": "egress",
+    "at": "2026-11-03T08:30:36.699097+00:00",
+    "status": 200,
+    "content_type": "application/json",
+    "egress_hash": "ada70a4485cb8bde"
+  },
+  {
+    "route": "explicit_clash_http",
+    "target": "arxiv",
+    "at": "2026-11-03T08:30:40.379335+00:00",
+    "status": 200,
+    "content_type": "application/atom+xml; charset=utf-8"
+  },
+  {
+    "route": "explicit_clash_http",
+    "target": "s2",
+    "at": "2026-11-03T08:30:43.977229+00:00",
+    "error_type": "HTTPError",
+    "http_status": 429,
+    "reason_type": "str"
+  },
+  {
+    "route": "explicit_clash_http",
+    "target": "dblp",
+    "at": "2026-11-03T08:30:48.356733+00:00",
+    "status": 202,
+    "content_type": "text/html; charset=utf-8",
+    "challenge": "anti_bot"
+  }
+]

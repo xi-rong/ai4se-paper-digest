@@ -20,6 +20,6 @@ test_sent_replay_does_not_call_provider_or_reselect (test_pipeline.PipelineTests
 test_stale_writer_rejected (test_pipeline.PipelineTests.test_stale_writer_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 20 tests in 1.042s
+Ran 20 tests in 1.021s
 
 OK

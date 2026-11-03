@@ -1,6 +1,7 @@
 """Official API/RSS collectors. Failure and truncation are explicit coverage states."""
 import hashlib
 import json
+import os
 import re
 import time
 import xml.etree.ElementTree as ET
@@ -133,13 +134,18 @@ def rss(config):
 def weekly(config):
     """Return discovery candidates, NOT automatically reviewed paper records."""
     candidates, coverage = [], []
+    public_headers = {"User-Agent": config["user_agent"], "Accept": "application/json"}
+    s2_headers = dict(public_headers)
+    token_name = config["semantic_scholar"].get("token_env", "DIGEST_S2_TOKEN")
+    if os.environ.get(token_name):
+        s2_headers["x-api-key"] = os.environ[token_name]
 
     def paged(source, url, key, limit=100, max_pages=100):
         offset = 0
         count = 0
         try:
             for _ in range(max_pages):
-                data = get_json(url + ("&" if "?" in url else "?") + urlencode({"offset": offset, "limit": limit}))
+                data = get_json(url + ("&" if "?" in url else "?") + urlencode({"offset": offset, "limit": limit}), headers=s2_headers)
                 batch = data.get("data", [])
                 candidates.extend({"source": source, "record": r.get(key, r)} for r in batch)
                 count += len(batch)
@@ -162,7 +168,7 @@ def weekly(config):
         if not config["semantic_scholar"]["authors"]:
             coverage.append({"source": "s2-authors", "status": "unconfigured"})
         try:
-            data = get_json(f"https://api.semanticscholar.org/recommendations/v1/papers/forpaper/{seed}?limit=100&fields=" + fields)
+            data = get_json(f"https://api.semanticscholar.org/recommendations/v1/papers/forpaper/{seed}?limit=100&fields=" + fields, headers=s2_headers)
             candidates.extend({"source": "s2-recommendations", "record": r} for r in data.get("recommendedPapers", []))
             coverage.append({"source": "s2-recommendations", "status": "ok", "bounded": 100})
         except Exception as e:
@@ -172,7 +178,7 @@ def weekly(config):
             count = 0
             try:
                 for offset in range(0, 10000, 100):
-                    data = get_json("https://dblp.org/search/publ/api?" + urlencode({"q": query, "format": "json", "h": 100, "f": offset}))
+                    data = get_json("https://dblp.org/search/publ/api?" + urlencode({"q": query, "format": "json", "h": 100, "f": offset}), headers=public_headers)
                     hits = data["result"]["hits"]
                     batch = hits.get("hit", [])
                     if isinstance(batch, dict):
@@ -191,7 +197,7 @@ def weekly(config):
                 coverage.append({"source": "dblp:" + query, "status": "failed", "count": count, "error": type(e).__name__})
     for repo in config["github_releases"]:
         try:
-            data = get_json(f"https://api.github.com/repos/{repo}/releases?per_page=30")
+            data = get_json(f"https://api.github.com/repos/{repo}/releases?per_page=30", headers=public_headers)
             candidates.extend({"source": "github-release:" + repo, "record": r} for r in data)
             coverage.append({"source": "github-release:" + repo, "status": "partial" if len(data) == 30 else "ok", "count": len(data)})
         except Exception as e:

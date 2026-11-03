@@ -148,7 +148,7 @@ BeyondSWE 的 CrossRepo 用外部软件证据帮助修复一个目标仓库。
 
 ## 本周样本与行动
 
-仅总结本周实际收集的 4 篇：① 多仓库协同修改、② 外部仓库辅助单目标修复、④ 多仓库数据集、单目标任务。这些样本不足以推断整个领域的确定趋势。
+仅总结本周收集且已审读选入本报告的 4 篇：① 多仓库协同修改、② 外部仓库辅助单目标修复、④ 多仓库数据集、单目标任务。这些样本不足以推断整个领域的确定趋势。
 
 复现实验与精读行动见各篇建议；新增基准须核对任务目标仓库数量与所有目标联合成功指标。
 
@@ -160,6 +160,20 @@ arxiv-rss:cs.SE: ok
 arxiv-rss:cs.AI: ok
 arxiv-rss:cs.CL: ok
 arxiv-rss:cs.LG: ok
+s2-citations: failed
+s2-authors: unconfigured
+s2-recommendations: failed
+dblp:cross repository repair: failed
+dblp:software engineering agents: failed
+github-release:ZJU-ACES-ISE/WideSWE: ok
+ICSE: unconfigured
+FSE: unconfigured
+ASE: unconfigured
+ISSTA: unconfigured
+AI venues: unconfigured
+TSE: unconfigured
+TOSEM: unconfigured
+EMSE: unconfigured
 
 ## 审读进度
 

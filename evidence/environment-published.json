@@ -1,0 +1,14 @@
+{
+  "observed_at_utc": "2026-11-03T08:38:08Z",
+  "environment_config_id": "a039e561-c476-487a-a822-3ef38e05576b~asenvcfg_7e4878ae5d008191adb165121a5f320f",
+  "name": "ai4se-paper-digest",
+  "repository": "xi-rong/ai4se-paper-digest",
+  "privacy": "Only me",
+  "tool_status": "ready",
+  "tool_runnable": true,
+  "ui_confirmation_time_shanghai": "2026-11-03 16:37",
+  "ui_confirmation_text": "环境已发布。基于最新发布版本的新草稿现已加载到此聊天中。",
+  "setup_thread_id": "01a1a07d-21f2-714f-be53-194b9ba6c02c",
+  "initial_publish_attempt": "UI failure and revision conflict; later loaded latest base and republished successfully",
+  "acceptance": "fresh post-publish task validation pending; publication alone is not acceptance"
+}
