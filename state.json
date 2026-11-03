@@ -1,0 +1,296 @@
+{
+  "schema": 1,
+  "revision": 4,
+  "papers": {
+    "arxiv:2407.01489": {
+      "id": "arxiv:2407.01489",
+      "arxiv_id": "2407.01489",
+      "version": 2,
+      "title": "Agentless: Demystifying LLM-based Software Engineering Agents",
+      "abstract": "Recent advancements in large language models (LLMs) have significantly advanced the automation of software development tasks, including code synthesis, program repair, and test generation. More recently, researchers and industry practitioners have developed various autonomous LLM agents to perform end-to-end software development tasks. These agents are equipped with the ability to use tools, run commands, observe feedback from the environment, and plan for future actions. However, the complexity of these agent-based approaches, together with the limited abilities of current LLMs, raises the following question: Do we really have to employ complex autonomous software agents? To attempt to answer this question, we build Agentless -- an agentless approach to automatically solve software development problems. Compared to the verbose and complex setup of agent-based approaches, Agentless employs a simplistic three-phase process of localization, repair, and patch validation, without letting the LLM decide future actions or operate with complex tools. Our results on the popular SWE-bench Lite benchmark show that surprisingly the simplistic Agentless is able to achieve both the highest performance (32.00%, 96 correct fixes) and low cost ($0.70) compared with all existing open-source software agents! Furthermore, we manually classified the problems in SWE-bench Lite and found problems with exact ground truth patch or insufficient/misleading issue descriptions. As such, we construct SWE-bench Lite-S by excluding such problematic issues to perform more rigorous evaluation and comparison. Our work highlights the current overlooked potential of a simple, interpretable technique in autonomous software development. We hope Agentless will help reset the baseline, starting point, and horizon for autonomous software agents, and inspire future work along this crucial direction.",
+      "authors": [
+        "Chunqiu Steven Xia",
+        "Yinlin Deng",
+        "Soren Dunn",
+        "Lingming Zhang"
+      ],
+      "submitted_at": "2024-07-01T17:24:45Z",
+      "updated_at": "2024-10-29T17:29:27Z",
+      "categories": [
+        "cs.SE",
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "primary_category": "cs.SE",
+      "url": "https://arxiv.org/abs/2407.01489",
+      "discovered_at": "2026-11-03T08:13:04.122320+00:00",
+      "sources": [
+        "arxiv-api"
+      ],
+      "first_discovered_at": "2026-11-03T08:13:04.122320+00:00",
+      "last_seen_at": "2026-11-03T08:13:04.122590+00:00",
+      "processing_status": "reviewed",
+      "send_status": "unsent"
+    },
+    "arxiv:2603.03194": {
+      "id": "arxiv:2603.03194",
+      "arxiv_id": "2603.03194",
+      "version": 2,
+      "title": "BeyondSWE: Can Current Code Agent Survive Beyond Single-Repo Bug Fixing?",
+      "abstract": "Current code-agent benchmarks primarily evaluate localized issue resolution within a single target repository, leaving under-tested many software engineering tasks that require external knowledge or broader repository-level changes. We introduce BeyondSWE, a 500-instance benchmark drawn from 246 real-world GitHub repositories to evaluate code agents beyond single-repository bug fixing. BeyondSWE covers four representative settings: cross-repository issue resolution, domain-specific issue resolution, dependency-driven migration, and document-to-repository generation, spanning both broader knowledge scope and broader resolution scope. Our evaluation shows that BeyondSWE remains far from saturated: the best OpenHands-based agent reaches 46.12 average score, while the strongest Codex harness with GPT-5.4 (xhigh) reaches 56.65 under a search-aware prompt. To study whether external information access closes this gap, we use SearchSWE as a controlled diagnostic baseline for search-augmented coding. Search access improves most models and substantially helps some tasks, but the gains remain limited and uneven, showing that current agents still struggle to convert retrieved information into precise, version-compatible, and locally actionable code changes. These results suggest that deep search for coding remains an open problem: progress requires agents that can reliably combine external evidence with repository-local reasoning and execution-based verification.",
+      "authors": [
+        "Guoxin Chen",
+        "Fanzhe Meng",
+        "Jiale Zhao",
+        "Minghao Li",
+        "Daixuan Cheng",
+        "Huatong Song",
+        "Jie Chen",
+        "Yuzhi Lin",
+        "Hui Chen",
+        "Xin Zhao",
+        "Ruihua Song",
+        "Chang Liu",
+        "Cheng Chen",
+        "Kai Jia",
+        "Ji-Rong Wen"
+      ],
+      "submitted_at": "2026-03-03T17:52:01Z",
+      "updated_at": "2026-05-26T12:00:46Z",
+      "categories": [
+        "cs.CL",
+        "cs.SE"
+      ],
+      "primary_category": "cs.CL",
+      "url": "https://arxiv.org/abs/2603.03194",
+      "discovered_at": "2026-11-03T08:13:04.122470+00:00",
+      "sources": [
+        "arxiv-api"
+      ],
+      "first_discovered_at": "2026-11-03T08:13:04.122470+00:00",
+      "last_seen_at": "2026-11-03T08:13:04.122604+00:00",
+      "processing_status": "reviewed",
+      "send_status": "unsent"
+    },
+    "arxiv:2609.33382": {
+      "id": "arxiv:2609.33382",
+      "arxiv_id": "2609.33382",
+      "version": 1,
+      "title": "WideSWE: Can Coding Agents Coordinate Changes Across Repositories?",
+      "abstract": "Coding-agent evaluation has progressed from resolving individual issues to carrying out long-horizon development, yet task completion is still largely assessed within a single codebase. In software ecosystems, many features and bug fixes require coordinated changes across multiple repositories. We introduce WideSWE to evaluate coding agents on such cross-repository tasks. Mining and reviewing changes across 103 software ecosystems yields 120 real-world tasks, balanced between 60 bug fixes and 60 features. We derive prompts from related issues and pull requests. We systematically review and adapt hidden tests to support diverse correct implementations while preserving required behavior and regression checks. Across seven agent configurations, full task success ranges from 10.83% to 42.50%, with the configuration pairing Codex CLI with GPT-5.6-sol achieving the highest rate. Trajectories show agents failing to identify necessary changes, recognizing changes but leaving them unfinished, or modifying the required repositories without fully satisfying the request. To examine whether working on one repository at a time can alleviate these difficulties, we compare it with joint execution under identical prompts. Independent execution mainly recovers omitted work and is less effective at correcting previously attempted but unsuccessful implementations. Joint execution can use information from related repositories to guide implementation and verification. Code is available at https://github.com/ZJU-ACES-ISE/WideSWE.",
+      "authors": [
+        "Baoyi Wang",
+        "Xingliang Wang",
+        "Jinyang Wu",
+        "Keming Wu",
+        "Chen Zhi",
+        "Jianwei Yin"
+      ],
+      "submitted_at": "2026-09-27T09:02:49Z",
+      "updated_at": "2026-09-27T09:02:49Z",
+      "categories": [
+        "cs.SE"
+      ],
+      "primary_category": "cs.SE",
+      "url": "https://arxiv.org/abs/2609.33382",
+      "discovered_at": "2026-11-03T08:13:04.122542+00:00",
+      "sources": [
+        "arxiv-api"
+      ],
+      "first_discovered_at": "2026-11-03T08:13:04.122542+00:00",
+      "last_seen_at": "2026-11-03T08:13:04.122613+00:00",
+      "processing_status": "reviewed",
+      "send_status": "unsent"
+    },
+    "arxiv:2611.01484": {
+      "id": "arxiv:2611.01484",
+      "arxiv_id": "2611.01484",
+      "version": 1,
+      "title": "CrossSWE: Benchmarking Cross-Repository Joint Development for Coding Agents",
+      "abstract": "As coding agents achieve increasingly high success rates on software engineering benchmarks, recent efforts have sought to increase task complexity through longer horizons and more extensive code modifications. However, real-world software development often spans multiple interdependent repositories, introducing additional challenges in dependency reasoning, change propagation, and interface consistency. Rather than further increasing complexity within individual repositories, we introduce CrossSWE, a benchmark for cross-repository joint development comprising 171 real-world instances spanning 165 repositories, 20 technical domains, and 13 programming languages. CrossSWE verifies the necessity of coordinated changes by testing whether partial repository modifications are insufficient to achieve the intended behavior. Our evaluation of five LLMs reveals substantial challenges, with the strongest model, GPT-6.1 Sol, achieving only 58.48% Pass@1. Furthermore, cross-repository inconsistencies emerge as the most prevalent failure mode (44.2%), highlighting the difficulty of maintaining consistency across interdependent repositories.",
+      "authors": [
+        "Silin Chen",
+        "Yuling Shi",
+        "Heng Lian",
+        "Zihan Zhang",
+        "Xiaodong Gu",
+        "Haotian Lin",
+        "Zhensu Sun"
+      ],
+      "submitted_at": "2026-11-01T03:16:52Z",
+      "updated_at": "2026-11-01T03:16:52Z",
+      "categories": [
+        "cs.SE"
+      ],
+      "primary_category": "cs.SE",
+      "url": "https://arxiv.org/abs/2611.01484",
+      "discovered_at": "2026-11-03T08:16:43.088849+00:00",
+      "sources": [
+        "arxiv-api"
+      ],
+      "first_discovered_at": "2026-11-03T08:16:43.088849+00:00",
+      "last_seen_at": "2026-11-03T08:17:06.495523+00:00",
+      "processing_status": "reviewed",
+      "send_status": "unsent"
+    }
+  },
+  "aliases": {
+    "arxiv:2407.01489": "arxiv:2407.01489",
+    "arxiv:2603.03194": "arxiv:2603.03194",
+    "arxiv:2609.33382": "arxiv:2609.33382",
+    "arxiv:2611.01484": "arxiv:2611.01484"
+  },
+  "reviews": {
+    "arxiv:2609.33382:v1": {
+      "paper_id": "arxiv:2609.33382",
+      "version": 1,
+      "priority": "P1",
+      "seed_only": true,
+      "task_type": "multi_repo_coordinated",
+      "summary_zh": "共享缺陷修复需求下，识别并完成多个目标仓库的修改与联合验证。",
+      "relevance_reason": "直接对应跨仓库协同修复；研究时应单独报告 bugfix 子集。",
+      "task_setting": "至少两个目标仓库需要实质修改；上下文仓库可供参考。所有目标仓库的要求和回归检查通过才算任务成功。",
+      "method": "从关联变更构建共享请求与历史环境，审查隐藏测试；比较联合执行与逐仓库独立执行。",
+      "evidence": "正文 §2 定义任务，§4 与附录 B/C 分析遗漏目标、已识别但未交付、修改后仍失败。独立执行比较不匹配整项任务的总预算，不能作等预算因果结论。",
+      "research_use": "建议采用目标仓库召回率、接口契约检查和所有目标联合通过率；区分定位、交付和验证失败。以上为本课题建议。",
+      "reading_advice": "精读 §2.1、§2.3、§4.3、附录 B.1/C/D；先复现 bugfix 子集，并对齐任务总预算。",
+      "basis": "fulltext",
+      "evidence_urls": [
+        "https://arxiv.org/html/2609.33382v1"
+      ],
+      "publication_status": "arXiv 预印本；未核实正式录用",
+      "links": [
+        {
+          "kind": "代码",
+          "url": "https://github.com/ZJU-ACES-ISE/WideSWE",
+          "verified_at": "2026-11-03",
+          "evidence_url": "https://arxiv.org/abs/2609.33382"
+        },
+        {
+          "kind": "数据",
+          "url": "https://huggingface.co/datasets/wangbaoyi/WideSWE",
+          "verified_at": "2026-11-03",
+          "evidence_url": "https://zju-aces-ise.github.io/WideSWE/"
+        }
+      ],
+      "reviewed_at": "2026-11-03T08:14:42.894765+00:00"
+    },
+    "arxiv:2603.03194:v2": {
+      "paper_id": "arxiv:2603.03194",
+      "version": 2,
+      "priority": "P2",
+      "seed_only": true,
+      "task_type": "external_repo_context",
+      "summary_zh": "BeyondSWE 的 CrossRepo 用外部软件证据帮助修复一个目标仓库。",
+      "relevance_reason": "检索证据与版本对齐的方法可迁移；CrossRepo 不是多目标仓库协同修改任务。",
+      "task_setting": "此条只归类 CrossRepo 子任务；整套基准另有领域修复、依赖迁移与文档到仓库生成，不能统一视作协同修复。",
+      "method": "SearchSWE 为编码流程加入搜索与取证，比较外部信息能否转化为本地可执行修改。",
+      "evidence": "v2 §3.1–3.2 核查目标与知识范围，§5 与附录 B 分析版本错配及上下文污染；此处不混用 v1/v2 分数。",
+      "research_use": "建议将外部证据记录为带版本和来源的接口约束，再为每个目标仓库生成验证义务。该迁移方案尚待实验。",
+      "reading_advice": "精读 v2 §3.2、§4、§5.3 与附录 B；作为外部检索消融参考，不能直接替代 WideSWE 主评测。",
+      "basis": "fulltext",
+      "evidence_urls": [
+        "https://arxiv.org/html/2603.03194v2"
+      ],
+      "publication_status": "arXiv 预印本；未核实正式录用",
+      "links": [
+        {
+          "kind": "代码",
+          "url": "https://github.com/AweAI-Team/BeyondSWE",
+          "verified_at": "2026-11-03",
+          "evidence_url": "https://arxiv.org/abs/2603.03194"
+        },
+        {
+          "kind": "数据",
+          "url": "https://huggingface.co/datasets/AweAI-Team/BeyondSWE",
+          "verified_at": "2026-11-03",
+          "evidence_url": "https://arxiv.org/abs/2603.03194"
+        }
+      ],
+      "reviewed_at": "2026-11-03T08:14:42.894842+00:00"
+    },
+    "arxiv:2407.01489:v2": {
+      "paper_id": "arxiv:2407.01489",
+      "version": 2,
+      "priority": "P2",
+      "seed_only": true,
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "Agentless 将定位、修复与补丁验证拆成简洁流程，可作为方法消融参照。",
+      "relevance_reason": "定位与验证有迁移价值；SWE-bench 覆盖多个项目，每项修复仍针对一个目标仓库。",
+      "task_setting": "依据摘要和官方代码说明，未发现单项任务要求修改多个目标仓库的证据；不据此宣称跨仓库协同能力。",
+      "method": "分层定位文件与编辑位置，生成候选补丁，用回归及复现测试筛选。",
+      "evidence": "摘要报告 SWE-bench Lite 实验；此条未核查论文正文，不复述历史排名、费用或将其当作当前性能。方法细节另核对官方 README。",
+      "research_use": "建议增加仓库级定位步骤，比较简洁流水线与自主 Agent；需要独立设计多目标联合验证，不能直接外推现有结果。",
+      "reading_advice": "后续精读定位与补丁验证章节，并核对官方版本；先作为单目标基线，再做有控制的跨仓库扩展。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2407.01489",
+        "https://github.com/OpenAutoCoder/Agentless"
+      ],
+      "publication_status": "当前仅核实 arXiv 记录；正式发表状态待核查",
+      "links": [
+        {
+          "kind": "代码",
+          "url": "https://github.com/OpenAutoCoder/Agentless",
+          "verified_at": "2026-11-03",
+          "evidence_url": "https://github.com/OpenAutoCoder/Agentless"
+        }
+      ],
+      "reviewed_at": "2026-11-03T08:14:42.894846+00:00"
+    },
+    "arxiv:2611.01484:v1": {
+      "paper_id": "arxiv:2611.01484",
+      "version": 1,
+      "priority": "P1",
+      "task_type": "multi_repo_coordinated",
+      "summary_zh": "优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。",
+      "relevance_reason": "直接涉及多仓库联合修改与接口一致性；其缺陷修复子集与本课题高度相关。",
+      "task_setting": "多目标仓库一起修改，联合测试通过才算成功。参与仓库已给定；不能用它直接验证从生态中发现目标仓库的能力。",
+      "method": "枚举各仓库原始/修复版本组合：部分修复应失败，全部修复应通过，以验证联合必要性。",
+      "evidence": "正文报告171个实例，附录A.2将22个标为Bug fixing；§5.4的44.2%指GPT失败轨迹中的跨仓库不一致，不能解释为所有任务或所有模型的比例。",
+      "research_use": "建议先核对22个bugfix任务，再与WideSWE比较测试协议、泄漏控制和任务重叠；借鉴混合版本验证来建立跨仓库契约测试。以上为研究建议。",
+      "reading_advice": "精读§3.1–3.2、§5.2、§5.4、Limitations和附录A.2。先复现两仓库实例；不同基准分数不直接比较。",
+      "basis": "fulltext",
+      "evidence_urls": [
+        "https://arxiv.org/html/2611.01484v1"
+      ],
+      "publication_status": "arXiv预印本；正式录用未核实",
+      "links": [
+        {
+          "kind": "数据/评测发布页（独立代码仓库待核查）",
+          "url": "https://huggingface.co/datasets/CrossSWE/CrossSWE-Bench",
+          "verified_at": "2026-11-03",
+          "evidence_url": "https://arxiv.org/abs/2611.01484"
+        }
+      ],
+      "reviewed_at": "2026-11-03T08:19:48.327078+00:00"
+    }
+  },
+  "outbox": {},
+  "runs": [
+    {
+      "id": "local-prepare-20261103",
+      "at": "2026-11-03T08:22:00+00:00",
+      "type": "seed-preview",
+      "coverage": [
+        {
+          "source": "selected-arxiv-records",
+          "status": "ok",
+          "count": 4
+        },
+        {
+          "source": "30-day-remaining-reviews",
+          "status": "partial",
+          "note": "remaining candidates not yet reviewed"
+        }
+      ]
+    }
+  ],
+  "cursors": {},
+  "persistence_probe": {
+    "id": "ai4se-first-checkpoint-20261103",
+    "origin": "local-preparation-via-github-connector",
+    "note": "cloud read not yet verified"
+  }
+}
