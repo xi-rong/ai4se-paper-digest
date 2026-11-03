@@ -24,6 +24,8 @@ python3 -m paper_digest.cli status
 - [运行与安全配置](docs/OPERATIONS.md)
 - [云端新对话交接](docs/CLOUD_HANDOFF.md)
 - [初始种子阅读预览](examples/history-seed-preview.md)（不代表已完成近30天全量检索）
+- [真实日报预览：CrossSWE](examples/daily-preview.md)（新发现的近期投稿，未发送）
+- [近30天已审读条目及独立标记种子](examples/history-30day-reviewed-preview.md)（其余候选待审核）
 - [周报样例](examples/weekly-seed-preview.md)（本周首次发现的历史种子，未发送）
 
 模块：`collectors` 采集；`review` 证据审核；`reports` 报告；`storage` 本地原子写/GitHub CAS；`mailer` 持久待发与 HTTPS 发送；`cli` 手动运行。

@@ -1,0 +1,77 @@
+{
+  "coverage": [
+    {
+      "source": "s2-citations",
+      "status": "failed",
+      "count": 0,
+      "error": "RequestError"
+    },
+    {
+      "source": "s2-authors",
+      "status": "unconfigured"
+    },
+    {
+      "source": "s2-recommendations",
+      "status": "failed",
+      "error": "RequestError"
+    },
+    {
+      "source": "dblp:cross repository repair",
+      "status": "failed",
+      "count": 0,
+      "error": "JSONDecodeError"
+    },
+    {
+      "source": "dblp:software engineering agents",
+      "status": "failed",
+      "count": 0,
+      "error": "JSONDecodeError"
+    },
+    {
+      "source": "github-release:ZJU-ACES-ISE/WideSWE",
+      "status": "ok",
+      "count": 0
+    },
+    {
+      "source": "ICSE",
+      "status": "unconfigured",
+      "note": "specific official paper-list adapter required"
+    },
+    {
+      "source": "FSE",
+      "status": "unconfigured",
+      "note": "specific official paper-list adapter required"
+    },
+    {
+      "source": "ASE",
+      "status": "unconfigured",
+      "note": "specific official paper-list adapter required"
+    },
+    {
+      "source": "ISSTA",
+      "status": "unconfigured",
+      "note": "specific official paper-list adapter required"
+    },
+    {
+      "source": "AI venues",
+      "status": "unconfigured",
+      "note": "specific official paper-list adapter required"
+    },
+    {
+      "source": "TSE",
+      "status": "unconfigured",
+      "note": "specific official paper-list adapter required"
+    },
+    {
+      "source": "TOSEM",
+      "status": "unconfigured",
+      "note": "specific official paper-list adapter required"
+    },
+    {
+      "source": "EMSE",
+      "status": "unconfigured",
+      "note": "specific official paper-list adapter required"
+    }
+  ],
+  "candidate_count": 0
+}

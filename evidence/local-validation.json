@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-03T08:22:56.206910+00:00",
+  "execution": "local",
+  "paper_records": 973,
+  "reviewed_current_versions": 4,
+  "outbox_count": 0,
+  "tests": "18 passed",
+  "remote_state_branch": "digest-state",
+  "remote_state_commit": "dd9bec64d4db18f62d0cfb2ec86f91d46b72783b",
+  "notes": [
+    "Remote checkpoint contains four selected records; full 30-day corpus remains local until cloud collection/persistence validated.",
+    "No email or scheduler enabled."
+  ]
+}

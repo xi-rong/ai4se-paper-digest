@@ -82,6 +82,8 @@ def render(state, kind, coverage=None, max_papers=10, now=None):
     coverage = coverage if coverage is not None else (state["runs"][-1].get("coverage", []) if state["runs"] else [])
     blocks.append(("检索覆盖与限制", "\n".join(f"{c['source']}: {c['status']}" for c in coverage)
                    or "本报告为种子预览，未执行全量检索。"))
+    reviewed = sum(1 for p in state["papers"].values() if review_for(state, p))
+    blocks.append(("审读进度", f"状态中共 {len(state['papers'])} 条论文记录，已有当前版本审核 {reviewed} 条。其余未审核记录不代表不相关。周来源和待配置会议/期刊见来源台账，本次报告不代表全量筛选完成。"))
     md = "\n\n".join("## " + b[0] + "\n\n" + b[1] + ("\n\n" + " · ".join(f"[{label}]({url})" for label, url in b[2]) if len(b) > 2 else "") for b in blocks)
     parts = []
     for b in blocks:

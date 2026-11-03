@@ -76,7 +76,12 @@ class GitHubStore:
             if e.status == 404:
                 return empty(), None
             raise
-        return json.loads(base64.b64decode(data["content"])), data["sha"]
+        sha = data["sha"]
+        if data.get("encoding") == "none" or not data.get("content"):
+            # Contents responses omit bodies above 1 MB; Git blobs retain base64 bodies.
+            data = json.loads(request(f"https://api.github.com/repos/{self.config['repository']}/git/blobs/{sha}",
+                                      headers=self.headers())[0])
+        return json.loads(base64.b64decode(data["content"])), sha
 
     def save(self, state, expected):
         doc = copy.deepcopy(state)

@@ -94,6 +94,8 @@ class Arxiv:
 
 def parse_rss(data, category):
     root = ET.fromstring(data)
+    if root.tag != "rss" or root.find("channel") is None:
+        raise ValueError("expected official RSS channel; response is not an empty feed")
     # arXiv uses RSS 2.0 with an arxiv extension; batch time is not submission time.
     ns = {"arxiv": "http://arxiv.org/schemas/atom", "dc": "http://purl.org/dc/elements/1.1/"}
     batch = root.findtext("channel/pubDate")
@@ -119,7 +121,9 @@ def rss(config):
                            headers={"User-Agent": config["user_agent"]})[0]
             entries = parse_rss(data, category)
             records.extend(entries)
-            coverage.append({"source": "arxiv-rss:" + category, "status": "ok", "count": len(entries)})
+            coverage.append({"source": "arxiv-rss:" + category, "status": "ok", "count": len(entries),
+                             "public_batch_at": ET.fromstring(data).findtext("channel/pubDate"),
+                             "response_bytes": len(data)})
         except Exception as e:
             coverage.append({"source": "arxiv-rss:" + category, "status": "failed", "error": type(e).__name__})
         time.sleep(config["arxiv"]["interval_seconds"])

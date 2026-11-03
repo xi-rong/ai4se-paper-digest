@@ -1,0 +1,15 @@
+[
+  {
+    "paper_id":"arxiv:2611.01484", "version":1, "priority":"P1", "task_type":"multi_repo_coordinated",
+    "summary_zh":"优先精读 CrossSWE：它用混合版本组合验证，检查各仓库修改是否确实缺一不可。",
+    "relevance_reason":"直接涉及多仓库联合修改与接口一致性；其缺陷修复子集与本课题高度相关。",
+    "task_setting":"多目标仓库一起修改，联合测试通过才算成功。参与仓库已给定；不能用它直接验证从生态中发现目标仓库的能力。",
+    "method":"枚举各仓库原始/修复版本组合：部分修复应失败，全部修复应通过，以验证联合必要性。",
+    "evidence":"正文报告171个实例，附录A.2将22个标为Bug fixing；§5.4的44.2%指GPT失败轨迹中的跨仓库不一致，不能解释为所有任务或所有模型的比例。",
+    "research_use":"建议先核对22个bugfix任务，再与WideSWE比较测试协议、泄漏控制和任务重叠；借鉴混合版本验证来建立跨仓库契约测试。以上为研究建议。",
+    "reading_advice":"精读§3.1–3.2、§5.2、§5.4、Limitations和附录A.2。先复现两仓库实例；不同基准分数不直接比较。",
+    "basis":"fulltext", "evidence_urls":["https://arxiv.org/html/2611.01484v1"],
+    "publication_status":"arXiv预印本；正式录用未核实",
+    "links":[{"kind":"数据/评测发布页（独立代码仓库待核查）", "url":"https://huggingface.co/datasets/CrossSWE/CrossSWE-Bench", "verified_at":"2026-11-03", "evidence_url":"https://arxiv.org/abs/2611.01484"}]
+  }
+]

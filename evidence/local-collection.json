@@ -1,0 +1,47 @@
+{
+  "status": "ok",
+  "new_versions": 970,
+  "review_queue": 597,
+  "coverage": [
+    {
+      "source": "arxiv-api",
+      "query": "cat:cs.SE",
+      "from": "2026-10-04T08:16:20.357985+00:00",
+      "to": "2026-11-03T08:16:20.357985+00:00",
+      "pages": 8,
+      "status": "ok",
+      "count": 781,
+      "total": 781
+    },
+    {
+      "source": "arxiv-api",
+      "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+      "from": "2026-10-04T08:16:20.357985+00:00",
+      "to": "2026-11-03T08:16:20.357985+00:00",
+      "pages": 6,
+      "status": "ok",
+      "count": 560,
+      "total": 560
+    },
+    {
+      "source": "arxiv-rss:cs.SE",
+      "status": "ok",
+      "count": 0
+    },
+    {
+      "source": "arxiv-rss:cs.AI",
+      "status": "ok",
+      "count": 0
+    },
+    {
+      "source": "arxiv-rss:cs.CL",
+      "status": "ok",
+      "count": 0
+    },
+    {
+      "source": "arxiv-rss:cs.LG",
+      "status": "ok",
+      "count": 0
+    }
+  ]
+}

@@ -9,7 +9,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import patch
 from paper_digest import cli
-from paper_digest.collectors import Arxiv, parse_atom, upsert, iso
+from paper_digest.collectors import Arxiv, parse_atom, parse_rss, upsert, iso
 from paper_digest.http import RequestError
 from paper_digest.mailer import send
 from paper_digest.reports import render, selected
@@ -163,6 +163,20 @@ class PipelineTests(unittest.TestCase):
 
     def test_empty_digest_no_message(self):
         self.assertIsNone(render(empty(), "daily"))
+
+    def test_rss_empty_channel_valid_but_error_page_rejected(self):
+        self.assertEqual(parse_rss(b'<rss><channel><pubDate>today</pubDate></channel></rss>', 'cs.SE'), [])
+        with self.assertRaises(ValueError):
+            parse_rss(b'<html><body>temporarily blocked</body></html>', 'cs.SE')
+
+    def test_cross_listing_preserves_primary_and_secondary_categories(self):
+        data = b'''<feed xmlns="http://www.w3.org/2005/Atom" xmlns:x="http://arxiv.org/schemas/atom"><entry>
+        <id>https://arxiv.org/abs/2609.33382v1</id><title>test</title><summary>test</summary>
+        <category term="cs.AI"/><category term="cs.SE"/><x:primary_category term="cs.AI"/>
+        </entry></feed>'''
+        rows, _ = parse_atom(data)
+        self.assertEqual(rows[0]['primary_category'], 'cs.AI')
+        self.assertIn('cs.SE', rows[0]['categories'])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,23 @@
+test_cross_listing_preserves_primary_and_secondary_categories (test_pipeline.PipelineTests.test_cross_listing_preserves_primary_and_secondary_categories) ... ok
+test_doi_merges_formal_record (test_pipeline.PipelineTests.test_doi_merges_formal_record) ... ok
+test_dry_run_byte_identical_state (test_pipeline.PipelineTests.test_dry_run_byte_identical_state) ... ok
+test_empty_digest_no_message (test_pipeline.PipelineTests.test_empty_digest_no_message) ... ok
+test_expired_idempotency_requires_reconciliation (test_pipeline.PipelineTests.test_expired_idempotency_requires_reconciliation) ... ok
+test_failed_source_keeps_cursor (test_pipeline.PipelineTests.test_failed_source_keeps_cursor) ... ok
+test_html_escapes_paper_content (test_pipeline.PipelineTests.test_html_escapes_paper_content) ... ok
+test_inflight_lease_blocks_second_sender (test_pipeline.PipelineTests.test_inflight_lease_blocks_second_sender) ... ok
+test_ingest_same_batch_not_new (test_pipeline.PipelineTests.test_ingest_same_batch_not_new) ... ok
+test_new_store_reads_previous_process_state (test_pipeline.PipelineTests.test_new_store_reads_previous_process_state) ... ok
+test_new_version_requires_new_review (test_pipeline.PipelineTests.test_new_version_requires_new_review) ... ok
+test_pagination_uses_total_and_offset (test_pipeline.PipelineTests.test_pagination_uses_total_and_offset) ... ok
+test_partial_source_retains_rows (test_pipeline.PipelineTests.test_partial_source_retains_rows) ... ok
+test_recipient_cannot_be_overridden (test_pipeline.PipelineTests.test_recipient_cannot_be_overridden) ... ok
+test_rss_empty_channel_valid_but_error_page_rejected (test_pipeline.PipelineTests.test_rss_empty_channel_valid_but_error_page_rejected) ... ok
+test_send_failure_preserves_pending_content (test_pipeline.PipelineTests.test_send_failure_preserves_pending_content) ... ok
+test_sent_replay_does_not_call_provider_or_reselect (test_pipeline.PipelineTests.test_sent_replay_does_not_call_provider_or_reselect) ... ok
+test_stale_writer_rejected (test_pipeline.PipelineTests.test_stale_writer_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.016s
+
+OK

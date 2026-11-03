@@ -8,3 +8,6 @@ __pycache__/
 var/
 dist/
 .DS_Store
+evidence/wideswe-fulltext.html
+evidence/cloud-environments.md
+evidence/automations.md
