@@ -1,0 +1,126 @@
+{
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9mZmEzNjQyM2RmZWM4MTkxOTZiMWI2OWY5ZDg5MDcxYQ",
+  "source_head": "8d2959e22d272b17ab19212017a2505ff24a0f71",
+  "method": "GET",
+  "url": "https://api.brevo.com/v3/smtp/statistics/aggregatedReport",
+  "request_count": 12,
+  "minimum_gap_seconds_after_each_response": 3,
+  "independent_requests": "Fresh urllib opener and TLS context per request, Connection close, redirects disabled, no retries; inherited HTTPS proxy and CA trust, TLS verification enabled. Proxy upstream connection handling is not observable.",
+  "previously_authorized_cidr": "20.211.173.160/28",
+  "authorization_basis": "User reported authorizing this range while keeping IP blocking enabled; no security settings read or changed in this check. Official ownership was user-reported, not independently checked.",
+  "samples": [
+    {
+      "request": 1,
+      "time_beijing": "2026-11-07T16:43:13.565959+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 2,
+      "time_beijing": "2026-11-07T16:43:17.749047+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 3,
+      "time_beijing": "2026-11-07T16:43:21.167420+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 4,
+      "time_beijing": "2026-11-07T16:43:24.540093+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 5,
+      "time_beijing": "2026-11-07T16:43:27.925415+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 6,
+      "time_beijing": "2026-11-07T16:43:31.300033+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 7,
+      "time_beijing": "2026-11-07T16:43:34.688090+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 8,
+      "time_beijing": "2026-11-07T16:43:38.076550+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 9,
+      "time_beijing": "2026-11-07T16:43:41.448155+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 10,
+      "time_beijing": "2026-11-07T16:43:44.819240+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 11,
+      "time_beijing": "2026-11-07T16:43:48.185378+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    },
+    {
+      "request": 12,
+      "time_beijing": "2026-11-07T16:43:51.561813+08:00",
+      "http_status": 200,
+      "blocked_source_ips": [],
+      "safe_reason": "read_only_request_accepted; exit_IP_unknown",
+      "blocked_ips_in_previously_authorized_cidr": {}
+    }
+  ],
+  "state_verification": {
+    "before_head": "b9304bd4e6be17371869b2533aece23748e43aac",
+    "after_head": "b9304bd4e6be17371869b2533aece23748e43aac",
+    "full_state_equal": true,
+    "outbox_equal": true,
+    "paper_send_status_equal": true,
+    "before_state_sha256": "b0bbf754b32ef7439e8177cb2c3ddba83b2172215512df21a03fa2c865953182",
+    "after_state_sha256": "b0bbf754b32ef7439e8177cb2c3ddba83b2172215512df21a03fa2c865953182",
+    "writes_by_probe": 0
+  },
+  "schedule_enabled": false,
+  "limitations": [
+    "Current task and short sampling window only; not a restart or cross-task persistence test.",
+    "HTTP 200 shows no observed authentication/IP rejection at that moment, not the actual exit IP or proof it lies within the CIDR.",
+    "No long-term exit stability or CIDR coverage guarantee; authorization settings not independently inspected.",
+    "No email sending or message-state modification."
+  ]
+}
