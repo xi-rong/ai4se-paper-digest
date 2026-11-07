@@ -36,18 +36,16 @@ python3 -m paper_digest.cli status
 
 Semantic Scholar若需要官方key，可在同一云端保险库添加`DIGEST_S2_TOKEN`，Allowed domains仅`api.semanticscholar.org`，程序用`x-api-key`头发送。它是文献服务凭证，不是模型API。当前未配置，未认证共享限流仍可能返回429，失败需保留而不能报告为零引用。
 
-固定收件地址已确认并保存为`syb38324@126.com`。用户暂无自有域名，优先免费；已要求暂停新服务注册，先检查126自发自收，见[验证记录](MAIL_SELF_SEND.md)。
+目前选择 Brevo HTTPS 事务邮件，固定发件人和收件人为 `shaoyibo102@gmail.com`；Brevo 后台显示该 Gmail 发件人已验证。尚未验证 API 密钥注入、事务邮件账户激活、真实发送及收件。免费邮箱作为发件人的实际投递和可能的发件人改写需要实测。无需 126 SMTP、服务器或 Tailscale。
 
-当前没有已连接的无人值守发送插件。Resend HTTPS 适配器作为可选方案，尚未选择/开通/真实验证，不默认购买。也可在用户确认后实现其他邮件 API。未启用 SMTP。
-
-用户确认收件地址后填 `mail.recipient`，填已验证发件人 `mail.sender`、`mail.provider=resend`。在 Personal vault 加 Network secret `DIGEST_MAIL_TOKEN`，目的地仅 `api.resend.com`；请求头会携带占位值，由云代理替换。须测试云端实际注入。不要将网络密钥用于 SMTP。
+在 Personal vault 创建仅供本环境使用的 Network secret `DIGEST_MAIL_TOKEN`，并按云环境实际界面配置 `api.brevo.com` 的网络访问与密钥使用。凭证不得进入聊天、仓库或日志。仅在云端实测后确认代理是否正确注入。
 
 ```sh
-python3 -m paper_digest.cli --storage github preview --kind daily --out var/daily --enqueue
-python3 -m paper_digest.cli --storage github send MESSAGE_ID --to FIXED_CONFIRMED_ADDRESS
+python3 -m paper_digest.cli --storage git preview --kind daily --out var/daily --enqueue
+python3 -m paper_digest.cli --storage git send MESSAGE_ID --to shaoyibo102@gmail.com
 ```
 
-先确认 HTTPS 服务账户、域名要求及当前价格，再配置。官方接口：https://resend.com/docs/api-reference/emails/send-email 。幂等键保存24小时：https://resend.com/docs/dashboard/emails/idempotency-keys 。本程序23小时后停止自动重试并要求对账，避免供应商窗口到期重复邮件；即使 API 返回 ID，也只证明受理，不保证入箱。发送后状态保存失败会留下发送中记录，应在窗口内以原正文/原键重试，超时先核对服务日志。
+`--enqueue` 会创建待发记录；普通预览不加此参数，也不消耗待发论文。先核对待发内容和固定收件人。Brevo 接口：https://developers.brevo.com/reference/send-transac-email 。Brevo 的幂等窗口为15分钟，程序超过14分钟停止自动重试并要求对账；即使 API 返回 ID，也只证明受理，不保证入箱。发送后状态保存失败时，应在窗口内以原正文和原键重试，超时先核对 Brevo 日志。Resend 适配器仍在代码中，但当前未选用。
 
 失败保留 retry 与正文，收集继续；无人值守故障通知尚无独立监控链路，未验证前不能承诺必达。固定收件地址之外不发送，GitHub 资料邮箱不能代替确认。
 
