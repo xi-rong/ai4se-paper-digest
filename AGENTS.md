@@ -36,3 +36,14 @@ After source checkout, test without secrets:
 `python3 -m paper_digest.cli preview --kind history --out var/cloud-preview`
 Allow HTTPS domains in docs/CLOUD_HANDOFF.md. Do not auto-install external schedulers.
 Record real environment ID, published status and cloud task evidence, never infer them.
+
+## Agent skills
+
+### Issue tracker
+Use local Markdown issues under `.scratch/`; see `docs/agents/issue-tracker.md`.
+
+### Triage labels
+Use the five default triage roles; see `docs/agents/triage-labels.md`.
+
+### Domain docs
+Use the single-context glossary and ADR layout; see `docs/agents/domain.md`.
