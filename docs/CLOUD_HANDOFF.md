@@ -9,7 +9,7 @@ update均成功，无工具错误；没有创建任务或发送邮件。display_
 
 ## 2026-11-07 正式调度授权与创建（优先于下方旧记录）
 
-用户明确要求立即启用正式发送，不再等待额外预验收；唯一固定收件人为 shaoyibo102@gmail.com。已安全 fetch/快进 main 至 ef77516，23项测试通过，远端状态 revision 16（972篇、4份审读；旧邮件 sent/superseded）读取成功，无重复发送。
+用户明确要求立即启用正式发送，不再等待额外预验收；当前唯一固定收件人为 syb38324@126.com。已安全 fetch/快进 main 至 ef77516，23项测试通过，远端状态 revision 16（972篇、4份审读；旧邮件 sent/superseded）读取成功，无重复发送。
 
 原生 automations.create 已创建并启用日报和周报：Asia/Shanghai 每天09:00，首次2026-11-08；每周一09:00额外周报，首次2026-11-09，周一日报照常。任务提示包含采集、Agent实际审读、远端Git持久化、Brevo完整邮件、固定地址、去重、失败保留、无新增不发日报等要求。未使用本地自动化、GitHub Actions或外部调度。
 
@@ -46,7 +46,7 @@ config.schedule.enabled=true 记录已启用意图；真正调度由平台两项
 
 ## 下一阶段直接复制到云端聊天
 
-> 继续本仓库的个人 AI4SE 论文追踪系统。先读 AGENTS.md、docs/CLOUD_HANDOFF.md、docs/ACCEPTANCE.md 与最新 evidence，跳过已通过的环境创建、发布、23项测试、Brevo测试邮件受理及服务器投递、原始CLI采集、跨任务状态和dry-run验证。先运行 `python3 -m paper_digest.cli --storage git status` 读取私有digest-state；从已保存的596条候选继续摘要/正文审读，优先跨仓库bugfix，扩大已验证的阅读清单并记录未审核范围。补齐会议具体论文列表、期刊官方接口、作者ID等来源；S2 429与DBLP挑战要如实标注。用户已注册 Brevo，固定收件人和经 Brevo 验证的发件人均为 shaoyibo102@gmail.com；Brevo测试邮件已验收受理及服务器投递，勿重复发送旧报告；正式定时发送已获用户授权，凭证只在保险库管理。核查首次定时运行、环境绑定和日志；不使用外部调度。关机测试由我配合。未授权购买服务，不用GitHub Actions。所有新审核、发送记录通过GitStore持久保存，预览不得消耗待发。
+> 继续本仓库的个人 AI4SE 论文追踪系统。先读 AGENTS.md、docs/CLOUD_HANDOFF.md、docs/ACCEPTANCE.md 与最新 evidence，跳过已通过的环境创建、发布、23项测试、Brevo测试邮件受理及服务器投递、原始CLI采集、跨任务状态和dry-run验证。先运行 `python3 -m paper_digest.cli --storage git status` 读取私有digest-state；从已保存的596条候选继续摘要/正文审读，优先跨仓库bugfix，扩大已验证的阅读清单并记录未审核范围。补齐会议具体论文列表、期刊官方接口、作者ID等来源；S2 429与DBLP挑战要如实标注。用户已注册 Brevo，固定收件人为 syb38324@126.com，经 Brevo 验证的发件人为 shaoyibo102@gmail.com；Brevo测试邮件已验收受理及服务器投递，勿重复发送旧报告；正式定时发送已获用户授权，凭证只在保险库管理。核查首次定时运行、环境绑定和日志；不使用外部调度。关机测试由我配合。未授权购买服务，不用GitHub Actions。所有新审核、发送记录通过GitStore持久保存，预览不得消耗待发。
 
 ## 创建和发布
 
@@ -69,7 +69,7 @@ python3 -m paper_digest.cli preview --kind history --out var/cloud-preview
 
 ## 环境重建时的完整验证提示（正常续接无需重复）
 
-> 继续这个仓库中的个人 AI4SE 论文日报项目。先读 AGENTS.md、docs/PLATFORM_EVIDENCE.md、docs/OPERATIONS.md、docs/SOURCES.md，确认当前确实在 Codex Cloud。不要购买服务、不要用 GitHub Actions、不要创建本地定时器。先运行测试和 seed/review/history preview，给出云端任务与日志证据。检查私有 digest-state 分支已有状态，先实测 --storage git 复用云端原生 Git 授权；通过 GitStore 做带分支头比较的探针写入并记录 SHA，若成功无需新增 token。只有原生 Git 写入确实不可用时，才请我在 Personal vault 配置 DIGEST_GITHUB_TOKEN（api.github.com 专用 HTTPS 网络密钥），并改用 --storage github。随后在第二个新的云端聊天读取该探针，验证跨任务持久化，不以 VM 本地文件替代。执行近30天 arXiv 回顾和 RSS，将候选交由你阅读摘要/正文，写 review JSON，再生成历史清单；明确来源失败及未接入范围。之后按 docs/OPERATIONS.md 验证 Brevo HTTPS 发信，固定收件人 shaoyibo102@gmail.com；凭证只在云端安全配置填写。最后实查原生云端定时能否绑定/启动此环境，安排一次短期启动测试，记录配置、预期与实际时间、运行 ID 和日志。若没有受支持的衔接，不虚构；给出具体缺口与需我选择的最小外部替代。两项原生定时任务已按用户授权启用 Asia/Shanghai 每日09:00、每周一09:00额外周报（周一日报照常）；无新增不发空日报。关机运行由我配合验证。更新 evidence 与逐项验收表。
+> 继续这个仓库中的个人 AI4SE 论文日报项目。先读 AGENTS.md、docs/PLATFORM_EVIDENCE.md、docs/OPERATIONS.md、docs/SOURCES.md，确认当前确实在 Codex Cloud。不要购买服务、不要用 GitHub Actions、不要创建本地定时器。先运行测试和 seed/review/history preview，给出云端任务与日志证据。检查私有 digest-state 分支已有状态，先实测 --storage git 复用云端原生 Git 授权；通过 GitStore 做带分支头比较的探针写入并记录 SHA，若成功无需新增 token。只有原生 Git 写入确实不可用时，才请我在 Personal vault 配置 DIGEST_GITHUB_TOKEN（api.github.com 专用 HTTPS 网络密钥），并改用 --storage github。随后在第二个新的云端聊天读取该探针，验证跨任务持久化，不以 VM 本地文件替代。执行近30天 arXiv 回顾和 RSS，将候选交由你阅读摘要/正文，写 review JSON，再生成历史清单；明确来源失败及未接入范围。之后按 docs/OPERATIONS.md 验证 Brevo HTTPS 发信，固定收件人 syb38324@126.com；凭证只在云端安全配置填写。最后实查原生云端定时能否绑定/启动此环境，安排一次短期启动测试，记录配置、预期与实际时间、运行 ID 和日志。若没有受支持的衔接，不虚构；给出具体缺口与需我选择的最小外部替代。两项原生定时任务已按用户授权启用 Asia/Shanghai 每日09:00、每周一09:00额外周报（周一日报照常）；无新增不发空日报。关机运行由我配合验证。更新 evidence 与逐项验收表。
 
 ## 待补证据
 
