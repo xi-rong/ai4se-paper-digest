@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "official_feed": "https://openai.com/chatgpt-agents.json",
+  "feed_creation_time": "2026-11-07T02:32:38.890144",
+  "feed_ipv4_prefix_count": 2895,
+  "feed_ipv4_collapsed_prefix_count": 2130,
+  "feed_ipv4_address_count": 111840,
+  "prior_observed_rejected_ips": [
+    "20.211.173.170",
+    "20.211.173.167"
+  ],
+  "authorized_cidr": "20.211.173.160/28",
+  "cidr_matches_official_feed": true,
+  "first_task": {
+    "id": "01a1b519-fe6f-76ef-9b3b-bb5f3989a004",
+    "time_window": "16:43:13-16:43:51",
+    "requests": 12,
+    "http_200": 12,
+    "evidence": "evidence/brevo-ip-sampling-20261107T084351Z.json"
+  },
+  "second_task": {
+    "id": "01a1b52f-0963-75dd-88fa-34627a24e017",
+    "time_window": "16:46:19-16:46:27",
+    "requests": 3,
+    "http_200": 3,
+    "new_vm_boot_observed": true
+  },
+  "limits": [
+    "HTTP 200 does not expose egress IP; successful calls do not identify the precise source range.",
+    "Samples do not show future coverage; OpenAI egress feed can change.",
+    "Brevo documents 1000 entries per operation; overall account limit and automated IP list management remain unverified.",
+    "No unattended scheduler or automatic allowlist update has been validated."
+  ]
+}
