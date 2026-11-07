@@ -39,7 +39,7 @@ class PipelineTests(unittest.TestCase):
         self.path = Path(self.tmp.name) / "state.json"
         self.store = LocalStore(self.path)
         self.cfg = json.loads(Path("config.json").read_text())
-        self.cfg["mail"].update(provider="resend", recipient="reader@example.org", sender="sender@example.org")
+        self.cfg["mail"].update(provider="resend", api_url="https://api.resend.com/emails", recipient="reader@example.org", sender="sender@example.org")
 
     def persist(self, state):
         self.store.save(state, None)
