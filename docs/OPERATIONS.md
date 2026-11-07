@@ -22,7 +22,7 @@ python3 -m paper_digest.cli status
 
 `config.json.storage.mode` 初始 local，只用于准备和测试。状态分支 `digest-state:state.json` 已创建，源码在main，状态不使用Actions。
 
-优先在云端实测 `--storage git`：复用环境原生Git授权，通过fetch/show读取、临时index构建提交，再用分支头的`--force-with-lease`做比较后更新。新提交以前次分支头为父提交；竞争写入会拒绝，不覆盖他人的更新。它不切换工作区、不打印或读取密钥。此后端已用两个独立本地clone与bare remote做跨次读写和竞争写入测试；真实云端push仍需另验。若push验证成功，无需新增GitHub token。
+优先在云端实测 `--storage git`：复用环境原生Git授权，通过fetch/show读取、临时index构建提交，再用分支头的`--force-with-lease`做比较后更新。新提交以前次分支头为父提交；竞争写入会拒绝，不覆盖他人的更新。它不切换工作区、不打印或读取密钥。此后端已用两个独立本地clone与bare remote做跨次读写和竞争写入测试；真实云端push及新任务读回已验证，见evidence/cloud-postpublish-validation.json，无需新增GitHub token。
 
 备选 `--storage github` 通过 Contents API 的blob SHA比较更新；大于1MB的响应通过Git Blob API读取。已有GitHub插件/原生git授权不自动代表Python HTTPS凭证已配置。
 
@@ -35,6 +35,8 @@ python3 -m paper_digest.cli status
 ## 完整邮件
 
 Semantic Scholar若需要官方key，可在同一云端保险库添加`DIGEST_S2_TOKEN`，Allowed domains仅`api.semanticscholar.org`，程序用`x-api-key`头发送。它是文献服务凭证，不是模型API。当前未配置，未认证共享限流仍可能返回429，失败需保留而不能报告为零引用。
+
+固定收件地址已确认并保存为`syb38324@126.com`。用户暂无自有域名，优先免费；已要求暂停新服务注册，先检查126自发自收，见[验证记录](MAIL_SELF_SEND.md)。
 
 当前没有已连接的无人值守发送插件。Resend HTTPS 适配器作为可选方案，尚未选择/开通/真实验证，不默认购买。也可在用户确认后实现其他邮件 API。未启用 SMTP。
 
@@ -51,7 +53,7 @@ python3 -m paper_digest.cli --storage github send MESSAGE_ID --to FIXED_CONFIRME
 
 ## 调度、暂停与恢复
 
-当前 schedule.enabled=false；这是意图配置，不是平台定时任务。没有安装 cron，没有 Actions。正式期望 Asia/Shanghai 日报14:17、周日20:17，仅指启动时间。改配置不会自动更改平台任务，必须同步编辑平台定时配置并复核下次运行。
+当前 schedule.enabled=false；这是意图配置，不是平台定时任务。没有安装 cron，没有 Actions。用户已于2026-11-07确认 Asia/Shanghai 日报每天09:00、周报每周一09:00；周一日报照常，周报额外发送。这是期望启动时间，实际入箱时间待测。改配置不会自动更改平台任务，必须同步编辑平台定时配置并复核下次运行。
 
 待云端定时接入后，通过 Scheduled 暂停/恢复对应两个任务，并留存配置和日志证据。现在手动执行即可，退出聊天不会启动任何未配置的定时任务。恢复后先处理待发箱再生成新日报；部分失败的采集从未推进水位补查。
 
