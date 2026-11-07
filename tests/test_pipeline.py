@@ -132,6 +132,29 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(state["outbox"][mid]["html"], before)
         self.assertNotEqual(state["papers"]["arxiv:2609.33382"]["send_status"], "sent")
 
+    def test_brevo_delivery_and_replay(self):
+        mid = self.queued()
+        self.cfg['mail'].update(provider='brevo', api_url='https://api.brevo.com/v3/smtp/email')
+        with patch.dict(os.environ, {'DIGEST_MAIL_TOKEN': 'placeholder'}), patch('paper_digest.mailer.request', return_value=(b'{"messageId":"accepted"}', {})) as req:
+            self.assertEqual(send(self.store, self.cfg, mid, recipient='reader@example.org'), 'sent')
+            self.assertEqual(send(self.store, self.cfg, mid, recipient='reader@example.org'), 'already_sent')
+            payload = json.loads(req.call_args.kwargs['body'])
+            self.assertEqual(payload['to'], [{'email': 'reader@example.org'}])
+            self.assertTrue(payload['headers']['idempotencyKey'])
+            self.assertEqual(req.call_count, 1)
+
+    def test_brevo_uncertain_failure_expires_before_provider_window(self):
+        mid = self.queued()
+        self.cfg['mail'].update(provider='brevo', api_url='https://api.brevo.com/v3/smtp/email')
+        with patch.dict(os.environ, {'DIGEST_MAIL_TOKEN': 'placeholder'}), patch('paper_digest.mailer.request', side_effect=RequestError(503, True)):
+            self.assertEqual(send(self.store, self.cfg, mid, recipient='reader@example.org'), 'retry')
+            state, rev = self.store.load()
+            state['outbox'][mid]['first_attempt_at'] = (datetime.now(timezone.utc) - timedelta(minutes=15)).isoformat()
+            self.store.save(state, rev)
+            with self.assertRaises(ValueError):
+                send(self.store, self.cfg, mid, recipient='reader@example.org')
+        self.assertEqual(self.store.load()[0]['outbox'][mid]['status'], 'retry')
+
     def test_sent_replay_does_not_call_provider_or_reselect(self):
         mid = self.queued()
         with patch.dict(os.environ, {"DIGEST_MAIL_TOKEN": "test-placeholder"}), patch("paper_digest.mailer.request", return_value=(b'{"id":"provider-1"}', {})) as request:
