@@ -1,0 +1,19 @@
+{
+  "observed_at": "2026-11-07T07:04:32.760106+00:00",
+  "executor": "local macOS; NOT Codex Cloud",
+  "host": "smtp.126.com",
+  "port": 465,
+  "auth_attempted": false,
+  "mail_sent": false,
+  "tls_verified": true,
+  "tls_version": "TLSv1.3",
+  "ehlo_code": 250,
+  "auth_mechanisms": [
+    "LOGIN",
+    "PLAIN",
+    "XOAUTH2",
+    "LOGIN",
+    "PLAIN",
+    "XOAUTH2"
+  ]
+}
