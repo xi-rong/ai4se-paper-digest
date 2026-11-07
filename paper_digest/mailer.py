@@ -18,26 +18,37 @@ def send(store, config, message_id, *, recipient):
     cfg = config["mail"]
     if not cfg["recipient"] or recipient != cfg["recipient"]:
         raise ValueError("recipient must exactly match the user-confirmed fixed address")
-    if cfg["provider"] != "resend":
+    provider = cfg["provider"]
+    if provider not in ("resend", "brevo"):
         raise ValueError("mail provider is not configured/tested")
     if not re.fullmatch(r"[^\s<>@]+@[^\s<>@]+", recipient):
         raise ValueError("invalid fixed recipient")
-    if urlsplit(cfg["api_url"]).hostname != "api.resend.com":
-        raise ValueError("Resend credential destination must be api.resend.com")
+    expected_url = {"resend": "https://api.resend.com/emails", "brevo": "https://api.brevo.com/v3/smtp/email"}[provider]
+    if cfg["api_url"] != expected_url:
+        raise ValueError("mail credential destination must match the selected provider endpoint")
     token = os.environ.get(cfg["token_env"])
     if not token or not cfg["sender"]:
         raise ValueError("mail sender/credential missing")
     now = datetime.now(timezone.utc)
     if message.get("first_attempt_at"):
         elapsed = now - datetime.fromisoformat(message["first_attempt_at"])
-        if elapsed > timedelta(hours=cfg["max_idempotency_hours"]):
+        limit = timedelta(minutes=14) if provider == "brevo" else timedelta(hours=cfg["max_idempotency_hours"])
+        if elapsed > limit:
             raise ValueError("provider deduplication window expired: reconcile provider logs before retry")
     if message["status"] == "sending" and datetime.fromisoformat(message["lease_until"]) > now:
         raise ValueError("another sender holds the lease")
     if message["status"] not in ("pending", "retry", "sending"):
         raise ValueError("unknown delivery state")
-    payload = {"from": cfg["sender"], "to": [recipient], "subject": message["subject"],
-               "html": message["html"], "text": message["markdown"]}
+    if provider == "brevo":
+        payload = {"sender": {"email": cfg["sender"]}, "to": [{"email": recipient}],
+                   "subject": message["subject"], "htmlContent": message["html"],
+                   "textContent": message["markdown"], "headers": {"idempotencyKey": "ai4se-" + message_id}}
+        headers = {"api-key": token, "Content-Type": "application/json"}
+    else:
+        payload = {"from": cfg["sender"], "to": [recipient], "subject": message["subject"],
+                   "html": message["html"], "text": message["markdown"]}
+        headers = {"Authorization": "Bearer " + token, "Content-Type": "application/json",
+                   "Idempotency-Key": "ai4se-" + message_id}
     payload_hash = hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
     if message.get("payload_hash") and message["payload_hash"] != payload_hash:
         raise ValueError("delivery payload changed: reconcile original send before changing recipient/content")
@@ -48,11 +59,14 @@ def send(store, config, message_id, *, recipient):
     state, revision = store.save(state, revision)  # durable claim BEFORE external side effect
     try:
         result = json.loads(request(cfg["api_url"], method="POST", body=json.dumps(payload).encode(),
-                                    headers={"Authorization": "Bearer " + token, "Content-Type": "application/json",
-                                             "Idempotency-Key": "ai4se-" + message_id}, attempts=1)[0])
-        if not result.get("id"):
+                                    headers=headers, attempts=1)[0])
+        response_id = result.get("messageId") if provider == "brevo" else result.get("id")
+        if not response_id:
             raise RequestError(None, True)
-        outcome, provider_id = "sent", result["id"]
+        outcome, provider_id = "sent", response_id
+    except (ValueError, AttributeError):
+        outcome, provider_id = "retry", None
+        error = {"type": "invalid_response", "status": None, "uncertain": True}
     except RequestError as exc:
         outcome, provider_id = "retry", None
         error = {"type": "RequestError", "status": exc.status, "uncertain": exc.uncertain}
