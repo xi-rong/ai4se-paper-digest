@@ -4,6 +4,7 @@ import json
 import os
 import tempfile
 import unittest
+import uuid
 from contextlib import redirect_stdout
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -140,7 +141,7 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(send(self.store, self.cfg, mid, recipient='reader@example.org'), 'already_sent')
             payload = json.loads(req.call_args.kwargs['body'])
             self.assertEqual(payload['to'], [{'email': 'reader@example.org'}])
-            self.assertTrue(payload['headers']['idempotencyKey'])
+            self.assertEqual(uuid.UUID(payload['headers']['idempotencyKey']).version, 4)
             self.assertEqual(req.call_count, 1)
 
     def test_brevo_uncertain_failure_expires_before_provider_window(self):
