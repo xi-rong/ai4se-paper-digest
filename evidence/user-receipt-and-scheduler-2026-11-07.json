@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "email": {
+    "recipient": "shaoyibo102@gmail.com",
+    "subject": "【测试】AI4SE 初始阅读清单 · 历史回顾 · 2026-11-07",
+    "provider_accepted_at": "2026-11-07T16:33:39+08:00",
+    "provider_delivered_at": "2026-11-07T16:33:42+08:00",
+    "user_confirmed_receipt": true,
+    "notes": "用户通过本地对话确认已收到；确认时间以对话记录为准。"
+  },
+  "scheduler": {
+    "observation": "ChatGPT 网页定时任务新建界面显示：即使此设备离线，也会在云端运行。聊天、项目、模型和推理设置不适用于云端任务；表单未显示选择 Codex Cloud 环境。尚无直接启动指定环境的短期定时任务或日志证据。",
+    "formal_schedules_enabled": false,
+    "desired_daily": "09:00 Asia/Shanghai",
+    "desired_weekly": "Monday 09:00 Asia/Shanghai"
+  },
+  "limits": "云端任务界面显示 Codex and Work usage exhausted，预计 17:33 重置；未购买或使用额度重置。",
+  "cloud_task": "01a1b519-fe6f-76ef-9b3b-bb5f3989a004"
+}
