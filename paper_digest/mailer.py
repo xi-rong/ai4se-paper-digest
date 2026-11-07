@@ -42,7 +42,8 @@ def send(store, config, message_id, *, recipient):
     if provider == "brevo":
         payload = {"sender": {"email": cfg["sender"]}, "to": [{"email": recipient}],
                    "subject": message["subject"], "htmlContent": message["html"],
-                   "textContent": message["markdown"], "headers": {"idempotencyKey": "ai4se-" + message_id}}
+                   "textContent": message["markdown"], "headers": {
+                       "idempotencyKey": str(uuid.UUID(bytes=hashlib.sha256(message_id.encode()).digest()[:16], version=4))}}
         headers = {"api-key": token, "Content-Type": "application/json"}
     else:
         payload = {"from": cfg["sender"], "to": [recipient], "subject": message["subject"],
