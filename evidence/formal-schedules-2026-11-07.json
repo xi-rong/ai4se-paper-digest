@@ -1,0 +1,146 @@
+{
+  "recorded_at_utc": "2026-11-07 08:51:44 UTC",
+  "authorization": "User explicitly requested immediate formal activation without further preacceptance; fixed recipient shaoyibo102@gmail.com.",
+  "source_head_before_evidence": "ef7751671326a365daedb70712fae22344a7b4d1",
+  "tests": "23 passed",
+  "remote_state_observed": {
+    "revision": 16,
+    "papers": 972,
+    "reviews": 4,
+    "sent": "f875b9f3ee3640a7857cd037f68d6648",
+    "superseded": "70849d806da51fac48e919e06d267951"
+  },
+  "tool_input_fields": [
+    "title",
+    "prompt",
+    "schedule",
+    "timing_mode",
+    "default_timezone",
+    "dtstart_offset_json"
+  ],
+  "explicit_environment_input_available": false,
+  "environment_binding": "Inherited; confirmed by automations.peek after create. Stable environmentConfigId matches CLOUD_HANDOFF; runtime source_config_id uses a different identifier namespace.",
+  "daily": {
+    "create": {
+      "success": true,
+      "automation_id": "Automation_ffb53eaffd6c8191b4bb2505104e87b0",
+      "message": "Automation created.",
+      "automation": {
+        "id": "Automation_ffb53eaffd6c8191b4bb2505104e87b0",
+        "team_id": null,
+        "title": "AI4SE 正式论文日报",
+        "prompt": "在云端执行私有仓库 xi-rong/ai4se-paper-digest 的正式科研论文邮件流水线。用户已明确授权正式发送，唯一收件人 shaoyibo102@gmail.com；不得向其他地址发送。必须使用本对话继承的 ai4se-paper-digest Codex Cloud 托管环境及其个人网络密钥 DIGEST_MAIL_TOKEN，源配置 7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321；不得依赖用户电脑在线。若未附加该托管环境、无法启动该配置、无法取得仓库原生 Git 授权或网络密钥绑定，明确报告阻塞并停止，不能以普通聊天报告冒充已运行流水线。先读云环境runtime技能，检查环境观测及网络策略；绝不输出密钥或请求头。检查工作区，安全 git fetch origin main，仅在保留用户修改且可快进时更新源码，不 reset 或覆盖。读取最新 AGENTS.md、docs/CLOUD_HANDOFF.md、docs/RESEARCH_SCOPE.md、docs/PLATFORM_EVIDENCE.md、docs/OPERATIONS.md 和 evidence；本任务用户授权优先于旧文档中等待正式开启的要求。运行必要测试。所有生产命令显式使用 --storage git，读取并持久化私有 digest-state:state.json，不能用VM本地状态替代。执行 arXiv/RSS 及已配置来源采集，对候选由当前 Codex Agent 实际审读摘要/可用正文，区分多仓库协同修改、外部仓库辅助、单仓库跨文件和多仓库数据集单目标，不把关键词短名单当最终筛选；明确 unknown、证据URL、精确版本、阅读依据、来源失败和未审范围，不虚构引用或结论。导入review并持久保存。通过现有 Brevo HTTPS 代理及网络密钥发送完整中文 HTML/文本邮件，只发固定地址；使用项目 durable outbox、租约、幂等键和CAS，冲突重新读状态，不盲目重发。已有 sent/superseded 历史不得重置或重发，结果不明且超过提供商幂等窗口先对账。采集、审读、去重和发送状态均通过远端Git持久化。发送失败保留待发内容及错误；API受理和delivered区别记录，不承诺入箱。不得修改Brevo白名单，不用本地自动化、cron、GitHub Actions、外部调度或额外模型API。记录本次云环境、代码版本、运行时间、采集/审核覆盖、状态提交和提供商受理结果。 本次生成 daily 日报，按最新操作文档执行 collect --rss、审读、review、preview --kind daily --enqueue，再对新入队消息执行 send --to shaoyibo102@gmail.com。无新增或重要版本更新不发空日报；周一日报照常，周报是独立任务。",
+        "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261108T090000\nRRULE:FREQ=DAILY;BYHOUR=9;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+        "timing_mode": "exact_schedule",
+        "display_schedule": null,
+        "is_enabled": true,
+        "conversation_id": null,
+        "thread_id": "01a1b52f-0963-75dd-88fa-34627a24e017",
+        "default_timezone": "America/Los_Angeles",
+        "next_run_time": null,
+        "last_run_time": null,
+        "updated_at": "2026-11-07T08:50:56.415162+00:00",
+        "environment_selection": "inherited",
+        "environments": null
+      },
+      "assistant_response_guidance": "Do NOT mention the automation id to the user in  your response."
+    },
+    "readback": {
+      "id": "Automation_ffb53eaffd6c8191b4bb2505104e87b0",
+      "team_id": null,
+      "title": "AI4SE 正式论文日报",
+      "prompt": "在云端执行私有仓库 xi-rong/ai4se-paper-digest 的正式科研论文邮件流水线。用户已明确授权正式发送，唯一收件人 shaoyibo102@gmail.com；不得向其他地址发送。必须使用本对话继承的 ai4se-paper-digest Codex Cloud 托管环境及其个人网络密钥 DIGEST_MAIL_TOKEN，源配置 7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321；不得依赖用户电脑在线。若未附加该托管环境、无法启动该配置、无法取得仓库原生 Git 授权或网络密钥绑定，明确报告阻塞并停止，不能以普通聊天报告冒充已运行流水线。先读云环境runtime技能，检查环境观测及网络策略；绝不输出密钥或请求头。检查工作区，安全 git fetch origin main，仅在保留用户修改且可快进时更新源码，不 reset 或覆盖。读取最新 AGENTS.md、docs/CLOUD_HANDOFF.md、docs/RESEARCH_SCOPE.md、docs/PLATFORM_EVIDENCE.md、docs/OPERATIONS.md 和 evidence；本任务用户授权优先于旧文档中等待正式开启的要求。运行必要测试。所有生产命令显式使用 --storage git，读取并持久化私有 digest-state:state.json，不能用VM本地状态替代。执行 arXiv/RSS 及已配置来源采集，对候选由当前 Codex Agent 实际审读摘要/可用正文，区分多仓库协同修改、外部仓库辅助、单仓库跨文件和多仓库数据集单目标，不把关键词短名单当最终筛选；明确 unknown、证据URL、精确版本、阅读依据、来源失败和未审范围，不虚构引用或结论。导入review并持久保存。通过现有 Brevo HTTPS 代理及网络密钥发送完整中文 HTML/文本邮件，只发固定地址；使用项目 durable outbox、租约、幂等键和CAS，冲突重新读状态，不盲目重发。已有 sent/superseded 历史不得重置或重发，结果不明且超过提供商幂等窗口先对账。采集、审读、去重和发送状态均通过远端Git持久化。发送失败保留待发内容及错误；API受理和delivered区别记录，不承诺入箱。不得修改Brevo白名单，不用本地自动化、cron、GitHub Actions、外部调度或额外模型API。记录本次云环境、代码版本、运行时间、采集/审核覆盖、状态提交和提供商受理结果。 本次生成 daily 日报，按最新操作文档执行 collect --rss、审读、review、preview --kind daily --enqueue，再对新入队消息执行 send --to shaoyibo102@gmail.com。无新增或重要版本更新不发空日报；周一日报照常，周报是独立任务。",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261108T090000\nRRULE:FREQ=DAILY;BYHOUR=9;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+      "timing_mode": "exact_schedule",
+      "display_schedule": null,
+      "is_enabled": true,
+      "conversation_id": null,
+      "thread_id": "01a1b52f-0963-75dd-88fa-34627a24e017",
+      "is_self_owned_automation": true,
+      "default_timezone": "America/Los_Angeles",
+      "next_run_time": null,
+      "last_run_time": null,
+      "updated_at": "2026-11-07T08:50:56.415162+00:00",
+      "run_details": {
+        "last_run": null,
+        "latest_result": null,
+        "delivery_status": "unknown"
+      },
+      "environment_selection": "inherited",
+      "environments": [
+        {
+          "environmentConfigId": "a039e561-c476-487a-a822-3ef38e05576b~asenvcfg_7e4878ae5d008191adb165121a5f320f",
+          "environmentId": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+          "cwd": "/workspace",
+          "displayName": "ai4se-paper-digest"
+        }
+      ]
+    }
+  },
+  "weekly": {
+    "create": {
+      "success": true,
+      "automation_id": "Automation_083fc61f7fe08191906e8fdf152cf9fb",
+      "message": "Automation created.",
+      "automation": {
+        "id": "Automation_083fc61f7fe08191906e8fdf152cf9fb",
+        "team_id": null,
+        "title": "AI4SE 正式论文周报",
+        "prompt": "在云端执行私有仓库 xi-rong/ai4se-paper-digest 的正式科研论文邮件流水线。用户已明确授权正式发送，唯一收件人 shaoyibo102@gmail.com；不得向其他地址发送。必须使用本对话继承的 ai4se-paper-digest Codex Cloud 托管环境及其个人网络密钥 DIGEST_MAIL_TOKEN，源配置 7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321；不得依赖用户电脑在线。若未附加该托管环境、无法启动该配置、无法取得仓库原生 Git 授权或网络密钥绑定，明确报告阻塞并停止，不能以普通聊天报告冒充已运行流水线。先读云环境runtime技能，检查环境观测及网络策略；绝不输出密钥或请求头。检查工作区，安全 git fetch origin main，仅在保留用户修改且可快进时更新源码，不 reset 或覆盖。读取最新 AGENTS.md、docs/CLOUD_HANDOFF.md、docs/RESEARCH_SCOPE.md、docs/PLATFORM_EVIDENCE.md、docs/OPERATIONS.md 和 evidence；本任务用户授权优先于旧文档中等待正式开启的要求。运行必要测试。所有生产命令显式使用 --storage git，读取并持久化私有 digest-state:state.json，不能用VM本地状态替代。执行 arXiv/RSS 及已配置来源采集，对候选由当前 Codex Agent 实际审读摘要/可用正文，区分多仓库协同修改、外部仓库辅助、单仓库跨文件和多仓库数据集单目标，不把关键词短名单当最终筛选；明确 unknown、证据URL、精确版本、阅读依据、来源失败和未审范围，不虚构引用或结论。导入review并持久保存。通过现有 Brevo HTTPS 代理及网络密钥发送完整中文 HTML/文本邮件，只发固定地址；使用项目 durable outbox、租约、幂等键和CAS，冲突重新读状态，不盲目重发。已有 sent/superseded 历史不得重置或重发，结果不明且超过提供商幂等窗口先对账。采集、审读、去重和发送状态均通过远端Git持久化。发送失败保留待发内容及错误；API受理和delivered区别记录，不承诺入箱。不得修改Brevo白名单，不用本地自动化、cron、GitHub Actions、外部调度或额外模型API。记录本次云环境、代码版本、运行时间、采集/审核覆盖、状态提交和提供商受理结果。 本次生成独立 weekly 周报，执行 collect --weekly --rss、实际审读和review、preview --kind weekly --enqueue，再对新入队消息执行 send --to shaoyibo102@gmail.com；回顾本周研究进展、已审读成果、重要版本、研究建议及来源/覆盖限制。此周报是日报之外的额外邮件，不能替代或关闭日报。并发状态冲突必须重新读远端并重做，保留各自报告去重规则。",
+        "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261109T090000\nRRULE:FREQ=WEEKLY;BYDAY=MO;BYHOUR=9;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+        "timing_mode": "exact_schedule",
+        "display_schedule": null,
+        "is_enabled": true,
+        "conversation_id": null,
+        "thread_id": "01a1b52f-0963-75dd-88fa-34627a24e017",
+        "default_timezone": "America/Los_Angeles",
+        "next_run_time": null,
+        "last_run_time": null,
+        "updated_at": "2026-11-07T08:51:04.317880+00:00",
+        "environment_selection": "inherited",
+        "environments": null
+      },
+      "assistant_response_guidance": "Do NOT mention the automation id to the user in  your response."
+    },
+    "readback": {
+      "id": "Automation_083fc61f7fe08191906e8fdf152cf9fb",
+      "team_id": null,
+      "title": "AI4SE 正式论文周报",
+      "prompt": "在云端执行私有仓库 xi-rong/ai4se-paper-digest 的正式科研论文邮件流水线。用户已明确授权正式发送，唯一收件人 shaoyibo102@gmail.com；不得向其他地址发送。必须使用本对话继承的 ai4se-paper-digest Codex Cloud 托管环境及其个人网络密钥 DIGEST_MAIL_TOKEN，源配置 7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321；不得依赖用户电脑在线。若未附加该托管环境、无法启动该配置、无法取得仓库原生 Git 授权或网络密钥绑定，明确报告阻塞并停止，不能以普通聊天报告冒充已运行流水线。先读云环境runtime技能，检查环境观测及网络策略；绝不输出密钥或请求头。检查工作区，安全 git fetch origin main，仅在保留用户修改且可快进时更新源码，不 reset 或覆盖。读取最新 AGENTS.md、docs/CLOUD_HANDOFF.md、docs/RESEARCH_SCOPE.md、docs/PLATFORM_EVIDENCE.md、docs/OPERATIONS.md 和 evidence；本任务用户授权优先于旧文档中等待正式开启的要求。运行必要测试。所有生产命令显式使用 --storage git，读取并持久化私有 digest-state:state.json，不能用VM本地状态替代。执行 arXiv/RSS 及已配置来源采集，对候选由当前 Codex Agent 实际审读摘要/可用正文，区分多仓库协同修改、外部仓库辅助、单仓库跨文件和多仓库数据集单目标，不把关键词短名单当最终筛选；明确 unknown、证据URL、精确版本、阅读依据、来源失败和未审范围，不虚构引用或结论。导入review并持久保存。通过现有 Brevo HTTPS 代理及网络密钥发送完整中文 HTML/文本邮件，只发固定地址；使用项目 durable outbox、租约、幂等键和CAS，冲突重新读状态，不盲目重发。已有 sent/superseded 历史不得重置或重发，结果不明且超过提供商幂等窗口先对账。采集、审读、去重和发送状态均通过远端Git持久化。发送失败保留待发内容及错误；API受理和delivered区别记录，不承诺入箱。不得修改Brevo白名单，不用本地自动化、cron、GitHub Actions、外部调度或额外模型API。记录本次云环境、代码版本、运行时间、采集/审核覆盖、状态提交和提供商受理结果。 本次生成独立 weekly 周报，执行 collect --weekly --rss、实际审读和review、preview --kind weekly --enqueue，再对新入队消息执行 send --to shaoyibo102@gmail.com；回顾本周研究进展、已审读成果、重要版本、研究建议及来源/覆盖限制。此周报是日报之外的额外邮件，不能替代或关闭日报。并发状态冲突必须重新读远端并重做，保留各自报告去重规则。",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261109T090000\nRRULE:FREQ=WEEKLY;BYDAY=MO;BYHOUR=9;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+      "timing_mode": "exact_schedule",
+      "display_schedule": null,
+      "is_enabled": true,
+      "conversation_id": null,
+      "thread_id": "01a1b52f-0963-75dd-88fa-34627a24e017",
+      "is_self_owned_automation": true,
+      "default_timezone": "America/Los_Angeles",
+      "next_run_time": null,
+      "last_run_time": null,
+      "updated_at": "2026-11-07T08:51:04.317880+00:00",
+      "run_details": {
+        "last_run": null,
+        "latest_result": null,
+        "delivery_status": "unknown"
+      },
+      "environment_selection": "inherited",
+      "environments": [
+        {
+          "environmentConfigId": "a039e561-c476-487a-a822-3ef38e05576b~asenvcfg_7e4878ae5d008191adb165121a5f320f",
+          "environmentId": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+          "cwd": "/workspace",
+          "displayName": "ai4se-paper-digest"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Create returned environments:null; subsequent peek returned managed environmentConfigId and current environmentId for both tasks.",
+    "next_run_time remains null; DTSTART and RRULE are stored with explicit Asia/Shanghai timezone; personal fallback timezone is America/Los_Angeles.",
+    "No scheduled run logs or new email delivery observed yet; powered-off client execution remains untested.",
+    "Secrets ready in current environment does not prove future task access or Brevo IP allowlist coverage."
+  ],
+  "tool_errors": [],
+  "external_schedulers_used": false,
+  "mail_sent_in_this_activation": false
+}

@@ -3,7 +3,7 @@
   "schedule": {
     "daily": "09:00",
     "weekly": "Monday 09:00",
-    "enabled": false,
+    "enabled": true,
     "weekly_replaces_daily": false
   },
   "initial_days": 30,

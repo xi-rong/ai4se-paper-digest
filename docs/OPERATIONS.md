@@ -1,5 +1,16 @@
 # 操作、持久化与邮件
 
+## 2026-11-07 正式调度授权与创建（优先于下方旧记录）
+
+用户明确要求立即启用正式发送，不再等待额外预验收；唯一固定收件人为 shaoyibo102@gmail.com。已安全 fetch/快进 main 至 ef77516，23项测试通过，远端状态 revision 16（972篇、4份审读；旧邮件 sent/superseded）读取成功，无重复发送。
+
+原生 automations.create 已创建并启用日报和周报：Asia/Shanghai 每天09:00，首次2026-11-08；每周一09:00额外周报，首次2026-11-09，周一日报照常。任务提示包含采集、Agent实际审读、远端Git持久化、Brevo完整邮件、固定地址、去重、失败保留、无新增不发日报等要求。未使用本地自动化、GitHub Actions或外部调度。
+
+create 输入无环境选择字段，初始返回 environments=null；随后 automations.peek 确认两项均 is_enabled=true、environment_selection=inherited，继承 ai4se-paper-digest 的已发布 environmentConfigId a039e561-c476-487a-a822-3ef38e05576b~asenvcfg_7e4878ae5d008191adb165121a5f320f、当前Cloud environmentId 和 /workspace。原生任务已绑定托管Cloud配置，不依赖本机定时器；尚未观察首次定时运行及电脑关闭实测，不把配置成功当作完整流水线执行成功。next_run_time=null，实际运行/投递待平台日志。保存的 DTSTART 明确指定 Asia/Shanghai，个人默认时区字段 America/Los_Angeles 不替代该显式时区。
+
+config.schedule.enabled=true 记录已启用意图；真正调度由平台两项任务控制，暂停/恢复须同步管理原生任务。完整请求、返回字段、任务标识和限制见 evidence/formal-schedules-2026-11-07.json。没有在此次启用中发送邮件、修改白名单或生产发送状态。当前密钥ready与此前投递/跨任务验证不保证未来网络永远可用。
+
+
 ## 手动与预览
 
 所有命令在仓库根目录使用 Python 3.11+。源目录即可运行，无需 pip：
