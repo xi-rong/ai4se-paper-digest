@@ -1,10 +1,14 @@
 # 阿里云邮件通路检查与待审设计
 
+> 当前方向（2026-11-07）：优先简化为Codex Cloud通过HTTPS邮件API向126收件箱发送报告。阿里云服务器和Tailscale仅是保留126 SMTP发件时的可选网络方案，不是日报系统的必要条件。未实施VPN、转发服务或服务器安装；暂不要求用户注册Tailscale。原生Cloud定时启动仍单独待验收。
+
+用户已在阿里云服务器执行匿名检查，返回北京时间15:25:50、Linux x86_64、Tailscale未安装、TLSv1.3与EHLO250。证据来源是用户提供的终端输出，见evidence/aliyun-smtp-user-probe.json；不等于Cloud端到端发信成功。
+
 ## 当前授权与事实（2026-11-07）
 
 用户指定服务器`39.105.143.134`，允许先检查。截图显示本人通过root密码登录Ubuntu24.04.2；这不是本项目已完成远程系统核验的证据。本地独立SSH批处理连接返回`Permission denied (publickey,password)`，未运行远程命令；工具安全策略拒绝控制已登录的iTerm2。未索取服务器密码、未读取邮箱凭证，未安装软件、开放端口、修改防火墙或创建服务。
 
-`scripts/check_mail_bridge.py`是只读检查程序，默认只输出JSON：系统、Tailscale是否存在及自身状态、socat是否存在、到smtp.126.com:465的验证证书TLS连接及匿名EHLO。不会执行AUTH或发送邮件，不会输出Tailscale其他设备/用户/密钥。已在本地macOS运行通过；阿里云运行待用户在已登录终端执行。
+`scripts/check_mail_bridge.py`是只读检查程序，默认只输出JSON：系统、Tailscale是否存在及自身状态、socat是否存在、到smtp.126.com:465的验证证书TLS连接及匿名EHLO。不会执行AUTH或发送邮件，不会输出Tailscale其他设备/用户/密钥。已在本地macOS运行通过；用户另已在阿里云运行简化版检查，结果记录如上。
 
 ## 已验证的Cloud缺口
 
