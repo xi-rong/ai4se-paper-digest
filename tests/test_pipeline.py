@@ -93,6 +93,32 @@ class PipelineTests(unittest.TestCase):
         self.assertNotIn("<script>", doc["html"])
         self.assertIn("&lt;script&gt;", doc["html"])
 
+    def test_report_omits_normal_coverage_and_review_progress(self):
+        state, _, _ = fixture()
+        doc = render(state, "daily", coverage=[{"source": "arxiv", "status": "ok"}])
+        for output in (doc["html"], doc["markdown"]):
+            self.assertNotIn("审读进度", output)
+            self.assertNotIn("arxiv: ok", output)
+            self.assertNotIn("来源异常与限制", output)
+            self.assertIn("最值得读", output)
+
+    def test_report_shows_only_sources_with_coverage_issues(self):
+        state, _, _ = fixture()
+        doc = render(state, "daily", coverage=[
+            {"source": "arxiv", "status": "ok"},
+            {"source": "dblp", "status": "partial"},
+            {"source": "s2", "status": "failed"},
+        ])
+        for output in (doc["html"], doc["markdown"]):
+            self.assertIn("来源异常与限制", output)
+            self.assertIn("dblp: partial", output)
+            self.assertIn("s2: failed", output)
+            self.assertNotIn("arxiv: ok", output)
+
+    def test_report_does_not_hide_missing_coverage(self):
+        state, _, _ = fixture()
+        self.assertIn("未取得来源覆盖记录", render(state, "daily", coverage=[])["html"])
+
     def test_partial_source_retains_rows(self):
         arxiv = Arxiv(self.cfg)
         with patch.object(arxiv, "fetch", side_effect=[b"<broken>", b"<broken>"]):
