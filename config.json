@@ -48,10 +48,10 @@
     "EMSE"
   ],
   "mail": {
-    "provider": "unconfigured",
-    "recipient": "syb38324@126.com",
-    "sender": "",
-    "api_url": "https://api.resend.com/emails",
+    "provider": "brevo",
+    "recipient": "shaoyibo102@gmail.com",
+    "sender": "shaoyibo102@gmail.com",
+    "api_url": "https://api.brevo.com/v3/smtp/email",
     "token_env": "DIGEST_MAIL_TOKEN",
     "max_idempotency_hours": 23
   },
