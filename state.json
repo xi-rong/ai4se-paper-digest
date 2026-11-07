@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 14,
+  "revision": 15,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -31140,7 +31140,22 @@
       "first_attempt_at": "2026-11-07T08:33:37.516499+00:00",
       "payload_hash": "02167dc4b7d2059548141a2140607d8b8aff1e2ada3ba0a04a091d70d2d8d83f",
       "provider_id": "<202611070833.19263218271@smtp-relay.mailin.fr>",
-      "sent_at": "2026-11-07T08:33:41.615935+00:00"
+      "sent_at": "2026-11-07T08:33:41.615935+00:00",
+      "acceptance_test_diagnostics": {
+        "started_at": "2026-11-07T08:33:36.365797+00:00",
+        "post_calls": 1,
+        "post_at": "2026-11-07T08:33:39.485904+00:00",
+        "http_status": 201,
+        "outcome": "sent",
+        "ended_at": "2026-11-07T08:33:43.470263+00:00",
+        "message_id": "f875b9f3ee3640a7857cd037f68d6648",
+        "provider_id": "<202611070833.19263218271@smtp-relay.mailin.fr>",
+        "status": "sent",
+        "last_error": null,
+        "event_http_status": 200,
+        "events": [],
+        "event_checked_at": "2026-11-07T08:33:44.980533+00:00"
+      }
     }
   },
   "runs": [
