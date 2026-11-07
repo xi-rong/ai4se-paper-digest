@@ -1,0 +1,130 @@
+{
+  "recorded_at_utc": "2026-11-07T09:45:58.919446+00:00",
+  "execution_origin": "Current cloud task invocation; not independent proof of scheduled wake-up or powered-off-client execution",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "source_head": "1e9d2508ef986221e95e7974b2df7d8f27dd656d",
+  "environment_observations_current": true,
+  "network_policy": "enforced",
+  "credential_binding_ready": true,
+  "proxy_used": true,
+  "tests_passed": 26,
+  "collection": {
+    "id": "67a79d3fe0fc4aedacec4ad771a9aced",
+    "at": "2026-11-07T09:42:43.754554+00:00",
+    "type": "collect",
+    "from": "2026-10-27T08:47:40.196738+00:00",
+    "to": "2026-11-07T09:42:06.757597+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-10-27T08:47:40.196738+00:00",
+        "to": "2026-11-07T09:42:06.757597+00:00",
+        "pages": 3,
+        "status": "ok",
+        "count": 258,
+        "total": 258
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-10-27T08:47:40.196738+00:00",
+        "to": "2026-11-07T09:42:06.757597+00:00",
+        "pages": 2,
+        "status": "ok",
+        "count": 154,
+        "total": 154
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      }
+    ],
+    "new_versions": 144,
+    "status": "ok",
+    "discovery_candidates": []
+  },
+  "scope": {
+    "abstracts_read": 14,
+    "new_reviews_persisted": 10,
+    "fulltext_review": "arxiv:2611.06358:v1; selected sections 4.1,5.1-5.4,6.2,7",
+    "other_persisted_reviews_basis": "abstract",
+    "shortlist_before_review": 673,
+    "shortlist_remaining_unreviewed": 663,
+    "daily_sources_queried": "Two arXiv API queries plus RSS for cs.SE/cs.AI/cs.CL/cs.LG",
+    "sources_not_queried": "S2, DBLP and GitHub release discovery are weekly-only in current CLI; not queried by collect --rss in this daily run. Venue lists and author IDs remain unconfigured; no journal ingestion interface configured. No comprehensive-source claim."
+  },
+  "review_ids": [
+    "arxiv:2611.06358:v1",
+    "arxiv:2611.08285:v1",
+    "arxiv:2611.07739:v1",
+    "arxiv:2611.07307:v1",
+    "arxiv:2611.07166:v1",
+    "arxiv:2611.07286:v1",
+    "arxiv:2611.07759:v1",
+    "arxiv:2611.03523:v1",
+    "arxiv:2611.03197:v1",
+    "arxiv:2611.03162:v1"
+  ],
+  "state": {
+    "before_head": "b9304bd4e6be17371869b2533aece23748e43aac",
+    "after_head": "87b238d3ce71a6eb7799938e53ea84e6e19d29cc",
+    "revision": 21,
+    "papers": 1112,
+    "reviews": 14,
+    "old_sent_unchanged": "sent",
+    "old_superseded_unchanged": "superseded"
+  },
+  "mail": {
+    "recipient": "syb38324@126.com",
+    "message_id": "a5ad7059c9d77f19f703044ce517583e",
+    "kind": "daily",
+    "subject": "AI4SE 论文日报 · 2026-11-07",
+    "status": "sent",
+    "provider_id": "<202611070945.10100231654@smtp-relay.mailin.fr>",
+    "first_attempt_at": "2026-11-07T09:45:00.143112+00:00",
+    "sent_at": "2026-11-07T09:45:04.493887+00:00",
+    "html_bytes": 48354,
+    "text_bytes": 18128,
+    "post_attempts": 1,
+    "http_status": "not captured by original transport; provider response ID received",
+    "payload_hash": "e7724d2a91981aa6c06a10f25519012b2adfbd8c7320684974c83051f39b2b16",
+    "delivery_query": {
+      "query_status": "success",
+      "matching_events": [],
+      "other_events_omitted": 0
+    },
+    "delivery_proven": false
+  },
+  "constraints": {
+    "allowlist_changed": false,
+    "external_scheduler_used": false,
+    "extra_model_api_used": false,
+    "other_recipients_used": false
+  }
+}

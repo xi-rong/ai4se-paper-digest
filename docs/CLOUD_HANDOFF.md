@@ -1,5 +1,11 @@
 # 云端设置与新聊天交接
 
+## 2026-11-07 正式日报执行记录
+
+当前Cloud任务以最新代码1e9d250运行，26项测试通过。唯一收件人syb38324@126.com（Gmail仅为已验证发件人）。原始CLI `--storage git collect --rss` 完整采集两组arXiv API（258/154条，跨查询有重复）及四个有效空RSS批次，新增144个版本事件。审读14篇摘要，其中10篇写入版本化review，FuzzMedic另抽查正文关键章节；剩余663条短名单未审，不能视作已筛选。日报只调用arXiv/RSS；S2、DBLP、GitHub release在当前CLI为weekly来源，本次未调用，会议/作者/期刊接口仍未补齐。
+
+10篇中文HTML/文本日报已通过原项目outbox/租约/CAS发送至126固定地址，返回sent及Brevo提供商ID。首次只读事件查询暂无匹配事件，因此仅确认受理，尚无delivered证据；不得因未见事件重发。远端digest-state revision21、头87b238d3ce71a6eb7799938e53ea84e6e19d29cc；旧sent/superseded保留。发送后日报预览无已审未发项。本次任务执行不独立证明定时唤醒或用户关机执行，详见evidence/daily-run-2026-11-07.json。
+
 ## 2026-11-07 定时任务默认时区修正
 
 按用户要求对现有两项任务分别调用原生 automations.update，设置 default_timezone=Asia/Shanghai，并保留 is_enabled=true 和原 schedule。随后 automations.peek 回读完整任务：两项 default_timezone 与 DTSTART 的 TZID 均为 Asia/Shanghai；日报仍每天09:00（首次2026-11-08），周报仍周一09:00（首次2026-11-09）。exact_schedule、提示、任务ID、thread_id、environment_selection=inherited 和完整 environments 数组均与更新前一致，仍继承 ai4se-paper-digest 已发布Cloud配置。
