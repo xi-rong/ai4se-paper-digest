@@ -9,7 +9,7 @@ update均成功，无工具错误；没有创建任务或发送邮件。display_
 
 ## 2026-11-07 正式调度授权与创建（优先于下方旧记录）
 
-用户明确要求立即启用正式发送，不再等待额外预验收；唯一固定收件人为 shaoyibo102@gmail.com。已安全 fetch/快进 main 至 ef77516，23项测试通过，远端状态 revision 16（972篇、4份审读；旧邮件 sent/superseded）读取成功，无重复发送。
+用户明确要求立即启用正式发送，不再等待额外预验收；当前唯一固定收件人为 syb38324@126.com。已安全 fetch/快进 main 至 ef77516，23项测试通过，远端状态 revision 16（972篇、4份审读；旧邮件 sent/superseded）读取成功，无重复发送。
 
 原生 automations.create 已创建并启用日报和周报：Asia/Shanghai 每天09:00，首次2026-11-08；每周一09:00额外周报，首次2026-11-09，周一日报照常。任务提示包含采集、Agent实际审读、远端Git持久化、Brevo完整邮件、固定地址、去重、失败保留、无新增不发日报等要求。未使用本地自动化、GitHub Actions或外部调度。
 
@@ -54,13 +54,13 @@ python3 -m paper_digest.cli status
 
 Semantic Scholar若需要官方key，可在同一云端保险库添加`DIGEST_S2_TOKEN`，Allowed domains仅`api.semanticscholar.org`，程序用`x-api-key`头发送。它是文献服务凭证，不是模型API。当前未配置，未认证共享限流仍可能返回429，失败需保留而不能报告为零引用。
 
-目前选择 Brevo HTTPS 事务邮件，固定发件人和收件人为 `shaoyibo102@gmail.com`；Brevo 后台显示该 Gmail 发件人已验证。2026-11-07代理鉴权200，单封测试201受理并查询到delivered；这不证明收件箱位置或已读。详见evidence/cloud-brevo-acceptance-2026-11-07.json。免费邮箱作为发件人的实际投递和可能的发件人改写需要实测。无需 126 SMTP、服务器或 Tailscale。
+目前选择 Brevo HTTPS 事务邮件，固定发件人为 `shaoyibo102@gmail.com`，收件人为 `syb38324@126.com`；Brevo 后台显示该 Gmail 发件人已验证。2026-11-07代理鉴权200，单封测试201受理并查询到delivered；这不证明收件箱位置或已读。详见evidence/cloud-brevo-acceptance-2026-11-07.json。免费邮箱作为发件人的实际投递和可能的发件人改写需要实测。无需 126 SMTP、服务器或 Tailscale。
 
 在 Personal vault 创建仅供本环境使用的 Network secret `DIGEST_MAIL_TOKEN`，并按云环境实际界面配置 `api.brevo.com` 的网络访问与密钥使用。凭证不得进入聊天、仓库或日志。仅在云端实测后确认代理是否正确注入。
 
 ```sh
 python3 -m paper_digest.cli --storage git preview --kind daily --out var/daily --enqueue
-python3 -m paper_digest.cli --storage git send MESSAGE_ID --to shaoyibo102@gmail.com
+python3 -m paper_digest.cli --storage git send MESSAGE_ID --to syb38324@126.com
 ```
 
 `--enqueue` 会创建待发记录；普通预览不加此参数，也不消耗待发论文。先核对待发内容和固定收件人。Brevo 接口：https://developers.brevo.com/reference/send-transac-email 。Brevo 的幂等窗口为15分钟，程序超过14分钟停止自动重试并要求对账；即使 API 返回 ID，也只证明受理，不保证入箱。发送后状态保存失败时，应在窗口内以原正文和原键重试，超时先核对 Brevo 日志。Resend 适配器仍在代码中，但当前未选用。
