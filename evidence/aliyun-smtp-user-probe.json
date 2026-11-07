@@ -1,0 +1,19 @@
+{
+  "observed_at_utc": "2026-11-07T07:25:50.588938+00:00",
+  "observed_at_shanghai": "2026-11-07 15:25:50 +08:00",
+  "server": "39.105.143.134",
+  "provenance": "User executed the supplied read-only Python command in their already authenticated root SSH session and pasted its output. Not independently executed by this local agent.",
+  "system": "Linux-6.8.0-63-generic-x86_64-with-glibc2.39",
+  "tailscale": "not installed",
+  "smtp": {
+    "host": "smtp.126.com",
+    "port": 465,
+    "tls_version": "TLSv1.3",
+    "certificate_verification": "enabled by ssl.create_default_context() in supplied command",
+    "ehlo_code": 250,
+    "auth_attempted": false,
+    "email_sent": false
+  },
+  "conclusion": "User-reported server-to-NetEase anonymous SMTP connectivity succeeds. Cloud-to-server private path, authentication and delivery remain unverified."
+}
+
