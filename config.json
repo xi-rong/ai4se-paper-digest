@@ -1,12 +1,22 @@
 {
   "timezone": "Asia/Shanghai",
-  "schedule": {"daily": "14:17", "weekly": "Sunday 20:17", "enabled": false},
+  "schedule": {
+    "daily": "09:00",
+    "weekly": "Monday 09:00",
+    "enabled": false,
+    "weekly_replaces_daily": false
+  },
   "initial_days": 30,
   "overlap_days": 7,
   "max_papers": 10,
   "user_agent": "ai4se-paper-digest/0.1 (+https://github.com/xi-rong/ai4se-paper-digest)",
   "arxiv": {
-    "categories": ["cs.SE", "cs.AI", "cs.CL", "cs.LG"],
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
     "page_size": 100,
     "max_pages": 200,
     "interval_seconds": 3.1,
@@ -15,11 +25,41 @@
       "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")"
     ]
   },
-  "semantic_scholar": {"seed": "ARXIV:2609.33382", "authors": [], "enabled": true, "token_env": "DIGEST_S2_TOKEN"},
-  "dblp": {"queries": ["cross repository repair", "software engineering agents"], "enabled": true},
-  "github_releases": ["ZJU-ACES-ISE/WideSWE"],
+  "semantic_scholar": {
+    "seed": "ARXIV:2609.33382",
+    "authors": [],
+    "enabled": true,
+    "token_env": "DIGEST_S2_TOKEN"
+  },
+  "dblp": {
+    "queries": [
+      "cross repository repair",
+      "software engineering agents"
+    ],
+    "enabled": true
+  },
+  "github_releases": [
+    "ZJU-ACES-ISE/WideSWE"
+  ],
   "venue_lists": [],
-  "journals": ["TSE", "TOSEM", "EMSE"],
-  "mail": {"provider": "unconfigured", "recipient": "", "sender": "", "api_url": "https://api.resend.com/emails", "token_env": "DIGEST_MAIL_TOKEN", "max_idempotency_hours": 23},
-  "storage": {"mode": "local", "repository": "xi-rong/ai4se-paper-digest", "branch": "digest-state", "path": "state.json", "token_env": "DIGEST_GITHUB_TOKEN"}
+  "journals": [
+    "TSE",
+    "TOSEM",
+    "EMSE"
+  ],
+  "mail": {
+    "provider": "unconfigured",
+    "recipient": "syb38324@126.com",
+    "sender": "",
+    "api_url": "https://api.resend.com/emails",
+    "token_env": "DIGEST_MAIL_TOKEN",
+    "max_idempotency_hours": 23
+  },
+  "storage": {
+    "mode": "local",
+    "repository": "xi-rong/ai4se-paper-digest",
+    "branch": "digest-state",
+    "path": "state.json",
+    "token_env": "DIGEST_GITHUB_TOKEN"
+  }
 }
