@@ -2,6 +2,18 @@
 
 仓库：https://github.com/xi-rong/ai4se-paper-digest （Private）
 
+## 2026-11-07 邮件验收与新任务必读
+
+新云任务的初始源码可能来自旧发布快照，本次实际初始 HEAD 为3654053，缺少 Brevo 适配器；先检查 `git status --porcelain=v1`、HEAD 和 origin/main，再 `git fetch origin main`，仅在无冲突且可快进时 `git merge --ff-only origin/main`。保留用户修改，不 reset/覆盖；不能快进时停止并核对。fetch 后重新读取 AGENTS.md 与操作文档，再运行测试。发布快照不等于最新 main，也不等于共享持久状态。
+
+本次源码已快进至53a21ed，23项测试通过。Brevo代理只读鉴权200，曾观察出口20.211.173.170变为20.211.173.167；用户报告授权20.211.173.160/28并保持IP阻拦开启。本次未独立核验该网段的官方归属，也不能保证未来出口不再变化。
+
+真实【测试】报告首次POST返回400、uncertain=false，原错误正文未知；修复稳定UUIDv4幂等键后，新消息一次POST返回201，随后查询到delivered。收件服务器接受不等于收件箱位置或已读。不能确证旧400由幂等键引起。四篇报告事件已标sent，不要重新发送。
+
+旧400消息70849d806da51fac48e919e06d267951保留完整历史并标superseded，替代为f875b9f3ee3640a7857cd037f68d6648；不可重置旧状态/计时或重发。阻断Python HTTP/socket（GitStore仍可fetch读取状态）验证已发送项返回already_sent、旧项拒绝，HTTP transport调用0，远端状态和分支头不变。详情及时间见 [验收证据](../evidence/cloud-brevo-acceptance-2026-11-07.json)。
+
+正式调度仍关闭。后续继续候选审读与来源补齐；原生云调度桥接和关机执行仍待验证，须另获授权，不因本次测试成功启用。
+
 ## 本轮已完成的准备
 
 - 环境名 `ai4se-paper-digest`，Only me；环境配置ID `a039e561-c476-487a-a822-3ef38e05576b~asenvcfg_7e4878ae5d008191adb165121a5f320f`。
@@ -12,18 +24,18 @@
 - 近30天本地最初采集合并970条，连同种子总973条。随后原始CLI已在新云任务完整运行：`collect --rss`退出0，新增968条，远端总972条；596条候选待审核，4条已审核。两次30天窗口起点不同，不能把计数差直接当成漏采；各自API分页均完整。全量云端元数据现已保存私有状态分支，非仅存在VM。
 - 原始CLI四篇重跑 `new_versions=0`；日报/历史/周报预览均成功，前后远端头与状态哈希不变、outbox为空，已有send状态未变；证据见 `evidence/cloud-original-cli-validation.json`。
 - 最终源码d94b2af的21项测试已在云端通过，原始日报CLI确认保留collect覆盖且不修改远端状态；证据 `evidence/cloud-final-check.json`，云任务提交260dafc。
-- 日报/周报预览已生成；真实邮件、定时桥接和关机验证均未完成。没有外部调度/额外模型API/付费服务。
+- 日报/周报预览已生成；真实邮件后来已获Brevo delivered（见上方2026-11-07记录），定时桥接和关机验证未完成。没有外部调度/额外模型API/付费服务。
 
 ## 下一阶段直接复制到云端聊天
 
-> 继续本仓库的个人 AI4SE 论文追踪系统。先读 AGENTS.md、docs/CLOUD_HANDOFF.md、docs/ACCEPTANCE.md 与最新 evidence，跳过已通过的环境创建、发布、21项测试、原始CLI采集、跨任务状态和dry-run验证。先运行 `python3 -m paper_digest.cli --storage git status` 读取私有digest-state；从已保存的596条候选继续摘要/正文审读，优先跨仓库bugfix，扩大已验证的阅读清单并记录未审核范围。补齐会议具体论文列表、期刊官方接口、作者ID等来源；S2 429与DBLP挑战要如实标注。用户已注册 Brevo，固定收件人和经 Brevo 验证的发件人均为 shaoyibo102@gmail.com；按 docs/OPERATIONS.md 验证云端网络密钥注入、Brevo 事务邮件启用和真实投递。仅在云端保险库填凭证，测试完整HTML邮件和发送失败保留待发。最后实测原生云定时任务通过受支持工具启动指定编程环境的桥接，安排短期测试并保留日志；未证实前不要启用正式日报或外部调度。关机测试由我配合。未授权购买服务，不用GitHub Actions。所有新审核、发送记录通过GitStore持久保存，预览不得消耗待发。
+> 继续本仓库的个人 AI4SE 论文追踪系统。先读 AGENTS.md、docs/CLOUD_HANDOFF.md、docs/ACCEPTANCE.md 与最新 evidence，跳过已通过的环境创建、发布、23项测试、Brevo测试邮件受理及服务器投递、原始CLI采集、跨任务状态和dry-run验证。先运行 `python3 -m paper_digest.cli --storage git status` 读取私有digest-state；从已保存的596条候选继续摘要/正文审读，优先跨仓库bugfix，扩大已验证的阅读清单并记录未审核范围。补齐会议具体论文列表、期刊官方接口、作者ID等来源；S2 429与DBLP挑战要如实标注。用户已注册 Brevo，固定收件人和经 Brevo 验证的发件人均为 shaoyibo102@gmail.com；Brevo测试邮件已验收受理及服务器投递，勿重复发送旧报告；后续发信须另获授权，凭证只在保险库管理。最后实测原生云定时任务通过受支持工具启动指定编程环境的桥接，安排短期测试并保留日志；未证实前不要启用正式日报或外部调度。关机测试由我配合。未授权购买服务，不用GitHub Actions。所有新审核、发送记录通过GitStore持久保存，预览不得消耗待发。
 
 ## 创建和发布
 
 Settings → Codex Cloud → Environments → Create environment，或新聊天 Work in → Cloud → 选择环境 → 创建环境。
 只选择 `xi-rong/ai4se-paper-digest`。可见范围 Only me。Python 3.11+，无需模型 API 或第三方 Python 依赖。
 
-允许 HTTPS 域名：`export.arxiv.org`、`arxiv.org`、`rss.arxiv.org`、`api.github.com`、`github.com`、`raw.githubusercontent.com`、`api.semanticscholar.org`、`dblp.org`。按实际需要添加 `huggingface.co` 与各会议/出版社。当前邮件服务使用 `api.brevo.com`；还须验证密钥注入及请求是否可用。
+允许 HTTPS 域名：`export.arxiv.org`、`arxiv.org`、`rss.arxiv.org`、`api.github.com`、`github.com`、`raw.githubusercontent.com`、`api.semanticscholar.org`、`dblp.org`。按实际需要添加 `huggingface.co` 与各会议/出版社。当前邮件服务使用 `api.brevo.com`；2026-11-07已验证代理鉴权和单封测试投递，未来环境仍须核对当前可达性。
 
 Install script/设置验证：
 
@@ -46,7 +58,7 @@ python3 -m paper_digest.cli preview --kind history --out var/cloud-preview
 - 环境 ID、发布状态：已记录于evidence/environment-published.json；设置页为当前云端设置聊天的环境面板。
 - 新云任务运行、arXiv请求、预览：已验证；原始CLI完整采集复验见最新证据。
 - 私有 GitHub 状态跨云任务读写：GitStore已验证，无新增凭证；备选HTTPS令牌模式仍未配置/实测。
-- 完整日报真实邮件：已选 Brevo HTTPS 和 Gmail 固定收件地址，尚需验证凭证注入、实际发送和入箱，见 docs/OPERATIONS.md。
+- 完整日报真实邮件：已选 Brevo HTTPS 和 Gmail 固定收件地址，已验证凭证注入、201受理和delivered；收件箱位置及已读未验证，见 docs/OPERATIONS.md。
 - 云端定时桥接、短期测试与关机执行：待验证。
 
 不要把仅源码完成、仅本地成功、仅通知邮件收到写作系统验收完成。

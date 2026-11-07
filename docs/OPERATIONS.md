@@ -36,7 +36,7 @@ python3 -m paper_digest.cli status
 
 Semantic Scholar若需要官方key，可在同一云端保险库添加`DIGEST_S2_TOKEN`，Allowed domains仅`api.semanticscholar.org`，程序用`x-api-key`头发送。它是文献服务凭证，不是模型API。当前未配置，未认证共享限流仍可能返回429，失败需保留而不能报告为零引用。
 
-目前选择 Brevo HTTPS 事务邮件，固定发件人和收件人为 `shaoyibo102@gmail.com`；Brevo 后台显示该 Gmail 发件人已验证。尚未验证 API 密钥注入、事务邮件账户激活、真实发送及收件。免费邮箱作为发件人的实际投递和可能的发件人改写需要实测。无需 126 SMTP、服务器或 Tailscale。
+目前选择 Brevo HTTPS 事务邮件，固定发件人和收件人为 `shaoyibo102@gmail.com`；Brevo 后台显示该 Gmail 发件人已验证。2026-11-07代理鉴权200，单封测试201受理并查询到delivered；这不证明收件箱位置或已读。详见evidence/cloud-brevo-acceptance-2026-11-07.json。免费邮箱作为发件人的实际投递和可能的发件人改写需要实测。无需 126 SMTP、服务器或 Tailscale。
 
 在 Personal vault 创建仅供本环境使用的 Network secret `DIGEST_MAIL_TOKEN`，并按云环境实际界面配置 `api.brevo.com` 的网络访问与密钥使用。凭证不得进入聊天、仓库或日志。仅在云端实测后确认代理是否正确注入。
 
@@ -58,3 +58,9 @@ python3 -m paper_digest.cli --storage git send MESSAGE_ID --to shaoyibo102@gmail
 ## 成本边界
 
 当前新增付费服务=0，未购买模型 API、邮件套餐或外部调度。Codex 云运行消耗当前计划/额度，不能把已有订阅视为无限免费。邮件、外部调度和数据库仅在用户选择后按官方当期价格估算。本版本不部署常驻服务。
+
+## 2026-11-07 发送去重与历史
+
+已发送消息f875b9f3ee3640a7857cd037f68d6648重跑send返回already_sent，阻断Python网络时transport调用0，远端状态不变。旧400消息70849d806da51fac48e919e06d267951已在报告和事件完全一致、uncertain=false条件下标superseded并关联替代项，保留原payload_hash、首次尝试和正文；发送器拒绝它。不得将其重置为retry或新建同批重复报告。sent在代码中表示受理；delivered须另查提供商事件。
+
+云端新任务可能拿到旧源码快照：检查工作区并安全fetch/快进main，重读文档、运行测试后再操作。代理出口曾变化，既有IP放行不保证永久连通。正式schedule.enabled仍为false。

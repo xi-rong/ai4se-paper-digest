@@ -1,0 +1,148 @@
+{
+  "date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9mZmEzNjQyM2RmZWM4MTkxOTZiMWI2OWY5ZDg5MDcxYQ",
+  "scope": "One authorized Chinese HTML/Markdown test report to the fixed configured recipient. No credentials, request headers or report bodies in this evidence.",
+  "network": {
+    "proxy_used": true,
+    "tls_verification": true,
+    "policy_observed_enforced": true,
+    "secret_binding_ready": true,
+    "secret_name": "DIGEST_MAIL_TOKEN",
+    "allowed_domain": "api.brevo.com",
+    "observations": [
+      {
+        "at_utc": "2026-11-07T08:25:24.196715+00:00",
+        "http_status": 401,
+        "reason": "Brevo unauthorized/unrecognized source IP",
+        "source_ip": "20.211.173.170"
+      },
+      {
+        "at_utc": "2026-11-07T08:27:40.359522+00:00",
+        "http_status": 401,
+        "reason": "Brevo unauthorized/unrecognized source IP",
+        "source_ip": "20.211.173.167"
+      },
+      {
+        "at_utc": "2026-11-07T08:29:26.530863+00:00",
+        "method": "GET",
+        "path": "/v3/smtp/statistics/aggregatedReport",
+        "http_status": 200
+      },
+      {
+        "at_utc": "2026-11-07T08:29:27.692304+00:00",
+        "method": "GET",
+        "path": "/v3/smtp/statistics/events",
+        "http_status": 200,
+        "events": 0
+      }
+    ],
+    "authorization_change": "User reported authorizing 20.211.173.160/28 while keeping IP blocking enabled; agent did not modify security settings. User identified it as an official OpenAI range; this session did not independently verify published range ownership.",
+    "limitation": "Observed proxy exit IP changed; no guarantee future exits stay within this CIDR. GET 200 establishes current read access, not future availability."
+  },
+  "source_updates": {
+    "initial_head": "36540539a8f430e3a8b01ee396680a06744c73f1",
+    "initial_origin_main": "53a2d1cc16bf99c2bdd86134f5a65bb9c4c832bb",
+    "first_fast_forward": "0a9c4389771e91b74a954a1f284467b6d2bf169f",
+    "uuid_fix_fast_forward": "53a21ed52496733c38d55588a2676fe5528eb902",
+    "commands": [
+      "git fetch origin main",
+      "git merge --ff-only origin/main"
+    ],
+    "tests": "23 tests passed at both updated revisions",
+    "preservation": "First update had clean workspace. Second update retained only agent-created untracked work/; no tracked user changes were overwritten."
+  },
+  "report_metadata": {
+    "state_records": 972,
+    "current_version_reviews": 4,
+    "last_collection_window_utc": [
+      "2026-10-04",
+      "2026-11-03"
+    ],
+    "papers": [
+      "arxiv:2609.33382:v1",
+      "arxiv:2611.01484:v1",
+      "arxiv:2407.01489:v2",
+      "arxiv:2603.03194:v2"
+    ],
+    "review_limits": "Three fulltext reviews; Agentless abstract and official code. Historical/seed coverage explicitly labeled; not a fresh daily search."
+  },
+  "first_attempt": {
+    "message_id": "70849d806da51fac48e919e06d267951",
+    "first_attempt_at_utc": "2026-11-07T08:30:59.380514+00:00",
+    "http_status": 400,
+    "uncertain": false,
+    "provider_id": null,
+    "initial_status": "retry",
+    "current_status": "superseded",
+    "superseded_by": "f875b9f3ee3640a7857cd037f68d6648",
+    "original_error_body": "Not retained by original safe HTTP layer; exact provider code/message unknown.",
+    "history_preserved": [
+      "event_keys",
+      "subject",
+      "markdown",
+      "html",
+      "payload_hash",
+      "first_attempt_at",
+      "last_error"
+    ]
+  },
+  "uuid_fix": {
+    "commit": "53a21ed52496733c38d55588a2676fe5528eb902",
+    "change": "Deterministic UUIDv4-format idempotencyKey derived from message ID, replacing ai4se- prefixed ID.",
+    "causality": "Subsequent success is consistent with the fix; original 400 cause was not proven because its error body was unavailable."
+  },
+  "second_attempt": {
+    "message_id": "f875b9f3ee3640a7857cd037f68d6648",
+    "post_at_utc": "2026-11-07T08:33:39.485904+00:00",
+    "post_calls": 1,
+    "http_status": 201,
+    "provider_id": "<202611070833.19263218271@smtp-relay.mailin.fr>",
+    "status": "sent",
+    "transport": "Project mailer.send and GitStore durable outbox/lease; one-off no-redirect proxied transport instrumentation enforced one POST and sanitized error JSON capture; project HTTP transport was replaced for this attempt.",
+    "same_report_and_events_as_first": true,
+    "failure_capture": "Prepared to retain sanitized provider code/message; no HTTP error occurred."
+  },
+  "delivery": {
+    "checked_at_utc": "2026-11-07T08:34:59.680537+00:00",
+    "http_status": 200,
+    "all_returned_events_match_provider_id": true,
+    "events": [
+      {
+        "at_utc": "2026-11-07T08:33:40.775+00:00",
+        "event": "requests"
+      },
+      {
+        "at_utc": "2026-11-07T08:33:42+00:00",
+        "event": "delivered"
+      }
+    ],
+    "deferred_or_blocked_returned": false,
+    "meaning": "Provider reports receiving server accepted delivery; inbox placement and reading are unverified. API acceptance alone is not delivery."
+  },
+  "dedup_verification": {
+    "checked_at_utc": "2026-11-07T08:36:21.809692+00:00",
+    "source_head": "53a21ed52496733c38d55588a2676fe5528eb902",
+    "sent_id": "f875b9f3ee3640a7857cd037f68d6648",
+    "result": "already_sent",
+    "superseded_id": "70849d806da51fac48e919e06d267951",
+    "superseded_rejection": "unknown delivery state",
+    "python_network_blocked": true,
+    "mailer_transport_calls": 0,
+    "state_before_head": "b9304bd4e6be17371869b2533aece23748e43aac",
+    "state_after_head": "b9304bd4e6be17371869b2533aece23748e43aac",
+    "state_equal": true,
+    "state_sha256": "b0bbf754b32ef7439e8177cb2c3ddba83b2172215512df21a03fa2c865953182",
+    "schedule_enabled": false
+  },
+  "scheduling": {
+    "config_schedule_enabled": false,
+    "formal_schedule_enabled_by_this_session": false,
+    "cloud_schedule_bridge": "Not validated; no cron or external scheduler enabled."
+  },
+  "limitations": [
+    "No independent inbox confirmation.",
+    "No new-task test of latest source snapshot publication. Future tasks must fetch main safely.",
+    "Dedup verification blocks Python HTTP/socket calls; GitStore still performs authorized git fetches to read remote state."
+  ]
+}
