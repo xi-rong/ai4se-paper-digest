@@ -9,8 +9,18 @@
 - 本地macOS：smtp.126.com:465，TLS证书验证通过，TLSv1.3，EHLO返回250，服务器公告LOGIN/PLAIN/XOAUTH2。未执行AUTH、MAIL FROM、RCPT TO或DATA。证据：`evidence/smtp126-local-probe.json`。这只证明本机匿名连接可达，不证明账号已启用SMTP、认证成功、投递成功或云端可达。
 - 126客户端需要在网页邮箱“设置→POP3/SMTP/IMAP”开启服务并生成客户端授权密码；授权码独立于网页登录密码。目前先不用生成或提交。
 - 当前Cloud官方文档：公开HTTP/HTTPS与VPN网络分开；普通TCP服务须IPv4地址通过Tailscale路由，客户端使用proxy:8088 HTTP CONNECT。TCP不注入网络密钥；HTTPS网络密钥只在443替换。因此仅添加smtp.126.com到HTTPS允许域名不能视作SMTP配置完成。
-- 本地聊天读取先前云端复验聊天失败（durable host unavailable）；环境列表仍ready/runnable。未重新执行云端SMTP探针，未据此声称SMTP服务或环境已失效。
+- 桌面工具不能读取先前Cloud聊天，已通过网页登录恢复原聊天并实际执行云端诊断。2026-11-07北京时间15:15:42，受批准的outer executor连接proxy:8088立即返回`ConnectionRefusedError [Errno 111]`；CONNECT请求尚未发出，没有到达网易。当前运行环境connected/running，revision 1观测有效，HTTP policy enforced；VPN未配置、TCP域名与IP授权为空。TLS/SMTP/AUTH均未执行。证据：`evidence/cloud-smtp126-diagnosis.json`。这是当前环境TCP路径缺失的证据，不是网易拒绝或账号配置失败。
 - 需要额外、持续在线的VPN路由或邮件中继时，先解释成本、维护要求并由用户选择；不得借用户本机中继满足“关机后执行”，不得绕过平台网络限制。
+
+## 网易邮箱侧的必要设置（网络路径通过后再启用）
+
+1. 用本人账号登录 https://mail.126.com/ ，进入“设置→POP3/SMTP/IMAP”（部分版本显示POP/SMTP/IMAP）。
+2. 开启包含SMTP的客户端服务；若页面提供组合选项，选IMAP/SMTP或POP3/SMTP中的一项即可，不需要两项都开。按网易提示完成手机等身份验证。系统只需要发信，不使用收件箱读取能力。
+3. 点击“新增授权密码”，为本项目单独生成客户端授权码，备注可填`Codex论文日报`。该值不是网页登录密码，页面可能仅显示一次；存入本人密码管理器，不要贴聊天、发截图或写入仓库。
+4. 云端受支持的SMTP路径通过后，才在Codex Cloud Personal vault添加程序可直接读取的Environment variable，独立命名`DIGEST_SMTP_PASSWORD`，Applies to仅本环境；环境自身也须请求该键。不要选Network secret，因为其只交付HTTPS替换占位符。配置完成只反馈“已保存”，不反馈值。
+5. SMTP参数：host=`smtp.126.com`，port=`465`，SSL/TLS开启且验证证书；用户名/发件人/固定收件人均为`syb38324@126.com`。先发送一封带唯一标识的测试邮件，核对收件箱、垃圾箱与提供商受理结果，再讨论无人值守启用。
+
+仅开启网易SMTP或保存授权码不能解决Cloud的TCP路由限制；当前尚无生产SMTP适配器，不要先把provider改为smtp。需要时可在网易撤销本项目专用授权码以停止账号访问。
 
 ## 云端续验提示
 
