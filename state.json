@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 20,
+  "revision": 21,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -23172,7 +23172,7 @@
       "first_discovered_at": "2026-11-03T08:48:02.431496+00:00",
       "last_seen_at": "2026-11-07T09:42:28.322557+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.03197": {
       "id": "arxiv:2611.03197",
@@ -23202,7 +23202,7 @@
       "first_discovered_at": "2026-11-03T08:48:02.431540+00:00",
       "last_seen_at": "2026-11-07T09:42:28.321793+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.03219": {
       "id": "arxiv:2611.03219",
@@ -23326,7 +23326,7 @@
       "first_discovered_at": "2026-11-03T08:48:02.431698+00:00",
       "last_seen_at": "2026-11-07T09:42:28.322568+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.03575": {
       "id": "arxiv:2611.03575",
@@ -31835,7 +31835,7 @@
       "first_discovered_at": "2026-11-07T09:42:13.909547+00:00",
       "last_seen_at": "2026-11-07T09:42:28.322059+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.06373": {
       "id": "arxiv:2611.06373",
@@ -32317,7 +32317,7 @@
       "first_discovered_at": "2026-11-07T09:42:13.909983+00:00",
       "last_seen_at": "2026-11-07T09:42:28.322737+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.07170": {
       "id": "arxiv:2611.07170",
@@ -32403,7 +32403,7 @@
       "first_discovered_at": "2026-11-07T09:42:13.910065+00:00",
       "last_seen_at": "2026-11-07T09:42:28.322746+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.07297": {
       "id": "arxiv:2611.07297",
@@ -32469,7 +32469,7 @@
       "first_discovered_at": "2026-11-07T09:42:13.910140+00:00",
       "last_seen_at": "2026-11-07T09:42:28.322162+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.07324": {
       "id": "arxiv:2611.07324",
@@ -32753,7 +32753,7 @@
       "first_discovered_at": "2026-11-07T09:42:13.910411+00:00",
       "last_seen_at": "2026-11-07T09:42:28.322197+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.07754": {
       "id": "arxiv:2611.07754",
@@ -32814,7 +32814,7 @@
       "first_discovered_at": "2026-11-07T09:42:13.910470+00:00",
       "last_seen_at": "2026-11-07T09:42:28.322204+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.07760": {
       "id": "arxiv:2611.07760",
@@ -33225,7 +33225,7 @@
       "first_discovered_at": "2026-11-07T09:42:13.910916+00:00",
       "last_seen_at": "2026-11-07T09:42:28.322255+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.08442": {
       "id": "arxiv:2611.08442",
@@ -35659,11 +35659,13 @@
         "arxiv:2611.08285:v1"
       ],
       "created_at": "2026-11-07T09:44:55.851411+00:00",
-      "status": "sending",
+      "status": "sent",
       "lease_owner": "ec501ffdd3424a83b63d36ac5b8e9138",
       "lease_until": "2026-11-07T09:55:00.142847+00:00",
       "first_attempt_at": "2026-11-07T09:45:00.143112+00:00",
-      "payload_hash": "e7724d2a91981aa6c06a10f25519012b2adfbd8c7320684974c83051f39b2b16"
+      "payload_hash": "e7724d2a91981aa6c06a10f25519012b2adfbd8c7320684974c83051f39b2b16",
+      "provider_id": "<202611070945.10100231654@smtp-relay.mailin.fr>",
+      "sent_at": "2026-11-07T09:45:04.493887+00:00"
     }
   },
   "runs": [
