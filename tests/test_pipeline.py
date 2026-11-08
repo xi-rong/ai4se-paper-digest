@@ -10,7 +10,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import patch
 from paper_digest import cli
-from paper_digest.collectors import Arxiv, parse_atom, parse_rss, upsert, iso
+from paper_digest.collectors import Arxiv, parse_atom, parse_rss, upsert, iso, review_queue
 from paper_digest.http import RequestError
 from paper_digest.mailer import send
 from paper_digest.reports import render, selected
@@ -73,6 +73,30 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(upsert(state, [paper]), 0)
         self.assertEqual(state["papers"][paper["id"]]["first_discovered_at"], discovered)
         self.assertEqual(len(state["papers"]), 1)
+
+    def test_review_queue_prioritizes_cross_repository_repair_without_classifying(self):
+        items = [
+            {"id": "ordinary", "title": "Software bug repair", "abstract": "", "processing_status": "unreviewed"},
+            {"id": "cross", "title": "Cross-repository software bug repair", "abstract": "", "processing_status": "unreviewed"},
+            {"id": "reviewed", "title": "Cross-repository software bug repair", "abstract": "", "processing_status": "reviewed"},
+        ]
+        self.assertEqual([p["id"] for p in review_queue(items)], ["cross", "ordinary"])
+        self.assertNotIn("task_type", items[1])
+
+    def test_invalid_review_batch_does_not_partially_mutate_state(self):
+        state, _, review = fixture()
+        original = copy.deepcopy(state)
+        valid = dict(review, summary_zh="新的审读")
+        invalid = dict(review, task_setting=" ")
+        with self.assertRaises(ValueError):
+            add_reviews(state, [valid, invalid])
+        self.assertEqual(state, original)
+
+    def test_arxiv_failure_records_safe_http_status(self):
+        collector = Arxiv(self.cfg)
+        with patch.object(collector, "fetch", side_effect=RequestError(429)):
+            _, coverage = collector.collect(datetime.now(timezone.utc), datetime.now(timezone.utc))
+        self.assertTrue(all(c["status"] == "failed" and c["http_status"] == 429 for c in coverage))
 
     def test_new_version_requires_new_review(self):
         state, paper, _ = fixture()

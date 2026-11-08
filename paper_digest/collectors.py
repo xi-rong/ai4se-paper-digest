@@ -7,7 +7,7 @@ import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from urllib.parse import urlencode
-from .http import request, get_json
+from .http import request, get_json, RequestError
 
 NS = {"a": "http://www.w3.org/2005/Atom", "o": "http://a9.com/-/spec/opensearch/1.1/",
       "x": "http://arxiv.org/schemas/atom"}
@@ -89,6 +89,8 @@ class Arxiv:
             except Exception as exc:
                 status["status"] = "partial" if status["count"] else "failed"
                 status["error"] = type(exc).__name__
+                if isinstance(exc, RequestError):
+                    status["http_status"] = exc.status
             coverage.append(status)
         return rows, coverage
 
@@ -242,3 +244,17 @@ def shortlist(paper):
     se = any(w in text for w in ("software", "repository", "repositories", "program repair", "bug", "coding agent", "swe-bench", "fault localization", "regression test"))
     method = any(w in text for w in ("agent", "repair", "fix", "test", "dependency", "dependencies", "retrieval", "change propagation", "localization", "benchmark"))
     return se and method
+
+
+def review_queue(papers):
+    """Rank eligible candidates for agent review; hints do not assert relevance."""
+    def rank(paper):
+        text = (paper.get("title", "") + " " + paper.get("abstract", "")).lower()
+        cross = any(term in text for term in ("cross-repositor", "cross repositor", "cross-project",
+                    "multiple repositories", "multiple repos", "multi-repositor", "inter-repositor"))
+        repair = any(term in text for term in ("repair", "bug", "defect", "fix", "patch"))
+        return (0 if cross and repair else 1 if cross else 2 if repair else 3,
+                paper.get("first_discovered_at", ""), paper.get("id", ""))
+
+    return sorted((p for p in papers if shortlist(p) and p.get("processing_status") in
+                   ("unreviewed", "version_needs_review")), key=rank)
