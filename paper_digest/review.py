@@ -9,10 +9,19 @@ REQUIRED = ("paper_id", "version", "priority", "task_type", "summary_zh", "relev
 
 
 def add_reviews(state, reviews):
+    if not isinstance(reviews, list):
+        raise ValueError("reviews must be a list")
+    prepared = []
     for review in reviews:
+        if not isinstance(review, dict):
+            raise ValueError("each review must be an object")
         missing = [k for k in REQUIRED if k not in review]
         if missing:
             raise ValueError("missing review fields: " + ", ".join(missing))
+        for field in ("paper_id", "summary_zh", "relevance_reason", "task_setting", "method",
+                      "evidence", "research_use", "reading_advice", "publication_status"):
+            if not isinstance(review[field], str) or not review[field].strip():
+                raise ValueError("review field must be nonempty text: " + field)
         pid = state["aliases"].get(review["paper_id"], review["paper_id"])
         if pid not in state["papers"]:
             raise ValueError("unknown paper: " + pid)
@@ -25,16 +34,21 @@ def add_reviews(state, reviews):
             raise ValueError("invalid task_type")
         if review["basis"] not in ("abstract", "fulltext"):
             raise ValueError("invalid evidence basis")
-        if not review["evidence_urls"]:
+        if not isinstance(review["evidence_urls"], list) or not review["evidence_urls"]:
             raise ValueError("at least one evidence URL required")
         for url in review["evidence_urls"]:
-            if not url.startswith("https://"):
+            if not isinstance(url, str) or not url.startswith("https://"):
                 raise ValueError("invalid evidence URL")
+        if not isinstance(review["links"], list):
+            raise ValueError("links must be a list")
         for link in review["links"]:
-            if not all(link.get(k) for k in ("url", "kind", "verified_at", "evidence_url")):
+            if not isinstance(link, dict) or not all(isinstance(link.get(k), str) and link[k].strip() for k in ("url", "kind", "verified_at", "evidence_url")):
                 raise ValueError("code/data links require provenance and verification time")
-            if not link["url"].startswith("https://"):
+            if not link["url"].startswith("https://") or not link["evidence_url"].startswith("https://"):
                 raise ValueError("HTTPS links required")
+        prepared.append((pid, paper, review))
+    # Validate the whole batch before mutating any paper or review.
+    for pid, paper, review in prepared:
         record = dict(review, paper_id=pid, reviewed_at=iso())
         state["reviews"][pid + ":v" + str(review["version"])] = record
         paper["processing_status"] = "excluded" if review["priority"] == "exclude" else "reviewed"
