@@ -4,7 +4,7 @@ import sys
 import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from .collectors import Arxiv, iso, rss, weekly, upsert, shortlist
+from .collectors import Arxiv, iso, rss, weekly, upsert, review_queue
 from .storage import LocalStore, GitHubStore, GitStore
 from .review import add_reviews
 from .reports import render
@@ -82,8 +82,7 @@ def main(argv=None):
         run["discovery_candidates"] = extra
         state["runs"].append(run)
         store.save(state, revision)
-        output = {"run": run, "papers": [p for p in state["papers"].values()
-                  if shortlist(p) and p["processing_status"] in ("unreviewed", "version_needs_review")],
+        output = {"run": run, "papers": review_queue(state["papers"].values()),
                   "additional_candidates": extra}
         path = Path(args.out)
         path.parent.mkdir(parents=True, exist_ok=True)
