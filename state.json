@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 22,
+  "revision": 23,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -6693,7 +6693,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:46.984610+00:00",
       "last_seen_at": "2026-11-03T08:48:22.389484+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.17418": {
@@ -6774,7 +6774,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:46.984818+00:00",
       "last_seen_at": "2026-11-03T08:48:22.389497+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.17616": {
@@ -8334,7 +8334,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:46.987365+00:00",
       "last_seen_at": "2026-11-03T08:48:22.389763+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.08662": {
@@ -10510,7 +10510,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:50.050284+00:00",
       "last_seen_at": "2026-11-03T08:48:22.390126+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.15797": {
@@ -11401,7 +11401,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:50.051519+00:00",
       "last_seen_at": "2026-11-03T08:48:22.395170+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.27816": {
@@ -16091,7 +16091,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:56.010715+00:00",
       "last_seen_at": "2026-11-03T08:48:22.391282+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.33949": {
@@ -35572,6 +35572,126 @@
       "publication_status": "arXiv v1预印本；未核验正式会议/期刊录用",
       "links": [],
       "reviewed_at": "2026-11-07T09:44:33.052859+00:00"
+    },
+    "arxiv:2610.17374:v1": {
+      "paper_id": "arxiv:2610.17374",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "VulnBump把漏洞修复、依赖解析、构建与旧测试全部通过作为升级成功条件，适合参考联合验收设计。",
+      "relevance_reason": "为上下游联合升级设计漏洞消除、接口兼容、构建及回归四项独立判据；不能仅以测试绿或扫描绿判成功。",
+      "task_setting": "307项升级任务来自43个仓库和六种包管理器；跨仓库数据集不等于单实例必须修改多个仓库。摘要描述单项目依赖升级。",
+      "method": "在独立新容器中解析依赖、重扫目标漏洞、构建并运行此前通过的测试，对比推荐版本直接替换与多种agent harness。",
+      "evidence": "仅摘要：作者报告直接版本替换46.9%通过，Evo 90.2%、带Snyk的Claude Code 77.5%、无工具59.6%；模型相同但harness与工具不同，不当作受控单因素因果结论。未核验正文、漏洞清单或实际补丁。",
+      "research_use": "研究建议，尚未经本文验证为跨仓库收益：为上下游联合升级设计漏洞消除、接口兼容、构建及回归四项独立判据；不能仅以测试绿或扫描绿判成功。",
+      "reading_advice": "精读任务构建、版本选择、独立扫描及原有测试保持机制，复现主版本迁移子集；核查预算与分布匹配。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.17374v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-08T01:06:12.331555+00:00"
+    },
+    "arxiv:2610.17578:v1": {
+      "paper_id": "arxiv:2610.17578",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "跨项目缺陷定位的迁移收益依赖模型架构，不能把某个源目标组合的有效性外推到其他架构。",
+      "relevance_reason": "选择外部仓库证据时加入目标项目聚类、架构条件和负迁移检测；定位迁移不能替代多目标修复验收。",
+      "task_setting": "13个Python项目形成63个源到目标对，任务是标签知识迁移与定位，不是已证实的多目标仓库修改；修改范围标unknown。",
+      "method": "比较embedding、卷积及图网络三类模型，统一语料、划分和候选，使用目标侧20%标签的WP-small作为主要参照。",
+      "evidence": "仅摘要：TRANP-CNN收益在按目标项目聚类后仍稳健，BLAZE显著性不保留，COOBA收益未通过多重比较校正；作者报告各架构均存在负迁移。未核查实现与原始统计。",
+      "research_use": "研究建议，尚未经本文验证为跨仓库收益：选择外部仓库证据时加入目标项目聚类、架构条件和负迁移检测；定位迁移不能替代多目标修复验收。",
+      "reading_advice": "精读聚类推断、目标标签可用性和模型重实现差异；跨仓库检索实验应按目标仓库报告方差。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.17578v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-08T01:06:12.331576+00:00"
+    },
+    "arxiv:2610.21372:v1": {
+      "paper_id": "arxiv:2610.21372",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "single_repo_other",
+      "summary_zh": "Flask探索案例把依赖处理转化视作研究对象，强调显式变换契约、来源约束和独立验证。",
+      "relevance_reason": "为依赖替换规定接口、行为保持、许可证与来源证据边界，并用独立oracle验证，避免把删除依赖当作成功。",
+      "task_setting": "摘要说明agent改变一个仓库处理外部依赖的方式；本地重实现只是策略之一。单仓库范围明确，跨文件与外部证据具体形式未确认。",
+      "method": "通过改变可用上下文观察依赖发现与迭代变换，归纳五条初步经验和后续研究议程。",
+      "evidence": "仅摘要：探索性单案例、emerging-results论文；未报告可据此外推的普遍修复成功率，也未证明跨仓库协同编辑。",
+      "research_use": "研究建议，尚未经本文验证为跨仓库收益：为依赖替换规定接口、行为保持、许可证与来源证据边界，并用独立oracle验证，避免把删除依赖当作成功。",
+      "reading_advice": "精读上下文条件、策略差异和五条经验，先在不同项目复核；不要把初步案例经验当确定规律。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.21372v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-08T01:06:12.331581+00:00"
+    },
+    "arxiv:2610.25826:v1": {
+      "paper_id": "arxiv:2610.25826",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "更准确的故障位置不必然带来更高修复率；定位步骤本身的开销可能抵消节省。",
+      "relevance_reason": "将仓库/文件定位召回、最终联合修复和端到端成本分别度量；外部证据应包含缺陷原因而非仅位置。",
+      "task_setting": "在SWE-bench Verified和Defects4J上进行单目标程序修复；多项目样本并非多仓库协同修改。",
+      "method": "统一修复框架，比较六种定位方法与三个模型，分析16248条轨迹，并引入真实位置及缺陷原因作为对照。",
+      "evidence": "仅摘要：正确位置最多可省39.2%修复token，但现有定位法成本常高于节省；单份参考补丁不涵盖所有成功修复位置。未核实正文统计或各子集分母。",
+      "research_use": "研究建议，尚未经本文验证为跨仓库收益：将仓库/文件定位召回、最终联合修复和端到端成本分别度量；外部证据应包含缺陷原因而非仅位置。",
+      "reading_advice": "核查gold guidance构造、定位线索强弱分层和端到端token核算，再比较跨仓库定位消融。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.25826v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-08T01:06:12.331584+00:00"
+    },
+    "arxiv:2610.27784:v1": {
+      "paper_id": "arxiv:2610.27784",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "Relay先复用经验证的构建修复规则，再把剩余案例交给agent，以应对历史环境腐化。",
+      "relevance_reason": "为多仓库历史基准记录环境来源与版本，分离环境修复和目标补丁；检验复用规则是否改变原任务语义。",
+      "task_setting": "14159个OSS-Fuzz历史案例涉及外部镜像与包资源变化；摘要未给出每个案例实际修改仓库数量，标unknown。",
+      "method": "从代表性失败中派生并验证确定性规则，批量复用且无需模型调用，对未解决案例升级为逐例agent。",
+      "evidence": "仅摘要：作者称69.7%案例无法完成重建与验证，规则与agent解决集合互补；该比例限所研究历史案例，不能视作所有项目的长期失败率。未核查正文或规则清单。",
+      "research_use": "研究建议，尚未经本文验证为跨仓库收益：为多仓库历史基准记录环境来源与版本，分离环境修复和目标补丁；检验复用规则是否改变原任务语义。",
+      "reading_advice": "精读规则验证、规则适用前提和升级条件，复核自动/人工campaign的预算和失败成本。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.27784v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-08T01:06:12.331586+00:00"
+    },
+    "arxiv:2610.33920:v1": {
+      "paper_id": "arxiv:2610.33920",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "DRILS通过需求依赖图与领域检索辅助变更影响分析，可为目标范围规划提供方法参考。",
+      "relevance_reason": "将需求影响集合映射到仓库级验收义务，再独立测目标仓库召回和遗漏代价；不要用需求F1代替联合测试通过率。",
+      "task_setting": "研究对象是自然语言需求的影响集合，不是代码补丁；摘要不提供目标仓库/文件数，标unknown。",
+      "method": "多agent生成候选影响集合，以judge选择促进多样性，结合RE-RAG和需求依赖图。",
+      "evidence": "仅摘要：三个手工整理数据集上作者报告平均召回87.1%、精确76.3%、F1为81%；未核验标注质量、依赖图构造与judge可靠性。不能据此声称代码修复成功。",
+      "research_use": "研究建议，尚未经本文验证为跨仓库收益：将需求影响集合映射到仓库级验收义务，再独立测目标仓库召回和遗漏代价；不要用需求F1代替联合测试通过率。",
+      "reading_advice": "核查图是否使用测试集知识、数据划分与标注一致性，再设计可执行影响验证。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.33920v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-08T01:06:12.331587+00:00"
     }
   },
   "outbox": {
