@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 25,
+  "revision": 26,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -6694,7 +6694,7 @@
       "first_discovered_at": "2026-11-03T08:47:46.984610+00:00",
       "last_seen_at": "2026-11-03T08:48:22.389484+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2610.17418": {
       "id": "arxiv:2610.17418",
@@ -6775,7 +6775,7 @@
       "first_discovered_at": "2026-11-03T08:47:46.984818+00:00",
       "last_seen_at": "2026-11-03T08:48:22.389497+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2610.17616": {
       "id": "arxiv:2610.17616",
@@ -8335,7 +8335,7 @@
       "first_discovered_at": "2026-11-03T08:47:46.987365+00:00",
       "last_seen_at": "2026-11-03T08:48:22.389763+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2610.08662": {
       "id": "arxiv:2610.08662",
@@ -10511,7 +10511,7 @@
       "first_discovered_at": "2026-11-03T08:47:50.050284+00:00",
       "last_seen_at": "2026-11-03T08:48:22.390126+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2610.15797": {
       "id": "arxiv:2610.15797",
@@ -11402,7 +11402,7 @@
       "first_discovered_at": "2026-11-03T08:47:50.051519+00:00",
       "last_seen_at": "2026-11-03T08:48:22.395170+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2610.27816": {
       "id": "arxiv:2610.27816",
@@ -16092,7 +16092,7 @@
       "first_discovered_at": "2026-11-03T08:47:56.010715+00:00",
       "last_seen_at": "2026-11-03T08:48:22.391282+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2610.33949": {
       "id": "arxiv:2610.33949",
@@ -35802,11 +35802,13 @@
         "arxiv:2610.33920:v1"
       ],
       "created_at": "2026-11-08T01:06:23.671773+00:00",
-      "status": "sending",
+      "status": "sent",
       "lease_owner": "18fcaa4c056949a4a5a8107eed7e1770",
       "lease_until": "2026-11-08T01:16:27.934432+00:00",
       "first_attempt_at": "2026-11-08T01:06:27.934621+00:00",
-      "payload_hash": "88843f751041e7ec694e4191eb7b3d5dcbd059cf7df28db2e7c1a3fb9cdbeecd"
+      "payload_hash": "88843f751041e7ec694e4191eb7b3d5dcbd059cf7df28db2e7c1a3fb9cdbeecd",
+      "provider_id": "<202611080106.51862421868@smtp-relay.mailin.fr>",
+      "sent_at": "2026-11-08T01:06:31.511529+00:00"
     }
   },
   "runs": [
