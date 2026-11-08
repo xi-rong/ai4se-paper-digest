@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 21,
+  "revision": 22,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -125,12 +125,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01484",
-      "discovered_at": "2026-11-07T09:42:11.710269+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181321+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:16:43.088849+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321666+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984675+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -21993,12 +21993,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.00944",
-      "discovered_at": "2026-11-07T09:42:24.849191+00:00",
+      "discovered_at": "2026-11-08T01:04:24.180906+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.429546+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322463+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984586+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22019,12 +22019,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01043",
-      "discovered_at": "2026-11-07T09:42:24.849217+00:00",
+      "discovered_at": "2026-11-08T01:04:24.180958+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.429585+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322466+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984600+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22045,12 +22045,12 @@
       ],
       "primary_category": "cs.CR",
       "url": "https://arxiv.org/abs/2611.01127",
-      "discovered_at": "2026-11-07T09:42:09.564631+00:00",
+      "discovered_at": "2026-11-08T01:04:24.180988+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.429623+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321614+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984608+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22072,12 +22072,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01173",
-      "discovered_at": "2026-11-07T09:42:11.709580+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181016+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.429660+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321619+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984615+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22101,12 +22101,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01181",
-      "discovered_at": "2026-11-07T09:42:11.709935+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181044+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.429724+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321624+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984621+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22128,12 +22128,12 @@
       "doi": "10.5281/zenodo.23127749",
       "journal_ref": "Vol. 3 No. 01 (2026)",
       "url": "https://arxiv.org/abs/2611.01196",
-      "discovered_at": "2026-11-07T09:42:11.709997+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181066+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.429832+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321629+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984628+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22159,12 +22159,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01255",
-      "discovered_at": "2026-11-07T09:42:11.710030+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181094+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.429877+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321634+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984634+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22190,12 +22190,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01265",
-      "discovered_at": "2026-11-07T09:42:24.849246+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181152+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.429923+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322469+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984641+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22220,12 +22220,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01292",
-      "discovered_at": "2026-11-07T09:42:11.710091+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181182+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.429963+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321643+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984646+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22250,12 +22250,12 @@
       ],
       "primary_category": "cs.LO",
       "url": "https://arxiv.org/abs/2611.01357",
-      "discovered_at": "2026-11-07T09:42:24.849274+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181211+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430004+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322472+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984651+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22277,12 +22277,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01358",
-      "discovered_at": "2026-11-07T09:42:11.710179+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181238+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430046+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321652+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984658+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22308,12 +22308,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.01377",
-      "discovered_at": "2026-11-07T09:42:24.849300+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181265+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430087+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322476+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984663+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22340,12 +22340,12 @@
       ],
       "primary_category": "cs.LG",
       "url": "https://arxiv.org/abs/2611.01383",
-      "discovered_at": "2026-11-07T09:42:24.849329+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181295+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430165+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322479+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984669+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22396,12 +22396,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01572",
-      "discovered_at": "2026-11-07T09:42:24.849381+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181344+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430292+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322487+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984681+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22421,12 +22421,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01636",
-      "discovered_at": "2026-11-07T09:42:11.710349+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181368+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430330+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321682+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984686+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22451,12 +22451,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01692",
-      "discovered_at": "2026-11-07T09:42:24.849405+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181394+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430369+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322490+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984691+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22481,12 +22481,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01743",
-      "discovered_at": "2026-11-07T09:42:11.710402+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181421+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430410+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321690+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984696+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22512,12 +22512,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01930",
-      "discovered_at": "2026-11-07T09:42:24.849489+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181483+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430458+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322501+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984709+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22543,12 +22543,12 @@
       ],
       "primary_category": "cs.CR",
       "url": "https://arxiv.org/abs/2611.01953",
-      "discovered_at": "2026-11-07T09:42:24.849517+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181511+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430502+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322505+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984715+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22576,12 +22576,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.01966",
-      "discovered_at": "2026-11-07T09:42:24.849550+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181545+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430553+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322508+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984720+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22607,12 +22607,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.02074",
-      "discovered_at": "2026-11-07T09:42:24.849613+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181575+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430598+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322516+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984726+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22635,12 +22635,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02125",
-      "discovered_at": "2026-11-07T09:42:24.849635+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181598+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430632+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322519+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984731+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22662,12 +22662,12 @@
       ],
       "primary_category": "cs.CL",
       "url": "https://arxiv.org/abs/2611.02155",
-      "discovered_at": "2026-11-07T09:42:24.849657+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181620+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430667+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322522+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984737+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22689,12 +22689,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02207",
-      "discovered_at": "2026-11-07T09:42:24.849683+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181693+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430707+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322526+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984742+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22718,12 +22718,12 @@
       ],
       "primary_category": "cs.LG",
       "url": "https://arxiv.org/abs/2611.02251",
-      "discovered_at": "2026-11-07T09:42:24.849714+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181771+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430761+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322529+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984747+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22744,12 +22744,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02285",
-      "discovered_at": "2026-11-07T09:42:11.710750+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181794+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430798+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321736+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984752+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22775,12 +22775,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02300",
-      "discovered_at": "2026-11-07T09:42:11.710834+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181826+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430841+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321740+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984758+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22803,12 +22803,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02349",
-      "discovered_at": "2026-11-07T09:42:11.710860+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181850+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430879+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321744+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984762+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22831,12 +22831,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02383",
-      "discovered_at": "2026-11-07T09:42:11.710888+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181877+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430920+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321748+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984767+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22860,12 +22860,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02416",
-      "discovered_at": "2026-11-07T09:42:11.712561+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182859+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.430962+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321888+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984938+00:00",
       "processing_status": "version_needs_review",
       "send_status": "unsent"
     },
@@ -22893,12 +22893,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02440",
-      "discovered_at": "2026-11-07T09:42:24.849799+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181934+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431008+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322540+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984778+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22923,12 +22923,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02527",
-      "discovered_at": "2026-11-07T09:42:11.710974+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181961+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431050+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321762+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984783+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -22952,12 +22952,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02566",
-      "discovered_at": "2026-11-07T09:42:28.319420+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182833+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431090+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322629+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984934+00:00",
       "processing_status": "version_needs_review",
       "send_status": "unsent"
     },
@@ -22981,12 +22981,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02676",
-      "discovered_at": "2026-11-07T09:42:11.711004+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181989+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431155+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321767+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984788+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -23010,12 +23010,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.02721",
-      "discovered_at": "2026-11-07T09:42:24.849862+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182017+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431199+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322547+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984794+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -23043,12 +23043,12 @@
       ],
       "primary_category": "cs.LG",
       "url": "https://arxiv.org/abs/2611.02784",
-      "discovered_at": "2026-11-07T09:42:24.849891+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182046+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431244+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322551+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984799+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -23086,12 +23086,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.02849",
-      "discovered_at": "2026-11-07T09:42:24.849938+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182083+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431300+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322554+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984803+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -23113,12 +23113,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.02978",
-      "discovered_at": "2026-11-07T09:42:28.319548+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183201+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431419+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322642+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984994+00:00",
       "processing_status": "version_needs_review",
       "send_status": "unsent"
     },
@@ -23139,12 +23139,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.03111",
-      "discovered_at": "2026-11-07T09:42:11.711368+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182106+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431457+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321785+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984809+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -23165,12 +23165,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.03162",
-      "discovered_at": "2026-11-07T09:42:24.849963+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182151+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431496+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322557+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984815+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -23195,12 +23195,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.03197",
-      "discovered_at": "2026-11-07T09:42:11.711480+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182180+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431540+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321793+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984820+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -23223,12 +23223,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.03219",
-      "discovered_at": "2026-11-07T09:42:24.849988+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182205+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431578+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322560+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984824+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -23253,12 +23253,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.03231",
-      "discovered_at": "2026-11-07T09:42:11.711560+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182233+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431618+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321803+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984830+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -23284,12 +23284,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.03321",
-      "discovered_at": "2026-11-07T09:42:11.711589+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182259+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431655+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321807+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984834+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -23319,12 +23319,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.03523",
-      "discovered_at": "2026-11-07T09:42:24.850047+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182288+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431698+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322568+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984840+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -23350,12 +23350,12 @@
       ],
       "primary_category": "cs.CL",
       "url": "https://arxiv.org/abs/2611.03575",
-      "discovered_at": "2026-11-07T09:42:24.850153+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182319+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431740+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322579+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984845+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -23378,12 +23378,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.03631",
-      "discovered_at": "2026-11-07T09:42:11.711680+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182346+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-03T08:48:02.431778+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321819+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984850+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30046,12 +30046,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.03725",
-      "discovered_at": "2026-11-07T09:42:24.849457+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181451+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.710432+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322498+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984703+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30073,12 +30073,12 @@
       ],
       "primary_category": "cs.CR",
       "url": "https://arxiv.org/abs/2611.03742",
-      "discovered_at": "2026-11-07T09:42:11.710914+00:00",
+      "discovered_at": "2026-11-08T01:04:24.181903+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.710914+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321752+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984772+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30105,12 +30105,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.03853",
-      "discovered_at": "2026-11-07T09:42:24.850280+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182373+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.711740+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322591+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984855+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30135,12 +30135,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.04042",
-      "discovered_at": "2026-11-07T09:42:24.850366+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182398+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.711768+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322601+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984861+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30166,12 +30166,12 @@
       "primary_category": "cs.SE",
       "doi": "10.1109/tg.2026.3733302",
       "url": "https://arxiv.org/abs/2611.05427",
-      "discovered_at": "2026-11-07T09:42:24.850392+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182424+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.711799+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322605+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984867+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30201,12 +30201,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.04180",
-      "discovered_at": "2026-11-07T09:42:24.850426+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182458+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.711875+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322608+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984873+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30228,12 +30228,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.04206",
-      "discovered_at": "2026-11-07T09:42:11.711903+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182485+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.711903+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321840+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984878+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30253,12 +30253,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06946",
-      "discovered_at": "2026-11-07T09:42:11.711979+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182511+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.711979+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321844+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984883+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30284,12 +30284,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.04320",
-      "discovered_at": "2026-11-07T09:42:24.850454+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182539+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712008+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322611+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984888+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30312,12 +30312,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.04338",
-      "discovered_at": "2026-11-07T09:42:24.850478+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182564+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712033+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322614+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984893+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30340,12 +30340,12 @@
       ],
       "primary_category": "cs.CR",
       "url": "https://arxiv.org/abs/2611.04356",
-      "discovered_at": "2026-11-07T09:42:24.850504+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182589+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712059+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322617+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984897+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30369,12 +30369,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.04367",
-      "discovered_at": "2026-11-07T09:42:11.712081+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182610+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712081+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321859+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984902+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30394,12 +30394,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.04383",
-      "discovered_at": "2026-11-07T09:42:11.712104+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182633+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712104+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321862+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984907+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30420,12 +30420,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.04399",
-      "discovered_at": "2026-11-07T09:42:24.850529+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182660+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712163+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322620+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984912+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30448,12 +30448,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.04420",
-      "discovered_at": "2026-11-07T09:42:24.850553+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182684+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712191+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322623+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984916+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30478,12 +30478,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.04456",
-      "discovered_at": "2026-11-07T09:42:11.712278+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182714+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712278+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321873+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984921+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30505,12 +30505,12 @@
       ],
       "primary_category": "cs.CR",
       "url": "https://arxiv.org/abs/2611.04461",
-      "discovered_at": "2026-11-07T09:42:11.712306+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182740+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712306+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321877+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984925+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30533,12 +30533,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.04579",
-      "discovered_at": "2026-11-07T09:42:11.712441+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182806+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712441+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321880+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984930+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30560,12 +30560,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06947",
-      "discovered_at": "2026-11-07T09:42:11.712587+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182886+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712587+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321893+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984943+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30589,12 +30589,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05437",
-      "discovered_at": "2026-11-07T09:42:11.712615+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182912+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712615+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321897+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984949+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30615,12 +30615,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06948",
-      "discovered_at": "2026-11-07T09:42:11.712641+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182938+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712641+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321900+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984954+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30643,12 +30643,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.04769",
-      "discovered_at": "2026-11-07T09:42:11.712667+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182963+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712667+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321903+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984959+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30672,12 +30672,12 @@
       ],
       "primary_category": "cs.DC",
       "url": "https://arxiv.org/abs/2611.04779",
-      "discovered_at": "2026-11-07T09:42:28.319464+00:00",
+      "discovered_at": "2026-11-08T01:04:24.182988+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712785+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322632+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984963+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30699,12 +30699,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.04783",
-      "discovered_at": "2026-11-07T09:42:11.712834+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183015+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712834+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321910+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984967+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30725,12 +30725,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.04883",
-      "discovered_at": "2026-11-07T09:42:11.712894+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183036+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712894+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321913+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984972+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30755,12 +30755,12 @@
       ],
       "primary_category": "cs.PF",
       "url": "https://arxiv.org/abs/2611.04973",
-      "discovered_at": "2026-11-07T09:42:11.712920+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183061+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.712920+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321917+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984976+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30786,12 +30786,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05013",
-      "discovered_at": "2026-11-07T09:42:11.713070+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183092+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713070+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321920+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984981+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30814,12 +30814,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05056",
-      "discovered_at": "2026-11-07T09:42:11.713176+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183118+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713176+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321925+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984985+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30840,12 +30840,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05094",
-      "discovered_at": "2026-11-07T09:42:11.713217+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183173+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713217+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321928+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.984990+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30872,12 +30872,12 @@
       "doi": "10.1145/3728950",
       "journal_ref": "Proc. ACM Softw. Eng. 2, ISSTA (2025), Article ISSTA073, 1654-1677",
       "url": "https://arxiv.org/abs/2611.05121",
-      "discovered_at": "2026-11-07T09:42:11.713401+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183230+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713401+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321936+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985000+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30898,12 +30898,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06950",
-      "discovered_at": "2026-11-07T09:42:28.319574+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183256+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713456+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322646+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985005+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30927,12 +30927,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05168",
-      "discovered_at": "2026-11-07T09:42:11.713486+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183285+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713486+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321943+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985009+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30956,12 +30956,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05314",
-      "discovered_at": "2026-11-07T09:42:11.713514+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183313+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713514+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321947+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985014+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -30985,12 +30985,12 @@
       "doi": "10.56831/psen-09-304",
       "journal_ref": "Primera Scientific Engineering 9.6(2026): 30-48",
       "url": "https://arxiv.org/abs/2611.06952",
-      "discovered_at": "2026-11-07T09:42:11.713537+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183335+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713537+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321951+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985018+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31010,12 +31010,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05454",
-      "discovered_at": "2026-11-07T09:42:11.713563+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183360+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713563+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321955+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985023+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31043,12 +31043,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05457",
-      "discovered_at": "2026-11-07T09:42:28.319672+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183391+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713598+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322655+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985028+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31069,12 +31069,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05540",
-      "discovered_at": "2026-11-07T09:42:11.713617+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183411+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713617+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321963+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985033+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31099,12 +31099,12 @@
       ],
       "primary_category": "cs.LG",
       "url": "https://arxiv.org/abs/2611.05601",
-      "discovered_at": "2026-11-07T09:42:28.319698+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183437+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713644+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322658+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985037+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31130,12 +31130,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.05620",
-      "discovered_at": "2026-11-07T09:42:28.319756+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183465+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713738+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322665+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985041+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31158,12 +31158,12 @@
       ],
       "primary_category": "cs.CR",
       "url": "https://arxiv.org/abs/2611.05660",
-      "discovered_at": "2026-11-07T09:42:11.713769+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183490+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713769+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321974+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985046+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31186,12 +31186,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05665",
-      "discovered_at": "2026-11-07T09:42:11.713809+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183515+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713809+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321978+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985059+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31216,12 +31216,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05702",
-      "discovered_at": "2026-11-07T09:42:28.319812+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183547+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713892+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322671+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985064+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31244,12 +31244,12 @@
       "doi": "10.18653/2026.blackboxnlp-1.6",
       "journal_ref": "Proc. 9th BlackboxNLP Workshop, pp. 76-89, 2026",
       "url": "https://arxiv.org/abs/2611.05716",
-      "discovered_at": "2026-11-07T09:42:11.713954+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183570+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713954+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321985+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985070+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31272,12 +31272,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05797",
-      "discovered_at": "2026-11-07T09:42:28.319892+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183601+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.713990+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322677+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985074+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31302,12 +31302,12 @@
       ],
       "primary_category": "cs.CR",
       "url": "https://arxiv.org/abs/2611.05823",
-      "discovered_at": "2026-11-07T09:42:28.319946+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183629+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.714022+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322683+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985080+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31330,12 +31330,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05873",
-      "discovered_at": "2026-11-07T09:42:11.714050+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183656+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.714050+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.321995+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985085+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31359,12 +31359,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05901",
-      "discovered_at": "2026-11-07T09:42:28.319974+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183686+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.714080+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322686+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985089+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31386,12 +31386,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06961",
-      "discovered_at": "2026-11-07T09:42:11.714107+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183712+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.714107+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322002+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985094+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31414,12 +31414,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06013",
-      "discovered_at": "2026-11-07T09:42:11.714174+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183740+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.714174+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322006+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985099+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31445,12 +31445,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06069",
-      "discovered_at": "2026-11-07T09:42:11.714206+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183771+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.714206+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322009+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985104+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31473,12 +31473,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.06095",
-      "discovered_at": "2026-11-07T09:42:28.320025+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183797+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.714233+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322692+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985108+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31500,12 +31500,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06099",
-      "discovered_at": "2026-11-07T09:42:11.714260+00:00",
+      "discovered_at": "2026-11-08T01:04:24.183824+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.714260+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322016+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985112+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31529,12 +31529,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05176",
-      "discovered_at": "2026-11-07T09:42:11.714287+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129083+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.714287+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322020+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985117+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31556,12 +31556,12 @@
       ],
       "primary_category": "cs.HC",
       "url": "https://arxiv.org/abs/2611.06132",
-      "discovered_at": "2026-11-07T09:42:28.320046+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129172+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:11.714309+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322696+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985135+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31585,12 +31585,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06135",
-      "discovered_at": "2026-11-07T09:42:13.909294+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129205+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909294+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322027+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985140+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31619,12 +31619,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06204",
-      "discovered_at": "2026-11-07T09:42:28.320076+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129241+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909345+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322699+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985145+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31649,12 +31649,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06229",
-      "discovered_at": "2026-11-07T09:42:13.909376+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129271+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909376+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322035+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985151+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31680,12 +31680,12 @@
       ],
       "primary_category": "cs.CR",
       "url": "https://arxiv.org/abs/2611.06257",
-      "discovered_at": "2026-11-07T09:42:28.320148+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129302+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909406+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322705+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985155+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31709,12 +31709,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06263",
-      "discovered_at": "2026-11-07T09:42:13.909432+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129330+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909432+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322043+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985160+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31736,12 +31736,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06965",
-      "discovered_at": "2026-11-07T09:42:13.909462+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129363+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909462+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322048+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985166+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31770,12 +31770,12 @@
       ],
       "primary_category": "cs.CR",
       "url": "https://arxiv.org/abs/2611.06294",
-      "discovered_at": "2026-11-07T09:42:28.320179+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129395+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909493+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322708+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985171+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31797,12 +31797,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06328",
-      "discovered_at": "2026-11-07T09:42:13.909518+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129424+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909518+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322055+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985175+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31828,12 +31828,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06358",
-      "discovered_at": "2026-11-07T09:42:13.909547+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129459+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909547+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322059+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985180+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -31854,12 +31854,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06373",
-      "discovered_at": "2026-11-07T09:42:13.909572+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129487+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909572+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322064+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985185+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31881,12 +31881,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06967",
-      "discovered_at": "2026-11-07T09:42:13.909598+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129515+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909598+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322068+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985190+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31910,12 +31910,12 @@
       ],
       "primary_category": "cs.RO",
       "url": "https://arxiv.org/abs/2611.06453",
-      "discovered_at": "2026-11-07T09:42:13.909625+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129543+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909625+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322072+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985195+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31942,12 +31942,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06506",
-      "discovered_at": "2026-11-07T09:42:13.909655+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129575+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909655+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322076+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985199+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -31975,12 +31975,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06513",
-      "discovered_at": "2026-11-07T09:42:13.909687+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129610+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909687+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322079+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985204+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32005,12 +32005,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06515",
-      "discovered_at": "2026-11-07T09:42:13.909715+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129641+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909715+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322084+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985209+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32031,12 +32031,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06525",
-      "discovered_at": "2026-11-07T09:42:13.909740+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129668+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909740+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322088+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985213+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32060,12 +32060,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06563",
-      "discovered_at": "2026-11-07T09:42:13.909764+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129693+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909764+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322091+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985219+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32087,12 +32087,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06583",
-      "discovered_at": "2026-11-07T09:42:13.909790+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129721+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909790+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322095+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985223+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32113,12 +32113,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06674",
-      "discovered_at": "2026-11-07T09:42:28.320227+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129747+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909812+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322715+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985228+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32139,12 +32139,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06764",
-      "discovered_at": "2026-11-07T09:42:13.909834+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129771+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909834+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322102+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985233+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32168,12 +32168,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06866",
-      "discovered_at": "2026-11-07T09:42:13.909858+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129798+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909858+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322105+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985237+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32196,12 +32196,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.06897",
-      "discovered_at": "2026-11-07T09:42:13.909883+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129826+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909883+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322109+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985242+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32225,12 +32225,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07040",
-      "discovered_at": "2026-11-07T09:42:13.909911+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129857+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909911+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322113+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985247+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32252,12 +32252,12 @@
       ],
       "primary_category": "cs.CL",
       "url": "https://arxiv.org/abs/2611.07042",
-      "discovered_at": "2026-11-07T09:42:28.320380+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129882+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909933+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322734+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985251+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32281,12 +32281,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07109",
-      "discovered_at": "2026-11-07T09:42:13.909960+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129911+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909960+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322121+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985255+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32310,12 +32310,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07166",
-      "discovered_at": "2026-11-07T09:42:28.320404+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129937+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909983+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322737+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985260+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -32336,12 +32336,12 @@
       ],
       "primary_category": "cs.CR",
       "url": "https://arxiv.org/abs/2611.07170",
-      "discovered_at": "2026-11-07T09:42:13.910008+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129963+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910008+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322147+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985265+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32367,12 +32367,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07194",
-      "discovered_at": "2026-11-07T09:42:28.320433+00:00",
+      "discovered_at": "2026-11-08T01:04:55.129995+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910036+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322740+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985270+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32396,12 +32396,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07286",
-      "discovered_at": "2026-11-07T09:42:28.320461+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130026+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910065+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322746+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985275+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -32425,12 +32425,12 @@
       "primary_category": "cs.CY",
       "doi": "10.1145/3857222.3860095",
       "url": "https://arxiv.org/abs/2611.07297",
-      "discovered_at": "2026-11-07T09:42:13.910090+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130054+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910090+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322158+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985281+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32462,12 +32462,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07307",
-      "discovered_at": "2026-11-07T09:42:13.910140+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130099+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910140+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322162+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985285+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -32494,12 +32494,12 @@
       ],
       "primary_category": "cs.AR",
       "url": "https://arxiv.org/abs/2611.07324",
-      "discovered_at": "2026-11-07T09:42:13.910168+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130264+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910168+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322166+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985290+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32522,12 +32522,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07442",
-      "discovered_at": "2026-11-07T09:42:13.910194+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130293+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910194+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322170+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985296+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32564,12 +32564,12 @@
       ],
       "primary_category": "cs.CL",
       "url": "https://arxiv.org/abs/2611.07461",
-      "discovered_at": "2026-11-07T09:42:28.320552+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130338+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910236+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322957+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985301+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32594,12 +32594,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07534",
-      "discovered_at": "2026-11-07T09:42:13.910263+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130393+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910263+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322177+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985307+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32625,12 +32625,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07595",
-      "discovered_at": "2026-11-07T09:42:28.320619+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130423+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910289+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322964+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985312+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32660,12 +32660,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07634",
-      "discovered_at": "2026-11-07T09:42:13.910324+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130498+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910324+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322185+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985317+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32691,12 +32691,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07650",
-      "discovered_at": "2026-11-07T09:42:28.320648+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130532+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910356+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322968+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985321+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32717,12 +32717,12 @@
       ],
       "primary_category": "cs.AI",
       "url": "https://arxiv.org/abs/2611.07652",
-      "discovered_at": "2026-11-07T09:42:28.320674+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130561+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910382+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322971+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985326+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32746,12 +32746,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07739",
-      "discovered_at": "2026-11-07T09:42:13.910411+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130593+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910411+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322197+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985331+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -32778,12 +32778,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07754",
-      "discovered_at": "2026-11-07T09:42:13.910443+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130628+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910443+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322200+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985335+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32807,12 +32807,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07759",
-      "discovered_at": "2026-11-07T09:42:13.910470+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130657+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910470+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322204+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985340+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -32834,12 +32834,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07760",
-      "discovered_at": "2026-11-07T09:42:13.910502+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130687+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910502+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322208+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985345+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32865,12 +32865,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07772",
-      "discovered_at": "2026-11-07T09:42:13.910532+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130720+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910532+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322211+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985349+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32893,12 +32893,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07876",
-      "discovered_at": "2026-11-07T09:42:28.320700+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130749+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910558+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322975+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985354+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32924,12 +32924,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07882",
-      "discovered_at": "2026-11-07T09:42:13.910589+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130811+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910589+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322218+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985359+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32954,12 +32954,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07887",
-      "discovered_at": "2026-11-07T09:42:13.910617+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130842+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910617+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322222+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985364+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -32981,12 +32981,12 @@
       ],
       "primary_category": "cs.CY",
       "url": "https://arxiv.org/abs/2611.07945",
-      "discovered_at": "2026-11-07T09:42:28.320725+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130869+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910642+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322978+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985369+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -33012,12 +33012,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.07951",
-      "discovered_at": "2026-11-07T09:42:13.910671+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130900+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910671+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322229+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985375+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -33040,12 +33040,12 @@
       ],
       "primary_category": "cs.RO",
       "url": "https://arxiv.org/abs/2611.08012",
-      "discovered_at": "2026-11-07T09:42:13.910695+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130927+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910695+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322233+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985379+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -33068,12 +33068,12 @@
       ],
       "primary_category": "cs.RO",
       "url": "https://arxiv.org/abs/2611.08144",
-      "discovered_at": "2026-11-07T09:42:28.320780+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130955+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910780+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322984+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985384+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -33100,12 +33100,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.08162",
-      "discovered_at": "2026-11-07T09:42:28.320808+00:00",
+      "discovered_at": "2026-11-08T01:04:55.130986+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910810+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322988+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985389+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -33131,12 +33131,12 @@
       "doi": "10.1109/ase51524.2021.9678792",
       "journal_ref": "2021 36th IEEE/ACM International Conference on Automated Software Engineering (ASE), Melbourne, Australia, 2021, pp. 692-704",
       "url": "https://arxiv.org/abs/2611.08220",
-      "discovered_at": "2026-11-07T09:42:13.910838+00:00",
+      "discovered_at": "2026-11-08T01:04:55.131015+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910838+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322244+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985394+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -33163,12 +33163,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.05445",
-      "discovered_at": "2026-11-07T09:42:28.320834+00:00",
+      "discovered_at": "2026-11-08T01:04:55.131043+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910865+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322991+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985399+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -33192,12 +33192,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.08269",
-      "discovered_at": "2026-11-07T09:42:28.320861+00:00",
+      "discovered_at": "2026-11-08T01:04:55.131077+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910890+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322994+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985405+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -33218,12 +33218,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.08285",
-      "discovered_at": "2026-11-07T09:42:13.910916+00:00",
+      "discovered_at": "2026-11-08T01:04:55.131106+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910916+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322255+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985409+00:00",
       "processing_status": "reviewed",
       "send_status": "sent"
     },
@@ -33246,12 +33246,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.08442",
-      "discovered_at": "2026-11-07T09:42:13.910940+00:00",
+      "discovered_at": "2026-11-08T01:04:55.131166+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910940+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322259+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985414+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -33271,12 +33271,12 @@
       ],
       "primary_category": "cs.SE",
       "url": "https://arxiv.org/abs/2611.08456",
-      "discovered_at": "2026-11-07T09:42:13.910965+00:00",
+      "discovered_at": "2026-11-08T01:04:55.131190+00:00",
       "sources": [
         "arxiv-api"
       ],
       "first_discovered_at": "2026-11-07T09:42:13.910965+00:00",
-      "last_seen_at": "2026-11-07T09:42:28.322262+00:00",
+      "last_seen_at": "2026-11-08T01:05:46.985418+00:00",
       "processing_status": "unreviewed",
       "send_status": "unsent"
     },
@@ -35816,6 +35816,66 @@
       ],
       "new_versions": 144,
       "status": "ok",
+      "discovery_candidates": []
+    },
+    {
+      "id": "50f3584230d744ec8f73243cef50facc",
+      "at": "2026-11-08T01:06:02.870884+00:00",
+      "type": "collect",
+      "from": "2026-10-31T09:42:06.757597+00:00",
+      "to": "2026-11-08T01:03:35.101379+00:00",
+      "coverage": [
+        {
+          "source": "arxiv-api",
+          "query": "cat:cs.SE",
+          "from": "2026-10-31T09:42:06.757597+00:00",
+          "to": "2026-11-08T01:03:35.101379+00:00",
+          "pages": 2,
+          "status": "ok",
+          "count": 160,
+          "total": 160
+        },
+        {
+          "source": "arxiv-api",
+          "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+          "from": "2026-10-31T09:42:06.757597+00:00",
+          "to": "2026-11-08T01:03:35.101379+00:00",
+          "pages": 0,
+          "status": "failed",
+          "count": 0,
+          "error": "RequestError"
+        },
+        {
+          "source": "arxiv-rss:cs.SE",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.AI",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.CL",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.LG",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        }
+      ],
+      "new_versions": 0,
+      "status": "partial",
       "discovery_candidates": []
     }
   ],
