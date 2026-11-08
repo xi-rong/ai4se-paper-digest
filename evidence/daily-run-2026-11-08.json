@@ -1,0 +1,157 @@
+{
+  "recorded_at_utc": "2026-11-08T01:06:57.422587+00:00",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "source_head": "18bf2c0b5324d4720dbae554c042286fffa9ce98",
+  "environment_observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "tests_passed": 26,
+  "collection": {
+    "id": "50f3584230d744ec8f73243cef50facc",
+    "at": "2026-11-08T01:06:02.870884+00:00",
+    "type": "collect",
+    "from": "2026-10-31T09:42:06.757597+00:00",
+    "to": "2026-11-08T01:03:35.101379+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-10-31T09:42:06.757597+00:00",
+        "to": "2026-11-08T01:03:35.101379+00:00",
+        "pages": 2,
+        "status": "ok",
+        "count": 160,
+        "total": 160
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-10-31T09:42:06.757597+00:00",
+        "to": "2026-11-08T01:03:35.101379+00:00",
+        "pages": 0,
+        "status": "failed",
+        "count": 0,
+        "error": "RequestError"
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 07 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      }
+    ],
+    "new_versions": 0,
+    "status": "partial",
+    "discovery_candidates": []
+  },
+  "scope": {
+    "abstracts_read": 7,
+    "new_reviews": 6,
+    "review_basis": "abstract only",
+    "remaining_shortlist_unreviewed": 657,
+    "paper_freshness": "Previously collected, newly reviewed; all six labeled historical/recently supplemented. No claim of new submissions today.",
+    "sources_not_queried": "S2/DBLP/GitHub releases are weekly-only in current CLI; venue/author IDs and journal interfaces remain incomplete."
+  },
+  "state": {
+    "before_head": "87b238d3ce71a6eb7799938e53ea84e6e19d29cc",
+    "after_head": "b7a8bd0c31b9520a03156d582463516793cfb86a",
+    "revision": 26,
+    "papers": 1112,
+    "reviews": 20,
+    "arxiv_cursor": "2026-11-07T09:42:06.757597+00:00",
+    "old_outbox": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent"
+    }
+  },
+  "mail": {
+    "id": "12ffa47b936245f72be3813916bcd3f0",
+    "subject": "AI4SE 论文日报 · 2026-11-08",
+    "status": "sent",
+    "provider_id": "<202611080106.51862421868@smtp-relay.mailin.fr>",
+    "first_attempt_at": "2026-11-08T01:06:27.934621+00:00",
+    "sent_at": "2026-11-08T01:06:31.511529+00:00",
+    "payload_hash": "88843f751041e7ec694e4191eb7b3d5dcbd059cf7df28db2e7c1a3fb9cdbeecd",
+    "event_keys": [
+      "arxiv:2610.17374:v1",
+      "arxiv:2610.17578:v1",
+      "arxiv:2610.21372:v1",
+      "arxiv:2610.25826:v1",
+      "arxiv:2610.27784:v1",
+      "arxiv:2610.33920:v1"
+    ]
+  },
+  "delivery_query": {
+    "query_status": "success",
+    "matching_events": [
+      {
+        "event": "requests",
+        "date": "2026-11-07T17:06:30.629-08:00",
+        "recipient": "syb38324@126.com"
+      }
+    ]
+  },
+  "prior_day_delivery_query": {
+    "query": "success",
+    "provider_id": "<202611070945.10100231654@smtp-relay.mailin.fr>",
+    "matching_events": [
+      {
+        "event": "opened",
+        "date": "2026-11-07T01:47:12.507-08:00",
+        "recipient": "syb38324@126.com"
+      },
+      {
+        "event": "delivered",
+        "date": "2026-11-07T01:45:13.000-08:00",
+        "recipient": "syb38324@126.com"
+      },
+      {
+        "event": "requests",
+        "date": "2026-11-07T01:45:03.774-08:00",
+        "recipient": "syb38324@126.com"
+      }
+    ]
+  },
+  "post_attempts": 1,
+  "transport": "Original project mailer; exact POST HTTP status not captured; provider messageId received.",
+  "recipient": "syb38324@126.com",
+  "constraints": {
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "old_messages_resent": false,
+    "external_scheduler_used": false
+  },
+  "scheduler_observation": {
+    "daily_last_run_time": "2026-11-08T01:02:51.589630+00:00",
+    "timezone": "Asia/Shanghai",
+    "is_enabled": true,
+    "environment_selection": "inherited",
+    "run_details_last_run": null,
+    "run_details_latest_result": null,
+    "limitation": "Timestamp alone does not prove run success or powered-off-client condition."
+  }
+}
