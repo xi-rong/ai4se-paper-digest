@@ -49,10 +49,35 @@ def add_reviews(state, reviews):
         prepared.append((pid, paper, review))
     # Validate the whole batch before mutating any paper or review.
     for pid, paper, review in prepared:
-        record = dict(review, paper_id=pid, reviewed_at=iso())
+        previous = review_for(state, paper) or {}
+        saved_translations = {k: previous[k] for k in ("title_zh", "abstract_zh") if k in previous}
+        record = dict(saved_translations)
+        record.update(review, paper_id=pid, reviewed_at=iso())
         state["reviews"][pid + ":v" + str(review["version"])] = record
         paper["processing_status"] = "excluded" if review["priority"] == "exclude" else "reviewed"
 
 
 def review_for(state, paper):
     return state["reviews"].get(paper["id"] + ":v" + str(paper.get("version")))
+
+
+def add_translations(state, translations):
+    """Attach agent translations to an exact reviewed paper version, atomically."""
+    if not isinstance(translations, list):
+        raise ValueError("translations must be a list")
+    prepared = []
+    for item in translations:
+        if not isinstance(item, dict):
+            raise ValueError("translation must be an object")
+        pid = state["aliases"].get(item.get("paper_id"), item.get("paper_id"))
+        paper = state["papers"].get(pid)
+        if not paper or item.get("version") != paper.get("version"):
+            raise ValueError("translation requires the current paper version")
+        review = review_for(state, paper)
+        if review is None or not paper.get("abstract", "").strip():
+            raise ValueError("translation requires a reviewed paper and original abstract")
+        if any(not isinstance(item.get(field), str) or not item[field].strip() for field in ("title_zh", "abstract_zh")):
+            raise ValueError("title_zh and abstract_zh must be nonempty")
+        prepared.append((review, item))
+    for review, item in prepared:
+        review.update(title_zh=item["title_zh"].strip(), abstract_zh=item["abstract_zh"].strip())
