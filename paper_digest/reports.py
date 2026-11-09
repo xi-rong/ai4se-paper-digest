@@ -63,18 +63,11 @@ def _report_paper(paper, review, now):
         ("首次发现", paper["first_discovered_at"]),
         ("发表状态", review["publication_status"]),
     ]
-    sections = [
-        ("相关理由", review["relevance_reason"]),
-        ("任务范围", TASK_LABEL[review["task_type"]] + "；" + review["task_setting"]),
-        ("作者方法", review["method"]),
-        ("实验依据", review["evidence"]),
-        ("对你研究的启发", review["research_use"]),
-        ("精读与复现建议", review["reading_advice"]),
-        ("信息依据", "已核查正文" if review["basis"] == "fulltext" else "仅摘要"),
-    ]
+    sections = [("中文摘要", review.get("abstract_zh") or "中文摘要待翻译"),
+                ("英文摘要", paper.get("abstract") or "英文摘要暂不可用")]
     links = [("原文", paper["url"])] + [(link["kind"], link["url"]) for link in review["links"]]
     links += [("依据", url) for url in review["evidence_urls"] if url != paper["url"]]
-    return {"title": paper["title"], "summary": review["summary_zh"], "priority": review["priority"],
+    return {"title": paper["title"], "title_zh": review.get("title_zh") or "中文标题待翻译", "summary": review["summary_zh"], "priority": review["priority"],
             "metadata": metadata, "sections": sections, "links": links}
 
 
@@ -92,7 +85,7 @@ def _coverage_issues(state, coverage):
 def _markdown(title, top, papers, issues, weekly_note):
     blocks = ["# " + title, "**最值得读：** " + top]
     for paper in papers:
-        body = ["## " + paper["title"], "**" + paper["priority"] + "** · " + paper["summary"]]
+        body = ["## " + paper["title"], "**" + paper["title_zh"] + "**", "**" + paper["priority"] + "**"]
         body.extend("**" + str(k) + "：** " + str(v) for k, v in paper["metadata"] + paper["sections"])
         body.append(" · ".join(f"[{label}]({url})" for label, url in paper["links"]))
         blocks.append("\n\n".join(body))
@@ -111,7 +104,7 @@ def _html(title, date, top, papers, issues, weekly_note):
         meta = "<br>".join('<span style="color:#68778b">' + e(k) + '：</span>' + e(v) for k, v in paper["metadata"])
         details = "".join('<tr><td style="padding:9px 0;border-top:1px solid #eef1f5"><div style="font-size:12px;font-weight:700;letter-spacing:.03em;color:#48617d;margin-bottom:5px">' + e(k) + '</div><div style="font-size:14px;line-height:1.75;color:#25354a">' + e(v).replace("\n", "<br>") + '</div></td></tr>' for k, v in paper["sections"])
         links = " ".join('<a href="' + e(url) + '" style="display:inline-block;margin:4px 7px 4px 0;padding:7px 12px;background:#edf4ff;border-radius:6px;color:#1d4ed8;font-size:13px;font-weight:700;text-decoration:none">' + e(label) + ' ↗</a>' for label, url in paper["links"] if urlsplit(url).scheme in ("http", "https"))
-        cards.append('<tr><td style="padding:0 18px 16px"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#ffffff;border:1px solid #e1e8f1;border-radius:12px"><tr><td style="padding:20px 20px 12px"><span style="font-size:12px;font-weight:700;color:#2457a6">' + e(paper["priority"]) + ' · 论文 ' + str(index).zfill(2) + '</span><h2 style="margin:9px 0 12px;color:#10253e;font-size:19px;line-height:1.4">' + e(paper["title"]) + '</h2><div style="padding:12px 14px;border-left:3px solid #5a8de5;background:#f2f6fd;font-size:15px;line-height:1.7;color:#1a3558">' + e(paper["summary"]).replace("\n", "<br>") + '</div><p style="margin:14px 0;font-size:12px;line-height:1.85;color:#41536b">' + meta + '</p><table role="presentation" width="100%" cellspacing="0" cellpadding="0">' + details + '</table><div style="padding-top:8px">' + links + '</div></td></tr></table></td></tr>')
+        cards.append('<tr><td style="padding:0 18px 16px"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#ffffff;border:1px solid #e1e8f1;border-radius:12px"><tr><td style="padding:20px 20px 12px"><span style="font-size:12px;font-weight:700;color:#2457a6">' + e(paper["priority"]) + ' · 论文 ' + str(index).zfill(2) + '</span><h2 style="margin:9px 0 12px;color:#10253e;font-size:19px;line-height:1.4">' + e(paper["title"]) + '</h2><div style="padding:12px 14px;border-left:3px solid #5a8de5;background:#f2f6fd;font-size:15px;line-height:1.7;color:#1a3558">' + e(paper["title_zh"]).replace("\n", "<br>") + '</div><p style="margin:14px 0;font-size:12px;line-height:1.85;color:#41536b">' + meta + '</p><table role="presentation" width="100%" cellspacing="0" cellpadding="0">' + details + '</table><div style="padding-top:8px">' + links + '</div></td></tr></table></td></tr>')
     extra = ''
     if weekly_note:
         extra += '<tr><td style="padding:0 18px 16px"><div style="background:#eaf3ff;padding:16px 18px;border-radius:10px;color:#173a68;font-size:14px;line-height:1.75"><strong>本周样本与行动</strong><br>' + e(weekly_note) + '</div></td></tr>'
@@ -132,8 +125,7 @@ def render(state, kind, coverage=None, max_papers=10, now=None):
     issues = _coverage_issues(state, coverage)
     weekly_note = ""
     if kind == "weekly":
-        types = sorted({TASK_LABEL[r["task_type"]] for _, r in items})
-        weekly_note = f"仅总结本周收集且已审读选入本报告的 {len(items)} 篇：" + "、".join(types) + "。这些样本不足以推断整个领域的确定趋势。复现实验与精读行动见各篇建议；新增基准须核对任务目标仓库数量与所有目标联合成功指标。"
+        weekly_note = f"本期列出 {len(items)} 篇本周发现并已审读的论文，样本不代表整个领域。"
     keys = [event_key(p) for p, _ in items]
     digest_id = hashlib.sha256(json.dumps([kind, keys], sort_keys=True).encode()).hexdigest()[:32]
     return {"id": digest_id, "kind": kind, "subject": title,
