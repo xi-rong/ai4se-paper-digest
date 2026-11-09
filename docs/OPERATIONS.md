@@ -1,5 +1,13 @@
 # 操作、持久化与邮件
 
+## 当前正式运行说明（2026-11-09）
+
+云端任务现为每天 09:00 日报、周一 09:00 另发周报（Asia/Shanghai）；唯一收件地址以 config.json 为准。下文旧的“尚未启用”等历史状态不代表当前任务状态，实际以云端任务页面为准。
+
+正式运行先以 `--storage git pending` 查看未发送消息，按提供商幂等窗口处理。审读后以 `--storage git translation-needed --kind daily`（周报改 weekly）列出需要译文的完整英文标题和摘要；Codex 按输出逐条翻译，写成 `[{"paper_id":"...","version":1,"title_zh":"...","abstract_zh":"..."}]`，用 `--storage git translations 文件名` 保存，再生成预览和入队。普通预览可显示待翻译占位，入队前必须提供原摘要和完整译文。翻译只允许当前论文版本，不能将旧译文用于新版本。
+
+arXiv 采集使用远端共享租约协调并发任务（最长 30 分钟），最近一次明确 429 后冷却 30 分钟；其他来源仍可继续，延期会显示为来源限制，游标不推进。租约过期后下次运行可恢复；采集后保存若发生竞争，应重新读取状态和审查来源覆盖，避免盲目发送或覆盖。
+
 ## 2026-11-07 定时任务默认时区修正
 
 按用户要求对现有两项任务分别调用原生 automations.update，设置 default_timezone=Asia/Shanghai，并保留 is_enabled=true 和原 schedule。随后 automations.peek 回读完整任务：两项 default_timezone 与 DTSTART 的 TZID 均为 Asia/Shanghai；日报仍每天09:00（首次2026-11-08），周报仍周一09:00（首次2026-11-09）。exact_schedule、提示、任务ID、thread_id、environment_selection=inherited 和完整 environments 数组均与更新前一致，仍继承 ai4se-paper-digest 已发布Cloud配置。

@@ -5,9 +5,9 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from .collectors import Arxiv, iso, rss, weekly, upsert, review_queue
-from .storage import LocalStore, GitHubStore, GitStore
-from .review import add_reviews
-from .reports import render
+from .storage import LocalStore, GitHubStore, GitStore, Conflict
+from .review import add_reviews, add_translations
+from .reports import render, selected
 from .mailer import send
 
 
@@ -18,6 +18,7 @@ def main(argv=None):
     parser.add_argument("--storage", choices=["local", "github", "git"], default=None)
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("status")
+    sub.add_parser("pending", help="list durable unsent messages before starting a new report")
     ids = sub.add_parser("seed")
     ids.add_argument("--ids", nargs="+", default=["2609.33382"])
     collect = sub.add_parser("collect")
@@ -27,6 +28,11 @@ def main(argv=None):
     collect.add_argument("--out", default="var/candidates.json")
     review = sub.add_parser("review")
     review.add_argument("path")
+    translations = sub.add_parser("translations")
+    translations.add_argument("path")
+    needs = sub.add_parser("translation-needed")
+    needs.add_argument("--kind", choices=["daily", "weekly", "history"], default="daily")
+    needs.add_argument("--out", default="var/translations-needed.json")
     preview = sub.add_parser("preview")
     preview.add_argument("--kind", choices=["daily", "weekly", "history"], default="daily")
     preview.add_argument("--out", default="var/preview")
@@ -44,6 +50,12 @@ def main(argv=None):
         print(json.dumps({"revision": state["revision"], "papers": len(state["papers"]),
                           "reviews": len(state["reviews"]), "outbox": {k: v["status"] for k, v in state["outbox"].items()},
                           "last_run": state["runs"][-1] if state["runs"] else None}, ensure_ascii=False, indent=2))
+    elif args.command == "pending":
+        pending = [{"id": mid, "kind": message.get("kind"), "status": message.get("status"),
+                    "lease_until": message.get("lease_until"), "first_attempt_at": message.get("first_attempt_at"),
+                    "last_error": message.get("last_error")} for mid, message in state["outbox"].items()
+                   if message.get("status") != "sent"]
+        print(json.dumps({"pending": pending}, ensure_ascii=False, indent=2))
     elif args.command == "seed":
         rows = Arxiv(cfg).ids(args.ids)
         count = upsert(state, rows)
@@ -53,6 +65,32 @@ def main(argv=None):
         print(json.dumps({"records": len(rows), "new_versions": count}))
     elif args.command == "collect":
         now = datetime.now(timezone.utc)
+        # Coordinate the two Monday cloud jobs through the durable shared state.
+        # A competing run continues with other sources but never duplicates arXiv calls.
+        owner = uuid.uuid4().hex
+        acquired = False
+        last_collect = next((r for r in reversed(state["runs"]) if r.get("type") == "collect" and
+                             any(c.get("source") == "arxiv-api" and c.get("status") != "deferred"
+                                 for c in r.get("coverage", []))), {})
+        last_at = last_collect.get("at")
+        cooling = bool(last_at and now - datetime.fromisoformat(last_at) < timedelta(minutes=30) and
+                       any(c.get("source") == "arxiv-api" and c.get("http_status") == 429
+                           for c in last_collect.get("coverage", [])))
+        for attempt in range(3):
+            if cooling:
+                break
+            lease = state.get("arxiv_collection_lease") or {}
+            if lease.get("until") and datetime.fromisoformat(lease["until"]) > now:
+                break
+            state["arxiv_collection_lease"] = {"owner": owner, "until": (now + timedelta(minutes=30)).isoformat()}
+            try:
+                state, revision = store.save(state, revision)
+                acquired = True
+                break
+            except Conflict:
+                state, revision = store.load()
+        if not acquired:
+            state, revision = store.load()
         cursor = state["cursors"].get("arxiv")
         start = (datetime.fromisoformat(cursor) - timedelta(days=cfg["overlap_days"]) if cursor else now - timedelta(days=cfg["initial_days"]))
         if args.days is not None:
@@ -60,7 +98,17 @@ def main(argv=None):
                 raise ValueError("days must be positive")
             # Explicit backfills may widen, never narrow the uncovered interval.
             start = min(start, now - timedelta(days=args.days))
-        records, coverage = Arxiv(cfg).collect(start, now)
+        if acquired:
+            records, coverage = Arxiv(cfg).collect(start, now)
+            # A second task may have saved other sources while the API was running.
+            state, revision = store.load()
+            lease = state.get("arxiv_collection_lease") or {}
+            if lease.get("owner") != owner:
+                raise Conflict("arXiv collection lease lost; reload and retry")
+            state.pop("arxiv_collection_lease", None)
+        else:
+            records, coverage = [], [{"source": "arxiv-api", "status": "deferred",
+                                      "error": "rate-limit cooldown" if cooling else "another collection is running; cursor retained"}]
         count = upsert(state, records)
         if all(c["status"] == "ok" for c in coverage):
             state["cursors"]["arxiv"] = now.isoformat()
@@ -95,7 +143,25 @@ def main(argv=None):
         add_reviews(state, reviews)
         store.save(state, revision)
         print(json.dumps({"reviews": len(reviews)}))
+    elif args.command == "translation-needed":
+        items = [{"paper_id": p["id"], "version": p.get("version"), "title": p["title"],
+                  "abstract": p.get("abstract", "")} for p, r in selected(state, args.kind, cfg["max_papers"])
+                 if not r.get("title_zh") or not r.get("abstract_zh") or not p.get("abstract")]
+        path = Path(args.out)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(items, ensure_ascii=False, indent=2))
+        print(json.dumps({"status": "translation_needed" if items else "ready", "count": len(items), "path": str(path)}))
+    elif args.command == "translations":
+        translations = json.loads(Path(args.path).read_text())
+        add_translations(state, translations)
+        store.save(state, revision)
+        print(json.dumps({"translations": len(translations)}))
     elif args.command == "preview":
+        if args.enqueue:
+            missing = [p["id"] for p, r in selected(state, args.kind, cfg["max_papers"])
+                       if not r.get("title_zh") or not r.get("abstract_zh") or not p.get("abstract")]
+            if missing:
+                raise ValueError("translation or original abstract missing; run translation-needed: " + ", ".join(missing))
         message = render(state, args.kind, max_papers=cfg["max_papers"])
         if message is None:
             print(json.dumps({"status": "no_reviewed_unsent_papers", "queued": False}))

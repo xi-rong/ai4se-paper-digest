@@ -14,7 +14,7 @@ from paper_digest.collectors import Arxiv, parse_atom, parse_rss, upsert, iso, r
 from paper_digest.http import RequestError
 from paper_digest.mailer import send
 from paper_digest.reports import render, selected
-from paper_digest.review import add_reviews
+from paper_digest.review import add_reviews, add_translations
 from paper_digest.storage import empty, LocalStore, Conflict
 
 
@@ -91,6 +91,62 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             add_reviews(state, [valid, invalid])
         self.assertEqual(state, original)
+
+    def test_bilingual_report_and_safe_translation_workflow(self):
+        state, paper, review = fixture()
+        self.persist(state)
+        with self.assertRaisesRegex(ValueError, "translation or original abstract missing"):
+            cli.main(["--state", str(self.path), "preview", "--enqueue", "--out", str(self.path.parent / "preview")])
+        state, rev = self.store.load()
+        translation = {"paper_id": paper["id"], "version": 1, "title_zh": "中文标题", "abstract_zh": "中文摘要全文"}
+        add_translations(state, [translation])
+        add_reviews(state, [review])  # re-review does not erase translations
+        self.store.save(state, rev)
+        state, _ = self.store.load()
+        for kind in ("daily", "weekly"):
+            doc = render(state, kind, coverage=[])
+            for content in (doc["html"], doc["markdown"]):
+                self.assertIn("中文标题", content)
+                self.assertIn("中文摘要全文", content)
+                self.assertIn("software repair agent", content)
+                self.assertNotIn("相关理由", content)
+                self.assertNotIn("精读与复现建议", content)
+        with redirect_stdout(io.StringIO()):
+            cli.main(["--state", str(self.path), "preview", "--enqueue", "--out", str(self.path.parent / "preview")])
+        self.assertEqual(len(self.store.load()[0]["outbox"]), 1)
+
+    def test_translation_batch_is_atomic_and_version_checked(self):
+        state, paper, _ = fixture()
+        before = copy.deepcopy(state)
+        good = {"paper_id": paper["id"], "version": 1, "title_zh": "标题", "abstract_zh": "摘要"}
+        bad = dict(good, version=2)
+        with self.assertRaises(ValueError):
+            add_translations(state, [good, bad])
+        self.assertEqual(state, before)
+
+    def test_collect_defers_while_other_cloud_job_holds_arxiv_lease(self):
+        state = empty()
+        state["cursors"]["arxiv"] = "2026-11-01T00:00:00+00:00"
+        state["arxiv_collection_lease"] = {"owner": "other", "until": (datetime.now(timezone.utc) + timedelta(minutes=5)).isoformat()}
+        self.persist(state)
+        with patch.object(Arxiv, "collect") as collect, redirect_stdout(io.StringIO()):
+            result = cli.main(["--state", str(self.path), "collect", "--out", str(self.path.parent / "candidates.json")])
+        self.assertEqual(result, 2)
+        collect.assert_not_called()
+        saved, _ = self.store.load()
+        self.assertEqual(saved["cursors"]["arxiv"], "2026-11-01T00:00:00+00:00")
+        self.assertEqual(saved["arxiv_collection_lease"]["owner"], "other")
+        self.assertEqual(saved["runs"][-1]["coverage"][0]["status"], "deferred")
+
+    def test_collect_defers_after_recent_arxiv_rate_limit(self):
+        state = empty()
+        state["runs"] = [{"type": "collect", "at": iso(), "coverage": [{"source": "arxiv-api", "status": "failed", "http_status": 429}]}]
+        self.persist(state)
+        with patch.object(Arxiv, "collect") as collect, redirect_stdout(io.StringIO()):
+            result = cli.main(["--state", str(self.path), "collect", "--out", str(self.path.parent / "candidates.json")])
+        self.assertEqual(result, 2)
+        collect.assert_not_called()
+        self.assertEqual(self.store.load()[0]["runs"][-1]["coverage"][0]["error"], "rate-limit cooldown")
 
     def test_arxiv_failure_records_safe_http_status(self):
         collector = Arxiv(self.cfg)
