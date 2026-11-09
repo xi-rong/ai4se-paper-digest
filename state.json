@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 30,
+  "revision": 31,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -35892,11 +35892,13 @@
         "arxiv:2610.25826:v1"
       ],
       "created_at": "2026-11-09T01:04:00.270976+00:00",
-      "status": "sending",
+      "status": "sent",
       "lease_owner": "47e9ba1de66e40cb85a179ff8a240bb2",
       "lease_until": "2026-11-09T01:14:04.890925+00:00",
       "first_attempt_at": "2026-11-09T01:04:04.891213+00:00",
-      "payload_hash": "ebcf63d3ee0ac6a5c1858b56fe934b1dfceeb01bcb3260dc5165471b79250c2d"
+      "payload_hash": "ebcf63d3ee0ac6a5c1858b56fe934b1dfceeb01bcb3260dc5165471b79250c2d",
+      "provider_id": "<202611090104.34261865982@smtp-relay.mailin.fr>",
+      "sent_at": "2026-11-09T01:04:10.071423+00:00"
     }
   },
   "runs": [
