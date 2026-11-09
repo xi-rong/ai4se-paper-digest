@@ -9,6 +9,7 @@ from .storage import LocalStore, GitHubStore, GitStore, Conflict
 from .review import add_reviews, add_translations
 from .reports import render, selected
 from .mailer import send
+from .operations import check_config, status_summary
 
 
 def main(argv=None):
@@ -18,6 +19,7 @@ def main(argv=None):
     parser.add_argument("--storage", choices=["local", "github", "git"], default=None)
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("status")
+    sub.add_parser("check-config", help="validate configuration without credentials, network or state writes")
     sub.add_parser("pending", help="list durable unsent messages before starting a new report")
     ids = sub.add_parser("seed")
     ids.add_argument("--ids", nargs="+", default=["2609.33382"])
@@ -43,18 +45,20 @@ def main(argv=None):
     args = parser.parse_args(argv)
     cfg = json.loads(Path(args.config).read_text())
     mode = args.storage or cfg["storage"]["mode"]
+    if args.command == "check-config":
+        result = check_config(cfg, mode)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return 0 if result["status"] == "ok" else 1
     store = (GitHubStore(cfg["storage"]) if mode == "github" else
              GitStore(cfg["storage"]) if mode == "git" else LocalStore(args.state))
     state, revision = store.load()
     if args.command == "status":
-        print(json.dumps({"revision": state["revision"], "papers": len(state["papers"]),
-                          "reviews": len(state["reviews"]), "outbox": {k: v["status"] for k, v in state["outbox"].items()},
-                          "last_run": state["runs"][-1] if state["runs"] else None}, ensure_ascii=False, indent=2))
+        print(json.dumps(status_summary(state), ensure_ascii=False, indent=2))
     elif args.command == "pending":
         pending = [{"id": mid, "kind": message.get("kind"), "status": message.get("status"),
                     "lease_until": message.get("lease_until"), "first_attempt_at": message.get("first_attempt_at"),
                     "last_error": message.get("last_error")} for mid, message in state["outbox"].items()
-                   if message.get("status") != "sent"]
+                   if message.get("status") not in ("sent", "superseded")]
         print(json.dumps({"pending": pending}, ensure_ascii=False, indent=2))
     elif args.command == "seed":
         rows = Arxiv(cfg).ids(args.ids)
@@ -64,6 +68,8 @@ def main(argv=None):
         store.save(state, revision)
         print(json.dumps({"records": len(rows), "new_versions": count}))
     elif args.command == "collect":
+        if args.days is not None and args.days < 1:
+            raise ValueError("days must be positive")
         now = datetime.now(timezone.utc)
         # Coordinate the two Monday cloud jobs through the durable shared state.
         # A competing run continues with other sources but never duplicates arXiv calls.
@@ -94,8 +100,6 @@ def main(argv=None):
         cursor = state["cursors"].get("arxiv")
         start = (datetime.fromisoformat(cursor) - timedelta(days=cfg["overlap_days"]) if cursor else now - timedelta(days=cfg["initial_days"]))
         if args.days is not None:
-            if args.days < 1:
-                raise ValueError("days must be positive")
             # Explicit backfills may widen, never narrow the uncovered interval.
             start = min(start, now - timedelta(days=args.days))
         if acquired:
