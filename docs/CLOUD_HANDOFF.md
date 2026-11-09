@@ -1,5 +1,13 @@
 # 云端设置与新聊天交接
 
+## 2026-11-09 独立周报与周一日报执行
+
+以736ec32运行，29项测试通过，指定Cloud源配置匹配、网络enforced、密钥ready。先执行collect --weekly --rss，再顺序执行collect --rss，避免状态冲突；两次均partial、new_versions=0，arXiv全局水位保留2026-11-07T09:42:06.757597+00:00。周报两组arXiv请求失败且HTTP状态为空；日报cs.SE返回429，另一组失败且HTTP状态为空。两次四个RSS均有效空批次。S2引用0、推荐100；DBLP两项JSONDecodeError；GitHub release 0；作者、会议与期刊源未配置。不能声称全来源无新增。
+
+实际新增3份摘要review：CIVER、agent支持测试PR实证研究、StateWise（超窗口seed_only）。另复核10篇周报拟选记录/摘要，并阅读2条S2推荐摘要；654条短名单及100条S2推荐尚未完成逐条审核。独立周报按上限回顾10篇，历史种子和已有v2均保留原标签，不当作重要新版本；周一日报另发2篇此前未发的新增审读/历史补收。没有替代或关闭日报。
+
+周报与日报各一次原项目mailer POST，均返回sent/提供商ID，随后只读查询均查到delivered。北京时间周报受理09:04:10、投递09:04:19；日报受理09:05:46、投递09:05:52。delivered表示收件服务器接受，不证明收件箱位置或阅读。旧消息不重置、不重发。远端状态revision35，头411638250f45d93448e705cdd7733e32efb2a83b，1112篇、23份review；完整内容/租约/发送记录均在digest-state。证据evidence/weekly-and-daily-run-2026-11-09.json。原生周报回读last_run_time但run_details为空，仍不据此宣称关机条件已实测。
+
 ## 2026-11-08 日报执行
 
 以18bf2c0源码运行，26项测试通过，指定Cloud环境/源配置匹配，密钥ready、网络策略enforced。collect --rss部分成功：cs.SE 160/160，AI/CL/LG复合查询RequestError失败，四个RSS有效空批次；新增版本0，全局arXiv水位保留2026-11-07T09:42:06.757597+00:00，后续继续补查。不能写作今日全量无新论文。
