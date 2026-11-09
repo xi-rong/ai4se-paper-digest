@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 27,
+  "revision": 28,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -192,7 +192,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:40.835694+00:00",
       "last_seen_at": "2026-11-03T08:48:22.392799+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.05277": {
@@ -17624,7 +17624,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:56.012894+00:00",
       "last_seen_at": "2026-11-03T08:48:22.391523+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.35987": {
@@ -18032,7 +18032,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:56.013558+00:00",
       "last_seen_at": "2026-11-03T08:48:22.395941+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.35767": {
@@ -35692,6 +35692,69 @@
       "publication_status": "arXiv v1预印本；未核实正式录用",
       "links": [],
       "reviewed_at": "2026-11-08T01:06:12.331587+00:00"
+    },
+    "arxiv:2610.36010:v1": {
+      "paper_id": "arxiv:2610.36010",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "CIVER通过针对性修复干预与无关变化对照，检验代码审查发现是否有因果证据。",
+      "relevance_reason": "为跨仓库审查发现构建反事实版本组合，分别检验接口不一致和无关改动敏感性；另测最终联合修复。",
+      "task_setting": "摘要包含跨项目泛化与下游修复评测，但未说明单实例需修改几个目标仓库或是否跨文件，标unknown。",
+      "method": "review、intervention和verifier三个模块联合优化；真实缺陷应随针对性修复改变、对无关变化保持稳定。",
+      "evidence": "仅摘要：作者称在SWE-Review-Bench上通过针对性修复识别77%的真实缺陷；未核查正文分母、误报率和干预独立性，不能把该数值写成总体准确率。",
+      "research_use": "研究建议（并非作者已证实的跨仓库结论）：为跨仓库审查发现构建反事实版本组合，分别检验接口不一致和无关改动敏感性；另测最终联合修复。",
+      "reading_advice": "核查干预生成是否引入新缺陷、评测泄漏与误报成本，再迁移到跨仓库契约验证。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.36010v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "seed_only": false,
+      "reviewed_at": "2026-11-09T01:03:43.568187+00:00"
+    },
+    "arxiv:2610.35297:v1": {
+      "paper_id": "arxiv:2610.35297",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "大规模PR比较显示agent参与和测试工作分配相关，但不能据此断言测试质量更高。",
+      "relevance_reason": "联合修复实验应按仓库分层并控制变更大小，分别统计新增、维护和删除测试，避免混合项目比较掩盖差异。",
+      "task_setting": "391个Java仓库、114134份PR的观测研究；每份PR为项目内变更，多项目数据集不等于联合修改多个目标。",
+      "method": "按仓库内比较，使用控制变更规模的混合效应模型，结合PR和提交信号识别agent支持。",
+      "evidence": "仅摘要：作者报告agent支持PR更常添加测试；多数结构特征和可构建95仓库的生产变更覆盖未见差异。测试smell差异不稳健。相关性不等于agent导致质量变化。",
+      "research_use": "研究建议（并非作者已证实的跨仓库结论）：联合修复实验应按仓库分层并控制变更大小，分别统计新增、维护和删除测试，避免混合项目比较掩盖差异。",
+      "reading_advice": "精读agent识别误差、可构建子集选择偏差及仓库随机效应；不要仅以测试数量代替契约覆盖。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.35297v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "seed_only": false,
+      "reviewed_at": "2026-11-09T01:03:43.568207+00:00"
+    },
+    "arxiv:2610.05241:v1": {
+      "paper_id": "arxiv:2610.05241",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "StateWise在执行动作前修复持久操作记录，区分机器事实验证与开发者意图确认。",
+      "relevance_reason": "为跨任务跨仓库记忆绑定版本、适用范围与失效条件，先验证状态再修改代码；人工意图不能只靠机器事实替代。",
+      "task_setting": "150个可执行coding-agent案例跨环境、工作区和仓库设置；摘要未证明每实例需修改多个目标仓库，标unknown。",
+      "method": "记录级反事实重规划定位关键记录，用类型化证据校验有效性，带修复谱系改正持久状态，再独立检查状态与动作。",
+      "evidence": "仅摘要：作者在损坏持久状态条件下报告93.3%正确率对38.7%参照；未核查安全动作定义、数据构造及跨模型评估。本文为超30天研究种子，不是本周新投稿。",
+      "research_use": "研究建议（并非作者已证实的跨仓库结论）：为跨任务跨仓库记忆绑定版本、适用范围与失效条件，先验证状态再修改代码；人工意图不能只靠机器事实替代。",
+      "reading_advice": "精读反事实识别、证据类型及失败回滚，核查真实环境变化和人工注入状态损坏的差别。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.05241v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "seed_only": true,
+      "reviewed_at": "2026-11-09T01:03:43.568212+00:00"
     }
   },
   "outbox": {
