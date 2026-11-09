@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 34,
+  "revision": 35,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -17625,7 +17625,7 @@
       "first_discovered_at": "2026-11-03T08:47:56.012894+00:00",
       "last_seen_at": "2026-11-03T08:48:22.391523+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2610.35987": {
       "id": "arxiv:2610.35987",
@@ -18033,7 +18033,7 @@
       "first_discovered_at": "2026-11-03T08:47:56.013558+00:00",
       "last_seen_at": "2026-11-03T08:48:22.395941+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2610.35767": {
       "id": "arxiv:2610.35767",
@@ -35911,11 +35911,13 @@
         "arxiv:2610.36010:v1"
       ],
       "created_at": "2026-11-09T01:05:38.615881+00:00",
-      "status": "sending",
+      "status": "sent",
       "lease_owner": "c37c11eefba240cf8e6acb423220017a",
       "lease_until": "2026-11-09T01:15:43.068448+00:00",
       "first_attempt_at": "2026-11-09T01:05:43.068591+00:00",
-      "payload_hash": "3dd4f843739850d51621b74299c0197079bf85b7356861ec9371d6b57aadf68c"
+      "payload_hash": "3dd4f843739850d51621b74299c0197079bf85b7356861ec9371d6b57aadf68c",
+      "provider_id": "<202611090105.15010368874@smtp-relay.mailin.fr>",
+      "sent_at": "2026-11-09T01:05:46.708621+00:00"
     }
   },
   "runs": [
