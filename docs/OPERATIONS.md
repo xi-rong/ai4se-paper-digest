@@ -8,6 +8,24 @@
 
 arXiv 采集使用远端共享租约协调并发任务（最长 30 分钟），最近一次明确 429 后冷却 30 分钟；其他来源仍可继续，延期会显示为来源限制，游标不推进。租约过期后下次运行可恢复；采集后保存若发生竞争，应重新读取状态和审查来源覆盖，避免盲目发送或覆盖。
 
+## 2026-11-07 定时任务默认时区修正
+
+按用户要求对现有两项任务分别调用原生 automations.update，设置 default_timezone=Asia/Shanghai，并保留 is_enabled=true 和原 schedule。随后 automations.peek 回读完整任务：两项 default_timezone 与 DTSTART 的 TZID 均为 Asia/Shanghai；日报仍每天09:00（首次2026-11-08），周报仍周一09:00（首次2026-11-09）。exact_schedule、提示、任务ID、thread_id、environment_selection=inherited 和完整 environments 数组均与更新前一致，仍继承 ai4se-paper-digest 已发布Cloud配置。
+
+update均成功，无工具错误；没有创建任务或发送邮件。display_schedule=null、next_run_time=null，尚无运行结果；此次通过原生字段确认时区一致，未目视检查界面，不能声称界面刷新已实测。完整更新前/后字段、请求、返回和逐项检查见 evidence/formal-schedules-timezone-fix-2026-11-07.json；原创建证据保留当时 America/Los_Angeles 历史值，不代表当前配置。
+
+
+## 2026-11-07 正式调度授权与创建（优先于下方旧记录）
+
+用户明确要求立即启用正式发送，不再等待额外预验收；当前唯一固定收件人为 syb38324@126.com。已安全 fetch/快进 main 至 ef77516，23项测试通过，远端状态 revision 16（972篇、4份审读；旧邮件 sent/superseded）读取成功，无重复发送。
+
+原生 automations.create 已创建并启用日报和周报：Asia/Shanghai 每天09:00，首次2026-11-08；每周一09:00额外周报，首次2026-11-09，周一日报照常。任务提示包含采集、Agent实际审读、远端Git持久化、Brevo完整邮件、固定地址、去重、失败保留、无新增不发日报等要求。未使用本地自动化、GitHub Actions或外部调度。
+
+create 输入无环境选择字段，初始返回 environments=null；随后 automations.peek 确认两项均 is_enabled=true、environment_selection=inherited，继承 ai4se-paper-digest 的已发布 environmentConfigId a039e561-c476-487a-a822-3ef38e05576b~asenvcfg_7e4878ae5d008191adb165121a5f320f、当前Cloud environmentId 和 /workspace。原生任务已绑定托管Cloud配置，不依赖本机定时器；尚未观察首次定时运行及电脑关闭实测，不把配置成功当作完整流水线执行成功。next_run_time=null，实际运行/投递待平台日志。创建时 DTSTART 为 Asia/Shanghai、default_timezone 为 America/Los_Angeles；随后已将 default_timezone 修正为 Asia/Shanghai 并回读确认，见顶部修正记录。
+
+config.schedule.enabled=true 记录已启用意图；真正调度由平台两项任务控制，暂停/恢复须同步管理原生任务。完整请求、返回字段、任务标识和限制见 evidence/formal-schedules-2026-11-07.json。没有在此次启用中发送邮件、修改白名单或生产发送状态。当前密钥ready与此前投递/跨任务验证不保证未来网络永远可用。
+
+
 ## 手动与预览
 
 所有命令在仓库根目录使用 Python 3.11+。源目录即可运行，无需 pip：
@@ -44,13 +62,13 @@ python3 -m paper_digest.cli status
 
 Semantic Scholar若需要官方key，可在同一云端保险库添加`DIGEST_S2_TOKEN`，Allowed domains仅`api.semanticscholar.org`，程序用`x-api-key`头发送。它是文献服务凭证，不是模型API。当前未配置，未认证共享限流仍可能返回429，失败需保留而不能报告为零引用。
 
-目前选择 Brevo HTTPS 事务邮件，固定发件人和收件人为 `shaoyibo102@gmail.com`；Brevo 后台显示该 Gmail 发件人已验证。尚未验证 API 密钥注入、事务邮件账户激活、真实发送及收件。免费邮箱作为发件人的实际投递和可能的发件人改写需要实测。无需 126 SMTP、服务器或 Tailscale。
+目前选择 Brevo HTTPS 事务邮件，固定发件人为 `shaoyibo102@gmail.com`，收件人为 `syb38324@126.com`；Brevo 后台显示该 Gmail 发件人已验证。2026-11-07代理鉴权200，单封测试201受理并查询到delivered；这不证明收件箱位置或已读。详见evidence/cloud-brevo-acceptance-2026-11-07.json。免费邮箱作为发件人的实际投递和可能的发件人改写需要实测。无需 126 SMTP、服务器或 Tailscale。
 
 在 Personal vault 创建仅供本环境使用的 Network secret `DIGEST_MAIL_TOKEN`，并按云环境实际界面配置 `api.brevo.com` 的网络访问与密钥使用。凭证不得进入聊天、仓库或日志。仅在云端实测后确认代理是否正确注入。
 
 ```sh
 python3 -m paper_digest.cli --storage git preview --kind daily --out var/daily --enqueue
-python3 -m paper_digest.cli --storage git send MESSAGE_ID --to shaoyibo102@gmail.com
+python3 -m paper_digest.cli --storage git send MESSAGE_ID --to syb38324@126.com
 ```
 
 `--enqueue` 会创建待发记录；普通预览不加此参数，也不消耗待发论文。先核对待发内容和固定收件人。Brevo 接口：https://developers.brevo.com/reference/send-transac-email 。Brevo 的幂等窗口为15分钟，程序超过14分钟停止自动重试并要求对账；即使 API 返回 ID，也只证明受理，不保证入箱。发送后状态保存失败时，应在窗口内以原正文和原键重试，超时先核对 Brevo 日志。Resend 适配器仍在代码中，但当前未选用。
@@ -66,3 +84,9 @@ python3 -m paper_digest.cli --storage git send MESSAGE_ID --to shaoyibo102@gmail
 ## 成本边界
 
 当前新增付费服务=0，未购买模型 API、邮件套餐或外部调度。Codex 云运行消耗当前计划/额度，不能把已有订阅视为无限免费。邮件、外部调度和数据库仅在用户选择后按官方当期价格估算。本版本不部署常驻服务。
+
+## 2026-11-07 发送去重与历史
+
+已发送消息f875b9f3ee3640a7857cd037f68d6648重跑send返回already_sent，阻断Python网络时transport调用0，远端状态不变。旧400消息70849d806da51fac48e919e06d267951已在报告和事件完全一致、uncertain=false条件下标superseded并关联替代项，保留原payload_hash、首次尝试和正文；发送器拒绝它。不得将其重置为retry或新建同批重复报告。sent在代码中表示受理；delivered须另查提供商事件。
+
+云端新任务可能拿到旧源码快照：检查工作区并安全fetch/快进main，重读文档、运行测试后再操作。代理出口曾变化，既有IP放行不保证永久连通。正式schedule.enabled仍为false。
