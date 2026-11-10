@@ -1,5 +1,15 @@
 # 云端设置与新聊天交接
 
+## 2026-11-10 日报与完整译文流程
+
+以9780231运行，check_release配置检查及37项测试通过；环境/源配置匹配、网络enforced、密钥ready，pending为空。遵循最新RUNBOOK：审读后执行translation-needed，逐条读取完整原标题/摘要，自行翻译，以translations命令写回精确版本；再次检查为ready后才入队。
+
+collect --rss部分成功：cs.SE API 429；AI/CL/LG复合查询113/113条、14个新版本事件；RSS四源分别44/397/146/417条，补充候选973条尚未补齐元数据/逐条审核，不能当已审论文。水位保持2026-11-07T09:42:06.757597+00:00。本次未重复周报来源，不能声称全来源覆盖。
+
+实际读5篇摘要、保存5份版本化review。FeatureLoop v2未比对旧版、不设important_update，未入日报。另4篇新增审读（RepoTrace、SWE-Shift、执行轨迹断言修复局限、指令文件文档债务）均保存完整中文标题/摘要，证据basis=abstract。四篇作为此前未发内容发送，均保留历史补收标签，非今日新投稿声明。
+
+原项目mailer单次POST向syb38324@126.com发完整HTML/文本，09:06:09北京时间返回sent/提供商ID；首次只读事件查询为空，仅确认受理，不能认定delivered或因事件为空重发。远端状态revision43、头ab15c501cda1279dfc9cab0af18038997f329cee，1124篇、28份review；仍有654条短名单未审，pending和发送后日报预览均为空。旧消息未动，无白名单/调度更改。证据evidence/daily-run-2026-11-10.json。
+
 ## 2026-11-09 独立周报与周一日报执行
 
 以736ec32运行，29项测试通过，指定Cloud源配置匹配、网络enforced、密钥ready。先执行collect --weekly --rss，再顺序执行collect --rss，避免状态冲突；两次均partial、new_versions=0，arXiv全局水位保留2026-11-07T09:42:06.757597+00:00。周报两组arXiv请求失败且HTTP状态为空；日报cs.SE返回429，另一组失败且HTTP状态为空。两次四个RSS均有效空批次。S2引用0、推荐100；DBLP两项JSONDecodeError；GitHub release 0；作者、会议与期刊源未配置。不能声称全来源无新增。
