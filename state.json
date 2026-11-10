@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 38,
+  "revision": 39,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -34386,7 +34386,7 @@
       ],
       "first_discovered_at": "2026-11-10T01:03:52.277754+00:00",
       "last_seen_at": "2026-11-10T01:04:12.730201+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Mon, 09 Nov 2026 00:00:00 -0500",
@@ -34528,7 +34528,7 @@
       ],
       "first_discovered_at": "2026-11-10T01:03:52.279323+00:00",
       "last_seen_at": "2026-11-10T01:04:12.730207+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Mon, 09 Nov 2026 00:00:00 -0500",
@@ -36259,6 +36259,46 @@
       "publication_status": "arXiv预印本；正式录用未核实",
       "links": [],
       "reviewed_at": "2026-11-10T01:04:21.660056+00:00"
+    },
+    "arxiv:2611.09802:v1": {
+      "paper_id": "arxiv:2611.09802",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "过期AGENTS.md等指令可能让任务最终成功却反复支付额外工具成本；即时恢复不等于修复持久指令。",
+      "relevance_reason": "为每仓库指令绑定路径/命令有效性检查与更新责任；分开评估任务成功、恢复成本及持久债务修复。",
+      "task_setting": "三个真实过期指令案例和22项维护任务，摘要未给每例目标仓库数量/跨文件要求，标unknown。",
+      "method": "固定代码与任务，比较过期、纠正和移除指令；对两模型732条轨迹逐工具调用分析。",
+      "evidence": "仅摘要：过期测试命令情形中Sonnet 5.5约多两次工具调用、约增加三分之一，其他案例未检测到差异；没有agent修复底层指令。案例有限，不能外推所有指令文件。",
+      "research_use": "研究建议，尚未经本文验证的跨仓库收益：为每仓库指令绑定路径/命令有效性检查与更新责任；分开评估任务成功、恢复成本及持久债务修复。",
+      "reading_advice": "核查三种干预、两模型和轨迹统计方法，再设计跨仓库指令冲突/失效传播实验。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.09802v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-10T01:05:02.535432+00:00"
+    },
+    "arxiv:2611.09212:v1": {
+      "paper_id": "arxiv:2611.09212",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "运行轨迹对断言修复的收益依赖错误类型和输入可见性，并非加入更多trace就能更可靠。",
+      "relevance_reason": "区分实现失误、需求误解和测试不足，再决定采样或取证；跨仓库trace应以可验证接口输入为依据。",
+      "task_setting": "BigCodeBench、HumanEval和LiveCodeBench上的程序生成/修复；摘要不提供仓库级修改要求，标unknown，不能视作多仓库修复。",
+      "method": "先做五次迭代修复，对未解任务再比较五次带变量运行值注释的Breakpoint Debugging与重新采样。",
+      "evidence": "仅摘要：BigCodeBench上BPD为26.7%对22.4%，但LiveCodeBench重新采样6.5%优于BPD4.9%；仅首个失败测试trace优于全部trace。未核验置信区间、样本分母或公平token预算。",
+      "research_use": "研究建议，尚未经本文验证的跨仓库收益：区分实现失误、需求误解和测试不足，再决定采样或取证；跨仓库trace应以可验证接口输入为依据。",
+      "reading_advice": "精读剩余失败子集、额外生成次数与token成本，以及公共测试可见仍无增益的分析。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.09212v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-10T01:05:02.535453+00:00"
     }
   },
   "outbox": {
