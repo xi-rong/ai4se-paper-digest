@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 37,
+  "revision": 38,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -17716,7 +17716,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:56.013014+00:00",
       "last_seen_at": "2026-11-03T08:48:22.395913+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.35348": {
@@ -20291,7 +20291,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:47:59.296721+00:00",
       "last_seen_at": "2026-11-03T08:48:22.396214+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.40721": {
@@ -27671,7 +27671,7 @@
       ],
       "first_discovered_at": "2026-11-03T08:48:17.218973+00:00",
       "last_seen_at": "2026-11-03T08:48:22.395637+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2610.25931": {
@@ -36199,6 +36199,66 @@
       "links": [],
       "seed_only": true,
       "reviewed_at": "2026-11-09T01:03:43.568212+00:00"
+    },
+    "arxiv:2610.32196:v1": {
+      "paper_id": "arxiv:2610.32196",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "SWE-Shift通过匹配的执行中变化对照，检验agent是否能保留有效工作、恢复状态并刷新证据。",
+      "relevance_reason": "对多仓库修复引入依赖版本、需求和工具会话变化，分别测目标完成、已有工作保留及证据失效处理；使用匹配对照。",
+      "task_setting": "120个场景、12类变化，九个干预位置；摘要未规定每实例目标仓库数量或跨文件范围，标unknown，不能把工作区变化等同多仓库协同修改。",
+      "method": "从相同历史与工作区派生Clean和Shifted续跑，后者加入任务相关变化；联合检查当前任务、仍有效工作和状态证据。",
+      "evidence": "仅摘要：17种系统的Shifted成功率均低于Clean；GPT-6 Astra从67.35%到24.79%，配对成功20.34%。未核查配对成功的完整定义、预算和统计，不能当作所有生产变化的失败率。",
+      "research_use": "研究建议，非本文验证的跨仓库结论：对多仓库修复引入依赖版本、需求和工具会话变化，分别测目标完成、已有工作保留及证据失效处理；使用匹配对照。",
+      "reading_advice": "精读配对设计、九个干预位置及零配对成功的类别，核查变化可恢复性与对照公平性。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.32196v1"
+      ],
+      "publication_status": "arXiv预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-10T01:04:21.660027+00:00"
+    },
+    "arxiv:2610.35333:v1": {
+      "paper_id": "arxiv:2610.35333",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "RepoTrace把需求语义与仓库结构联系起来，帮助多轮修改保持目标定位与回归稳定性。",
+      "relevance_reason": "为需求原子增加带版本的仓库、模块和接口映射；独立评价目标召回、回归保留及全部目标联合成功。",
+      "task_setting": "EvoCode-Bench多轮仓库任务；摘要未明确每例是否跨文件或修改多个仓库，标unknown。多轮不等于多仓库。",
+      "method": "从2656条轨迹分析需求焦点错位，构建需求—代码对应并注入agent上下文，辅助多轮追踪当前修改目标。",
+      "evidence": "仅摘要：作者报告不同模型/harness上的MPR提升，并在Terminus-2/DeepSeek-V4-Pro上从0.163到0.371、回归错误减少56.78%。未核查奖励定义、基数或预算，不视作跨仓库修复成功增益。",
+      "research_use": "研究建议，非本文验证的跨仓库结论：为需求原子增加带版本的仓库、模块和接口映射；独立评价目标召回、回归保留及全部目标联合成功。",
+      "reading_advice": "精读对应关系构建、维护与过期处理，核对MPR单位和回归错误分母，再设计跨仓库消融。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.35333v1"
+      ],
+      "publication_status": "arXiv预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-10T01:04:21.660051+00:00"
+    },
+    "arxiv:2610.35488:v2": {
+      "paper_id": "arxiv:2610.35488",
+      "version": 2,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "FeatureLoop用演进反馈与完成反馈区分需求变化和实现缺陷，持续检查新行为、修复与旧功能保留。",
+      "relevance_reason": "把需求新增与未完成修复分开记录，跨仓库验证保留累积契约检查，避免新功能掩盖回归。",
+      "task_setting": "61项任务来自34个仓库，每项在持久工作区追踪一个开发目标；这是多项目单目标实例，不是已证实的多目标协同修改。",
+      "method": "五种主要语言、七种软件形态，通过累积可执行检查评估12个模型的多轮需求履行与失败恢复。",
+      "evidence": "仅v2摘要：最强模型在两类反馈下完成72.1%任务；失败阶段中15.4%在两次纠正修订内恢复。未比对v1，不确认版本变化是否重要，因此不设置important_update。",
+      "research_use": "研究建议，非本文验证的跨仓库结论：把需求新增与未完成修复分开记录，跨仓库验证保留累积契约检查，避免新功能掩盖回归。",
+      "reading_advice": "后续比对v1/v2、核对stage恢复分母和反馈构造；未确认重要变化前不当作新增更新日报。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2610.35488v2"
+      ],
+      "publication_status": "arXiv预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-10T01:04:21.660056+00:00"
     }
   },
   "outbox": {
