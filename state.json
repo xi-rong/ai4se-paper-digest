@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 42,
+  "revision": 43,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -17717,7 +17717,7 @@
       "first_discovered_at": "2026-11-03T08:47:56.013014+00:00",
       "last_seen_at": "2026-11-03T08:48:22.395913+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2610.35348": {
       "id": "arxiv:2610.35348",
@@ -27672,7 +27672,7 @@
       "first_discovered_at": "2026-11-03T08:48:17.218973+00:00",
       "last_seen_at": "2026-11-03T08:48:22.395637+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2610.25931": {
       "id": "arxiv:2610.25931",
@@ -34387,7 +34387,7 @@
       "first_discovered_at": "2026-11-10T01:03:52.277754+00:00",
       "last_seen_at": "2026-11-10T01:04:12.730201+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent",
+      "send_status": "sent",
       "rss_category": "cs.AI",
       "public_batch_at": "Mon, 09 Nov 2026 00:00:00 -0500",
       "announce_type": "cross"
@@ -34529,7 +34529,7 @@
       "first_discovered_at": "2026-11-10T01:03:52.279323+00:00",
       "last_seen_at": "2026-11-10T01:04:12.730207+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent",
+      "send_status": "sent",
       "rss_category": "cs.AI",
       "public_batch_at": "Mon, 09 Nov 2026 00:00:00 -0500",
       "announce_type": "cross"
@@ -36484,11 +36484,13 @@
         "arxiv:2611.09802:v1"
       ],
       "created_at": "2026-11-10T01:05:59.603661+00:00",
-      "status": "sending",
+      "status": "sent",
       "lease_owner": "f43e8aa6f0c74d1287d1d88e16f34e28",
       "lease_until": "2026-11-10T01:16:04.307418+00:00",
       "first_attempt_at": "2026-11-10T01:06:04.307613+00:00",
-      "payload_hash": "ffc46fb0c7f9df1cd83ad1025037f3b7e53ccd3a1e076fd36698bd1f135c978c"
+      "payload_hash": "ffc46fb0c7f9df1cd83ad1025037f3b7e53ccd3a1e076fd36698bd1f135c978c",
+      "provider_id": "<202611100106.98267506713@smtp-relay.mailin.fr>",
+      "sent_at": "2026-11-10T01:06:09.127868+00:00"
     }
   },
   "runs": [
