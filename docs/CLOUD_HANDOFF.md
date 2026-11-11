@@ -1,5 +1,13 @@
 # 云端设置与新聊天交接
 
+## 2026-11-11 日报执行
+
+以6b5077d运行，配置检查和37项测试通过，Cloud源配置匹配、网络enforced、密钥ready、初始pending为空。collect --rss部分成功：cs.SE 247/247，AI/CL/LG查询100/152后RequestError且HTTP状态为空；新增82个版本事件，水位仍保留2026-11-07T09:42:06.757597+00:00。RSS四源100/887/364/1026条，补充候选2261条未补齐元数据/逐条审核。不能据此断言无新论文或完整覆盖。
+
+实际读3篇v1摘要并保存3份审读：调试接口pass_X@k、Terminal-Bench持续维护、Trace2Eval。均保留仅摘要依据和任务范围限制，不将基准多样性等同多仓库协同修改。按translation-needed输出逐句翻译完整原标题/摘要，经translations保存与ready检查后入队；历史补收标签保留，不当作今日新投稿。其余687条短名单未审。
+
+单次原项目mailer POST向syb38324@126.com发3篇完整中文HTML/文本，09:09:36北京时间返回sent/提供商ID；首次查询仅requests、未确认delivered，不重发。远端revision50，头9fa32f1f5b76ed7624b30a9d2e7cf546284536f2，1201篇、31份review。pending及发送后日报预览为空，旧消息未动；未改白名单/调度。证据evidence/daily-run-2026-11-11.json。
+
 ## 2026-11-10 日报与完整译文流程
 
 以9780231运行，check_release配置检查及37项测试通过；环境/源配置匹配、网络enforced、密钥ready，pending为空。遵循最新RUNBOOK：审读后执行translation-needed，逐条读取完整原标题/摘要，自行翻译，以translations命令写回精确版本；再次检查为ready后才入队。
