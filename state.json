@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 49,
+  "revision": 50,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -32003,7 +32003,7 @@
       "first_discovered_at": "2026-11-07T09:42:13.909655+00:00",
       "last_seen_at": "2026-11-11T01:08:18.286524+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.06513": {
       "id": "arxiv:2611.06513",
@@ -34129,7 +34129,7 @@
       "first_discovered_at": "2026-11-07T09:42:28.320925+00:00",
       "last_seen_at": "2026-11-11T01:08:18.287308+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.08452": {
       "id": "arxiv:2611.08452",
@@ -34187,7 +34187,7 @@
       "first_discovered_at": "2026-11-10T01:03:40.638458+00:00",
       "last_seen_at": "2026-11-11T01:08:18.286712+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent",
+      "send_status": "sent",
       "rss_category": "cs.AI",
       "public_batch_at": "Mon, 09 Nov 2026 00:00:00 -0500",
       "announce_type": "new"
@@ -39188,11 +39188,13 @@
         "arxiv:2611.08666:v1"
       ],
       "created_at": "2026-11-11T01:09:18.978471+00:00",
-      "status": "sending",
+      "status": "sent",
       "lease_owner": "f9d83e751c5a4e2dbc97941e006de39f",
       "lease_until": "2026-11-11T01:19:31.084262+00:00",
       "first_attempt_at": "2026-11-11T01:09:31.084447+00:00",
-      "payload_hash": "159d3910b98e84b3e1f837f0275a1887fe4b81d22ba62bcc12da440ef4fd34a7"
+      "payload_hash": "159d3910b98e84b3e1f837f0275a1887fe4b81d22ba62bcc12da440ef4fd34a7",
+      "provider_id": "<202611110109.87492933327@smtp-relay.mailin.fr>",
+      "sent_at": "2026-11-11T01:09:36.192614+00:00"
     }
   },
   "runs": [
