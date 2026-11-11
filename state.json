@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 45,
+  "revision": 46,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -32002,7 +32002,7 @@
       ],
       "first_discovered_at": "2026-11-07T09:42:13.909655+00:00",
       "last_seen_at": "2026-11-11T01:08:18.286524+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2611.06513": {
@@ -34128,7 +34128,7 @@
       ],
       "first_discovered_at": "2026-11-07T09:42:28.320925+00:00",
       "last_seen_at": "2026-11-11T01:08:18.287308+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2611.08452": {
@@ -34186,7 +34186,7 @@
       ],
       "first_discovered_at": "2026-11-10T01:03:40.638458+00:00",
       "last_seen_at": "2026-11-11T01:08:18.286712+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Mon, 09 Nov 2026 00:00:00 -0500",
@@ -38925,6 +38925,66 @@
       "reviewed_at": "2026-11-10T01:05:02.535453+00:00",
       "title_zh": "执行轨迹在修复大语言模型生成代码的断言失败方面的局限",
       "abstract_zh": "迭代修复将失败程序的错误反馈给大语言模型，并要求模型修复程序。经过迭代修复后，剩余失败大多为断言失败：对于四个 Qwen2.5 模型，这类失败占 BigCodeBench 剩余失败的 79%、HumanEval 剩余失败的全部，以及 LiveCodeBench 剩余失败的 93%。我们从反馈所含信息的视角论证，断言失败对故障位置提供的信息很少。我们提出断点调试（Breakpoint Debugging，BPD），它返回失败程序，并在程序内部用变量运行时取值加以注释。我们取出在五次修复尝试后仍未被迭代修复解决的任务，比较将另外五次生成机会用于这些任务的两种方式：BPD 和重新采样。在 BigCodeBench 上，BPD 修复其中 26.7% 的任务，而对照方式为 22.4%，且其优势随模型规模增大而扩大。在 HumanEval 上，BPD 优于重新采样，但优势很小；在 LiveCodeBench 上，重新采样修复的任务更多，分别为 6.5% 和 4.9%。此外，BPD 将 BigCodeBench 上原样重新提交代码的比例从 28% 降至 8%。仅使用第一个失败测试的轨迹时，效果优于追踪全部失败测试，且所用 token 少于全轨迹 BPD 和普通迭代修复。在 LiveCodeBench 上，即便面对公开测试，BPD 也没有带来增益，因此仅有可见的失败输入还不足以让轨迹发挥帮助。这些结果符合信息视角的解释：只有当测试暴露了一个失败输入，且故障属于实现失误时，轨迹才有帮助；否则，修复循环应重新采样而不是追踪轨迹。"
+    },
+    "arxiv:2611.08666:v1": {
+      "paper_id": "arxiv:2611.08666",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "调试器与bash单次解决集合不同，未必说明工具互补；跨运行随机性可能解释差异。",
+      "relevance_reason": "多agent/工具多样性实验应加入同工具重复运行参照，对齐总预算，分别报告目标仓库覆盖与联合成功。",
+      "task_setting": "全部500个SWE-bench Verified实例，跨项目但每例单目标；摘要未确认跨文件范围，不能视为多仓库协同修改。",
+      "method": "固定其他scaffold，比较debugger-only和bash-only，在两个模型上每配置独立运行三次，用跨agent pass_X@k区分随机覆盖与接口专长。",
+      "evidence": "仅摘要：两个模型中，两条bash rollout均优于一条bash加一条debugger；未核查正文置信区间、运行成本和接口实现，不能外推所有调试器。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：多agent/工具多样性实验应加入同工具重复运行参照，对齐总预算，分别报告目标仓库覆盖与联合成功。",
+      "reading_advice": "精读pass_X@k估计及独立假设，核查每次执行预算和工具约束；再用于跨仓库工具组合消融。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.08666v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-11T01:08:47.616616+00:00"
+    },
+    "arxiv:2611.08417:v1": {
+      "paper_id": "arxiv:2611.08417",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "Terminal-Bench持续审计说明基准维护债务和资源设定会改变分数，任务发布后仍须复核oracle。",
+      "relevance_reason": "对跨仓库隐藏测试持续做混合版本与替代正确实现验证，版本化任务、oracle和预算，不直接比较不同基准版本分数。",
+      "task_setting": "Terminal-Bench综合任务审计；摘要未说明每任务目标仓库数量和编辑范围，标unknown。基准覆盖广不等于多仓库联合修改。",
+      "method": "结合社区报告、任务产物、agent轨迹、自动oracle检查和人工把关修复，发布Terminal-Bench 2.1并研究时间预算。",
+      "evidence": "仅摘要：作者审计发现约30%任务有问题，修复后准确率提高超过10个百分点；总体排名相关0.958仍可与局部名次变化并存。未核查任务级问题分类及独立验证，不能把比例解释为所有基准错误率。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：对跨仓库隐藏测试持续做混合版本与替代正确实现验证，版本化任务、oracle和预算，不直接比较不同基准版本分数。",
+      "reading_advice": "精读2.0到2.1变更清单、人工批准流程及时间预算实验，核查哪些差异来自oracle、哪些来自预算。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.08417v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-11T01:08:47.616639+00:00"
+    },
+    "arxiv:2611.06506:v1": {
+      "paper_id": "arxiv:2611.06506",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "Trace2Eval从真实交互轨迹重建任务环境，并以人工rubric与运行证据校准评判。",
+      "relevance_reason": "为跨任务复现保留版本化需求、环境和运行证据；将rubric改进与独立联合测试分开验收，防止针对judge过拟合。",
+      "task_setting": "多领域真实工作流与任务重建；摘要未规定每任务仓库数量或跨文件修改，标unknown，multi-agent重建不等于多仓库编辑。",
+      "method": "恢复原查询、交互前工作区和轨迹等价环境，人工标准迭代对齐标注者，再以源码/运行证据校准judge并反馈改进。",
+      "evidence": "仅摘要：19种模型/harness配置平均得分提高10.05个百分点、最大19.28；这是反馈修订增益，未证明真实缺陷修复率或跨仓库泛化。未核查独立测试、judge校准和轨迹筛选偏差。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：为跨任务复现保留版本化需求、环境和运行证据；将rubric改进与独立联合测试分开验收，防止针对judge过拟合。",
+      "reading_advice": "精读重建泄漏控制、rubric校准及盲评设置，核查反馈预算和平均分分母。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.06506v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-11T01:08:47.616644+00:00"
     }
   },
   "outbox": {
