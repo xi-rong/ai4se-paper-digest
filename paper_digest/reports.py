@@ -24,7 +24,7 @@ def new_daily_paper(paper, now):
             return False
         tz = ZoneInfo("Asia/Shanghai")
         day, today = submitted.astimezone(tz).date(), now.astimezone(tz).date()
-        return today - timedelta(days=1) <= day <= today
+        return today - timedelta(days=2) <= day <= today
     except (ValueError, TypeError, AttributeError):
         return False
 
@@ -48,7 +48,7 @@ def selected(state, kind, max_papers=10, now=None):
             continue
         if kind == "daily":
             # A newly discovered old paper or a new version is not a new submission.
-            # Count calendar days in Beijing time, and never repeat a sent paper.
+            # Count today and the prior two calendar days in Beijing time; never repeat a sent paper.
             if paper["id"] in sent_papers:
                 continue
             if not new_daily_paper(paper, now):
