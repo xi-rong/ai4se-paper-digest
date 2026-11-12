@@ -8,6 +8,7 @@ from datetime import datetime, timezone, timedelta
 from urllib.parse import urlsplit
 from .collectors import iso
 from .http import request, RequestError
+from .reports import new_daily_paper
 
 
 def send(store, config, message_id, *, recipient):
@@ -15,6 +16,12 @@ def send(store, config, message_id, *, recipient):
     message = state["outbox"][message_id]
     if message["status"] == "sent":
         return "already_sent"
+    if message["kind"] == "daily":
+        now = datetime.now(timezone.utc)
+        for key in message["event_keys"]:
+            paper = state["papers"].get(key.rsplit(":v", 1)[0])
+            if paper is None or not new_daily_paper(paper, now):
+                raise ValueError("daily outbox contains a paper outside today/yesterday; reconcile before sending")
     cfg = config["mail"]
     if not cfg["recipient"] or recipient != cfg["recipient"]:
         raise ValueError("recipient must exactly match the user-confirmed fixed address")
