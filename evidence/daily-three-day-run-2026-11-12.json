@@ -1,0 +1,206 @@
+{
+  "recorded_at_utc": "2026-11-12T11:40:05.822289+00:00",
+  "source_head": "b044de652b3868158b0d9b5b851717015251f277",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "checks": "config valid and 39 tests passed",
+  "daily_rule": {
+    "timezone": "Asia/Shanghai",
+    "first_submission_dates_inclusive": [
+      "2026-11-10",
+      "2026-11-12"
+    ],
+    "never_repeat_sent_paper": true,
+    "empty_daily_required_if_no_eligible": true,
+    "empty_this_run": false
+  },
+  "selected_papers": [
+    {
+      "paper_id": "arxiv:2611.12712",
+      "version": 1,
+      "submitted_at": "2026-11-09T17:03:14Z",
+      "submitted_date_shanghai": "2026-11-10"
+    },
+    {
+      "paper_id": "arxiv:2611.12856",
+      "version": 1,
+      "submitted_at": "2026-11-09T18:45:28Z",
+      "submitted_date_shanghai": "2026-11-10"
+    },
+    {
+      "paper_id": "arxiv:2611.13241",
+      "version": 1,
+      "submitted_at": "2026-11-09T21:11:29Z",
+      "submitted_date_shanghai": "2026-11-10"
+    },
+    {
+      "paper_id": "arxiv:2611.13395",
+      "version": 1,
+      "submitted_at": "2026-11-10T00:17:10Z",
+      "submitted_date_shanghai": "2026-11-10"
+    },
+    {
+      "paper_id": "arxiv:2611.14164",
+      "version": 1,
+      "submitted_at": "2026-11-10T14:49:52Z",
+      "submitted_date_shanghai": "2026-11-10"
+    }
+  ],
+  "collection": {
+    "id": "b5c4e0d68aa24daf952058daedbf37ab",
+    "at": "2026-11-12T11:35:44.682180+00:00",
+    "type": "collect",
+    "from": "2026-10-31T09:42:06.757597+00:00",
+    "to": "2026-11-12T11:35:03.023923+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-10-31T09:42:06.757597+00:00",
+        "to": "2026-11-12T11:35:03.023923+00:00",
+        "pages": 3,
+        "status": "ok",
+        "count": 282,
+        "total": 282
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-10-31T09:42:06.757597+00:00",
+        "to": "2026-11-12T11:35:03.023923+00:00",
+        "pages": 2,
+        "status": "ok",
+        "count": 180,
+        "total": 180
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Thu, 12 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Thu, 12 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Thu, 12 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Thu, 12 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      }
+    ],
+    "new_versions": 57,
+    "status": "ok"
+  },
+  "review_scope": {
+    "read": 6,
+    "new_versioned_reviews": 6,
+    "included": 5,
+    "excluded": "arxiv:2611.12823:v1: infrastructure proposal with weak core-research relevance",
+    "basis": "abstract",
+    "complete_title_and_abstract_translations": 5,
+    "initial_three_day_candidates": 23,
+    "remaining_three_day_unreviewed": 17,
+    "remaining_total_shortlist": 711,
+    "coverage_limits": "Configured daily arXiv/RSS queries complete for this run; not all fields, all sources or all in-window papers reviewed. S2/DBLP/releases are weekly-only, venue/author/journal adapters incomplete."
+  },
+  "prior_pending": {
+    "id": "644fc5938ec1494e6edba3d64893c587",
+    "status": "retry",
+    "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+    "last_error": {
+      "type": "RequestError",
+      "status": 401,
+      "uncertain": false
+    },
+    "outside_new_three_day_window": true,
+    "unchanged": true,
+    "replayed": false,
+    "new_report_event_overlap": [],
+    "handling": "Prior request was explicit 401 with uncertain=false; retain immutable prior content/history. Current code disallows old out-of-window daily send; do not reset timer or blindly resend. New report does not overlap."
+  },
+  "state": {
+    "before_head": "e82939a1629239ccd2c2b42de0ef5c3d58d7107d",
+    "after_head": "72f538e2059ccd22f1503bfeb54fc05f5f6989bb",
+    "revision": 65,
+    "papers": 1255,
+    "reviews": 40,
+    "arxiv_cursor": "2026-11-12T11:35:03.023923+00:00",
+    "outbox_statuses": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent",
+      "12ffa47b936245f72be3813916bcd3f0": "sent",
+      "0433850674929cb2e23f9a7ab09573f9": "sent",
+      "f9b3736e202816c79bc6fa6aa2ad8517": "sent",
+      "2765dbca7462af8d334bab0b1d39ea71": "sent",
+      "381038cbec59bd1af43d3b09ff404296": "sent",
+      "644fc5938ec1494e6edba3d64893c587": "retry",
+      "9ff82a20d2771bfe6329689c4e9c0a5d": "sent"
+    }
+  },
+  "mail": {
+    "id": "9ff82a20d2771bfe6329689c4e9c0a5d",
+    "kind": "daily",
+    "subject": "AI4SE 论文日报 · 2026-11-12",
+    "status": "sent",
+    "provider_id": "<202611121139.32999428823@smtp-relay.mailin.fr>",
+    "first_attempt_at": "2026-11-12T11:39:16.813188+00:00",
+    "sent_at": "2026-11-12T11:39:21.849671+00:00",
+    "event_keys": [
+      "arxiv:2611.12712:v1",
+      "arxiv:2611.12856:v1",
+      "arxiv:2611.13241:v1",
+      "arxiv:2611.13395:v1",
+      "arxiv:2611.14164:v1"
+    ],
+    "payload_hash": "d2e8f40b819d26fbc94f831c555575bf412075d4c7d41cafde0680d8c50f6eba"
+  },
+  "recipient": "syb38324@126.com",
+  "post_attempts": 1,
+  "transport": "Original project mailer; provider messageId received; exact POST HTTP code not captured.",
+  "delivery_query": {
+    "query": "success",
+    "events": [
+      {
+        "event": "opened",
+        "date": "2026-11-12T03:39:39.496-08:00",
+        "recipient": "syb38324@126.com"
+      },
+      {
+        "event": "delivered",
+        "date": "2026-11-12T03:39:29.000-08:00",
+        "recipient": "syb38324@126.com"
+      },
+      {
+        "event": "requests",
+        "date": "2026-11-12T03:39:20.700-08:00",
+        "recipient": "syb38324@126.com"
+      }
+    ]
+  },
+  "egress_note": "Earlier attempt rejected explicit source 4.197.43.180. This new message accepted; successful response does not establish current source IP or lasting CIDR coverage. No allowlist changes by this agent.",
+  "constraints": {
+    "old_messages_resent": false,
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "external_scheduler_used": false,
+    "schedule_modified": false
+  }
+}
