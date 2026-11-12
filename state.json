@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 64,
+  "revision": 65,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -36972,7 +36972,7 @@
       "first_discovered_at": "2026-11-11T01:06:21.685642+00:00",
       "last_seen_at": "2026-11-12T11:35:28.078154+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent",
+      "send_status": "sent",
       "rss_category": "cs.SE",
       "public_batch_at": "Tue, 10 Nov 2026 00:00:00 -0500",
       "announce_type": "new"
@@ -37076,7 +37076,7 @@
       "first_discovered_at": "2026-11-11T01:06:21.685803+00:00",
       "last_seen_at": "2026-11-12T11:35:28.079031+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent",
+      "send_status": "sent",
       "rss_category": "cs.CL",
       "public_batch_at": "Tue, 10 Nov 2026 00:00:00 -0500",
       "announce_type": "new"
@@ -37494,7 +37494,7 @@
       "first_discovered_at": "2026-11-12T11:35:14.327960+00:00",
       "last_seen_at": "2026-11-12T11:35:28.078185+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.13246": {
       "id": "arxiv:2611.13246",
@@ -37700,7 +37700,7 @@
       "first_discovered_at": "2026-11-12T11:35:14.328214+00:00",
       "last_seen_at": "2026-11-12T11:35:28.078212+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.13396": {
       "id": "arxiv:2611.13396",
@@ -37994,7 +37994,7 @@
       "first_discovered_at": "2026-11-12T11:35:14.328528+00:00",
       "last_seen_at": "2026-11-12T11:35:28.078262+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.14356": {
       "id": "arxiv:2611.14356",
@@ -41164,11 +41164,13 @@
         "arxiv:2611.14164:v1"
       ],
       "created_at": "2026-11-12T11:38:55.602130+00:00",
-      "status": "sending",
+      "status": "sent",
       "lease_owner": "b25cd9aeffa943f1b856066189bd93ef",
       "lease_until": "2026-11-12T11:49:16.812704+00:00",
       "first_attempt_at": "2026-11-12T11:39:16.813188+00:00",
-      "payload_hash": "d2e8f40b819d26fbc94f831c555575bf412075d4c7d41cafde0680d8c50f6eba"
+      "payload_hash": "d2e8f40b819d26fbc94f831c555575bf412075d4c7d41cafde0680d8c50f6eba",
+      "provider_id": "<202611121139.32999428823@smtp-relay.mailin.fr>",
+      "sent_at": "2026-11-12T11:39:21.849671+00:00"
     }
   },
   "runs": [
