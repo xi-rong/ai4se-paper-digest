@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 60,
+  "revision": 61,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -37493,7 +37493,7 @@
       ],
       "first_discovered_at": "2026-11-12T11:35:14.327960+00:00",
       "last_seen_at": "2026-11-12T11:35:28.078185+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2611.13246": {
@@ -37699,7 +37699,7 @@
       ],
       "first_discovered_at": "2026-11-12T11:35:14.328214+00:00",
       "last_seen_at": "2026-11-12T11:35:28.078212+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2611.13396": {
@@ -37993,7 +37993,7 @@
       ],
       "first_discovered_at": "2026-11-12T11:35:14.328528+00:00",
       "last_seen_at": "2026-11-12T11:35:28.078262+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2611.14356": {
@@ -40851,6 +40851,66 @@
       "publication_status": "arXiv v1预印本；未核实正式录用",
       "links": [],
       "reviewed_at": "2026-11-12T11:36:54.691072+00:00"
+    },
+    "arxiv:2611.13395:v1": {
+      "paper_id": "arxiv:2611.13395",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "缺陷复现测试失败分类提示：机械执行、实现错误和缺少问题上下文需分开诊断。",
+      "relevance_reason": "多仓库复现测试先分执行环境故障、oracle错误与接口上下文缺失，再评价目标覆盖和联合验收。",
+      "task_setting": "SWT-Bench Verified多项目单目标复现测试；不等于多仓库协同修改，摘要未确认跨文件跨度。",
+      "method": "比较AssertFlip和OpenHands，分别搭配GPT-5-mini与GPT-4o-mini，对错误轨迹分类并探索用分类指导补充issue上下文。",
+      "evidence": "仅摘要：机械和实现失败最常见，作者称生成方式影响精确率/覆盖，模型改变测试质量与数量；未给可复述数值，未核查样本数、标注一致性或上下文干预的对照。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：多仓库复现测试先分执行环境故障、oracle错误与接口上下文缺失，再评价目标覆盖和联合验收。",
+      "reading_advice": "精读分类定义、重复运行、人工标注与issue增强实验，避免把测试可执行当作真实缺陷已复现。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.13395v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-12T11:38:09.087629+00:00"
+    },
+    "arxiv:2611.14164:v1": {
+      "paper_id": "arxiv:2611.14164",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "CVE代码模式跨项目传播研究可作追踪线索，但克隆相似不能单独证明漏洞有效性或传播因果。",
+      "relevance_reason": "将候选模式与版本、来源谱系、触发条件和可执行复现对应，检验同类补丁是否需跨项目协调，保留未确认。",
+      "task_setting": "NVD来源数据与SQVDT跨系统检测，属于漏洞传播分析而非联合修复；目标修改范围unknown。",
+      "method": "对项目内/跨项目模式进行实验，依据CVE数据检测相似代码，再评价传播模式与频率。",
+      "evidence": "仅摘要：作者声称在Linux、Android及GitHub项目发现传播和高严重漏洞，但未给可核验CVE/提交、分母和误报数据；本条未独立确认任何真实未修复漏洞，不将代码相似直接当传播证明。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：将候选模式与版本、来源谱系、触发条件和可执行复现对应，检验同类补丁是否需跨项目协调，保留未确认。",
+      "reading_advice": "先核查正文数据集、SQVDT验证及克隆来源时间线；未复现前不声称具体系统存在新漏洞。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.14164v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-12T11:38:09.087657+00:00"
+    },
+    "arxiv:2611.13241:v1": {
+      "paper_id": "arxiv:2611.13241",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "FlowPlan用函数级控制/数据流图计划修复与验证结构差异，主要收益是token成本，非已证实成功率提升。",
+      "relevance_reason": "为跨仓库接口变更定义计划契约增量和实际增量，再加联合语义测试；不能以结构吻合替代行为正确。",
+      "task_setting": "SWE-bench Pro、Verified及SecBench的仓库任务，多个项目单目标实例；函数图不证明跨文件或多仓库协同编辑。",
+      "method": "先在抽象图定位并写显式图增量，再修改源码、重建抽象并比较实际/计划差异，结束前验证完整修复。",
+      "evidence": "仅摘要：六种基准/模型设置修复率无显著变化，五种设置token显著减少；节省范围随模型/基准不同。未核查总时间、构图成本和语义验证强度。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：为跨仓库接口变更定义计划契约增量和实际增量，再加联合语义测试；不能以结构吻合替代行为正确。",
+      "reading_advice": "精读验证步骤、抽象构建计费与失败案例，核查减少测试是否削弱独立oracle。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.13241v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-12T11:38:09.087662+00:00"
     }
   },
   "outbox": {
