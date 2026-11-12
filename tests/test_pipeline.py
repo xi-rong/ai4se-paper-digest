@@ -115,6 +115,35 @@ class PipelineTests(unittest.TestCase):
             cli.main(["--state", str(self.path), "preview", "--enqueue", "--out", str(self.path.parent / "preview")])
         self.assertEqual(len(self.store.load()[0]["outbox"]), 1)
 
+    def test_daily_is_beijing_today_or_yesterday_and_never_repeats_paper(self):
+        state, paper, review = fixture()
+        now = datetime(2026, 11, 12, 1, 0, tzinfo=timezone.utc)  # 09:00 Beijing
+        current = state["papers"][paper["id"]]
+        current["submitted_at"] = "2026-11-10T15:59:59Z"  # Nov 10 Beijing
+        self.assertEqual(selected(state, "daily", now=now), [])
+        current["submitted_at"] = "2026-11-10T16:00:00Z"  # Nov 11 00:00 Beijing
+        self.assertEqual(len(selected(state, "daily", now=now)), 1)
+        current["submitted_at"] = "2026-11-12T01:00:01Z"  # future at run time
+        self.assertEqual(selected(state, "daily", now=now), [])
+        current["submitted_at"] = "2026-11-11T16:00:00Z"  # Nov 12 00:00 Beijing
+        current["version"] = 2
+        next_review = dict(review, version=2, important_update=True)
+        add_reviews(state, [next_review])
+        state["outbox"]["old"] = {"kind": "daily", "status": "sent", "event_keys": [paper["id"] + ":v1"]}
+        self.assertEqual(selected(state, "daily", now=now), [])
+
+    def test_sending_old_pending_daily_does_not_contact_provider(self):
+        state, paper, _ = fixture()
+        message = render(state, "daily", coverage=[])
+        state["outbox"][message["id"]] = message
+        state["papers"][paper["id"]]["submitted_at"] = "2026-10-01T00:00:00Z"
+        self.persist(state)
+        with patch("paper_digest.mailer.request") as request:
+            with self.assertRaisesRegex(ValueError, "outside today/yesterday"):
+                send(self.store, self.cfg, message["id"], recipient="reader@example.org")
+        request.assert_not_called()
+        self.assertEqual(self.store.load()[0]["outbox"][message["id"]]["status"], "pending")
+
     def test_translation_batch_is_atomic_and_version_checked(self):
         state, paper, _ = fixture()
         before = copy.deepcopy(state)
