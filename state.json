@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 55,
+  "revision": 56,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -39282,7 +39282,11 @@
         "arxiv:2611.12164:v1"
       ],
       "created_at": "2026-11-12T01:04:38.243050+00:00",
-      "status": "pending"
+      "status": "sending",
+      "lease_owner": "23a3a9c0600f457791c0656f124b7836",
+      "lease_until": "2026-11-12T01:14:50.648313+00:00",
+      "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+      "payload_hash": "0e25b2054b180cde24fa4ff9c0b14f21dd107726d4d94c990db8a82816015fbb"
     }
   },
   "runs": [
