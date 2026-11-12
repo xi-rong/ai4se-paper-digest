@@ -115,6 +115,35 @@ class PipelineTests(unittest.TestCase):
             cli.main(["--state", str(self.path), "preview", "--enqueue", "--out", str(self.path.parent / "preview")])
         self.assertEqual(len(self.store.load()[0]["outbox"]), 1)
 
+    def test_daily_is_beijing_three_day_window_and_never_repeats_paper(self):
+        state, paper, review = fixture()
+        now = datetime(2026, 11, 12, 1, 0, tzinfo=timezone.utc)  # 09:00 Beijing
+        current = state["papers"][paper["id"]]
+        current["submitted_at"] = "2026-11-09T15:59:59Z"  # Nov 9 Beijing
+        self.assertEqual(selected(state, "daily", now=now), [])
+        current["submitted_at"] = "2026-11-09T16:00:00Z"  # Nov 10 00:00 Beijing
+        self.assertEqual(len(selected(state, "daily", now=now)), 1)
+        current["submitted_at"] = "2026-11-12T01:00:01Z"  # future at run time
+        self.assertEqual(selected(state, "daily", now=now), [])
+        current["submitted_at"] = "2026-11-11T16:00:00Z"  # Nov 12 00:00 Beijing
+        current["version"] = 2
+        next_review = dict(review, version=2, important_update=True)
+        add_reviews(state, [next_review])
+        state["outbox"]["old"] = {"kind": "daily", "status": "sent", "event_keys": [paper["id"] + ":v1"]}
+        self.assertEqual(selected(state, "daily", now=now), [])
+
+    def test_sending_old_pending_daily_does_not_contact_provider(self):
+        state, paper, _ = fixture()
+        message = render(state, "daily", coverage=[])
+        state["outbox"][message["id"]] = message
+        state["papers"][paper["id"]]["submitted_at"] = "2026-10-01T00:00:00Z"
+        self.persist(state)
+        with patch("paper_digest.mailer.request") as request:
+            with self.assertRaisesRegex(ValueError, "outside the three-day window"):
+                send(self.store, self.cfg, message["id"], recipient="reader@example.org")
+        request.assert_not_called()
+        self.assertEqual(self.store.load()[0]["outbox"][message["id"]]["status"], "pending")
+
     def test_translation_batch_is_atomic_and_version_checked(self):
         state, paper, _ = fixture()
         before = copy.deepcopy(state)
@@ -158,7 +187,7 @@ class PipelineTests(unittest.TestCase):
         state, paper, _ = fixture()
         paper["version"] = 2
         upsert(state, [paper])
-        self.assertIsNone(render(state, "daily"))
+        self.assertEqual(render(state, "daily")["event_keys"], [])
 
     def test_doi_merges_formal_record(self):
         state, paper, _ = fixture()
@@ -291,8 +320,17 @@ class PipelineTests(unittest.TestCase):
         with patch.dict(os.environ, {"DIGEST_MAIL_TOKEN": "test-placeholder"}), self.assertRaises(ValueError):
             send(self.store, self.cfg, mid, recipient="reader@example.org")
 
-    def test_empty_digest_no_message(self):
-        self.assertIsNone(render(empty(), "daily"))
+    def test_empty_daily_explains_absence_or_source_failure(self):
+        state = empty()
+        complete = render(state, "daily", coverage=[{"source": "arxiv", "status": "ok"}])
+        partial = render(state, "daily", coverage=[{"source": "arxiv", "status": "failed"}])
+        self.assertEqual(complete["event_keys"], [])
+        self.assertIn("没有符合近三天", complete["markdown"])
+        self.assertIn("采集不完整", partial["markdown"])
+        self.assertIn("arxiv: failed", partial["markdown"])
+        self.assertEqual(complete["id"], partial["id"])
+        state["outbox"][complete["id"]] = dict(complete, status="sent")
+        self.assertIsNone(render(state, "daily", coverage=[]))
 
     def test_seed_enrichment_does_not_hide_partial_collection(self):
         state, _, _ = fixture()
