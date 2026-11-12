@@ -136,19 +136,30 @@ def _html(title, date, top, papers, issues, weekly_note):
 
 def render(state, kind, coverage=None, max_papers=10, now=None):
     now = now or datetime.now(timezone.utc)
-    items = selected(state, kind, max_papers, now)
-    if not items:
-        return None
     date = now.astimezone(ZoneInfo("Asia/Shanghai")).strftime("%Y-%m-%d")
+    items = selected(state, kind, max_papers, now)
+    if not items and kind != "daily":
+        return None
+    if kind == "daily" and not items:
+        # Never send a second empty report after a daily report for the same date.
+        if any(m.get("kind") == "daily" and m.get("status") == "sent" and
+               m.get("subject", "").endswith(date) for m in state.get("outbox", {}).values()):
+            return None
     title = {"daily": "AI4SE 论文日报", "weekly": "AI4SE 本周阅读回顾", "history": "AI4SE 初始阅读清单 · 历史回顾"}[kind] + " · " + date
     papers = [_report_paper(paper, review, now) for paper, review in items]
     issues = _coverage_issues(state, coverage)
+    if papers:
+        top = papers[0]["summary"]
+    elif issues:
+        top = "本次没有选出符合条件的论文；部分来源采集不完整，不能据此判断没有新论文。"
+    else:
+        top = "本次已审读结果中没有符合近三天且未推送条件的论文。"
     weekly_note = ""
     if kind == "weekly":
         weekly_note = f"本期列出 {len(items)} 篇本周发现并已审读的论文，样本不代表整个领域。"
     keys = [event_key(p) for p, _ in items]
-    digest_id = hashlib.sha256(json.dumps([kind, keys], sort_keys=True).encode()).hexdigest()[:32]
+    digest_id = hashlib.sha256(json.dumps([kind, keys, date] if not keys else [kind, keys], sort_keys=True).encode()).hexdigest()[:32]
     return {"id": digest_id, "kind": kind, "subject": title,
-            "markdown": _markdown(title, papers[0]["summary"], papers, issues, weekly_note),
-            "html": _html(title, date, papers[0]["summary"], papers, issues, weekly_note),
+            "markdown": _markdown(title, top, papers, issues, weekly_note),
+            "html": _html(title, date, top, papers, issues, weekly_note),
             "event_keys": keys, "created_at": iso(), "status": "pending"}
