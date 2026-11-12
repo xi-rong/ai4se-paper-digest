@@ -187,7 +187,7 @@ class PipelineTests(unittest.TestCase):
         state, paper, _ = fixture()
         paper["version"] = 2
         upsert(state, [paper])
-        self.assertIsNone(render(state, "daily"))
+        self.assertEqual(render(state, "daily")["event_keys"], [])
 
     def test_doi_merges_formal_record(self):
         state, paper, _ = fixture()
@@ -320,8 +320,17 @@ class PipelineTests(unittest.TestCase):
         with patch.dict(os.environ, {"DIGEST_MAIL_TOKEN": "test-placeholder"}), self.assertRaises(ValueError):
             send(self.store, self.cfg, mid, recipient="reader@example.org")
 
-    def test_empty_digest_no_message(self):
-        self.assertIsNone(render(empty(), "daily"))
+    def test_empty_daily_explains_absence_or_source_failure(self):
+        state = empty()
+        complete = render(state, "daily", coverage=[{"source": "arxiv", "status": "ok"}])
+        partial = render(state, "daily", coverage=[{"source": "arxiv", "status": "failed"}])
+        self.assertEqual(complete["event_keys"], [])
+        self.assertIn("没有符合近三天", complete["markdown"])
+        self.assertIn("采集不完整", partial["markdown"])
+        self.assertIn("arxiv: failed", partial["markdown"])
+        self.assertEqual(complete["id"], partial["id"])
+        state["outbox"][complete["id"]] = dict(complete, status="sent")
+        self.assertIsNone(render(state, "daily", coverage=[]))
 
     def test_seed_enrichment_does_not_hide_partial_collection(self):
         state, _, _ = fixture()
