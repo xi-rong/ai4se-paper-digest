@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 52,
+  "revision": 53,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -35845,7 +35845,7 @@
       ],
       "first_discovered_at": "2026-11-11T01:06:21.684116+00:00",
       "last_seen_at": "2026-11-11T01:08:38.125863+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.SE",
       "public_batch_at": "Tue, 10 Nov 2026 00:00:00 -0500",
@@ -36566,7 +36566,7 @@
       ],
       "first_discovered_at": "2026-11-11T01:06:21.684973+00:00",
       "last_seen_at": "2026-11-11T01:08:38.125914+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.SE",
       "public_batch_at": "Tue, 10 Nov 2026 00:00:00 -0500",
@@ -36634,7 +36634,7 @@
       ],
       "first_discovered_at": "2026-11-11T01:06:21.685029+00:00",
       "last_seen_at": "2026-11-11T01:08:38.126079+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Tue, 10 Nov 2026 00:00:00 -0500",
@@ -38999,6 +38999,66 @@
       "reviewed_at": "2026-11-11T01:08:47.616644+00:00",
       "title_zh": "Trace2Eval：从真实轨迹出发，对编码智能体开展情境化评估",
       "abstract_zh": "编码智能体越来越多地用于不同领域的真实工作流，这促使人们开展基于真实用户任务的评估。然而，现有基准主要依赖具有参考补丁或隐藏测试的静态公开任务。因此，下一代编码智能体基准应超越固定任务上的正确性，转向对真实用户工作流中整体产物质量的持续更新评估。我们提出 Trace2Eval，一套从真实交互轨迹构建基准、可动态更新的流水线。Trace2Eval 采用多智能体重建系统，分析筛选后的轨迹，恢复原始用户查询，将工作区文件还原至交互前状态，并重建与轨迹等价的执行环境。随后，候选智能体执行重建后的查询，生成初始产物。为评估这些产物，该流水线通过标注者间对齐来迭代完善人工评分标准，并利用源码和运行时证据，按照人工评估校准评判智能体。在 Trace2Eval 流水线反馈的指导下，模型修订初始产物，19 种模型与框架配置的平均得分提高 10.05 个百分点，最高为使用 Claude Code 的 DeepSeek-V4-Pro，提高 19.28 个百分点；这支持了评分标准反馈可作为改进产物的可执行指导这一观点。"
+    },
+    "arxiv:2611.12164:v1": {
+      "paper_id": "arxiv:2611.12164",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "FGL用冻结修复器对已验证补丁的似然训练定位器，强调需要读取的代码不等于参考补丁编辑文件。",
+      "relevance_reason": "将仓库召回、阅读上下文选择和编辑位置分别评价；用修复效用训练检索时保留独立联合测试防过拟合参考补丁。",
+      "task_setting": "Gemma-4竞赛流水线与78项任务评估；摘要未交代单实例目标仓库/跨文件范围，标unknown，不能据此声称跨仓库定位。",
+      "method": "定位器提出多组位置，冻结修复器打分，以加权监督微调学习，不在该训练环节执行测试或使用强化学习。",
+      "evidence": "仅摘要：1629条测试验证轨迹；少读27.5%代码，开发集单轮EM的已解8对6，单agent最多11/78对基座8。样本小且指标来自不同比较，未核查正文预算、随机方差和训练泄漏。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：将仓库召回、阅读上下文选择和编辑位置分别评价；用修复效用训练检索时保留独立联合测试防过拟合参考补丁。",
+      "reading_advice": "核查冻结修复器似然如何计分、多候选采样和EM对照，复核8分钟预算与时间/循环失败分析。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.12164v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-12T01:04:10.146078+00:00"
+    },
+    "arxiv:2611.12083:v1": {
+      "paper_id": "arxiv:2611.12083",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "SWE-Time把仓库演进作为理解对象，分别评估历史回归解释和变更前状态下的意图理解。",
+      "relevance_reason": "跨仓库修复应将每个仓库的版本状态和开发者意图绑定，联合检验时序一致性而不只查当前快照。",
+      "task_setting": "1661个案例来自65个GitHub仓库；时间上的多状态不是多个目标仓库协同修改，属于多项目单仓库理解案例。",
+      "method": "将真实开发者查询和历史证据转成可验证任务，对回溯与前瞻两个时间方向评估15种agent。",
+      "evidence": "仅摘要：Claude Code内Opus 4.8的SWE-Time Avg.为61.9；未核查评分定义、划分、时间泄漏或仓库级方差，不把分数当修复率。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：跨仓库修复应将每个仓库的版本状态和开发者意图绑定，联合检验时序一致性而不只查当前快照。",
+      "reading_advice": "精读历史证据可见边界和RealWorld-to-Verifiable流程，检查前瞻任务是否泄漏变更后实现，再扩展跨仓库时序图。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.12083v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-12T01:04:10.146101+00:00"
+    },
+    "arxiv:2611.10837:v1": {
+      "paper_id": "arxiv:2611.10837",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "补丁正确性审计区分修复搜索反馈与最终独立评估，要求保留不确定判断及验证成本。",
+      "relevance_reason": "跨仓库联合验收分离可见复现测试与保留测试，记录有效替代补丁的保留率、误拒及预算；缺乏需求证据时保留unknown。",
+      "task_setting": "这是39项基准/评估产物的技术报告审计，不是要求编辑仓库的修复任务，目标修改范围unknown。",
+      "method": "沿测试来源和暴露、行为范围、oracle基础及依赖、执行完整性、标签裁决五维编码33项主要贡献，建立证据矩阵和报告协议。",
+      "evidence": "仅摘要：39项包括32项实证研究、1项机构审计及6项分类基线；四项比较审计说明候选集合、oracle和预算会改变检测率。未核查全文编码一致性或证据矩阵，不把审计当新的agent性能排行榜。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：跨仓库联合验收分离可见复现测试与保留测试，记录有效替代补丁的保留率、误拒及预算；缺乏需求证据时保留unknown。",
+      "reading_advice": "精读五维编码与四项审计案例，抽查证据出处及共同基准血缘，再制定多仓库验收表。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.10837v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-12T01:04:10.146105+00:00"
     }
   },
   "outbox": {
