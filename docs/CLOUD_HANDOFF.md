@@ -1,5 +1,13 @@
 # 云端设置与新聊天交接
 
+## 2026-11-12 日报发送阻塞：Brevo出口IP授权
+
+以1b05d3b运行，配置及37项测试通过；Cloud源配置匹配、网络enforced、密钥ready、初始pending为空。collect --rss两组arXiv API均429，新增版本0、水位保留；RSS四源47/381/178/383条，补充候选985条待补元数据/审核，不能认定无新论文。实际读3篇v1摘要并保存审读与完整标题/摘要译文：FGL定位、SWE-Time、补丁正确性五维证据框架；作为历史补收保留仅摘要依据与任务范围限制。剩余684条短名单未审。
+
+日报644fc5938ec1494e6edba3d64893c587已入队，原项目mailer单次POST返回401，uncertain=false、provider_id=null，状态retry，未获服务商受理、未投递。随后一次只读GET aggregatedReport也401/unauthorized，响应明确披露未授权来源IP 4.197.43.180；它不在此前用户授权20.211.173.160/28内。先前20.211.173.170/.167被拒及授权后成功，只证明当时实测覆盖，不保证未来出口。未改白名单、未重试发送。
+
+完整HTML/文本、payload_hash、first_attempt_at和失败记录保留于远端digest-state，revision57、头e82939a1629239ccd2c2b42de0ef5c3d58d7107d；1201篇、34份review。下次必须先pending，对此旧待发先解决授权并遵守提供商幂等/对账要求；不重置first_attempt_at、不清状态、不用新消息绕过过期窗口、不入队重叠日报。旧sent/superseded未动。证据evidence/daily-run-2026-11-12.json；密钥/请求头未输出，无白名单/调度变更。
+
 ## 2026-11-11 日报执行
 
 以6b5077d运行，配置检查和37项测试通过，Cloud源配置匹配、网络enforced、密钥ready、初始pending为空。collect --rss部分成功：cs.SE 247/247，AI/CL/LG查询100/152后RequestError且HTTP状态为空；新增82个版本事件，水位仍保留2026-11-07T09:42:06.757597+00:00。RSS四源100/887/364/1026条，补充候选2261条未补齐元数据/逐条审核。不能据此断言无新论文或完整覆盖。

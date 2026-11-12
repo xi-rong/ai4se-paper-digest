@@ -1,0 +1,159 @@
+{
+  "recorded_at_utc": "2026-11-12T01:05:59.913956+00:00",
+  "source_head": "1b05d3be92a86f247c18c615eb9cae3402c45354",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "checks": "check_release config valid and 37 tests passed",
+  "pending_before": [],
+  "collection": {
+    "id": "3f970c424f364584aff274ebdabc0132",
+    "at": "2026-11-12T01:03:59.502236+00:00",
+    "type": "collect",
+    "from": "2026-10-31T09:42:06.757597+00:00",
+    "to": "2026-11-12T01:01:12.018450+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-10-31T09:42:06.757597+00:00",
+        "to": "2026-11-12T01:01:12.018450+00:00",
+        "pages": 0,
+        "status": "failed",
+        "count": 0,
+        "error": "RequestError",
+        "http_status": 429
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-10-31T09:42:06.757597+00:00",
+        "to": "2026-11-12T01:01:12.018450+00:00",
+        "pages": 0,
+        "status": "failed",
+        "count": 0,
+        "error": "RequestError",
+        "http_status": 429
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 47,
+        "public_batch_at": "Wed, 11 Nov 2026 00:00:00 -0500",
+        "response_bytes": 108680
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 381,
+        "public_batch_at": "Wed, 11 Nov 2026 00:00:00 -0500",
+        "response_bytes": 827868
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 178,
+        "public_batch_at": "Wed, 11 Nov 2026 00:00:00 -0500",
+        "response_bytes": 386772
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 383,
+        "public_batch_at": "Wed, 11 Nov 2026 00:00:00 -0500",
+        "response_bytes": 820476
+      }
+    ],
+    "new_versions": 0,
+    "status": "partial"
+  },
+  "scope": {
+    "abstracts_read": 3,
+    "new_versioned_reviews": 3,
+    "basis": "abstract",
+    "complete_title_and_abstract_translations": 3,
+    "selected_events": [
+      "arxiv:2611.10837:v1",
+      "arxiv:2611.12083:v1",
+      "arxiv:2611.12164:v1"
+    ],
+    "remaining_shortlist": 684,
+    "rss_additional_candidates": 985,
+    "coverage_limits": "Both arXiv API queries failed with 429; cursor retained. Raw RSS-only candidates not enriched or reviewed. Weekly S2/DBLP/releases not queried; venue/author/journal coverage incomplete.",
+    "freshness": "Previously collected, newly reviewed unsent historical supplementation; not new submissions today."
+  },
+  "state": {
+    "before_head": "9fa32f1f5b76ed7624b30a9d2e7cf546284536f2",
+    "after_head": "e82939a1629239ccd2c2b42de0ef5c3d58d7107d",
+    "revision": 57,
+    "papers": 1201,
+    "reviews": 34,
+    "arxiv_cursor": "2026-11-07T09:42:06.757597+00:00",
+    "outbox_statuses": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent",
+      "12ffa47b936245f72be3813916bcd3f0": "sent",
+      "0433850674929cb2e23f9a7ab09573f9": "sent",
+      "f9b3736e202816c79bc6fa6aa2ad8517": "sent",
+      "2765dbca7462af8d334bab0b1d39ea71": "sent",
+      "381038cbec59bd1af43d3b09ff404296": "sent",
+      "644fc5938ec1494e6edba3d64893c587": "retry"
+    }
+  },
+  "mail": {
+    "id": "644fc5938ec1494e6edba3d64893c587",
+    "kind": "daily",
+    "subject": "AI4SE 论文日报 · 2026-11-12",
+    "status": "retry",
+    "provider_id": null,
+    "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+    "last_error": {
+      "type": "RequestError",
+      "status": 401,
+      "uncertain": false
+    },
+    "event_keys": [
+      "arxiv:2611.10837:v1",
+      "arxiv:2611.12083:v1",
+      "arxiv:2611.12164:v1"
+    ],
+    "payload_hash": "0e25b2054b180cde24fa4ff9c0b14f21dd107726d4d94c990db8a82816015fbb"
+  },
+  "recipient": "syb38324@126.com",
+  "post_attempts": 1,
+  "provider_accepted": false,
+  "delivery_proven": false,
+  "readonly_diagnosis": {
+    "at_utc": "2026-11-12T01:05:30.551615+00:00",
+    "method": "GET",
+    "path": "/v3/smtp/statistics/aggregatedReport",
+    "http_status": 401,
+    "provider_error_code": "unauthorized",
+    "explicit_source_ips": [
+      "4.197.43.180"
+    ],
+    "explicit_ip_authorization_denial": true
+  },
+  "authorization_comparison": {
+    "previous_rejected_ips": [
+      "20.211.173.170",
+      "20.211.173.167"
+    ],
+    "previous_authorized_cidr": "20.211.173.160/28",
+    "new_explicitly_disclosed_ip": "4.197.43.180",
+    "new_ip_outside_previous_cidr": true,
+    "meaning": "Past successful requests did not guarantee future IP coverage. No claim of stable egress."
+  },
+  "next_run": "Retain full immutable outbox content and original first_attempt_at/payload_hash. Do not reset timers, supersede, or create overlapping report. Resolve provider IP authorization outside this task; follow reconciliation rules before any later resend, especially after the idempotency window.",
+  "constraints": {
+    "old_messages_resent": false,
+    "blind_retry": false,
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "external_scheduler_used": false,
+    "schedule_modified": false
+  }
+}
