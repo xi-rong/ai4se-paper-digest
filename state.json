@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 59,
+  "revision": 60,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -36971,7 +36971,7 @@
       ],
       "first_discovered_at": "2026-11-11T01:06:21.685642+00:00",
       "last_seen_at": "2026-11-12T11:35:28.078154+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.SE",
       "public_batch_at": "Tue, 10 Nov 2026 00:00:00 -0500",
@@ -37033,7 +37033,7 @@
       ],
       "first_discovered_at": "2026-11-11T01:06:21.685763+00:00",
       "last_seen_at": "2026-11-12T11:35:28.078164+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "excluded",
       "send_status": "unsent",
       "rss_category": "cs.SE",
       "public_batch_at": "Tue, 10 Nov 2026 00:00:00 -0500",
@@ -37075,7 +37075,7 @@
       ],
       "first_discovered_at": "2026-11-11T01:06:21.685803+00:00",
       "last_seen_at": "2026-11-12T11:35:28.079031+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.CL",
       "public_batch_at": "Tue, 10 Nov 2026 00:00:00 -0500",
@@ -40791,6 +40791,66 @@
       "reviewed_at": "2026-11-12T01:04:10.146105+00:00",
       "title_zh": "自动程序修复中的补丁正确性：从经典修复到编码智能体的五维证据框架与跨基准审计",
       "abstract_zh": "测试指导自动程序修复，并决定哪些候选补丁会被报告为成功。仓库级编码智能体通过生成测试，以及在观察执行结果后修改代码，扩展了这一反馈循环。本技术报告提出五维证据画像和报告协议，用于审计在经典修复系统与编码智能体中，测试观察如何支撑补丁正确性声明。我们汇集了包含 39 项基准与评估产物的审计数据集：32 项主要实证研究、一项机构技术审计，以及六项既有分类基线。我们沿五个维度对 33 项主要贡献进行编码：测试来源与暴露、行为范围、判定依据及其依赖、执行完整性，以及标签裁决。核心区别在于，将修复搜索过程中可见的检查与保留用于最终评估的证据分开。四项具体的比较审计展示了候选集合、判定规则或执行预算的变化如何改变所报告的检测率。额外测试可能揭示遗漏的缺陷，同时也可能拒绝有效的替代方案，或在固定预算下减少正确修复的产出。仓库级审计将问题复现与候选补丁区分能力分开，并区分自动化差异检测与基于需求的裁决。一个证据矩阵将每项编码决定链接到支撑段落，并记录共同的基准来源。我们为修复基准和维护流水线规定一套报告协议，保留不确定判断，并在记录缺陷检测及有效补丁保留情况的同时记录验证成本。"
+    },
+    "arxiv:2611.12712:v1": {
+      "paper_id": "arxiv:2611.12712",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "SVApshot以形式化断言快照保留RTL现有行为，结合验证反馈修复断言，可参考回归oracle构造。",
+      "relevance_reason": "为接口回归建立变更前后形式化契约，但区分现有行为与正确需求，防止把已有缺陷冻结为规范。",
+      "task_setting": "RTL模块与断言生成/修复；摘要未给目标仓库数量或修改文件跨度，标unknown，不是已证实的多仓库协同修复。",
+      "method": "LLM自动生成断言、去重和扩展集合，并用形式化验证反馈迭代修复，形成用于后续变更的回归断言套件。",
+      "evidence": "仅摘要：作者称复杂模块覆盖较高，并检测人工注入和AI引入缺陷；未提供可复述的具体数值，未核查正确设计假设、断言独立性和误报率。",
+      "research_use": "研究建议，非作者已验证的跨仓库收益：为接口回归建立变更前后形式化契约，但区分现有行为与正确需求，防止把已有缺陷冻结为规范。",
+      "reading_advice": "精读snapshot覆盖定义、断言修复oracle和缺陷注入，复核是否保留错误行为，再迁移到跨仓库接口验证。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.12712v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-12T11:36:54.691044+00:00"
+    },
+    "arxiv:2611.12856:v1": {
+      "paper_id": "arxiv:2611.12856",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "WorkflowArena将可执行多agent工作流组织本身作为评估对象，区分交付质量和委派结构。",
+      "relevance_reason": "对跨仓库agent实验同时记录编排者、执行者、工作拆分和总预算，分别验收目标仓库交付与联合一致性。",
+      "task_setting": "145项长程任务覆盖8域，含软件工程；多组件集成交付不证明需要修改多个目标仓库，标unknown。",
+      "method": "agent自行选择是否委派并编写工作流，记录委派；隐藏验证器检验集成产物，固定执行模型后比较编排。",
+      "evidence": "仅摘要：九模型表现具有领域差异，作者描述Claude与GPT委派粒度不同；未核查统计显著性、固定总预算及软件子集，不能将整体结果外推到跨仓库修复。",
+      "research_use": "研究建议，非作者已验证的跨仓库收益：对跨仓库agent实验同时记录编排者、执行者、工作拆分和总预算，分别验收目标仓库交付与联合一致性。",
+      "reading_advice": "精读软件任务目标数、隐藏验证器、固定执行器实验及预算控制，比较编排与重复采样参照。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.12856v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-12T11:36:54.691067+00:00"
+    },
+    "arxiv:2611.12823:v1": {
+      "paper_id": "arxiv:2611.12823",
+      "version": 1,
+      "priority": "exclude",
+      "task_type": "unknown",
+      "summary_zh": "KVM-Agent是编码agent隔离与用户控制的环境实现，本期不作为核心科研论文推荐。",
+      "relevance_reason": "只作为复现实验环境背景保留；不可把VM隔离当作多仓库修复能力或安全性全面验证。",
+      "task_setting": "可替换Ubuntu VM中的agent权限与宿主管理隔离；没有摘要证据说明修复任务目标仓库数量，标unknown。",
+      "method": "自动化配置与资源供给，支持多种agent应用、模型服务和远程委派，讨论隔离与控制权取舍。",
+      "evidence": "仅摘要：未给修复效果、基准或受控实验结果；这是基础设施设计，不足以支持本期缺陷修复方法推荐。",
+      "research_use": "研究建议，非作者已验证的跨仓库收益：只作为复现实验环境背景保留；不可把VM隔离当作多仓库修复能力或安全性全面验证。",
+      "reading_advice": "如后续需要部署对照，再核查实现、威胁模型及资源成本；当前不纳入日报推荐。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.12823v1"
+      ],
+      "publication_status": "arXiv v1预印本；未核实正式录用",
+      "links": [],
+      "reviewed_at": "2026-11-12T11:36:54.691072+00:00"
     }
   },
   "outbox": {
