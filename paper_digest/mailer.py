@@ -21,7 +21,7 @@ def send(store, config, message_id, *, recipient):
         for key in message["event_keys"]:
             paper = state["papers"].get(key.rsplit(":v", 1)[0])
             if paper is None or not new_daily_paper(paper, now):
-                raise ValueError("daily outbox contains a paper outside today/yesterday; reconcile before sending")
+                raise ValueError("daily outbox contains a paper outside the three-day window; reconcile before sending")
     cfg = config["mail"]
     if not cfg["recipient"] or recipient != cfg["recipient"]:
         raise ValueError("recipient must exactly match the user-confirmed fixed address")
