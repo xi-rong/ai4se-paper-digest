@@ -17,10 +17,23 @@ def event_key(paper):
     return paper["id"] + ":v" + str(paper.get("version"))
 
 
+def new_daily_paper(paper, now):
+    try:
+        submitted = datetime.fromisoformat(paper.get("submitted_at", "").replace("Z", "+00:00"))
+        if submitted.tzinfo is None or submitted > now:
+            return False
+        tz = ZoneInfo("Asia/Shanghai")
+        day, today = submitted.astimezone(tz).date(), now.astimezone(tz).date()
+        return today - timedelta(days=1) <= day <= today
+    except (ValueError, TypeError, AttributeError):
+        return False
+
+
 def selected(state, kind, max_papers=10, now=None):
     now = now or datetime.now(timezone.utc)
     sent = {key for message in state["outbox"].values() if message["kind"] != "weekly"
             and message["status"] == "sent" for key in message["event_keys"]}
+    sent_papers = {key.rsplit(":v", 1)[0] for key in sent}
     items = []
     for paper in state["papers"].values():
         review = review_for(state, paper)
@@ -33,6 +46,13 @@ def selected(state, kind, max_papers=10, now=None):
             continue
         if kind == "daily" and review.get("seed_only"):
             continue
+        if kind == "daily":
+            # A newly discovered old paper or a new version is not a new submission.
+            # Count calendar days in Beijing time, and never repeat a sent paper.
+            if paper["id"] in sent_papers:
+                continue
+            if not new_daily_paper(paper, now):
+                continue
         if kind == "daily" and paper.get("version", 1) > 1 and not review.get("important_update", False):
             continue
         if kind == "history" and paper.get("submitted_at") and not review.get("seed_only"):
