@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 67,
+  "revision": 68,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -38029,7 +38029,7 @@
       ],
       "first_discovered_at": "2026-11-12T11:35:14.328586+00:00",
       "last_seen_at": "2026-11-12T11:35:28.079095+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2611.14362": {
@@ -38061,7 +38061,7 @@
       ],
       "first_discovered_at": "2026-11-12T11:35:14.328614+00:00",
       "last_seen_at": "2026-11-12T11:35:28.078275+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "excluded",
       "send_status": "unsent"
     },
     "arxiv:2611.14371": {
@@ -38744,7 +38744,7 @@
       ],
       "first_discovered_at": "2026-11-12T11:35:25.852037+00:00",
       "last_seen_at": "2026-11-12T11:35:28.079098+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "excluded",
       "send_status": "unsent"
     }
   },
@@ -40921,6 +40921,66 @@
       "reviewed_at": "2026-11-12T11:38:09.087662+00:00",
       "title_zh": "FlowPlan：通过抽象引导的规划与验证降低编码智能体的Token成本",
       "abstract_zh": "Claude Code 等基于大语言模型的编码智能体能够解决真实仓库问题，但其迭代交互循环可能成本高昂。现有方法主要通过限制、压缩或选择性避开修复过程中的信息与操作来降低成本。我们研究一个互补问题：智能体能否在抽象程序层面推理修复，而不是反复操作原始源码，以同时减少识别修复所需的探索，以及随后验证修复所需的重复检查？我们提出 FlowPlan，一种由抽象引导的修复方法，围绕每个函数的控制流图或数据流图组织定位、规划和验证。智能体首先在程序抽象上定位候选故障位置，并在修改具体源码前，将预期修复表达为明确的图增量。编辑后，FlowPlan 重建同一种抽象，并将观察到的结构变化与计划变化进行比较。随后，在终止前，一项验证会检查完整修复。在全部六种基准与模型设置下，相对于原始智能体，FlowPlan 的问题解决率没有显著变化，但每种设置的 token 消耗均下降，其中五种下降显著。使用 Claude Haiku 4.5 时，它在 SWE-bench Pro 上仅使用基线 0.46–0.47 倍的 token，在 SWE-bench Verified 上为 0.32–0.35 倍，在 SecBench 上为 0.68–0.74 倍；使用 Sonnet 5 时，三者分别为 0.72–0.76 倍、0.73–0.74 倍和 0.92–0.94 倍。总体上，FlowPlan 在六种设置中的三种取得了被比较方法中最大的 token 降幅，并在第四种与最强比较方法并列。轨迹分析显示，FlowPlan 通过用显式验证替代大量昂贵的编辑后重复阅读和测试，以及减少每次调用的上下文来节省 token。"
+    },
+    "arxiv:2611.14356:v1": {
+      "paper_id": "arxiv:2611.14356",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "EngineAgent以层次化引擎索引和预验证硬件工作流协调跨层模型接入，用编译、设备运行和参考logit一致性联合验收。",
+      "relevance_reason": "跨仓库修复可借鉴预验证环境和显式完整性交付清单，同时独立统计目标仓库数、接口一致性与联合运行结果。",
+      "task_setting": "12个任务覆盖三种移动LLM与四个引擎/后端组合；转换、图、算子和后端的跨层修改不证明每例涉及多个目标仓库，标unknown。",
+      "method": "先分离可复用引擎/硬件知识，建立层次索引与跨层依赖，并用已支持模型预验证工作流；builder实现，auditor查完整性并驱动设备验证。",
+      "evidence": "仅摘要：两种底层模型均报告75%端到端成功，最强编码agent参照33.3%；样本12项，未核查预算、重复运行和不同引擎分布，不作广泛性能或因果外推。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：跨仓库修复可借鉴预验证环境和显式完整性交付清单，同时独立统计目标仓库数、接口一致性与联合运行结果。",
+      "reading_advice": "精读任务构造、索引抽取与设备验证协议，核查logit容差、失败类别及各后端预算，再设计跨仓库消融。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.14356v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-13T01:08:28.182014+00:00"
+    },
+    "arxiv:2611.14362:v1": {
+      "paper_id": "arxiv:2611.14362",
+      "version": 1,
+      "priority": "exclude",
+      "task_type": "unknown",
+      "summary_zh": "OCPP多语言SAST工具比较不直接研究AI辅助缺陷修复，本期排除。",
+      "relevance_reason": "仅作为安全oracle背景保留；不把多语言检测数据集当多仓库协同修复证据。",
+      "task_setting": "十二种语言的协议实现检测，非已证实的代码agent修复任务，修改范围unknown。",
+      "method": "以SonarQube、Semgrep及语言专用工具分析十二个OCPP 1.6实现，比较告警模式。",
+      "evidence": "仅摘要：告警数量跨语言差异不证明真实漏洞率或代码质量差异；未验证误报/漏报，不据此推荐某语言更安全。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：仅作为安全oracle背景保留；不把多语言检测数据集当多仓库协同修复证据。",
+      "reading_advice": "若后续研究SAST验收再核查告警人工裁决、规则覆盖和实现可比性，当前不纳入日报。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.14362v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-13T01:08:28.182038+00:00"
+    },
+    "arxiv:2611.14432:v1": {
+      "paper_id": "arxiv:2611.14432",
+      "version": 1,
+      "priority": "exclude",
+      "task_type": "unknown",
+      "summary_zh": "家庭机器人长程任务方案不是本课题的软件缺陷修复研究，本期排除。",
+      "relevance_reason": "只在讨论长期agent状态复现时参考基础设施思想；不用于本课题修复效果结论。",
+      "task_setting": "OmniGibson家庭任务与机器人动作控制；虽使用coding agent工具，摘要未描述软件补丁目标，修改范围unknown。",
+      "method": "VLA训练、方差约减及部分任务的工具控制agent，配合仿真评估基础设施。",
+      "evidence": "仅摘要：排名、Q和任务成功等均为机器人评估结果，不当作软件修复或跨仓库能力证据；未独立核验榜单。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：只在讨论长期agent状态复现时参考基础设施思想；不用于本课题修复效果结论。",
+      "reading_advice": "当前不推荐精读；如研究任务迁移，再另查仿真状态与评估隔离设计。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.14432v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-13T01:08:28.182043+00:00"
     }
   },
   "outbox": {
