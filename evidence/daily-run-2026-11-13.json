@@ -1,0 +1,167 @@
+{
+  "recorded_at_utc": "2026-11-13T01:10:35.123206+00:00",
+  "source_head": "1a2777000269e6a14acc0a93e9d5a3e07b9d2803",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "checks": "check_release configuration valid, 39 tests passed",
+  "window": {
+    "timezone": "Asia/Shanghai",
+    "inclusive_first_submission_dates": [
+      "2026-11-11",
+      "2026-11-13"
+    ],
+    "selected_first_submission_utc": "2026-11-10T17:16:47Z",
+    "selected_first_submission_shanghai": "2026-11-11T01:16:47+08:00",
+    "never_previously_sent": true,
+    "empty_this_run": false
+  },
+  "collection": {
+    "id": "e690283801a44075a3a67f685a3f3fe6",
+    "at": "2026-11-13T01:08:14.506998+00:00",
+    "type": "collect",
+    "from": "2026-11-05T11:35:03.023923+00:00",
+    "to": "2026-11-13T01:05:50.209301+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-11-05T11:35:03.023923+00:00",
+        "to": "2026-11-13T01:05:50.209301+00:00",
+        "pages": 0,
+        "status": "failed",
+        "count": 0,
+        "error": "RequestError",
+        "http_status": 429
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-11-05T11:35:03.023923+00:00",
+        "to": "2026-11-13T01:05:50.209301+00:00",
+        "pages": 0,
+        "status": "failed",
+        "count": 0,
+        "error": "RequestError",
+        "http_status": 429
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Thu, 12 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Thu, 12 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Thu, 12 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Thu, 12 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      }
+    ],
+    "new_versions": 0,
+    "status": "partial"
+  },
+  "review_scope": {
+    "abstracts_read": 3,
+    "new_reviews": 3,
+    "included": 1,
+    "excluded": [
+      "arxiv:2611.14362:v1",
+      "arxiv:2611.14432:v1"
+    ],
+    "basis": "abstract",
+    "complete_title_and_abstract_translations": 1,
+    "remaining_three_day_unreviewed_known_metadata": 0,
+    "remaining_total_shortlist": 708,
+    "rss_additional_candidates": 0,
+    "limits": "Both arXiv queries failed 429; known in-window queue screening does not establish absence of other new papers. Weekly S2/DBLP/releases not rerun; venue/author/journal adapters incomplete."
+  },
+  "prior_pending": {
+    "id": "644fc5938ec1494e6edba3d64893c587",
+    "status": "retry",
+    "last_error": {
+      "type": "RequestError",
+      "status": 401,
+      "uncertain": false
+    },
+    "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+    "out_of_window": true,
+    "replayed": false,
+    "unchanged": true,
+    "new_report_overlap": []
+  },
+  "operational_error": {
+    "command": "ordinary preview before enqueue",
+    "error_type": "RuntimeError",
+    "root_cause": "not established by sanitized CLI output",
+    "subsequent_enqueue_succeeded": true,
+    "before_send_reloaded_and_checked_remote_payload_translation_scope_and_overlap": true
+  },
+  "state": {
+    "before_head": "72f538e2059ccd22f1503bfeb54fc05f5f6989bb",
+    "after_head": "4519df93c1f551aeef8dcb04877a0c3f7322b54a",
+    "revision": 72,
+    "papers": 1255,
+    "reviews": 43,
+    "arxiv_cursor": "2026-11-12T11:35:03.023923+00:00",
+    "outbox_statuses": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent",
+      "12ffa47b936245f72be3813916bcd3f0": "sent",
+      "0433850674929cb2e23f9a7ab09573f9": "sent",
+      "f9b3736e202816c79bc6fa6aa2ad8517": "sent",
+      "2765dbca7462af8d334bab0b1d39ea71": "sent",
+      "381038cbec59bd1af43d3b09ff404296": "sent",
+      "644fc5938ec1494e6edba3d64893c587": "retry",
+      "9ff82a20d2771bfe6329689c4e9c0a5d": "sent",
+      "8790bcf2a76ec78bf9f0767958858bb8": "sent"
+    }
+  },
+  "mail": {
+    "id": "8790bcf2a76ec78bf9f0767958858bb8",
+    "kind": "daily",
+    "subject": "AI4SE 论文日报 · 2026-11-13",
+    "status": "sent",
+    "provider_id": "<202611130109.54354401101@smtp-relay.mailin.fr>",
+    "first_attempt_at": "2026-11-13T01:09:47.072061+00:00",
+    "sent_at": "2026-11-13T01:09:55.404245+00:00",
+    "event_keys": [
+      "arxiv:2611.14356:v1"
+    ],
+    "payload_hash": "fc1f560e06e290aee83edba93718390d433e1a548692f040795b4b035df281bb"
+  },
+  "recipient": "syb38324@126.com",
+  "post_attempts": 1,
+  "transport": "Original project mailer; provider messageId received; exact POST HTTP code not captured.",
+  "delivery_query": {
+    "query": "success",
+    "events": []
+  },
+  "egress_note": "Successful response does not identify source IP or establish lasting allowlist coverage.",
+  "constraints": {
+    "old_messages_resent": false,
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "external_scheduler_used": false,
+    "schedule_modified": false
+  }
+}
