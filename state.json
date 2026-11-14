@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 76,
+  "revision": 77,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -41300,11 +41300,13 @@
       "html": "<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>AI4SE 论文日报 · 2026-11-14</title></head><body style=\"margin:0;padding:0;background:#eef2f7;color:#172b45;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif\"><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" style=\"background:#eef2f7\"><tr><td align=\"center\" style=\"padding:20px 0\"><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" style=\"max-width:680px;background:#f7f9fc\"><tr><td style=\"padding:26px 24px 22px;background:#122c4b;color:white\"><div style=\"font-size:11px;letter-spacing:.13em;color:#b8d0ed;font-weight:700\">AI4SE · RESEARCH DIGEST</div><h1 style=\"font-size:24px;line-height:1.3;margin:10px 0 5px\">AI4SE 论文日报 · 2026-11-14</h1><div style=\"font-size:12px;color:#c8d8ea\">2026-11-14 · 0 篇精选</div></td></tr><tr><td style=\"padding:18px\"><div style=\"padding:17px 18px;background:#e7f0ff;border-radius:10px;color:#17375d\"><div style=\"font-size:12px;letter-spacing:.05em;font-weight:700;color:#356ab8\">今日 / 本期最值得读</div><div style=\"margin-top:7px;font-size:15px;line-height:1.75\">本次没有选出符合条件的论文；部分来源采集不完整，不能据此判断没有新论文。</div></div></td></tr><tr><td style=\"padding:0 18px 16px\"><div style=\"background:#fff6e6;border:1px solid #f4d9a2;padding:14px 16px;border-radius:10px;color:#79521b;font-size:13px;line-height:1.7\"><strong>来源异常与限制</strong><br>arxiv-api: partial<br>arxiv-api: failed</div></td></tr><tr><td style=\"padding:4px 24px 22px;color:#8090a3;font-size:12px;line-height:1.6\">AI4SE 个人论文追踪 · 按研究相关性筛选</td></tr></table></td></tr></table></body></html>",
       "event_keys": [],
       "created_at": "2026-11-14T01:04:56.852110+00:00",
-      "status": "sending",
+      "status": "sent",
       "lease_owner": "5e58f585c89240c59415685838b2ab70",
       "lease_until": "2026-11-14T01:15:06.326895+00:00",
       "first_attempt_at": "2026-11-14T01:05:06.328851+00:00",
-      "payload_hash": "439f2f16defe2a3d71858088463c53f2bce0d95f5f2e0589c07a7b5d5bfe3e17"
+      "payload_hash": "439f2f16defe2a3d71858088463c53f2bce0d95f5f2e0589c07a7b5d5bfe3e17",
+      "provider_id": "<202611140105.89031762102@smtp-relay.mailin.fr>",
+      "sent_at": "2026-11-14T01:05:12.754009+00:00"
     }
   },
   "runs": [
