@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 84,
+  "revision": 85,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -37553,7 +37553,7 @@
       ],
       "first_discovered_at": "2026-11-12T11:35:14.327992+00:00",
       "last_seen_at": "2026-11-16T00:56:24.449602+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2611.13250": {
@@ -37997,7 +37997,7 @@
       ],
       "first_discovered_at": "2026-11-12T11:35:14.328502+00:00",
       "last_seen_at": "2026-11-16T00:56:24.449655+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2611.14164": {
@@ -43062,6 +43062,46 @@
       "publication_status": "arXiv v1预印本；正式录用未核实",
       "links": [],
       "reviewed_at": "2026-11-13T01:08:28.182043+00:00"
+    },
+    "arxiv:2611.13246:v1": {
+      "paper_id": "arxiv:2611.13246",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "single_repo_cross_file",
+      "summary_zh": "ExpertCrowd-SWE以专家编写的多文件工程需求和部分计分、必须通过门槛评测，提醒完整交付不同于单一得分。",
+      "relevance_reason": "多仓库基准应同时报告部分目标得分与所有目标门槛，校准有效替代补丁和无效变更，保持等预算多次运行。",
+      "task_setting": "100项任务来自87个项目和11种语言；每项针对单个真实仓库固定提交且明确multi-file，属于单仓库跨文件，不是多仓库协同修改。",
+      "method": "密封参考解与任务grader，校准参考解/不变仓库/无效变更分数，近半任务加替代、偷懒和对抗补丁检查；单平台使用供应商原生工具接口，多次运行。",
+      "evidence": "仅摘要：七模型每种五次、3495条计分运行；Opus 5.5 67.3%和Astra 63.7%差异不显著。部分计分不等于完整成功，难度筛选针对当前模型会带来选择效应，24公开/76保留影响复现；未核查正文统计。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：多仓库基准应同时报告部分目标得分与所有目标门槛，校准有效替代补丁和无效变更，保持等预算多次运行。",
+      "reading_advice": "精读grader权重、必须通过项、对抗控制与任务难度筛选，检查五次运行的聚类推断和公开子集偏差。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.13246v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-16T00:58:07.317860+00:00"
+    },
+    "arxiv:2611.14106:v1": {
+      "paper_id": "arxiv:2611.14106",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "ProofCoder把持续推理和反馈引导修订用于Rocq证明合成，比较整证明与战术级搜索策略。",
+      "relevance_reason": "把跨仓库契约验收拆成证明义务，记录修订和回退状态，再以实际构建/联合测试核查证明与实现的对应。",
+      "task_setting": "AutoRocq的280项验证任务，摘要未规定目标仓库/文件数量，标unknown；形式化证明成功不能直接等同真实跨仓库补丁正确。",
+      "method": "agent自行决定检索、检查证明状态、修订片段和回退，在战术或整证明粒度持续推理，而非仅固定循环生成战术。",
+      "evidence": "仅摘要：最佳配置成功率47%到60%，相对提升27.7%，成本约减半；没有将13个百分点写成27.7个百分点。未核查预算定义、配置选择与成本覆盖，消融并非自动证明所有因果机制。",
+      "research_use": "研究建议，非作者已验证的跨仓库结论：把跨仓库契约验收拆成证明义务，记录修订和回退状态，再以实际构建/联合测试核查证明与实现的对应。",
+      "reading_advice": "精读环境反馈、证明器完整性和成本统计，核查最佳配置的选择及整证明/战术预算公平性。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.14106v1"
+      ],
+      "publication_status": "arXiv v1预印本；正式录用未核实",
+      "links": [],
+      "reviewed_at": "2026-11-16T00:58:07.317884+00:00"
     }
   },
   "outbox": {
