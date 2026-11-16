@@ -1,0 +1,352 @@
+{
+  "recorded_at_utc": "2026-11-16T01:02:21.378295+00:00",
+  "automation_invocations": [
+    "Automation_083fc61f7fe08191906e8fdf152cf9fb",
+    "Automation_ffb53eaffd6c8191b4bb2505104e87b0"
+  ],
+  "source_head": "6a7d933266f40ffd87c112ac32b380cbb99d689d",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "checks": "check_release configuration valid; 39 tests passed",
+  "execution_order": "Weekly collection/review/translation/queue/send, then independent daily collection/queue/send. No conflicting remote writes observed.",
+  "collections": {
+    "weekly": {
+      "id": "3d9c0b9b5fb34f7d8034082036aa7ee2",
+      "at": "2026-11-16T00:56:41.759417+00:00",
+      "type": "collect",
+      "from": "2026-11-05T11:35:03.023923+00:00",
+      "to": "2026-11-16T00:56:11.634131+00:00",
+      "coverage": [
+        {
+          "source": "arxiv-api",
+          "query": "cat:cs.SE",
+          "from": "2026-11-05T11:35:03.023923+00:00",
+          "to": "2026-11-16T00:56:11.634131+00:00",
+          "pages": 2,
+          "status": "ok",
+          "count": 185,
+          "total": 185
+        },
+        {
+          "source": "arxiv-api",
+          "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+          "from": "2026-11-05T11:35:03.023923+00:00",
+          "to": "2026-11-16T00:56:11.634131+00:00",
+          "pages": 2,
+          "status": "ok",
+          "count": 117,
+          "total": 117
+        },
+        {
+          "source": "arxiv-rss:cs.SE",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 15 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.AI",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 15 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.CL",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 15 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.LG",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 15 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "s2-citations",
+          "status": "ok",
+          "count": 0
+        },
+        {
+          "source": "s2-authors",
+          "status": "unconfigured"
+        },
+        {
+          "source": "s2-recommendations",
+          "status": "ok",
+          "bounded": 100
+        },
+        {
+          "source": "dblp:cross repository repair",
+          "status": "failed",
+          "count": 0,
+          "error": "JSONDecodeError"
+        },
+        {
+          "source": "dblp:software engineering agents",
+          "status": "failed",
+          "count": 0,
+          "error": "JSONDecodeError"
+        },
+        {
+          "source": "github-release:ZJU-ACES-ISE/WideSWE",
+          "status": "ok",
+          "count": 0
+        },
+        {
+          "source": "ICSE",
+          "status": "unconfigured",
+          "note": "specific official paper-list adapter required"
+        },
+        {
+          "source": "FSE",
+          "status": "unconfigured",
+          "note": "specific official paper-list adapter required"
+        },
+        {
+          "source": "ASE",
+          "status": "unconfigured",
+          "note": "specific official paper-list adapter required"
+        },
+        {
+          "source": "ISSTA",
+          "status": "unconfigured",
+          "note": "specific official paper-list adapter required"
+        },
+        {
+          "source": "AI venues",
+          "status": "unconfigured",
+          "note": "specific official paper-list adapter required"
+        },
+        {
+          "source": "TSE",
+          "status": "unconfigured",
+          "note": "specific official paper-list adapter required"
+        },
+        {
+          "source": "TOSEM",
+          "status": "unconfigured",
+          "note": "specific official paper-list adapter required"
+        },
+        {
+          "source": "EMSE",
+          "status": "unconfigured",
+          "note": "specific official paper-list adapter required"
+        }
+      ],
+      "new_versions": 72,
+      "status": "partial",
+      "additional_candidate_observations": 100
+    },
+    "daily": {
+      "id": "b9625286c6d24734a7095fbb2f628e86",
+      "at": "2026-11-16T01:00:08.803356+00:00",
+      "type": "collect",
+      "from": "2026-11-09T00:56:11.634131+00:00",
+      "to": "2026-11-16T00:59:43.941923+00:00",
+      "coverage": [
+        {
+          "source": "arxiv-api",
+          "query": "cat:cs.SE",
+          "from": "2026-11-09T00:56:11.634131+00:00",
+          "to": "2026-11-16T00:59:43.941923+00:00",
+          "pages": 2,
+          "status": "ok",
+          "count": 107,
+          "total": 107
+        },
+        {
+          "source": "arxiv-api",
+          "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+          "from": "2026-11-09T00:56:11.634131+00:00",
+          "to": "2026-11-16T00:59:43.941923+00:00",
+          "pages": 1,
+          "status": "ok",
+          "count": 68,
+          "total": 68
+        },
+        {
+          "source": "arxiv-rss:cs.SE",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 15 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.AI",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 15 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.CL",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 15 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.LG",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 15 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        }
+      ],
+      "new_versions": 0,
+      "status": "ok",
+      "additional_candidate_observations": 0
+    }
+  },
+  "weekly_scope": {
+    "existing_reviews_revisited": 10,
+    "new_abstract_reviews": 2,
+    "new_reviews": [
+      "arxiv:2611.13246:v1",
+      "arxiv:2611.14106:v1"
+    ],
+    "new_complete_title_and_abstract_translations": 1,
+    "selected_count": 10,
+    "all_selected_have_exact_version_full_translations": true,
+    "basis": "All selected records are abstract-based; no fresh fulltext review claimed.",
+    "selection_rule": "Current renderer: papers first discovered within prior seven days, max 10; historical submissions labeled, not new-publication claims.",
+    "important_version_updates": "No specific new important update validated; 72 collection events not all screened.",
+    "limits": "DBLP failed JSON parsing; S2 author, venue/journal adapters unconfigured; 100 S2 recommendations await individual review. Top-10 selection is not comprehensive screening."
+  },
+  "daily_scope": {
+    "timezone": "Asia/Shanghai",
+    "inclusive_first_submission_dates": [
+      "2026-11-14",
+      "2026-11-16"
+    ],
+    "selected_count": 0,
+    "empty": true,
+    "translation_needed": [],
+    "reason": "No selected eligible reviewed/verified records. Configured daily arXiv/RSS queries complete for this run; no all-source absence claim.",
+    "no_new_reviews_or_translations": true
+  },
+  "prior_pending": {
+    "id": "644fc5938ec1494e6edba3d64893c587",
+    "status": "retry",
+    "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+    "last_error": {
+      "type": "RequestError",
+      "status": 401,
+      "uncertain": false
+    },
+    "out_of_daily_window": true,
+    "replayed": false,
+    "unchanged": true
+  },
+  "state": {
+    "before_head": "4dd029a02e6effafe75698dcb8524e1ca198f697",
+    "after_head": "666c926f71ece0c2ba5e161d458dfd8b6bbaa546",
+    "revision": 94,
+    "papers": 1321,
+    "reviews": 45,
+    "remaining_shortlist": 737,
+    "arxiv_cursor": "2026-11-16T00:59:43.941923+00:00",
+    "outbox_statuses": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent",
+      "12ffa47b936245f72be3813916bcd3f0": "sent",
+      "0433850674929cb2e23f9a7ab09573f9": "sent",
+      "f9b3736e202816c79bc6fa6aa2ad8517": "sent",
+      "2765dbca7462af8d334bab0b1d39ea71": "sent",
+      "381038cbec59bd1af43d3b09ff404296": "sent",
+      "644fc5938ec1494e6edba3d64893c587": "retry",
+      "9ff82a20d2771bfe6329689c4e9c0a5d": "sent",
+      "8790bcf2a76ec78bf9f0767958858bb8": "sent",
+      "109505a54925c11372b8bd3abc6ef83b": "sent",
+      "9611da51fd47bc25c2cf7b6e79cde4d6": "sent",
+      "e6d207360d48a2bf75763278955407a6": "sent",
+      "f206789f227920ee7d10e9c5b593fb38": "sent"
+    }
+  },
+  "messages": {
+    "weekly": {
+      "id": "e6d207360d48a2bf75763278955407a6",
+      "kind": "weekly",
+      "subject": "AI4SE 本周阅读回顾 · 2026-11-16",
+      "status": "sent",
+      "provider_id": "<202611160059.58012171286@smtp-relay.mailin.fr>",
+      "first_attempt_at": "2026-11-16T00:59:29.859517+00:00",
+      "sent_at": "2026-11-16T00:59:32.899133+00:00",
+      "event_keys": [
+        "arxiv:2611.08666:v1",
+        "arxiv:2611.09212:v1",
+        "arxiv:2611.09802:v1",
+        "arxiv:2611.10837:v1",
+        "arxiv:2611.12083:v1",
+        "arxiv:2611.12164:v1",
+        "arxiv:2611.12712:v1",
+        "arxiv:2611.12856:v1",
+        "arxiv:2611.13241:v1",
+        "arxiv:2611.13246:v1"
+      ],
+      "payload_hash": "2a85bfcd8dfe271ba8adf1e5c30caac28162b9c23325b059a685beb2ffe7c471"
+    },
+    "daily": {
+      "id": "f206789f227920ee7d10e9c5b593fb38",
+      "kind": "daily",
+      "subject": "AI4SE 论文日报 · 2026-11-16",
+      "status": "sent",
+      "provider_id": "<202611160101.54414418044@smtp-relay.mailin.fr>",
+      "first_attempt_at": "2026-11-16T01:01:29.182678+00:00",
+      "sent_at": "2026-11-16T01:01:32.377502+00:00",
+      "event_keys": [],
+      "payload_hash": "b01054ca3913a5373e9e308975d0da14f5c1b601c830b35177f6baff28a270e6"
+    }
+  },
+  "recipient": "syb38324@126.com",
+  "post_attempts_per_message": 1,
+  "transport": "Original project mailer; valid provider IDs received, exact POST HTTP codes not captured.",
+  "delivery_queries": {
+    "weekly": {
+      "query": "success",
+      "events": [
+        {
+          "event": "delivered",
+          "date": "2026-11-15T16:59:40.000-08:00",
+          "recipient": "syb38324@126.com"
+        },
+        {
+          "event": "requests",
+          "date": "2026-11-15T16:59:32.731-08:00",
+          "recipient": "syb38324@126.com"
+        }
+      ]
+    },
+    "daily": {
+      "query": "success",
+      "events": [
+        {
+          "event": "delivered",
+          "date": "2026-11-15T17:01:37.000-08:00",
+          "recipient": "syb38324@126.com"
+        },
+        {
+          "event": "requests",
+          "date": "2026-11-15T17:01:31.941-08:00",
+          "recipient": "syb38324@126.com"
+        }
+      ]
+    }
+  },
+  "constraints": {
+    "old_messages_resent": false,
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "external_scheduler_used": false,
+    "schedule_modified": false,
+    "egress_ip_inferred": false
+  }
+}

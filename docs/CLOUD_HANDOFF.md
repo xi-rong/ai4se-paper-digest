@@ -1,5 +1,15 @@
 # 云端设置与新聊天交接
 
+## 2026-11-16 独立周报与日报均已投递
+
+两项原生automation请求在同一执行中按顺序处理，以6a7d933运行，Cloud源配置匹配、网络enforced、密钥ready，配置及39项测试通过。先collect --weekly --rss，周报arXiv两组185/185与117/117完整分页，新增72个版本事件；S2引用0、推荐100，DBLP两项JSONDecodeError，作者及会议/期刊接口未配置，所以整体partial。随后独立collect --rss，日报107/107与68/68完整，RSS有效空批次、新版本0，配置日报来源ok；不将此当作全来源覆盖。游标推进2026-11-16T00:59:43.941923+00:00。
+
+复核10篇拟选记录，实际新增ExpertCrowd-SWE v1和ProofCoder v1两份摘要review。ExpertCrowd明确单仓库多文件，ProofCoder目标范围unknown，不外推跨仓库能力；没有确认新的重要版本变化，72个采集事件不等于72项重要更新。周报按首次发现近7天和10篇上限选取，全为仅摘要依据；既有9份完整译文复用，ExpertCrowd完整标题/摘要新译，经translation-needed/导入/ready及正文检查后发送。ProofCoder本期未入前10，不冒充本期已发。
+
+周报10篇完整HTML/文本仅发syb38324@126.com，08:59:32北京时间受理，08:59:40 delivered。独立日报范围11月14–16日，无可选已审未推送记录，按规则发原因明确的空日报，09:01:32受理、09:01:37 delivered；日报正文只表述本次已审结果无符合项，不宣称整个领域无新论文。每封原mailer一次POST、单独入队/幂等，日报未被替代/关闭。delivered不证明入箱位置/阅读，未推断出口IP。
+
+远端revision94，头666c926f71ece0c2ba5e161d458dfd8b6bbaa546，1321篇、45份review；剩余短名单737条和本次100条S2推荐未完成逐条审读。旧范围外401日报644fc5938ec1494e6edba3d64893c587保留retry/first_attempt_at/uncertain=false，未重发、重置或覆盖；其他旧sent/superseded未动。没有并发写冲突，未改白名单/调度或新增外部服务。证据evidence/weekly-and-daily-run-2026-11-16.json。
+
 ## 2026-11-15 空日报投递确认
 
 通过原生automation调用，以de693d0运行，Cloud源配置匹配、网络enforced、密钥ready，配置及39项测试通过。日报范围Asia/Shanghai 11月13–15日。现有可验证记录无可选且未推送项，但collect --rss为partial：cs.SE RequestError且无HTTP状态，AI/CL/LG复合查询429，均未取得记录；四个RSS均有效空批次。本次不能判断没有新论文，游标保持2026-11-12T11:35:03.023923+00:00，后续继续补查。周报来源未重跑，其他未接入范围未声称覆盖。
