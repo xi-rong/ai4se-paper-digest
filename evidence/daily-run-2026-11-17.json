@@ -1,0 +1,154 @@
+{
+  "recorded_at_utc": "2026-11-17T01:09:49.694731+00:00",
+  "automation_id": "Automation_ffb53eaffd6c8191b4bb2505104e87b0",
+  "source_head": "b371b3a5d8caae78dbd234822dab35a8dc4e49d5",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "checks": "39 tests passed; configuration valid",
+  "collection": {
+    "id": "5f560bb8ece8420a8562a59eacc18535",
+    "at": "2026-11-17T01:08:30.206582+00:00",
+    "type": "collect",
+    "from": "2026-11-09T00:59:43.941923+00:00",
+    "to": "2026-11-17T01:07:16.940943+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-11-09T00:59:43.941923+00:00",
+        "to": "2026-11-17T01:07:16.940943+00:00",
+        "pages": 0,
+        "status": "failed",
+        "count": 0,
+        "error": "RequestError",
+        "http_status": 429
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-11-09T00:59:43.941923+00:00",
+        "to": "2026-11-17T01:07:16.940943+00:00",
+        "pages": 0,
+        "status": "failed",
+        "count": 0,
+        "error": "RequestError",
+        "http_status": 429
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 44,
+        "public_batch_at": "Mon, 16 Nov 2026 00:00:00 -0500",
+        "response_bytes": 97876
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 276,
+        "public_batch_at": "Mon, 16 Nov 2026 00:00:00 -0500",
+        "response_bytes": 605697
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 117,
+        "public_batch_at": "Mon, 16 Nov 2026 00:00:00 -0500",
+        "response_bytes": 248577
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 291,
+        "public_batch_at": "Mon, 16 Nov 2026 00:00:00 -0500",
+        "response_bytes": 626142
+      }
+    ],
+    "new_versions": 0,
+    "status": "partial"
+  },
+  "scope": {
+    "timezone": "Asia/Shanghai",
+    "inclusive_first_submission_dates": [
+      "2026-11-15",
+      "2026-11-17"
+    ],
+    "known_in_window": 0,
+    "selected_count": 0,
+    "new_reviews": 0,
+    "new_translations": 0,
+    "translation_needed_read": true,
+    "reason": "No eligible verified records selected; both arXiv API queries failed HTTP 429. Collection incomplete, not evidence of no new papers.",
+    "unreviewed": "714 RSS observations (category duplicates possible) lack exact versions/first submission metadata and were not promoted or reviewed. Existing heuristic shortlist is not final screening.",
+    "remaining_shortlist": 737
+  },
+  "prior_pending": {
+    "id": "644fc5938ec1494e6edba3d64893c587",
+    "status": "retry",
+    "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+    "last_error": {
+      "type": "RequestError",
+      "status": 401,
+      "uncertain": false
+    }
+  },
+  "prior_pending_replayed": false,
+  "prior_pending_outside_window": true,
+  "state": {
+    "before_head": "666c926f71ece0c2ba5e161d458dfd8b6bbaa546",
+    "after_head": "8a7a7259c4f0f2f79b86946802c7c2e58e2b4bcf",
+    "revision": 99,
+    "papers": 1321,
+    "reviews": 45,
+    "cursors": {
+      "arxiv": "2026-11-16T00:59:43.941923+00:00"
+    },
+    "outbox_statuses": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent",
+      "12ffa47b936245f72be3813916bcd3f0": "sent",
+      "0433850674929cb2e23f9a7ab09573f9": "sent",
+      "f9b3736e202816c79bc6fa6aa2ad8517": "sent",
+      "2765dbca7462af8d334bab0b1d39ea71": "sent",
+      "381038cbec59bd1af43d3b09ff404296": "sent",
+      "644fc5938ec1494e6edba3d64893c587": "retry",
+      "9ff82a20d2771bfe6329689c4e9c0a5d": "sent",
+      "8790bcf2a76ec78bf9f0767958858bb8": "sent",
+      "109505a54925c11372b8bd3abc6ef83b": "sent",
+      "9611da51fd47bc25c2cf7b6e79cde4d6": "sent",
+      "e6d207360d48a2bf75763278955407a6": "sent",
+      "f206789f227920ee7d10e9c5b593fb38": "sent",
+      "18897dc48a7aa84b725af72379aea616": "sent"
+    }
+  },
+  "message": {
+    "id": "18897dc48a7aa84b725af72379aea616",
+    "kind": "daily",
+    "subject": "AI4SE 论文日报 · 2026-11-17",
+    "status": "sent",
+    "provider_id": "<202611170109.98475850523@smtp-relay.mailin.fr>",
+    "first_attempt_at": "2026-11-17T01:09:01.062485+00:00",
+    "sent_at": "2026-11-17T01:09:04.281127+00:00",
+    "event_keys": [],
+    "payload_hash": "c13474e7880dbbb33769c017ab0601298d4badd32c94238ddde9c69215eebd06"
+  },
+  "recipient": "syb38324@126.com",
+  "post_attempts": 1,
+  "transport": "Original project mailer, HTTPS proxy and TLS validation. Provider messageId received; exact POST HTTP status not captured.",
+  "delivery_query": {
+    "query": "success",
+    "events": []
+  },
+  "constraints": {
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "schedule_modified": false,
+    "external_scheduler_used": false,
+    "egress_ip_inferred": false,
+    "old_messages_resent": false,
+    "state_conflicts_observed": false
+  }
+}

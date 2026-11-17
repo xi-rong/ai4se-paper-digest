@@ -1,5 +1,13 @@
 # 云端设置与新聊天交接
 
+## 2026-11-17 日报：来源不完整的空日报已受理
+
+以 b371b3a 在指定 Cloud 环境和源配置执行，观测 current、网络 enforced、DIGEST_MAIL_TOKEN 绑定 ready；原生 Git fetch/快进检查完成，保留 work/，配置及39项测试通过。collect --rss 两组 arXiv API 均 HTTP 429、零成功页；RSS cs.SE/AI/CL/LG 分别44/276/117/291条，去重后714个发现观测，缺精确版本及首次投稿元数据，未冒充已审读论文或绕过限流补抓。整体 partial，游标保留2026-11-16T00:59:43.941923+00:00。
+
+日报首次投稿日期范围北京时间11月15–17日，远端已有可核验范围内记录0条；新增review/翻译0。translation-needed输出已读为空，预览核验HTML/文本及“部分来源采集不完整，不能据此判断没有新论文”的说明。剩余737条启发式短名单及本次RSS发现未逐条审读，不能宣称完整研究筛选或没有新论文。
+
+仅向syb38324@126.com发出本日空日报，单次POST、durable outbox/租约/幂等/CAS，09:09:04北京时间Brevo受理，provider ID <202611170109.98475850523@smtp-relay.mailin.fr>。即时事件查询成功但为空，未确认delivered或入箱。远端revision99，头8a7a7259c4f0f2f79b86946802c7c2e58e2b4bcf，1321篇、45份review。旧401待发644fc5938ec1494e6edba3d64893c587范围外，原retry/时间/错误保留未重发；sent/superseded历史未重置。未修改白名单、调度或推测成功请求出口IP。详见evidence/daily-run-2026-11-17.json。
+
 ## 2026-11-16 独立周报与日报均已投递
 
 两项原生automation请求在同一执行中按顺序处理，以6a7d933运行，Cloud源配置匹配、网络enforced、密钥ready，配置及39项测试通过。先collect --weekly --rss，周报arXiv两组185/185与117/117完整分页，新增72个版本事件；S2引用0、推荐100，DBLP两项JSONDecodeError，作者及会议/期刊接口未配置，所以整体partial。随后独立collect --rss，日报107/107与68/68完整，RSS有效空批次、新版本0，配置日报来源ok；不将此当作全来源覆盖。游标推进2026-11-16T00:59:43.941923+00:00。
