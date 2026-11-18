@@ -1,0 +1,224 @@
+{
+  "recorded_at_utc": "2026-11-18T01:04:15.098579+00:00",
+  "automation_id": "Automation_ffb53eaffd6c8191b4bb2505104e87b0",
+  "source_head": "fa2207219f2a3d9fa8aee421ad14cf0605d2c344",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "checks": "39 tests passed; configuration valid",
+  "collection": {
+    "id": "9c6491b7b2234b42ad46e7758bb29290",
+    "at": "2026-11-18T01:02:28.745683+00:00",
+    "type": "collect",
+    "from": "2026-11-09T00:59:43.941923+00:00",
+    "to": "2026-11-18T01:00:24.873964+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-11-09T00:59:43.941923+00:00",
+        "to": "2026-11-18T01:00:24.873964+00:00",
+        "pages": 1,
+        "status": "partial",
+        "count": 100,
+        "total": 174,
+        "error": "RequestError",
+        "http_status": 429
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-11-09T00:59:43.941923+00:00",
+        "to": "2026-11-18T01:00:24.873964+00:00",
+        "pages": 0,
+        "status": "failed",
+        "count": 0,
+        "error": "RequestError",
+        "http_status": 429
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 109,
+        "public_batch_at": "Tue, 17 Nov 2026 00:00:00 -0500",
+        "response_bytes": 241579
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 717,
+        "public_batch_at": "Tue, 17 Nov 2026 00:00:00 -0500",
+        "response_bytes": 1574912
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 353,
+        "public_batch_at": "Tue, 17 Nov 2026 00:00:00 -0500",
+        "response_bytes": 753167
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 774,
+        "public_batch_at": "Tue, 17 Nov 2026 00:00:00 -0500",
+        "response_bytes": 1661509
+      }
+    ],
+    "new_versions": 3,
+    "status": "partial"
+  },
+  "scope": {
+    "timezone": "Asia/Shanghai",
+    "inclusive_first_submission_date_start": "2026-11-16",
+    "inclusive_first_submission_date_end": "2026-11-18",
+    "known_in_window": 0,
+    "selected_count": 0,
+    "new_abstract_reviews": [
+      {
+        "paper_id": "arxiv:2611.17381",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "single_repo_other",
+        "summary_zh": "ProdPilot以50条规则审计Node.js/React项目，按模板、项目值提取和模型生成分层修复，并要求原检查器通过后才接受修复。",
+        "relevance_reason": "自动修复与独立验证直接相关，但不是多仓库协同修改证据。",
+        "task_setting": "每次审计和部署一个项目；跨文件程度未在摘要明确。",
+        "method": "分层规则修复、有限循环、独立检查器门控。",
+        "evidence": "作者报告499仓库中93.5%的违规落在不需模型编写内容的类别；23项目链路中独立验证拒绝237个已应用修复中的25个。数值仅为摘要作者报告。",
+        "research_use": "可借鉴跨仓库修复中按确定性模板与模型补丁分层，以及对每个目标独立门控；需正文核查规则和失败分布。",
+        "reading_advice": "仅已读摘要；超出本期三天首次投稿范围，不纳入日报。后续阅读正文核查实验与适用范围。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.17381v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表状态未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.18754",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "unknown",
+        "summary_zh": "KernelArmor结合LLM生成注解与扩展SMT验证器，在显式契约下验证CUDA内核内存和线程安全，并给出源码级诊断辅助修复。",
+        "relevance_reason": "与修复后形式化验证有关，摘要没有证明目标仓库数量或跨文件修改。",
+        "task_setting": "CUDA内核验证/修复实例，仓库范围unknown。",
+        "method": "处理高级CUDA特性、契约注解和SMT验证；集成优化循环。",
+        "evidence": "作者报告740实例、1370内核，78.6%发现潜在错误、11.4%建立安全性；77条优化轨迹全部产出已验证内核，保留99%非约束几何平均加速。仅摘要报告，安全性依赖契约和范围。",
+        "research_use": "可研究跨仓库接口契约和验证证据组合；不能把内核级安全直接推广为全仓库安全。",
+        "reading_advice": "仅已读摘要；超出本期三天首次投稿范围，不纳入日报。后续阅读正文核查实验与适用范围。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.18754v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表状态未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.17388",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "multi_repo_dataset_single_target",
+        "summary_zh": "论文用历史截止提交冻结仓库快照及图，比较基线、平坦AST图和两层依赖图ServiceExplorer的PR定位能力。",
+        "relevance_reason": "对仓库检索和评测泄漏控制有参考价值；两个项目组成评测数据，不证明同一任务协同修改两仓库。",
+        "task_setting": "DragonFly与React上的100个截止时间后PR，各实例针对对应项目，四种提示粒度。",
+        "method": "时间隔离的配对评测；两层系统/包容器与架构模块依赖图。",
+        "evidence": "作者报告六模型7200次配对评测，相对F1提升15.6%–86.2%，DragonFly完整PR精确定位约三倍。摘要未给出独立复现证据。",
+        "research_use": "可借鉴多仓库研究的时间隔离、截止提交和图上下文消融；须核查正文的数据构造及所谓零泄漏边界。",
+        "reading_advice": "仅已读摘要；超出本期三天首次投稿范围，不纳入日报。后续阅读正文核查实验与适用范围。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.17388v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表状态未核实",
+        "links": []
+      }
+    ],
+    "new_translations": 0,
+    "translation_needed_read": true,
+    "reason": "No eligible verified records selected; cs.SE API 100/174 before 429, second query failed 429. Collection incomplete; no absence claim.",
+    "unreviewed_RSS_observations": 1929,
+    "limits": "RSS observations lack exact versions and first-submission timestamps; not promoted or individually reviewed. Three newly collected v1 abstracts actually read and reviewed, all first submitted Nov11/12, outside daily window. No fulltext read claimed. No new important-version update established. Heuristic shortlist is not final screening.",
+    "remaining_shortlist": 737
+  },
+  "prior_pending": {
+    "id": "644fc5938ec1494e6edba3d64893c587",
+    "status": "retry",
+    "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+    "last_error": {
+      "type": "RequestError",
+      "status": 401,
+      "uncertain": false
+    }
+  },
+  "prior_pending_unchanged": true,
+  "prior_pending_replayed": false,
+  "state": {
+    "before_head": "8a7a7259c4f0f2f79b86946802c7c2e58e2b4bcf",
+    "after_head": "0eabb98f56df54553de065d6bdefdf34d562fbda",
+    "revision": 105,
+    "papers": 1324,
+    "reviews": 48,
+    "cursors": {
+      "arxiv": "2026-11-16T00:59:43.941923+00:00"
+    },
+    "outbox_statuses": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent",
+      "12ffa47b936245f72be3813916bcd3f0": "sent",
+      "0433850674929cb2e23f9a7ab09573f9": "sent",
+      "f9b3736e202816c79bc6fa6aa2ad8517": "sent",
+      "2765dbca7462af8d334bab0b1d39ea71": "sent",
+      "381038cbec59bd1af43d3b09ff404296": "sent",
+      "644fc5938ec1494e6edba3d64893c587": "retry",
+      "9ff82a20d2771bfe6329689c4e9c0a5d": "sent",
+      "8790bcf2a76ec78bf9f0767958858bb8": "sent",
+      "109505a54925c11372b8bd3abc6ef83b": "sent",
+      "9611da51fd47bc25c2cf7b6e79cde4d6": "sent",
+      "e6d207360d48a2bf75763278955407a6": "sent",
+      "f206789f227920ee7d10e9c5b593fb38": "sent",
+      "18897dc48a7aa84b725af72379aea616": "sent",
+      "aa05ba97ec392659044552434361e2b0": "sent"
+    }
+  },
+  "message": {
+    "id": "aa05ba97ec392659044552434361e2b0",
+    "kind": "daily",
+    "subject": "AI4SE 论文日报 · 2026-11-18",
+    "status": "sent",
+    "provider_id": "<202611180103.96271310442@smtp-relay.mailin.fr>",
+    "first_attempt_at": "2026-11-18T01:03:26.654722+00:00",
+    "sent_at": "2026-11-18T01:03:29.641065+00:00",
+    "event_keys": [],
+    "payload_hash": "7594df2b7bacaea046563e46d15e600e12fc773798f065e71c8a38736c78f2b9"
+  },
+  "recipient": "syb38324@126.com",
+  "post_attempts": 1,
+  "transport": "Original project mailer via inherited HTTPS proxy and TLS validation; provider ID received, exact POST status not captured.",
+  "delivery_query": {
+    "query": "success",
+    "events": [
+      {
+        "event": "delivered",
+        "date": "2026-11-17T17:03:36.000-08:00",
+        "recipient": "syb38324@126.com"
+      },
+      {
+        "event": "requests",
+        "date": "2026-11-17T17:03:29.299-08:00",
+        "recipient": "syb38324@126.com"
+      }
+    ]
+  },
+  "constraints": {
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "schedule_modified": false,
+    "external_scheduler_used": false,
+    "egress_ip_inferred": false,
+    "old_messages_resent": false,
+    "state_conflicts_observed": false
+  }
+}
