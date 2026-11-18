@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 101,
+  "revision": 102,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -40854,7 +40854,7 @@
       ],
       "first_discovered_at": "2026-11-18T01:00:38.822160+00:00",
       "last_seen_at": "2026-11-18T01:02:15.541364+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2611.18754": {
@@ -40886,7 +40886,7 @@
       ],
       "first_discovered_at": "2026-11-18T01:00:38.822774+00:00",
       "last_seen_at": "2026-11-18T01:02:28.745474+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.SE",
       "public_batch_at": "Tue, 17 Nov 2026 00:00:00 -0500",
@@ -40925,7 +40925,7 @@
       ],
       "first_discovered_at": "2026-11-18T01:00:38.822967+00:00",
       "last_seen_at": "2026-11-18T01:02:15.541505+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     }
   },
@@ -43275,6 +43275,66 @@
       "publication_status": "arXiv v1预印本；正式录用未核实",
       "links": [],
       "reviewed_at": "2026-11-16T00:58:07.317884+00:00"
+    },
+    "arxiv:2611.17381:v1": {
+      "paper_id": "arxiv:2611.17381",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "single_repo_other",
+      "summary_zh": "ProdPilot以50条规则审计Node.js/React项目，按模板、项目值提取和模型生成分层修复，并要求原检查器通过后才接受修复。",
+      "relevance_reason": "自动修复与独立验证直接相关，但不是多仓库协同修改证据。",
+      "task_setting": "每次审计和部署一个项目；跨文件程度未在摘要明确。",
+      "method": "分层规则修复、有限循环、独立检查器门控。",
+      "evidence": "作者报告499仓库中93.5%的违规落在不需模型编写内容的类别；23项目链路中独立验证拒绝237个已应用修复中的25个。数值仅为摘要作者报告。",
+      "research_use": "可借鉴跨仓库修复中按确定性模板与模型补丁分层，以及对每个目标独立门控；需正文核查规则和失败分布。",
+      "reading_advice": "仅已读摘要；超出本期三天首次投稿范围，不纳入日报。后续阅读正文核查实验与适用范围。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.17381v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表状态未核实",
+      "links": [],
+      "reviewed_at": "2026-11-18T01:03:14.068077+00:00"
+    },
+    "arxiv:2611.18754:v1": {
+      "paper_id": "arxiv:2611.18754",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "KernelArmor结合LLM生成注解与扩展SMT验证器，在显式契约下验证CUDA内核内存和线程安全，并给出源码级诊断辅助修复。",
+      "relevance_reason": "与修复后形式化验证有关，摘要没有证明目标仓库数量或跨文件修改。",
+      "task_setting": "CUDA内核验证/修复实例，仓库范围unknown。",
+      "method": "处理高级CUDA特性、契约注解和SMT验证；集成优化循环。",
+      "evidence": "作者报告740实例、1370内核，78.6%发现潜在错误、11.4%建立安全性；77条优化轨迹全部产出已验证内核，保留99%非约束几何平均加速。仅摘要报告，安全性依赖契约和范围。",
+      "research_use": "可研究跨仓库接口契约和验证证据组合；不能把内核级安全直接推广为全仓库安全。",
+      "reading_advice": "仅已读摘要；超出本期三天首次投稿范围，不纳入日报。后续阅读正文核查实验与适用范围。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.18754v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表状态未核实",
+      "links": [],
+      "reviewed_at": "2026-11-18T01:03:14.068099+00:00"
+    },
+    "arxiv:2611.17388:v1": {
+      "paper_id": "arxiv:2611.17388",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "论文用历史截止提交冻结仓库快照及图，比较基线、平坦AST图和两层依赖图ServiceExplorer的PR定位能力。",
+      "relevance_reason": "对仓库检索和评测泄漏控制有参考价值；两个项目组成评测数据，不证明同一任务协同修改两仓库。",
+      "task_setting": "DragonFly与React上的100个截止时间后PR，各实例针对对应项目，四种提示粒度。",
+      "method": "时间隔离的配对评测；两层系统/包容器与架构模块依赖图。",
+      "evidence": "作者报告六模型7200次配对评测，相对F1提升15.6%–86.2%，DragonFly完整PR精确定位约三倍。摘要未给出独立复现证据。",
+      "research_use": "可借鉴多仓库研究的时间隔离、截止提交和图上下文消融；须核查正文的数据构造及所谓零泄漏边界。",
+      "reading_advice": "仅已读摘要；超出本期三天首次投稿范围，不纳入日报。后续阅读正文核查实验与适用范围。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.17388v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表状态未核实",
+      "links": [],
+      "reviewed_at": "2026-11-18T01:03:14.068104+00:00"
     }
   },
   "outbox": {
