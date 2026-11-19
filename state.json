@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 105,
+  "revision": 106,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -138192,5 +138192,9 @@
       "at": "2026-11-03T08:40:24.403898+00:00",
       "read_sha": "de97ddfc44fa3678f474e12df4c2da0e4c02a1f2"
     }
+  },
+  "arxiv_collection_lease": {
+    "owner": "eb62b22e5fa24aff816c484ccaeac882",
+    "until": "2026-11-19T01:27:37.515087+00:00"
   }
 }
