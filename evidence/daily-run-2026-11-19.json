@@ -1,0 +1,310 @@
+{
+  "recorded_at_utc": "2026-11-19T01:01:19.834175+00:00",
+  "automation_id": "Automation_ffb53eaffd6c8191b4bb2505104e87b0",
+  "source_head": "17223bd47e47035067a19ae3d8eac0a03c5f4197",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "checks": "39 tests passed; configuration valid",
+  "collection": {
+    "id": "b7e6ab3a1f704c648ddc8417eb176335",
+    "at": "2026-11-19T00:58:09.183998+00:00",
+    "type": "collect",
+    "from": "2026-11-09T00:59:43.941923+00:00",
+    "to": "2026-11-19T00:57:37.515087+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-11-09T00:59:43.941923+00:00",
+        "to": "2026-11-19T00:57:37.515087+00:00",
+        "pages": 3,
+        "status": "ok",
+        "count": 202,
+        "total": 202
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-11-09T00:59:43.941923+00:00",
+        "to": "2026-11-19T00:57:37.515087+00:00",
+        "pages": 2,
+        "status": "ok",
+        "count": 156,
+        "total": 156
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 59,
+        "public_batch_at": "Wed, 18 Nov 2026 00:00:00 -0500",
+        "response_bytes": 129182
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 401,
+        "public_batch_at": "Wed, 18 Nov 2026 00:00:00 -0500",
+        "response_bytes": 886959
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 162,
+        "public_batch_at": "Wed, 18 Nov 2026 00:00:00 -0500",
+        "response_bytes": 350385
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 358,
+        "public_batch_at": "Wed, 18 Nov 2026 00:00:00 -0500",
+        "response_bytes": 779331
+      }
+    ],
+    "new_versions": 134,
+    "status": "ok"
+  },
+  "scope": {
+    "timezone": "Asia/Shanghai",
+    "first_submission_date_start": "2026-11-17",
+    "first_submission_date_end": "2026-11-19",
+    "known_in_window": 47,
+    "heuristic_window_queue": 31,
+    "actual_abstract_reviews": [
+      {
+        "paper_id": "arxiv:2611.21784",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "multi_repo_dataset_single_target",
+        "summary_zh": "代理生成代码的存活结论对测量设计敏感。作者重析215仓库2802个合并PR的854139行，构造88种分析；Devin结论随仓库聚类等选择改变。",
+        "relevance_reason": "代码维护实证与评测设计背景，数据跨仓库不等于协同修改。",
+        "task_setting": "跨项目合并后代码生存分析；按仓库聚类、置换标签和窗口敏感性。",
+        "method": "九项测量选择、五个研究问题及规格曲线。",
+        "evidence": "摘要称Devin跨仓库22种规格中独立行假设15种显示更早修改，按仓库聚类仅3种；仓库内无差异。",
+        "research_use": "研究跨仓库修复长期维护效果时预注册度量并按仓库聚类，避免把相关行当独立样本。",
+        "reading_advice": "仅已读v1摘要；建议核查正文的数据、对照、适用范围和复现材料，作者结论未独立复现。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.21784v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.22905",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "multi_repo_dataset_single_target",
+        "summary_zh": "TBYC把GitHub议题讨论整理为问题、方案、约束、理由及权衡，用相同工件空间比较模型推理与人工标注。",
+        "relevance_reason": "与修复前需求澄清、约束及设计权衡有关；跨仓库评测不证明同一实例多仓库修改。",
+        "task_setting": "多个仓库的单议题讨论与检索代码上下文。",
+        "method": "人工讨论工件提取、少样本生成及类型/元数据/标签/语义相似度评测。",
+        "evidence": "摘要描述评测流水线及可视化/排行榜/基线工具，未给出性能数值。",
+        "research_use": "可为协同修复标注跨仓库约束和权衡；需核查标注一致性及上下文泄漏。",
+        "reading_advice": "仅已读v1摘要；建议核查正文的数据、对照、适用范围和复现材料，作者结论未独立复现。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.22905v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.21845",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "unknown",
+        "summary_zh": "EmbedGym以指令级MCU模拟器、外设和虚拟网络闭合嵌入式固件开发调试循环。",
+        "relevance_reason": "与可执行环境、回归验证和编码代理有关；摘要没有确认目标仓库范围。",
+        "task_setting": "598项任务、6个MCU框架组合，隐藏定时向量验收。",
+        "method": "实际固件二进制模拟、41种外设模型、交互硬件状态接口。",
+        "evidence": "作者报告八模型逾14K轨迹，99.7%编译成功但19.9%已编译固件运行失败；交互测试提高通过率4.9–14.7个百分点。",
+        "research_use": "可借鉴跨仓库依赖/硬件接口的闭环验收；需核查仿真与真实设备差距。",
+        "reading_advice": "仅已读v1摘要；建议核查正文的数据、对照、适用范围和复现材料，作者结论未独立复现。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.21845v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.22291",
+        "version": 1,
+        "priority": "exclude",
+        "task_type": "unknown",
+        "summary_zh": "文章综述物理世界程序的生成、验证和经验学习，强调可信执行证据成本。",
+        "relevance_reason": "主旨为机器人及物理任务综述，非本期跨仓库修复直接成果。",
+        "task_setting": "机器人策略、奖励和训练世界程序。",
+        "method": "按编写、测试、学习组织讨论。",
+        "evidence": "摘要未报告新的软件仓库修复实验。",
+        "research_use": "若扩展物理系统验证研究再阅读全文，本期排除。",
+        "reading_advice": "仅已读v1摘要；建议核查正文的数据、对照、适用范围和复现材料，作者结论未独立复现。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.22291v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.22430",
+        "version": 1,
+        "priority": "exclude",
+        "task_type": "unknown",
+        "summary_zh": "研究智能合约模糊测试预算分配，在线策略总体不及均匀分配，提出离线概率曲线分配器。",
+        "relevance_reason": "缺少AI辅助仓库修复主线，虽有验证方法参考，本期排除。",
+        "task_setting": "143个标注合约、350个注入缺陷合约的预算分配。",
+        "method": "轨迹回放、八种在线策略和离线收益分配。",
+        "evidence": "作者报告源数据集检测预算AUC相对均匀分配提升5.38%与4.81%；不是修复成功率。",
+        "research_use": "后续可参考验证预算分配，不外推修复能力。",
+        "reading_advice": "仅已读v1摘要；建议核查正文的数据、对照、适用范围和复现材料，作者结论未独立复现。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.22430v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.22453",
+        "version": 1,
+        "priority": "exclude",
+        "task_type": "unknown",
+        "summary_zh": "VoxelSBFL将机器人轨迹体素覆盖与执行结果组合成可疑度图，预测后续失败。",
+        "relevance_reason": "研究VLA空间轨迹而非软件仓库补丁，本期排除。",
+        "task_setting": "四种VLA模型、仿真Pick-Up轨迹。",
+        "method": "体素级SBFL黑盒适配。",
+        "evidence": "作者报告96000条轨迹、34种技术，macro ROC-AUC为0.704；无代码修复效果证据。",
+        "research_use": "仅作未来故障定位方法迁移参考。",
+        "reading_advice": "仅已读v1摘要；建议核查正文的数据、对照、适用范围和复现材料，作者结论未独立复现。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.22453v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.22835",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "unknown",
+        "summary_zh": "研究编码代理如何保存执行事实、解释证据适用范围并完成检查义务；检查通过不等于任务完成。",
+        "relevance_reason": "与修复验收和证据范围直接有关；摘要不证明多仓库协同修改。",
+        "task_setting": "合格仓库检查、受控证据消费者和可执行工作流；118修复轮次、31任务。",
+        "method": "前瞻因子研究、收据供应留出研究、源码干预及资源/生命周期控制。",
+        "evidence": "摘要称122个交付标签均正确但16次响应误报事实、另11次越过授权范围；普通基线与新任务未显示一致总体优势。",
+        "research_use": "为跨仓库验收分离事实、适用范围、完成义务，避免从局部测试推断整体完成。",
+        "reading_advice": "仅已读v1摘要；建议核查正文的数据、对照、适用范围和复现材料，作者结论未独立复现。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.22835v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.22991",
+        "version": 1,
+        "priority": "exclude",
+        "task_type": "unknown",
+        "summary_zh": "RagHarnessDebugger审计RAG答案修复过程的证据、验证适用性及接受决策。",
+        "relevance_reason": "实验对象是ContractNLI法律合同推断，不是软件仓库修复；避免把contract关键词误判为代码。",
+        "task_setting": "两个阅读模型及独立合同复现集。",
+        "method": "Jev引导的决策轨迹审计、反事实回放和标注错误分析。",
+        "evidence": "作者报告开发及复现准确率相对BM25提高3.6与3.7点；不代表代码修复。",
+        "research_use": "可参考决策审计思想，本期排除。",
+        "reading_advice": "仅已读v1摘要；建议核查正文的数据、对照、适用范围和复现材料，作者结论未独立复现。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.22991v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      }
+    ],
+    "selected_count": 4,
+    "new_complete_translations": 4,
+    "translation_needed_read": true,
+    "limits": "Only first eight window heuristic candidates actually read. Other 39 in-window records not individually screened. 904 RSS discovery observations not individually reviewed, lack exact metadata. Configured daily queries complete; not all literature/all source coverage. No fulltext or confirmed important-version update claimed. Multi-repository datasets are not coordinated modifications; uncertain scope explicitly unknown.",
+    "remaining_shortlist": 811
+  },
+  "prior_pending": {
+    "id": "644fc5938ec1494e6edba3d64893c587",
+    "status": "retry",
+    "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+    "last_error": {
+      "type": "RequestError",
+      "status": 401,
+      "uncertain": false
+    }
+  },
+  "prior_pending_unchanged": true,
+  "prior_pending_replayed": false,
+  "state": {
+    "before_head": "0eabb98f56df54553de065d6bdefdf34d562fbda",
+    "after_head": "fa4812391d5f7369bb3556220ee8f42fde99c7db",
+    "revision": 112,
+    "papers": 1451,
+    "reviews": 56,
+    "cursors": {
+      "arxiv": "2026-11-19T00:57:37.515087+00:00"
+    },
+    "outbox_statuses": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent",
+      "12ffa47b936245f72be3813916bcd3f0": "sent",
+      "0433850674929cb2e23f9a7ab09573f9": "sent",
+      "f9b3736e202816c79bc6fa6aa2ad8517": "sent",
+      "2765dbca7462af8d334bab0b1d39ea71": "sent",
+      "381038cbec59bd1af43d3b09ff404296": "sent",
+      "644fc5938ec1494e6edba3d64893c587": "retry",
+      "9ff82a20d2771bfe6329689c4e9c0a5d": "sent",
+      "8790bcf2a76ec78bf9f0767958858bb8": "sent",
+      "109505a54925c11372b8bd3abc6ef83b": "sent",
+      "9611da51fd47bc25c2cf7b6e79cde4d6": "sent",
+      "e6d207360d48a2bf75763278955407a6": "sent",
+      "f206789f227920ee7d10e9c5b593fb38": "sent",
+      "18897dc48a7aa84b725af72379aea616": "sent",
+      "aa05ba97ec392659044552434361e2b0": "sent",
+      "1ceec5ae5159d599a61a6364742c7106": "sent"
+    }
+  },
+  "message": {
+    "id": "1ceec5ae5159d599a61a6364742c7106",
+    "kind": "daily",
+    "subject": "AI4SE 论文日报 · 2026-11-19",
+    "status": "sent",
+    "provider_id": "<202611190100.61729245176@smtp-relay.mailin.fr>",
+    "first_attempt_at": "2026-11-19T01:00:20.827175+00:00",
+    "sent_at": "2026-11-19T01:00:25.899604+00:00",
+    "event_keys": [
+      "arxiv:2611.21784:v1",
+      "arxiv:2611.21845:v1",
+      "arxiv:2611.22835:v1",
+      "arxiv:2611.22905:v1"
+    ],
+    "payload_hash": "98c432ca7fd36c2738c57f4f3ccd72b86a6b825698015d51d559bb6c27516eb7"
+  },
+  "recipient": "syb38324@126.com",
+  "post_attempts": 1,
+  "transport": "Original project mailer through inherited HTTPS proxy and TLS validation; provider ID received, exact POST HTTP code not captured.",
+  "delivery_query": {
+    "query": "success",
+    "events": []
+  },
+  "constraints": {
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "schedule_modified": false,
+    "external_scheduler_used": false,
+    "egress_ip_inferred": false,
+    "old_messages_resent": false,
+    "state_conflicts_observed": false
+  }
+}
