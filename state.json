@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 114,
+  "revision": 115,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -43644,7 +43644,7 @@
       ],
       "first_discovered_at": "2026-11-19T00:57:44.591707+00:00",
       "last_seen_at": "2026-11-20T01:05:57.916053+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Wed, 18 Nov 2026 00:00:00 -0500",
@@ -43675,7 +43675,7 @@
       ],
       "first_discovered_at": "2026-11-19T00:57:44.591776+00:00",
       "last_seen_at": "2026-11-20T01:05:57.916058+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.CL",
       "public_batch_at": "Wed, 18 Nov 2026 00:00:00 -0500",
@@ -43739,7 +43739,7 @@
       ],
       "first_discovered_at": "2026-11-19T00:57:44.591877+00:00",
       "last_seen_at": "2026-11-20T01:05:57.915308+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.SE",
       "public_batch_at": "Wed, 18 Nov 2026 00:00:00 -0500",
@@ -45618,7 +45618,7 @@
       ],
       "first_discovered_at": "2026-11-20T01:05:50.657059+00:00",
       "last_seen_at": "2026-11-20T01:06:10.937331+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Thu, 19 Nov 2026 00:00:00 -0500",
@@ -49799,6 +49799,86 @@
       "publication_status": "arXiv预印本；正式发表未核实",
       "links": [],
       "reviewed_at": "2026-11-19T00:59:07.125169+00:00"
+    },
+    "arxiv:2611.23091:v1": {
+      "paper_id": "arxiv:2611.23091",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "BugGen 2.0将结构分析、变异位置选择和验证交给确定性算法，仅用LLM进行局部语义重写，生成可编译且可观测失败的RTL缺陷。",
+      "relevance_reason": "缺陷数据构建及独立验证与修复评测相关；多个设计的数据集不等于同一实例跨仓库协同修改。",
+      "task_setting": "OpenTitan四个IP块和FabScalar，三个LLM。",
+      "method": "确定性目标选择与验证、局部语义改写、同位置变体抽样仿真及接受率估计。",
+      "evidence": "作者报告所有配额均满足且至少两个测试失败，覆盖16种配置变异中的14–16种；同模型比较token减少6.8–15.4倍及1.5–7.9倍。",
+      "research_use": "可借鉴跨仓库缺陷注入中确定性位置控制与失败见证，需核查缺陷真实性和抽样误差。",
+      "reading_advice": "仅已读v1摘要；建议正文核查实验、规格、测量与复现证据，作者报告未独立验证。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.23091v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-20T01:06:55.637426+00:00"
+    },
+    "arxiv:2611.23142:v1": {
+      "paper_id": "arxiv:2611.23142",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "TriAgent多代理系统结合支持工单与代码文档差异检测文档漂移，经人工审核修补，再检验回答改善。",
+      "relevance_reason": "文档与代码一致性及补丁闭环相关；摘要未说明仓库数量或联合验收。",
+      "task_setting": "43天影子运行，499工单、92个文档缺口。",
+      "method": "分诊信号、多代理修补、人工审核、独立模型家族评判及盲人工审计。",
+      "evidence": "作者报告可核实断言245/302正确，35个同工单修补前后比较中71.4%偏好修补后；模型评判不等于客观正确性。",
+      "research_use": "可研究代码/文档跨仓库同步需求与证据链，需核查人工审核成本和泛化。",
+      "reading_advice": "仅已读v1摘要；建议正文核查实验、规格、测量与复现证据，作者报告未独立验证。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.23142v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-20T01:06:55.637448+00:00"
+    },
+    "arxiv:2611.23203:v1": {
+      "paper_id": "arxiv:2611.23203",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "DR. GREENS将12种能耗坏味道、65根因及230个实测案例封装为代理技能，并独立验证行为保持与能耗节省。",
+      "relevance_reason": "具体验证驱动代码修复，与维护和回归验证直接相关；三仓库评测不证明同实例协同修改。",
+      "task_setting": "三个开源仓库、两个模型、三种技能配置、18会话。",
+      "method": "分类指导、静态分析器和独立验证器；与无分类技能对照。",
+      "evidence": "作者报告258个实测修复中68.6%节能，节能中位数24.9%；不能将此等同普适行为等价保证。",
+      "research_use": "可借鉴跨仓库非功能需求的独立验证和双目标验收，需正文核实能耗测量稳定性。",
+      "reading_advice": "仅已读v1摘要；建议正文核查实验、规格、测量与复现证据，作者报告未独立验证。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.23203v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-20T01:06:55.637453+00:00"
+    },
+    "arxiv:2611.23611:v1": {
+      "paper_id": "arxiv:2611.23611",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "RefinementGuard对隐藏的有副作用代理工具执行图做翻译验证，通过绑定工件、默认拒绝的运行准入，比较独立参考与父操作义务。",
+      "relevance_reason": "直接涉及缺陷定位与补丁验证的语义保持；未确认多仓库范围。",
+      "task_setting": "受控仓库上的定位与补丁验证契约，开发/资格故障及冻结留出输入。",
+      "method": "隔离状态、父操作义务验证、独立参考执行、反例暴露规格缺口。",
+      "evidence": "作者报告拒绝49/100非等价故障但接纳60/60合法变体；留出B3定位拒绝38/56，补丁未证明加速，零延迟时有开销。",
+      "research_use": "可借鉴跨仓库工具并行化时的联合语义义务；不得把局部定位加速推广为补丁流水线加速。",
+      "reading_advice": "仅已读v1摘要；建议正文核查实验、规格、测量与复现证据，作者报告未独立验证。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.23611v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-20T01:06:55.637458+00:00"
     }
   },
   "outbox": {
