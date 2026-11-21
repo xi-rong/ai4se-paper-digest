@@ -1,0 +1,237 @@
+{
+  "recorded_at_utc": "2026-11-21T01:07:53.844991+00:00",
+  "automation_id": "Automation_ffb53eaffd6c8191b4bb2505104e87b0",
+  "source_head": "7a089f49c2887ced213b3ba407520ae296fe7b57",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "checks": "39 tests passed; configuration valid",
+  "collection": {
+    "id": "8cbb329902194ccd9ea982e4b9dbf3f3",
+    "at": "2026-11-21T01:05:31.375573+00:00",
+    "type": "collect",
+    "from": "2026-11-13T01:05:43.573384+00:00",
+    "to": "2026-11-21T01:03:11.565901+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-11-13T01:05:43.573384+00:00",
+        "to": "2026-11-21T01:03:11.565901+00:00",
+        "pages": 0,
+        "status": "failed",
+        "count": 0,
+        "error": "RequestError",
+        "http_status": 429
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-11-13T01:05:43.573384+00:00",
+        "to": "2026-11-21T01:03:11.565901+00:00",
+        "pages": 2,
+        "status": "ok",
+        "count": 134,
+        "total": 134
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 39,
+        "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
+        "response_bytes": 85345
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 400,
+        "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
+        "response_bytes": 875458
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 161,
+        "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
+        "response_bytes": 350738
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 359,
+        "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
+        "response_bytes": 787311
+      }
+    ],
+    "new_versions": 27,
+    "status": "partial"
+  },
+  "scope": {
+    "timezone": "Asia/Shanghai",
+    "first_submission_date_start": "2026-11-19",
+    "first_submission_date_end": "2026-11-21",
+    "known_in_window": 27,
+    "heuristic_window_queue_before_review": 14,
+    "actual_abstract_reviews": [
+      {
+        "paper_id": "arxiv:2611.24804",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "unknown",
+        "summary_zh": "MLIR-MRacle使用目标内存模型约束的蜕变关系，对并发MLIR程序重复运行并比较结果集合或分布，避免确定性假设。",
+        "relevance_reason": "并发编译器缺陷发现与修复验证背景；未证明AI辅助修改或多仓库协同。",
+        "task_setting": "Armv8、四种配置的并发MLIR测试。",
+        "method": "内存模型感知蜕变变换、两个统计预言及libafl覆盖引导。",
+        "evidence": "作者报告逾145K次试验、最多93.6K覆盖边，发现一处OpenMP方言验证器缺陷并称已上游修复；未独立核查补丁。",
+        "research_use": "跨仓库编译链验收可参考语义约束与统计预言，需核查误报和上游修复证据。",
+        "reading_advice": "仅已读v1摘要；需正文验证实验、数据与复现证据，未核实源码或正式发表。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.24804v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.25066",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "unknown",
+        "summary_zh": "DVBench以端到端UVM设计验证任务评测代理，从特征清单和测试计划到参考模型与最终测试平台。",
+        "relevance_reason": "与代理验收工作流和测试生成有关；硬件设计任务不代表跨仓库修复。",
+        "task_setting": "95任务、9功能域、5难度层级，目标仓库范围未明确。",
+        "method": "对最终测试平台检查编译、覆盖及缺陷检测，同时评测中间工件。",
+        "evidence": "作者报告最佳组合Codex与GPT-6 Astra总体成功率21.05%；仅摘要作者报告，模型身份和实验未独立核验。",
+        "research_use": "可借鉴跨仓库修复中间义务与最终联合验收分离，需正文核查评分和污染控制。",
+        "reading_advice": "仅已读v1摘要；需正文验证实验、数据与复现证据，未核实源码或正式发表。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.25066v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.25088",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "multi_repo_dataset_single_target",
+        "summary_zh": "BuggyMLE用结构复杂度指标指导ML仓库缺陷注入，建立分级难度基准与训练课程，明确需要多文件仓库修改。",
+        "relevance_reason": "多仓库构成数据集，每个变异任务针对一个ML仓库；不是同实例跨仓库协同。",
+        "task_setting": "222个源仓库产生逾6600缺陷变体，另200个仓库用于训练课程。",
+        "method": "十结构特征的CCI、受控变异注入、分级基准和模型微调。",
+        "evidence": "作者报告CCI对八基准平均解决率R²=0.951，14模型中最高解决率随难度从95%降至9%；训练后SWE-bench Lite24%至33%。",
+        "research_use": "可参考跨仓库任务难度分层，但注入变异真实性、泄漏与仓库隔离须正文核查。",
+        "reading_advice": "仅已读v1摘要；需正文验证实验、数据与复现证据，未核实源码或正式发表。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.25088v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.25605",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "multi_repo_dataset_single_target",
+        "summary_zh": "研究AI参与开源缺陷报告从发现、复现到验证和解决的变化，强调复现与诊断关联有效性而非仅撰写报告。",
+        "relevance_reason": "与缺陷证据、维护负担和修复入口相关；101项目是研究样本，不是协同修改任务。",
+        "task_setting": "2024年1月至2026年9月101项目120918份缺陷报告。",
+        "method": "大规模纵向实证并跟踪AI使用环节及维护者行动。",
+        "evidence": "作者报告AI报告更完整、有效比例上升；实践提交53份AI发现缺陷报告，截至写作69.81%被维护者接受。关联不等于因果。",
+        "research_use": "可为跨仓库缺陷报告设计可复现证据与责任追踪，需正文核查AI识别和混杂因素。",
+        "reading_advice": "仅已读v1摘要；需正文验证实验、数据与复现证据，未核实源码或正式发表。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.25605v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      }
+    ],
+    "selected_count": 4,
+    "new_complete_translations": 4,
+    "translation_needed_read": true,
+    "limits": "cs.SE failed HTTP429, other API query full134/134. RSS successful, 909 discovery observations not individually reviewed and lack exact metadata. Four exact v1 abstracts read, other23 window records not individually read. No fulltext, verified publication, independently verified code link or confirmed important version update claimed. Multi-repository datasets distinguished from coordinated changes; unknown scope explicit.",
+    "remaining_shortlist": 851
+  },
+  "prior_pending": {
+    "id": "644fc5938ec1494e6edba3d64893c587",
+    "status": "retry",
+    "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+    "last_error": {
+      "type": "RequestError",
+      "status": 401,
+      "uncertain": false
+    }
+  },
+  "prior_pending_unchanged": true,
+  "prior_pending_replayed": false,
+  "state": {
+    "before_head": "58ec985d1ec1bcca9a2b073441a5600248d00daf",
+    "after_head": "a289ec034be607f7551181e162febf273f3b66e0",
+    "revision": 126,
+    "papers": 1535,
+    "reviews": 64,
+    "cursors": {
+      "arxiv": "2026-11-20T01:05:43.573384+00:00"
+    },
+    "outbox_statuses": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent",
+      "12ffa47b936245f72be3813916bcd3f0": "sent",
+      "0433850674929cb2e23f9a7ab09573f9": "sent",
+      "f9b3736e202816c79bc6fa6aa2ad8517": "sent",
+      "2765dbca7462af8d334bab0b1d39ea71": "sent",
+      "381038cbec59bd1af43d3b09ff404296": "sent",
+      "644fc5938ec1494e6edba3d64893c587": "retry",
+      "9ff82a20d2771bfe6329689c4e9c0a5d": "sent",
+      "8790bcf2a76ec78bf9f0767958858bb8": "sent",
+      "109505a54925c11372b8bd3abc6ef83b": "sent",
+      "9611da51fd47bc25c2cf7b6e79cde4d6": "sent",
+      "e6d207360d48a2bf75763278955407a6": "sent",
+      "f206789f227920ee7d10e9c5b593fb38": "sent",
+      "18897dc48a7aa84b725af72379aea616": "sent",
+      "aa05ba97ec392659044552434361e2b0": "sent",
+      "1ceec5ae5159d599a61a6364742c7106": "sent",
+      "ad17739c19db474d5b95a688d9da70d1": "sent",
+      "d88d56b3c1cc12d114d77f11fd07a2a1": "sent"
+    }
+  },
+  "message": {
+    "id": "d88d56b3c1cc12d114d77f11fd07a2a1",
+    "kind": "daily",
+    "subject": "AI4SE 论文日报 · 2026-11-21",
+    "status": "sent",
+    "provider_id": "<202611210107.87331769966@smtp-relay.mailin.fr>",
+    "first_attempt_at": "2026-11-21T01:07:07.050828+00:00",
+    "sent_at": "2026-11-21T01:07:10.397152+00:00",
+    "event_keys": [
+      "arxiv:2611.24804:v1",
+      "arxiv:2611.25066:v1",
+      "arxiv:2611.25088:v1",
+      "arxiv:2611.25605:v1"
+    ],
+    "payload_hash": "a438b3a10fa2a7d98fc2df15038a049dbdfefed8d8634efebf72c7075e91274e"
+  },
+  "recipient": "syb38324@126.com",
+  "post_attempts": 1,
+  "transport": "Original project mailer through inherited HTTPS proxy and TLS validation; provider ID received, exact POST status not captured.",
+  "delivery_query": {
+    "query": "success",
+    "events": []
+  },
+  "constraints": {
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "schedule_modified": false,
+    "external_scheduler_used": false,
+    "egress_ip_inferred": false,
+    "old_messages_resent": false,
+    "state_conflicts_observed": false
+  }
+}
