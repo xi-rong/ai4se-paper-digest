@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 121,
+  "revision": 122,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -46613,7 +46613,7 @@
       ],
       "first_discovered_at": "2026-11-20T01:05:50.658191+00:00",
       "last_seen_at": "2026-11-20T01:06:10.937146+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.SE",
       "public_batch_at": "Thu, 19 Nov 2026 00:00:00 -0500",
@@ -47117,7 +47117,7 @@
       ],
       "first_discovered_at": "2026-11-21T01:05:18.038267+00:00",
       "last_seen_at": "2026-11-21T01:05:31.375368+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
@@ -47161,7 +47161,7 @@
       ],
       "first_discovered_at": "2026-11-21T01:05:18.038319+00:00",
       "last_seen_at": "2026-11-21T01:05:31.375458+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.LG",
       "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
@@ -47429,7 +47429,7 @@
       ],
       "first_discovered_at": "2026-11-21T01:05:18.038690+00:00",
       "last_seen_at": "2026-11-21T01:05:31.375388+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
@@ -50730,6 +50730,86 @@
       "reviewed_at": "2026-11-20T01:06:55.637458+00:00",
       "title_zh": "RefinementGuard：面向隐藏代理工具执行、由反例驱动的语义资格验证",
       "abstract_zh": "工具运行时可以将代理选择的操作降低为隐藏的并行图，从而减少延迟和上下文，但也存在语义误译风险。我们提出RefinementGuard：针对隐藏且有副作用的代理工具降低过程进行翻译验证，并结合绑定工件、失败时默认拒绝的运行时准入机制。资格验证利用显式父操作义务，在隔离状态上比较候选执行图与独立参考。我们在受控仓库上评测两种仓库级契约：缺陷定位和补丁验证。在由一名人工裁定的100个已激活、非等价的开发/资格验证故障中，父语义验证拒绝49个（按操作符聚类的bootstrap 95%置信区间为[33.7%,64.8%]）。目标是选择性准入，而不是最大化变异拒绝率：精确相等检查拒绝全部100个故障，但也拒绝全部60个有效变体；基于义务的验证则接受全部60个有效变体，其残余51个漏检指出了具体规格缺口。在冻结的不相交输入划分上，由于21个补丁变异体在结构上失败，留出的B2–B3结果仅涉及定位；B3拒绝56个定位缺陷中的38个。在受控异步延迟条件下，定位串行执行与受保护执行的中位延迟比为4.50倍，而隐藏执行暴露给父层的上下文比可见执行少74.3%。补丁验证没有表现出已证实的加速；零延迟运行则暴露出额外开销。因此，端到端资格验证能够发现底层漏检，同时保留定位的并行性。"
+    },
+    "arxiv:2611.24804:v1": {
+      "paper_id": "arxiv:2611.24804",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "MLIR-MRacle使用目标内存模型约束的蜕变关系，对并发MLIR程序重复运行并比较结果集合或分布，避免确定性假设。",
+      "relevance_reason": "并发编译器缺陷发现与修复验证背景；未证明AI辅助修改或多仓库协同。",
+      "task_setting": "Armv8、四种配置的并发MLIR测试。",
+      "method": "内存模型感知蜕变变换、两个统计预言及libafl覆盖引导。",
+      "evidence": "作者报告逾145K次试验、最多93.6K覆盖边，发现一处OpenMP方言验证器缺陷并称已上游修复；未独立核查补丁。",
+      "research_use": "跨仓库编译链验收可参考语义约束与统计预言，需核查误报和上游修复证据。",
+      "reading_advice": "仅已读v1摘要；需正文验证实验、数据与复现证据，未核实源码或正式发表。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.24804v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-21T01:06:09.722281+00:00"
+    },
+    "arxiv:2611.25066:v1": {
+      "paper_id": "arxiv:2611.25066",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "DVBench以端到端UVM设计验证任务评测代理，从特征清单和测试计划到参考模型与最终测试平台。",
+      "relevance_reason": "与代理验收工作流和测试生成有关；硬件设计任务不代表跨仓库修复。",
+      "task_setting": "95任务、9功能域、5难度层级，目标仓库范围未明确。",
+      "method": "对最终测试平台检查编译、覆盖及缺陷检测，同时评测中间工件。",
+      "evidence": "作者报告最佳组合Codex与GPT-6 Astra总体成功率21.05%；仅摘要作者报告，模型身份和实验未独立核验。",
+      "research_use": "可借鉴跨仓库修复中间义务与最终联合验收分离，需正文核查评分和污染控制。",
+      "reading_advice": "仅已读v1摘要；需正文验证实验、数据与复现证据，未核实源码或正式发表。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.25066v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-21T01:06:09.722304+00:00"
+    },
+    "arxiv:2611.25088:v1": {
+      "paper_id": "arxiv:2611.25088",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "BuggyMLE用结构复杂度指标指导ML仓库缺陷注入，建立分级难度基准与训练课程，明确需要多文件仓库修改。",
+      "relevance_reason": "多仓库构成数据集，每个变异任务针对一个ML仓库；不是同实例跨仓库协同。",
+      "task_setting": "222个源仓库产生逾6600缺陷变体，另200个仓库用于训练课程。",
+      "method": "十结构特征的CCI、受控变异注入、分级基准和模型微调。",
+      "evidence": "作者报告CCI对八基准平均解决率R²=0.951，14模型中最高解决率随难度从95%降至9%；训练后SWE-bench Lite24%至33%。",
+      "research_use": "可参考跨仓库任务难度分层，但注入变异真实性、泄漏与仓库隔离须正文核查。",
+      "reading_advice": "仅已读v1摘要；需正文验证实验、数据与复现证据，未核实源码或正式发表。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.25088v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-21T01:06:09.722309+00:00"
+    },
+    "arxiv:2611.25605:v1": {
+      "paper_id": "arxiv:2611.25605",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "研究AI参与开源缺陷报告从发现、复现到验证和解决的变化，强调复现与诊断关联有效性而非仅撰写报告。",
+      "relevance_reason": "与缺陷证据、维护负担和修复入口相关；101项目是研究样本，不是协同修改任务。",
+      "task_setting": "2024年1月至2026年9月101项目120918份缺陷报告。",
+      "method": "大规模纵向实证并跟踪AI使用环节及维护者行动。",
+      "evidence": "作者报告AI报告更完整、有效比例上升；实践提交53份AI发现缺陷报告，截至写作69.81%被维护者接受。关联不等于因果。",
+      "research_use": "可为跨仓库缺陷报告设计可复现证据与责任追踪，需正文核查AI识别和混杂因素。",
+      "reading_advice": "仅已读v1摘要；需正文验证实验、数据与复现证据，未核实源码或正式发表。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.25605v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-21T01:06:09.722312+00:00"
     }
   },
   "outbox": {
