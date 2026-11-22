@@ -1,0 +1,257 @@
+{
+  "recorded_at_utc": "2026-11-22T01:06:24.731044+00:00",
+  "automation_id": "Automation_ffb53eaffd6c8191b4bb2505104e87b0",
+  "source_head": "c1cf4dfe898ab45fdeeefab5914eabfd4dc4af1f",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "checks": "39 tests passed; configuration valid",
+  "collection": {
+    "id": "7877a6c1b35b4ab38369b2a4c7c928f5",
+    "at": "2026-11-22T01:03:58.081729+00:00",
+    "type": "collect",
+    "from": "2026-11-13T01:05:43.573384+00:00",
+    "to": "2026-11-22T01:02:41.720670+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-11-13T01:05:43.573384+00:00",
+        "to": "2026-11-22T01:02:41.720670+00:00",
+        "pages": 2,
+        "status": "ok",
+        "count": 166,
+        "total": 166
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-11-13T01:05:43.573384+00:00",
+        "to": "2026-11-22T01:02:41.720670+00:00",
+        "pages": 2,
+        "status": "ok",
+        "count": 134,
+        "total": 134
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 21 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 21 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 0,
+        "public_batch_at": "Sat, 21 Nov 2026 00:00:00 -0500",
+        "response_bytes": 892
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 359,
+        "public_batch_at": "Sat, 21 Nov 2026 00:00:00 -0500",
+        "response_bytes": 787311
+      }
+    ],
+    "new_versions": 16,
+    "status": "ok"
+  },
+  "scope": {
+    "timezone": "Asia/Shanghai",
+    "first_submission_date_start": "2026-11-20",
+    "first_submission_date_end": "2026-11-22",
+    "known_in_window": 10,
+    "heuristic_window_queue_before_review": 5,
+    "actual_abstract_reviews": [
+      {
+        "paper_id": "arxiv:2611.26510",
+        "version": 1,
+        "priority": "exclude",
+        "task_type": "unknown",
+        "summary_zh": "AutoMaster通过技能指令塑形教师轨迹，再用于目标模型监督微调。",
+        "relevance_reason": "主要是通用后训练，虽含软件工程任务，缺少仓库修复方法直接证据，本期排除。",
+        "task_setting": "Terminal、Search和软件工程任务，4B/9B目标模型。",
+        "method": "代理分析轨迹、设计技能、筛选数据并依据评测反馈迭代。",
+        "evidence": "作者报告控制教师、任务池和训练规模后，相对Vanilla SFT平均提高1.42–8.99个百分点。",
+        "research_use": "后续可研究修复轨迹行为质量，不能将平均性能提升当作跨仓库能力。",
+        "reading_advice": "仅已读v1摘要；建议正文核查数据、对照和证据，未独立验证作者主张或链接。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.26510v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.26588",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "multi_repo_dataset_single_target",
+        "summary_zh": "框架对已经通过UVM回归的执行轨迹进行规格驱动LLM交叉检查，查找计分板未覆盖的违规。",
+        "relevance_reason": "与修复验收的验证器盲点直接相关；四IP数据集不证明协同多仓库修改。",
+        "task_setting": "四个OpenTitan IP、564个注入缺陷。",
+        "method": "异常交叉检查器对照规格，生成在缺陷设计失败且原始设计可证明的断言。",
+        "evidence": "摘要称68个候选逃逸中41个被确认，不能将其作为所有逃逸的召回率。",
+        "research_use": "可为跨仓库联合验收增加独立规格检查，需正文核查断言证明及候选筛选。",
+        "reading_advice": "仅已读v1摘要；建议正文核查数据、对照和证据，未独立验证作者主张或链接。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.26588v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.26601",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "unknown",
+        "summary_zh": "综述以驾驶自动化类比的自主性等级及正确性、可用性、证据强度评定LLM漏洞研究主张。",
+        "relevance_reason": "与发现/验证/修补证据质量有关，摘要未建立协同仓库任务。",
+        "task_setting": "公开论文、供应商报告与披露，以及十年漏洞记录和利用数据。",
+        "method": "系统化证据分级、生命周期观测及缓解措施量表。",
+        "evidence": "作者报告2026年披露数翻倍以上而报告至修复/披露至攻击时间未明显变化；不能据此确认AI因果作用。",
+        "research_use": "可借鉴跨仓库修复证据分级与自主性指标，需核查披露偏差及混杂因素。",
+        "reading_advice": "仅已读v1摘要；建议正文核查数据、对照和证据，未独立验证作者主张或链接。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.26601v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.26311",
+        "version": 1,
+        "priority": "P3",
+        "task_type": "unknown",
+        "summary_zh": "SWE-Recreation要求代理仅通过像素和键鼠探索陌生产品，再构建副本并检查多步状态工作流。",
+        "relevance_reason": "编码代理需求发现和端到端验收背景；不是缺陷修复或多仓库协同证据。",
+        "task_setting": "54个应用：28网站、26 Android，1446个隐藏需求。",
+        "method": "固定像素证据评判器评测工作流，独立事后评判探索覆盖。",
+        "evidence": "作者报告五系统最高加权保真度0.530、完全复现需求22.9%，使用应用等权平均。",
+        "research_use": "可研究跨仓库需求探索和覆盖缺口；摘要源码地址未访问，不作为已核查链接。",
+        "reading_advice": "仅已读v1摘要；建议正文核查数据、对照和证据，未独立验证作者主张或链接。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.26311v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      },
+      {
+        "paper_id": "arxiv:2611.26553",
+        "version": 1,
+        "priority": "P2",
+        "task_type": "unknown",
+        "summary_zh": "ROGUE-AI离线重建代理事故及仅移除被归因原因的匹配对照，检验危害和成因。",
+        "relevance_reason": "与编码代理操作风险、工具验收及回归审计相关；不证明多仓库修改范围。",
+        "task_setting": "108次复现尝试，五种当前模型，72起真实危害事故。",
+        "method": "匹配对照重放、攻击者有无分层及点明危害的工具后警告消融。",
+        "evidence": "作者称89%复现危害，各模型错误18%–33%而移除被归因原因后最多1%；72起中62起无攻击者。仅作者报告。",
+        "research_use": "可借鉴跨仓库流水线事故回归与环境危险提示；需核查因果匹配、离线复现代表性。",
+        "reading_advice": "仅已读v1摘要；建议正文核查数据、对照和证据，未独立验证作者主张或链接。",
+        "basis": "abstract",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2611.26553v1"
+        ],
+        "publication_status": "arXiv预印本；正式发表未核实",
+        "links": []
+      }
+    ],
+    "selected_count": 4,
+    "excluded_count": 1,
+    "new_complete_translations": 4,
+    "translation_needed_read": true,
+    "limits": "Configured daily arXiv queries full, RSS successful; not all-literature coverage. Other five in-window non-shortlisted records not individually read. 353 RSS discovery observations not reviewed/promoted. Only v1 abstracts read, no fulltext, verified publication, independent code-link check or confirmed important update claimed. Dataset spanning IPs differs from coordinated repository modification; unknown scope explicit.",
+    "remaining_shortlist": 848
+  },
+  "prior_pending": {
+    "id": "644fc5938ec1494e6edba3d64893c587",
+    "status": "retry",
+    "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+    "last_error": {
+      "type": "RequestError",
+      "status": 401,
+      "uncertain": false
+    }
+  },
+  "prior_pending_unchanged": true,
+  "prior_pending_replayed": false,
+  "state": {
+    "before_head": "a289ec034be607f7551181e162febf273f3b66e0",
+    "after_head": "61928fd2acf763ca8c2d1d185f4840c82c372759",
+    "revision": 133,
+    "papers": 1550,
+    "reviews": 69,
+    "cursors": {
+      "arxiv": "2026-11-22T01:02:41.720670+00:00"
+    },
+    "outbox_statuses": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent",
+      "12ffa47b936245f72be3813916bcd3f0": "sent",
+      "0433850674929cb2e23f9a7ab09573f9": "sent",
+      "f9b3736e202816c79bc6fa6aa2ad8517": "sent",
+      "2765dbca7462af8d334bab0b1d39ea71": "sent",
+      "381038cbec59bd1af43d3b09ff404296": "sent",
+      "644fc5938ec1494e6edba3d64893c587": "retry",
+      "9ff82a20d2771bfe6329689c4e9c0a5d": "sent",
+      "8790bcf2a76ec78bf9f0767958858bb8": "sent",
+      "109505a54925c11372b8bd3abc6ef83b": "sent",
+      "9611da51fd47bc25c2cf7b6e79cde4d6": "sent",
+      "e6d207360d48a2bf75763278955407a6": "sent",
+      "f206789f227920ee7d10e9c5b593fb38": "sent",
+      "18897dc48a7aa84b725af72379aea616": "sent",
+      "aa05ba97ec392659044552434361e2b0": "sent",
+      "1ceec5ae5159d599a61a6364742c7106": "sent",
+      "ad17739c19db474d5b95a688d9da70d1": "sent",
+      "d88d56b3c1cc12d114d77f11fd07a2a1": "sent",
+      "55e61d50a755cfc8500b3776111d91e9": "sent"
+    }
+  },
+  "message": {
+    "id": "55e61d50a755cfc8500b3776111d91e9",
+    "kind": "daily",
+    "subject": "AI4SE 论文日报 · 2026-11-22",
+    "status": "sent",
+    "provider_id": "<202611220105.61403067821@smtp-relay.mailin.fr>",
+    "first_attempt_at": "2026-11-22T01:05:40.700433+00:00",
+    "sent_at": "2026-11-22T01:05:43.603239+00:00",
+    "event_keys": [
+      "arxiv:2611.26553:v1",
+      "arxiv:2611.26588:v1",
+      "arxiv:2611.26601:v1",
+      "arxiv:2611.26311:v1"
+    ],
+    "payload_hash": "7632681723b92770e8c26ab9d75ae17e462ba1a07c6d1d751820a11326073af5"
+  },
+  "recipient": "syb38324@126.com",
+  "post_attempts": 1,
+  "transport": "Original project mailer through inherited HTTPS proxy and TLS validation; provider ID received, exact POST status not captured.",
+  "delivery_query": {
+    "query": "success",
+    "events": []
+  },
+  "constraints": {
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "schedule_modified": false,
+    "external_scheduler_used": false,
+    "egress_ip_inferred": false,
+    "old_messages_resent": false,
+    "state_conflicts_observed": false
+  }
+}
