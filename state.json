@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 128,
+  "revision": 129,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -47708,7 +47708,7 @@
       ],
       "first_discovered_at": "2026-11-21T01:05:18.039071+00:00",
       "last_seen_at": "2026-11-22T01:03:45.146276+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "excluded",
       "send_status": "unsent",
       "rss_category": "cs.CL",
       "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
@@ -47775,7 +47775,7 @@
       ],
       "first_discovered_at": "2026-11-21T01:05:18.039156+00:00",
       "last_seen_at": "2026-11-22T01:03:45.146288+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
@@ -47810,7 +47810,7 @@
       ],
       "first_discovered_at": "2026-11-21T01:05:18.039187+00:00",
       "last_seen_at": "2026-11-22T01:03:45.146295+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
@@ -47846,7 +47846,7 @@
       ],
       "first_discovered_at": "2026-11-21T01:05:18.039242+00:00",
       "last_seen_at": "2026-11-22T01:03:45.146302+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent",
       "rss_category": "cs.AI",
       "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
@@ -48201,7 +48201,7 @@
       ],
       "first_discovered_at": "2026-11-22T01:03:17.349951+00:00",
       "last_seen_at": "2026-11-22T01:03:45.145180+00:00",
-      "processing_status": "unreviewed",
+      "processing_status": "reviewed",
       "send_status": "unsent"
     },
     "arxiv:2611.26312": {
@@ -51245,6 +51245,106 @@
       "reviewed_at": "2026-11-21T01:06:09.722312+00:00",
       "title_zh": "副驾驶还是肇事者？AI如何改变开源缺陷报告与维护",
       "abstract_zh": "AI生成的缺陷报告因不可靠主张和错误复现程序给维护者带来负担而受到批评。然而，随着LLM能力提高，一些维护者开始对AI在缺陷报告与维护中的使用表达更积极的看法。理解这一变化，需要考察AI参与的报告是否变得更可靠、哪些AI用法与有效发现相关，以及维护者如何调查并处理这些报告。为此，我们对2024年1月至2026年9月间101个开源项目的120918份缺陷报告开展首次大规模研究，追踪AI从缺陷发现、报告到验证和解决全过程的参与情况。结果显示，AI参与的报告随时间推移变得更完整，被确认有效的报告比例也在上升。在缺陷报告中，利用AI进行复现和诊断与更高有效性相关，而仅用于撰写报告并无此关联。延伸到维护环节，维护者越来越多地使用AI调查代码并推荐修复。但相比AI发现缺陷的报告，他们会在AI辅助的人类发现缺陷报告上投入更多精力。这些结果既表明AI越来越多地参与缺陷调查，也说明验证与后续跟进仍不可缺少。根据这些发现，我们为将AI生成的发现转化为可验证报告提供实践指导，强调可复现性、验证及责任可追溯性。我们提交53份AI发现缺陷的报告时遵循了这些指导，其中69.81%截至论文写作时已获维护者接受。"
+    },
+    "arxiv:2611.26510:v1": {
+      "paper_id": "arxiv:2611.26510",
+      "version": 1,
+      "priority": "exclude",
+      "task_type": "unknown",
+      "summary_zh": "AutoMaster通过技能指令塑形教师轨迹，再用于目标模型监督微调。",
+      "relevance_reason": "主要是通用后训练，虽含软件工程任务，缺少仓库修复方法直接证据，本期排除。",
+      "task_setting": "Terminal、Search和软件工程任务，4B/9B目标模型。",
+      "method": "代理分析轨迹、设计技能、筛选数据并依据评测反馈迭代。",
+      "evidence": "作者报告控制教师、任务池和训练规模后，相对Vanilla SFT平均提高1.42–8.99个百分点。",
+      "research_use": "后续可研究修复轨迹行为质量，不能将平均性能提升当作跨仓库能力。",
+      "reading_advice": "仅已读v1摘要；建议正文核查数据、对照和证据，未独立验证作者主张或链接。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.26510v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-22T01:04:46.567417+00:00"
+    },
+    "arxiv:2611.26588:v1": {
+      "paper_id": "arxiv:2611.26588",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "multi_repo_dataset_single_target",
+      "summary_zh": "框架对已经通过UVM回归的执行轨迹进行规格驱动LLM交叉检查，查找计分板未覆盖的违规。",
+      "relevance_reason": "与修复验收的验证器盲点直接相关；四IP数据集不证明协同多仓库修改。",
+      "task_setting": "四个OpenTitan IP、564个注入缺陷。",
+      "method": "异常交叉检查器对照规格，生成在缺陷设计失败且原始设计可证明的断言。",
+      "evidence": "摘要称68个候选逃逸中41个被确认，不能将其作为所有逃逸的召回率。",
+      "research_use": "可为跨仓库联合验收增加独立规格检查，需正文核查断言证明及候选筛选。",
+      "reading_advice": "仅已读v1摘要；建议正文核查数据、对照和证据，未独立验证作者主张或链接。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.26588v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-22T01:04:46.567438+00:00"
+    },
+    "arxiv:2611.26601:v1": {
+      "paper_id": "arxiv:2611.26601",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "综述以驾驶自动化类比的自主性等级及正确性、可用性、证据强度评定LLM漏洞研究主张。",
+      "relevance_reason": "与发现/验证/修补证据质量有关，摘要未建立协同仓库任务。",
+      "task_setting": "公开论文、供应商报告与披露，以及十年漏洞记录和利用数据。",
+      "method": "系统化证据分级、生命周期观测及缓解措施量表。",
+      "evidence": "作者报告2026年披露数翻倍以上而报告至修复/披露至攻击时间未明显变化；不能据此确认AI因果作用。",
+      "research_use": "可借鉴跨仓库修复证据分级与自主性指标，需核查披露偏差及混杂因素。",
+      "reading_advice": "仅已读v1摘要；建议正文核查数据、对照和证据，未独立验证作者主张或链接。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.26601v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-22T01:04:46.567443+00:00"
+    },
+    "arxiv:2611.26311:v1": {
+      "paper_id": "arxiv:2611.26311",
+      "version": 1,
+      "priority": "P3",
+      "task_type": "unknown",
+      "summary_zh": "SWE-Recreation要求代理仅通过像素和键鼠探索陌生产品，再构建副本并检查多步状态工作流。",
+      "relevance_reason": "编码代理需求发现和端到端验收背景；不是缺陷修复或多仓库协同证据。",
+      "task_setting": "54个应用：28网站、26 Android，1446个隐藏需求。",
+      "method": "固定像素证据评判器评测工作流，独立事后评判探索覆盖。",
+      "evidence": "作者报告五系统最高加权保真度0.530、完全复现需求22.9%，使用应用等权平均。",
+      "research_use": "可研究跨仓库需求探索和覆盖缺口；摘要源码地址未访问，不作为已核查链接。",
+      "reading_advice": "仅已读v1摘要；建议正文核查数据、对照和证据，未独立验证作者主张或链接。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.26311v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-22T01:04:46.567446+00:00"
+    },
+    "arxiv:2611.26553:v1": {
+      "paper_id": "arxiv:2611.26553",
+      "version": 1,
+      "priority": "P2",
+      "task_type": "unknown",
+      "summary_zh": "ROGUE-AI离线重建代理事故及仅移除被归因原因的匹配对照，检验危害和成因。",
+      "relevance_reason": "与编码代理操作风险、工具验收及回归审计相关；不证明多仓库修改范围。",
+      "task_setting": "108次复现尝试，五种当前模型，72起真实危害事故。",
+      "method": "匹配对照重放、攻击者有无分层及点明危害的工具后警告消融。",
+      "evidence": "作者称89%复现危害，各模型错误18%–33%而移除被归因原因后最多1%；72起中62起无攻击者。仅作者报告。",
+      "research_use": "可借鉴跨仓库流水线事故回归与环境危险提示；需核查因果匹配、离线复现代表性。",
+      "reading_advice": "仅已读v1摘要；建议正文核查数据、对照和证据，未独立验证作者主张或链接。",
+      "basis": "abstract",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2611.26553v1"
+      ],
+      "publication_status": "arXiv预印本；正式发表未核实",
+      "links": [],
+      "reviewed_at": "2026-11-22T01:04:46.567449+00:00"
     }
   },
   "outbox": {
