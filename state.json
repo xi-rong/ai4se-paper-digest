@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 132,
+  "revision": 133,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -47776,7 +47776,7 @@
       "first_discovered_at": "2026-11-21T01:05:18.039156+00:00",
       "last_seen_at": "2026-11-22T01:03:45.146288+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent",
+      "send_status": "sent",
       "rss_category": "cs.AI",
       "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
       "announce_type": "cross"
@@ -47811,7 +47811,7 @@
       "first_discovered_at": "2026-11-21T01:05:18.039187+00:00",
       "last_seen_at": "2026-11-22T01:03:45.146295+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent",
+      "send_status": "sent",
       "rss_category": "cs.AI",
       "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
       "announce_type": "cross"
@@ -47847,7 +47847,7 @@
       "first_discovered_at": "2026-11-21T01:05:18.039242+00:00",
       "last_seen_at": "2026-11-22T01:03:45.146302+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent",
+      "send_status": "sent",
       "rss_category": "cs.AI",
       "public_batch_at": "Fri, 20 Nov 2026 00:00:00 -0500",
       "announce_type": "cross"
@@ -48202,7 +48202,7 @@
       "first_discovered_at": "2026-11-22T01:03:17.349951+00:00",
       "last_seen_at": "2026-11-22T01:03:45.145180+00:00",
       "processing_status": "reviewed",
-      "send_status": "unsent"
+      "send_status": "sent"
     },
     "arxiv:2611.26312": {
       "id": "arxiv:2611.26312",
@@ -51805,11 +51805,13 @@
         "arxiv:2611.26311:v1"
       ],
       "created_at": "2026-11-22T01:05:37.744383+00:00",
-      "status": "sending",
+      "status": "sent",
       "lease_owner": "6b81feed8d9a4c6287fbb76ef991f244",
       "lease_until": "2026-11-22T01:15:40.700230+00:00",
       "first_attempt_at": "2026-11-22T01:05:40.700433+00:00",
-      "payload_hash": "7632681723b92770e8c26ab9d75ae17e462ba1a07c6d1d751820a11326073af5"
+      "payload_hash": "7632681723b92770e8c26ab9d75ae17e462ba1a07c6d1d751820a11326073af5",
+      "provider_id": "<202611220105.61403067821@smtp-relay.mailin.fr>",
+      "sent_at": "2026-11-22T01:05:43.603239+00:00"
     }
   },
   "runs": [
