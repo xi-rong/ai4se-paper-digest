@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 134,
+  "revision": 135,
   "papers": {
     "arxiv:2407.01489": {
       "id": "arxiv:2407.01489",
@@ -176971,6 +176971,68 @@
           ]
         }
       ]
+    },
+    {
+      "id": "9b62c39a89b04d8bac2800de32ba5ff9",
+      "at": "2026-11-23T01:00:51.337661+00:00",
+      "type": "collect",
+      "from": "2026-11-15T01:02:41.720670+00:00",
+      "to": "2026-11-23T01:00:02.826803+00:00",
+      "coverage": [
+        {
+          "source": "arxiv-api",
+          "query": "cat:cs.SE",
+          "from": "2026-11-15T01:02:41.720670+00:00",
+          "to": "2026-11-23T01:00:02.826803+00:00",
+          "pages": 0,
+          "status": "failed",
+          "count": 0,
+          "error": "RequestError",
+          "http_status": 429
+        },
+        {
+          "source": "arxiv-api",
+          "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+          "from": "2026-11-15T01:02:41.720670+00:00",
+          "to": "2026-11-23T01:00:02.826803+00:00",
+          "pages": 0,
+          "status": "failed",
+          "count": 0,
+          "error": "RequestError",
+          "http_status": 429
+        },
+        {
+          "source": "arxiv-rss:cs.SE",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 22 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.AI",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 22 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.CL",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 22 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        },
+        {
+          "source": "arxiv-rss:cs.LG",
+          "status": "ok",
+          "count": 0,
+          "public_batch_at": "Sun, 22 Nov 2026 00:00:00 -0500",
+          "response_bytes": 892
+        }
+      ],
+      "new_versions": 0,
+      "status": "partial",
+      "discovery_candidates": []
     }
   ],
   "cursors": {
@@ -176989,9 +177051,5 @@
       "at": "2026-11-03T08:40:24.403898+00:00",
       "read_sha": "de97ddfc44fa3678f474e12df4c2da0e4c02a1f2"
     }
-  },
-  "arxiv_collection_lease": {
-    "owner": "11e01cc2f8f541298ebf658a7be15dfb",
-    "until": "2026-11-23T01:30:02.826803+00:00"
   }
 }
