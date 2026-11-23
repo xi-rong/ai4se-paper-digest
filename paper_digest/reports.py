@@ -157,6 +157,14 @@ def render(state, kind, coverage=None, max_papers=10, now=None):
     weekly_note = ""
     if kind == "weekly":
         weekly_note = f"本期列出 {len(items)} 篇本周发现并已审读的论文，样本不代表整个领域。"
+        weekly_note += " 本周进展按下列精确版本回顾；未完成版本差异核查，不能据此声称存在重要更新。"
+        weekly_note += " 任务范围与阅读依据：" + "；".join(
+            paper["id"] + ":v" + str(paper.get("version")) + "（" +
+            TASK_LABEL[review["task_type"]] + "，" + review["basis"] + "）"
+            for paper, review in items)
+        weekly_note += "。研究建议（Agent建议，非作者实验结论）：" + "；".join(
+            paper["id"] + "：" + review["research_use"] for paper, review in items)
+        weekly_note += "。关键词队列及未入选发现不等于已审读；来源异常见下方，不据此推断没有新成果。"
     keys = [event_key(p) for p, _ in items]
     digest_id = hashlib.sha256(json.dumps([kind, keys, date] if not keys else [kind, keys], sort_keys=True).encode()).hexdigest()[:32]
     return {"id": digest_id, "kind": kind, "subject": title,

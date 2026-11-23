@@ -1,5 +1,15 @@
 # 云端设置与新聊天交接
 
+## 2026-11-23 独立日报和周报均已受理
+
+以2ed4ffd在指定Cloud环境及源配置执行，观测current、网络enforced、密钥ready，原生Git fetch确认最新并保留work/。39项检查通过。先collect --rss，arXiv两组HTTP429、RSS均有效空批次；日报11月21–23日范围无已核验记录，translation-needed已读为空，发送明确采集不完整的空日报，不称没有新论文。随后收到独立周报请求，collect --weekly --rss遵守30分钟冷却，将arXiv标deferred，未重复请求；S2引用失败、推荐100条，DBLP两项JSONDecodeError，作者及会议/期刊未配置，整体partial，游标保留2026-11-22T01:02:41.720670+00:00。
+
+复读周报选中10篇精确v1摘要和既有review，未新增review或声称读全文；其中ProdPilot/KernelArmor/分层代码图评测完整标题摘要新译3份，其余7份复用已有译文。按首次发现近7日、上限10篇回顾，历史投稿明确标识，不宣称本周首次发表。现有周报模板仅有样本说明，故补充渲染所选review中的research_use（标为Agent建议）、任务分类、阅读依据及未核查重要更新/未审范围说明；补充后39项检查再次通过，双语全文/建议/限制预览验证通过。剩余848条队列及100条S2推荐未逐篇审读，未确认新重要版本或协同多仓库修改能力。
+
+唯一收件人syb38324@126.com，两封分别入队、原mailer各一次POST，durable outbox/租约/幂等/CAS。日报09:01:30北京时间受理、09:01:37 delivered，provider ID <202611230101.45970242086@smtp-relay.mailin.fr>；周报09:03:11受理，provider ID <202611230103.96283235187@smtp-relay.mailin.fr>，即时事件为空尚未确认delivered。delivered不保证入箱位置或阅读。日报未替代、关闭或合并周报，调度未改。
+
+远端revision143，头8c96ca65cdbc80febc62a95be29fce58d09b6d59，1550篇、69份review；旧范围外401待发逐字段不变且未重发，sent/superseded未重置，未观察并发冲突。未改白名单、使用额外服务或推断出口IP。证据evidence/daily-and-weekly-run-2026-11-23.json。
+
 ## 2026-11-22 日报：4篇已受理
 
 以c1cf4df在指定Cloud环境及源配置执行，观测current、网络enforced、密钥ready；原生Git fetch确认最新，保留work/，39项检查通过。collect --rss两组完整166/166和134/134；RSS SE/AI/CL为空批次，LG359条，353个额外发现观测。整体ok，16个新版本事件不等于重要更新，未确认新的重要版本更新。游标推进2026-11-22T01:02:41.720670+00:00；配置日报来源成功不代表全领域全来源覆盖。
