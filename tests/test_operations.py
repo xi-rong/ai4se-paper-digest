@@ -24,6 +24,15 @@ class OperationalChecks(unittest.TestCase):
         bad["storage"]["branch"] = "main"
         self.assertEqual(len(check_config(bad, "git")["errors"]), 3)
 
+    def test_recurring_intervals_and_legacy_weekday_configuration(self):
+        config = self.config
+        self.assertEqual((config["schedule"]["daily_interval_days"], config["schedule"]["weekly_interval_days"]), (3, 12))
+        config["schedule"]["weekly_interval_days"] = 0
+        self.assertIn("invalid weekly interval", check_config(config, "git")["errors"])
+        del config["schedule"]["weekly_interval_days"]
+        config["schedule"]["weekly"] = "Monday 09:00"
+        self.assertEqual(check_config(config, "git")["status"], "ok")
+
     def test_status_redacts_raw_candidates_and_keeps_coverage(self):
         state = empty()
         state["runs"].append({"type": "collect", "status": "partial", "at": "2026-11-09T00:00:00+00:00",

@@ -85,6 +85,7 @@ def main(argv=None):
     delivery.add_argument("--to", required=True, help="must equal confirmed recipient in config")
     args = parser.parse_args(argv)
     cfg = json.loads(Path(args.config).read_text())
+    recap_days = cfg.get("schedule", {}).get("weekly_interval_days", 7)
     mode = args.storage or cfg["storage"]["mode"]
     if args.command == "check-config":
         result = check_config(cfg, mode)
@@ -188,7 +189,7 @@ def main(argv=None):
         print(json.dumps({"reviews": len(reviews)}))
     elif args.command == "translation-needed":
         items = [{"paper_id": p["id"], "version": p.get("version"), "title": p["title"],
-                  "abstract": p.get("abstract", "")} for p, r in selected(state, args.kind, cfg["max_papers"])
+                  "abstract": p.get("abstract", "")} for p, r in selected(state, args.kind, cfg["max_papers"], recap_days=recap_days)
                  if not r.get("title_zh") or not r.get("abstract_zh") or not p.get("abstract")]
         path = Path(args.out)
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -201,11 +202,11 @@ def main(argv=None):
         print(json.dumps({"translations": len(translations)}))
     elif args.command == "preview":
         if args.enqueue:
-            missing = [p["id"] for p, r in selected(state, args.kind, cfg["max_papers"])
+            missing = [p["id"] for p, r in selected(state, args.kind, cfg["max_papers"], recap_days=recap_days)
                        if not r.get("title_zh") or not r.get("abstract_zh") or not p.get("abstract")]
             if missing:
                 raise ValueError("translation or original abstract missing; run translation-needed: " + ", ".join(missing))
-        message = render(state, args.kind, max_papers=cfg["max_papers"])
+        message = render(state, args.kind, max_papers=cfg["max_papers"], recap_days=recap_days)
         if message is None:
             print(json.dumps({"status": "no_reviewed_unsent_papers", "queued": False}))
             return 0
