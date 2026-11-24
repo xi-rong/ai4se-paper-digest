@@ -5,17 +5,29 @@ import ssl
 import time
 import urllib.error
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
 
 class RequestError(RuntimeError):
-    def __init__(self, status=None, uncertain=False):
+    def __init__(self, status=None, uncertain=False, retry_at=None):
         self.status, self.uncertain = status, uncertain
+        self.retry_at = retry_at
         super().__init__(f"HTTPS request failed (status={status}, uncertain={uncertain})")
 
 
-def request(url, *, method="GET", body=None, headers=None, attempts=3, timeout=25):
+def retry_after_time(value):
+    """Convert a Retry-After delta or HTTP date to an absolute UTC time."""
+    try:
+        if value.isascii() and value.isdigit():
+            return datetime.now(timezone.utc) + timedelta(seconds=int(value))
+        date = parsedate_to_datetime(value)
+        return date.astimezone(timezone.utc) if date.tzinfo else None
+    except (TypeError, ValueError, OverflowError):
+        return None
+
+
+def request(url, *, method="GET", body=None, headers=None, attempts=3, timeout=25, defer_on_429=False):
     if not url.startswith("https://"):
         raise ValueError("HTTPS required")
     # macOS Python distributions may lack their own CA bundle. Keep TLS validation.
@@ -33,16 +45,12 @@ def request(url, *, method="GET", body=None, headers=None, attempts=3, timeout=2
                 return data, dict(response.headers)
         except urllib.error.HTTPError as exc:
             retryable = exc.code in (408, 429, 500, 502, 503, 504)
-            if not retryable or attempt == attempts - 1:
-                raise RequestError(exc.code, method != "GET" and retryable) from None
-            retry = exc.headers.get("Retry-After", "")
-            try:
-                delay = float(retry)
-            except ValueError:
-                try:
-                    delay = (parsedate_to_datetime(retry) - datetime.now(timezone.utc)).total_seconds()
-                except (TypeError, ValueError):
-                    delay = 2 ** (attempt + 1)
+            retry_at = retry_after_time(exc.headers.get("Retry-After", ""))
+            exc.close()
+            if not retryable or attempt == attempts - 1 or (defer_on_429 and exc.code == 429):
+                raise RequestError(exc.code, method != "GET" and retryable, retry_at) from None
+            delay = ((retry_at - datetime.now(timezone.utc)).total_seconds()
+                     if retry_at else 2 ** (attempt + 1))
             # Preserve long server backoffs for the next run; don't retry earlier.
             if delay > 45:
                 raise RequestError(exc.code, method != "GET") from None

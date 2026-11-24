@@ -2,6 +2,8 @@
 import hashlib
 import html
 import json
+import re
+from collections import Counter
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 from urllib.parse import urlsplit
@@ -11,6 +13,9 @@ from .collectors import iso
 TASK_LABEL = {"multi_repo_coordinated": "① 多仓库协同修改", "external_repo_context": "② 外部仓库辅助单目标修复",
               "single_repo_cross_file": "③ 单仓库跨文件", "multi_repo_dataset_single_target": "④ 多仓库数据集、单目标任务",
               "single_repo_other": "单仓库任务", "unknown": "任务范围待核查"}
+
+
+ALERT_LABELS = {"P0": "P0 必读", "P1": "P1 重点"}
 
 
 def event_key(paper):
@@ -53,7 +58,7 @@ def selected(state, kind, max_papers=10, now=None):
                 continue
             if not new_daily_paper(paper, now):
                 continue
-        if kind == "daily" and paper.get("version", 1) > 1 and not review.get("important_update", False):
+        if kind == "daily" and (paper.get("version") or 1) > 1 and not review.get("important_update", False):
             continue
         if kind == "history" and paper.get("submitted_at") and not review.get("seed_only"):
             if datetime.fromisoformat(paper["submitted_at"].replace("Z", "+00:00")) < now - timedelta(days=30):
@@ -65,11 +70,13 @@ def selected(state, kind, max_papers=10, now=None):
 def _freshness(paper, review, now):
     if review.get("seed_only"):
         return "研究种子／超出近30天窗口，不属于新增"
-    if paper.get("version", 1) > 1:
-        return "重要版本更新（不等于新投稿）"
-    if paper.get("submitted_at") and datetime.fromisoformat(paper["submitted_at"].replace("Z", "+00:00")) < now - timedelta(days=2):
-        return "历史论文／近期补收，不属于今日新投稿"
-    return "近期投稿；公开批次另列"
+    if (paper.get("version") or 1) > 1:
+        return "重要版本更新（经审读确认）" if review.get("important_update") else "版本更新／重要性待核查"
+    if new_daily_paper(paper, now):
+        return "近期投稿；公开批次另列"
+    if paper.get("submitted_at"):
+        return "三天投稿窗口外／补收或回顾"
+    return "首次投稿日期待核查"
 
 
 def _report_paper(paper, review, now):
@@ -87,19 +94,66 @@ def _report_paper(paper, review, now):
                 ("英文摘要", paper.get("abstract") or "英文摘要暂不可用")]
     links = [("原文", paper["url"])] + [(link["kind"], link["url"]) for link in review["links"]]
     links += [("依据", url) for url in review["evidence_urls"] if url != paper["url"]]
-    return {"title": paper["title"], "title_zh": review.get("title_zh") or "中文标题待翻译", "summary": review["summary_zh"], "priority": review["priority"],
+    return {"title": paper["title"], "title_zh": review.get("title_zh") or "中文标题待翻译", "summary": review["summary_zh"], "priority": ALERT_LABELS.get(review["priority"], review["priority"]),
             "metadata": metadata, "sections": sections, "links": links}
 
 
-def _coverage_issues(state, coverage):
+def _arxiv_issue(row):
+    status = row.get("status")
+    code = row.get("http_status")
+    if status == "deferred":
+        return "限流冷却中，已推迟查询" if row.get("error") == "rate-limit cooldown" else "采集已推迟"
+    if code == 429:
+        cause = "请求受限（HTTP 429）"
+    elif code:
+        cause = f"请求失败（HTTP {code}）"
+    elif row.get("error") == "RequestError":
+        cause = "请求失败，未取得 HTTP 状态码"
+    elif row.get("error") in ("ParseError", "ValueError"):
+        cause = "返回数据格式或分页异常"
+    else:
+        cause = "未完成检索"
+    if status == "partial":
+        return f"{cause}，已保留 {row.get('count', 0)} 条记录"
+    return cause
+
+
+def _coverage_issues(state, coverage, kind, now):
     if coverage is None:
-        runs = state["runs"]
-        run = next((r for r in reversed(runs) if r.get("type") == "collect"), runs[-1] if runs else {})
-        coverage = run.get("coverage", [])
+        tz = ZoneInfo("Asia/Shanghai")
+        for run in reversed(state["runs"]):
+            if run.get("type") != "collect":
+                continue
+            if kind != "history":
+                at = run.get("at")
+                if not at or datetime.fromisoformat(at).astimezone(tz).date() != now.astimezone(tz).date():
+                    continue
+                # Older runs did not store report_kind. Weekly runs also queried weekly-only sources.
+                rows = run.get("coverage", [])
+                legacy_weekly = any(not c.get("source", "").startswith("arxiv-") for c in rows)
+                if run.get("report_kind", "weekly" if legacy_weekly else "daily") != kind:
+                    continue
+            coverage = run.get("coverage")
+            break
     if not coverage:
         return ["未取得来源覆盖记录，不能视为全量检索。"]
-    return [str(c.get("source", "未知来源")) + ": " + str(c.get("status", "unknown"))
-            for c in coverage if c.get("status") != "ok"]
+    issues = []
+    groups = {}
+    for row in coverage:
+        if row.get("status") == "ok":
+            continue
+        source = row.get("source", "未知来源")
+        if source != "arxiv-api":
+            issues.append(f"{source}: {row.get('status', 'unknown')}")
+            continue
+        categories = dict.fromkeys(re.findall(r"cat:([A-Za-z0-9.-]+)", row.get("query", "")))
+        scope = "、".join(categories) or "API 检索"
+        if len(categories) > 1:
+            scope += " 补充检索"
+        groups.setdefault(_arxiv_issue(row), {})[scope] = None
+    for cause, scopes in groups.items():
+        issues.append(f"arXiv {'，'.join(scopes)}：{cause}")
+    return issues
 
 
 def _markdown(title, top, papers, issues, weekly_note):
@@ -121,10 +175,11 @@ def _html(title, date, top, papers, issues, weekly_note):
     # Inline styles and presentation tables survive common mail clients, including mobile apps.
     cards = []
     for index, paper in enumerate(papers, 1):
+        badge_color = {"P0 必读": "#a1281e", "P1 重点": "#875315"}.get(paper["priority"], "#2457a6")
         meta = "<br>".join('<span style="color:#68778b">' + e(k) + '：</span>' + e(v) for k, v in paper["metadata"])
         details = "".join('<tr><td style="padding:9px 0;border-top:1px solid #eef1f5"><div style="font-size:12px;font-weight:700;letter-spacing:.03em;color:#48617d;margin-bottom:5px">' + e(k) + '</div><div style="font-size:14px;line-height:1.75;color:#25354a">' + e(v).replace("\n", "<br>") + '</div></td></tr>' for k, v in paper["sections"])
         links = " ".join('<a href="' + e(url) + '" style="display:inline-block;margin:4px 7px 4px 0;padding:7px 12px;background:#edf4ff;border-radius:6px;color:#1d4ed8;font-size:13px;font-weight:700;text-decoration:none">' + e(label) + ' ↗</a>' for label, url in paper["links"] if urlsplit(url).scheme in ("http", "https"))
-        cards.append('<tr><td style="padding:0 18px 16px"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#ffffff;border:1px solid #e1e8f1;border-radius:12px"><tr><td style="padding:20px 20px 12px"><span style="font-size:12px;font-weight:700;color:#2457a6">' + e(paper["priority"]) + ' · 论文 ' + str(index).zfill(2) + '</span><h2 style="margin:9px 0 12px;color:#10253e;font-size:19px;line-height:1.4">' + e(paper["title"]) + '</h2><div style="padding:12px 14px;border-left:3px solid #5a8de5;background:#f2f6fd;font-size:15px;line-height:1.7;color:#1a3558">' + e(paper["title_zh"]).replace("\n", "<br>") + '</div><p style="margin:14px 0;font-size:12px;line-height:1.85;color:#41536b">' + meta + '</p><table role="presentation" width="100%" cellspacing="0" cellpadding="0">' + details + '</table><div style="padding-top:8px">' + links + '</div></td></tr></table></td></tr>')
+        cards.append('<tr><td style="padding:0 18px 16px"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#ffffff;border:1px solid #e1e8f1;border-radius:12px"><tr><td style="padding:20px 20px 12px"><span style="font-size:12px;font-weight:700;color:' + badge_color + '">' + e(paper["priority"]) + ' · 论文 ' + str(index).zfill(2) + '</span><h2 style="margin:9px 0 12px;color:#10253e;font-size:19px;line-height:1.4">' + e(paper["title"]) + '</h2><div style="padding:12px 14px;border-left:3px solid #5a8de5;background:#f2f6fd;font-size:15px;line-height:1.7;color:#1a3558">' + e(paper["title_zh"]).replace("\n", "<br>") + '</div><p style="margin:14px 0;font-size:12px;line-height:1.85;color:#41536b">' + meta + '</p><table role="presentation" width="100%" cellspacing="0" cellpadding="0">' + details + '</table><div style="padding-top:8px">' + links + '</div></td></tr></table></td></tr>')
     extra = ''
     if weekly_note:
         extra += '<tr><td style="padding:0 18px 16px"><div style="background:#eaf3ff;padding:16px 18px;border-radius:10px;color:#173a68;font-size:14px;line-height:1.75"><strong>本周样本与行动</strong><br>' + e(weekly_note) + '</div></td></tr>'
@@ -146,8 +201,13 @@ def render(state, kind, coverage=None, max_papers=10, now=None):
                m.get("subject", "").endswith(date) for m in state.get("outbox", {}).values()):
             return None
     title = {"daily": "AI4SE 论文日报", "weekly": "AI4SE 本周阅读回顾", "history": "AI4SE 初始阅读清单 · 历史回顾"}[kind] + " · " + date
+    if kind in ("daily", "weekly"):
+        counts = Counter(review["priority"] for _, review in items)
+        alerts = [f"{label} {counts[priority]} 篇" for priority, label in ALERT_LABELS.items() if counts[priority]]
+        if alerts:
+            title = "【" + " · ".join(alerts) + "】" + title
     papers = [_report_paper(paper, review, now) for paper, review in items]
-    issues = _coverage_issues(state, coverage)
+    issues = _coverage_issues(state, coverage, kind, now)
     if papers:
         top = papers[0]["summary"]
     elif issues:

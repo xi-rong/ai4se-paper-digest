@@ -19,6 +19,11 @@ def iso():
 
 def parse_atom(data):
     root = ET.fromstring(data)
+    if root.tag != "{http://www.w3.org/2005/Atom}feed":
+        raise ValueError("expected arXiv Atom feed")
+    total_text = root.findtext("o:totalResults", "", NS).strip()
+    if not re.fullmatch(r"[0-9]+", total_text):
+        raise ValueError("missing or invalid arXiv totalResults")
     rows = []
     for e in root.findall("a:entry", NS):
         url = e.findtext("a:id", "", NS)
@@ -43,19 +48,23 @@ def parse_atom(data):
                      "url": "https://arxiv.org/abs/" + base,
                      "sources": ["arxiv-api"], "discovered_at": iso(),
                      "processing_status": "unreviewed", "send_status": "unsent"})
-    return rows, int(root.findtext("o:totalResults", "0", NS))
+    return rows, int(total_text)
 
 
 class Arxiv:
     def __init__(self, config):
         self.config = config
-        self.last = 0
+        self.last = time.monotonic()
 
     def fetch(self, params):
-        time.sleep(max(0, self.config["arxiv"]["interval_seconds"] - (time.monotonic() - self.last)))
-        self.last = time.monotonic()
-        return request("https://export.arxiv.org/api/query?" + urlencode(params),
-                       headers={"User-Agent": self.config["user_agent"]})[0]
+        interval = max(3.1, self.config["arxiv"]["interval_seconds"])
+        time.sleep(max(0, interval - (time.monotonic() - self.last)))
+        try:
+            return request("https://export.arxiv.org/api/query?" + urlencode(params),
+                           headers={"User-Agent": self.config["user_agent"]}, defer_on_429=True)[0]
+        finally:
+            # HTTP retries may have taken longer than the interval.
+            self.last = time.monotonic()
 
     def ids(self, ids):
         return parse_atom(self.fetch({"id_list": ",".join(ids)}))[0]
@@ -64,15 +73,22 @@ class Arxiv:
         rows, coverage = [], []
         dates = f"lastUpdatedDate:[{start:%Y%m%d%H%M} TO {end:%Y%m%d%H%M}]"
         cfg = self.config["arxiv"]
+        limited = False
         for query in cfg["queries"]:
             status = {"source": "arxiv-api", "query": query, "from": start.isoformat(),
                       "to": end.isoformat(), "pages": 0, "status": "running", "count": 0}
+            if limited:
+                status.update(status="deferred", error="rate-limit cooldown")
+                coverage.append(status)
+                continue
             try:
                 offset = 0
                 for _ in range(cfg["max_pages"]):
                     batch, total = parse_atom(self.fetch({"search_query": f"({query}) AND {dates}",
                                                          "start": offset, "max_results": cfg["page_size"],
                                                          "sortBy": "lastUpdatedDate", "sortOrder": "ascending"}))
+                    if ("total" in status and status["total"] != total) or offset + len(batch) > total:
+                        raise ValueError("inconsistent arXiv pagination")
                     status["pages"] += 1
                     status["total"] = total
                     rows.extend(batch)
@@ -91,6 +107,10 @@ class Arxiv:
                 status["error"] = type(exc).__name__
                 if isinstance(exc, RequestError):
                     status["http_status"] = exc.status
+                    if exc.status == 429:
+                        limited = True
+                        if exc.retry_at:
+                            status["retry_at"] = exc.retry_at.isoformat()
             coverage.append(status)
         return rows, coverage
 
@@ -129,7 +149,7 @@ def rss(config):
                              "response_bytes": len(data)})
         except Exception as e:
             coverage.append({"source": "arxiv-rss:" + category, "status": "failed", "error": type(e).__name__})
-        time.sleep(config["arxiv"]["interval_seconds"])
+        time.sleep(max(3.1, config["arxiv"]["interval_seconds"]))
     return records, coverage
 
 

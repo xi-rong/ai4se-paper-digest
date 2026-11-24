@@ -4,6 +4,7 @@ import json
 import os
 import tempfile
 import unittest
+from urllib.error import HTTPError
 import uuid
 from contextlib import redirect_stdout
 from datetime import datetime, timedelta, timezone
@@ -158,10 +159,11 @@ class PipelineTests(unittest.TestCase):
         state["cursors"]["arxiv"] = "2026-11-01T00:00:00+00:00"
         state["arxiv_collection_lease"] = {"owner": "other", "until": (datetime.now(timezone.utc) + timedelta(minutes=5)).isoformat()}
         self.persist(state)
-        with patch.object(Arxiv, "collect") as collect, redirect_stdout(io.StringIO()):
-            result = cli.main(["--state", str(self.path), "collect", "--out", str(self.path.parent / "candidates.json")])
+        with patch.object(Arxiv, "collect") as collect, patch("paper_digest.cli.rss") as rss, redirect_stdout(io.StringIO()):
+            result = cli.main(["--state", str(self.path), "collect", "--rss", "--out", str(self.path.parent / "candidates.json")])
         self.assertEqual(result, 2)
         collect.assert_not_called()
+        rss.assert_not_called()
         saved, _ = self.store.load()
         self.assertEqual(saved["cursors"]["arxiv"], "2026-11-01T00:00:00+00:00")
         self.assertEqual(saved["arxiv_collection_lease"]["owner"], "other")
@@ -179,9 +181,112 @@ class PipelineTests(unittest.TestCase):
 
     def test_arxiv_failure_records_safe_http_status(self):
         collector = Arxiv(self.cfg)
-        with patch.object(collector, "fetch", side_effect=RequestError(429)):
+        with patch.object(collector, "fetch", side_effect=RequestError(429)) as fetch:
             _, coverage = collector.collect(datetime.now(timezone.utc), datetime.now(timezone.utc))
-        self.assertTrue(all(c["status"] == "failed" and c["http_status"] == 429 for c in coverage))
+        self.assertEqual(fetch.call_count, 1)
+        self.assertEqual([c["status"] for c in coverage], ["failed", "deferred"])
+        self.assertEqual(coverage[0]["http_status"], 429)
+        self.assertNotIn("http_status", coverage[1])
+
+    def test_real_rate_limit_coverage_in_both_report_formats(self):
+        coverage = json.loads(Path("evidence/daily-run-2026-11-24.json").read_text())["collection"]["coverage"]
+        doc = render(empty(), "daily", coverage=coverage)
+        for body in (doc["markdown"], doc["html"]):
+            self.assertEqual(body.count("HTTP 429"), 1)
+            self.assertIn("cs.SE", body)
+            self.assertIn("补充检索", body)
+            self.assertIn("采集不完整", body)
+            self.assertNotIn("arxiv-api: failed", body)
+        self.assertEqual(doc["event_keys"], [])
+
+    def test_only_valid_zero_count_feed_advances_cursor(self):
+        feed = '<feed xmlns="http://www.w3.org/2005/Atom" xmlns:o="http://a9.com/-/spec/opensearch/1.1/">{}</feed>'
+        for xml, valid in [("<html/>", False), (feed.format(""), False),
+                           (feed.format("<o:totalResults>0</o:totalResults>"), True)]:
+            with self.subTest(xml=xml), patch.object(Arxiv, "fetch", return_value=xml.encode()), redirect_stdout(io.StringIO()):
+                code = cli.main(["--state", str(self.path), "collect", "--out", str(self.path.parent / "c.json")])
+                state, _ = self.store.load()
+                self.assertEqual(code, 0 if valid else 2)
+                self.assertEqual("arxiv" in state["cursors"], valid)
+
+    def test_priority_subject_tracks_selected_papers_and_brevo_payload(self):
+        state, p, r = fixture()
+        p0 = dict(p, id="arxiv:other")
+        upsert(state, [p0])
+        add_reviews(state, [dict(r, paper_id=p0["id"], priority="P0")])
+        for kind in ("daily", "weekly"):
+            msg = render(state, kind)
+            self.assertTrue(msg["subject"].startswith("【P0 必读 1 篇 · P1 重点 1 篇】"))
+            self.assertEqual(msg["event_keys"][0], p0["id"] + ":v1")
+            self.assertIn("P0 必读", msg["html"])
+            self.assertIn("P1 重点", msg["markdown"])
+            self.assertNotIn("P1", render(state, kind, max_papers=1)["subject"])
+        state["outbox"]["sent"] = {"kind": "daily", "status": "sent", "event_keys": [p0["id"] + ":v1"]}
+        msg = render(state, "daily")
+        self.assertTrue(msg["subject"].startswith("【P1 重点 1 篇】"))
+        state["outbox"][msg["id"]] = msg
+        self.persist(state)
+        self.cfg["mail"].update(provider="brevo", api_url="https://api.brevo.com/v3/smtp/email")
+        with patch.dict(os.environ, {"DIGEST_MAIL_TOKEN": "placeholder"}), patch("paper_digest.mailer.request", return_value=(b'{"messageId":"accepted"}', {})) as req:
+            send(self.store, self.cfg, msg["id"], recipient="reader@example.org")
+        self.assertEqual(json.loads(req.call_args.kwargs["body"])["subject"], msg["subject"])
+
+    def test_no_priority_alert_for_ordinary_or_empty_reports(self):
+        state, _, r = fixture()
+        for priority in ("P2", "P3", "exclude"):
+            add_reviews(state, [dict(r, priority=priority)])
+            self.assertTrue(render(state, "daily")["subject"].startswith("AI4SE"))
+        with self.assertRaises(ValueError):
+            add_reviews(state, [dict(r, priority="P0", task_type="external_repo_context")])
+
+    def test_third_beijing_calendar_day_is_labelled_recent(self):
+        state, p, _ = fixture()
+        state["papers"][p["id"]]["submitted_at"] = "2026-11-21T16:00:00Z"
+        msg = render(state, "daily", now=datetime(2026, 11, 24, 1, tzinfo=timezone.utc))
+        self.assertEqual(len(msg["event_keys"]), 1)
+        self.assertNotIn("历史论文", msg["markdown"])
+
+    def test_server_backoff_survives_another_process(self):
+        cmd = ["--state", str(self.path), "collect", "--out", str(self.path.parent / "batch.json")]
+        rate_limit = HTTPError("https://export.arxiv.org/api/query", 429, "", {"Retry-After": "7200"}, None)
+        with patch("urllib.request.urlopen", side_effect=rate_limit) as fetch, patch("time.sleep"), redirect_stdout(io.StringIO()):
+            self.assertEqual(cli.main(cmd), 2)
+            self.assertEqual(fetch.call_count, 1)
+            state, rev = self.store.load()
+            coverage = state["runs"][-1]["coverage"]
+            self.assertIn("retry_at", coverage[0])
+            state["runs"][-1]["at"] = (datetime.now(timezone.utc) - timedelta(minutes=45)).isoformat()
+            self.store.save(state, rev)
+            self.assertEqual(cli.main(cmd), 2)
+            self.assertEqual(fetch.call_count, 1)
+            latest = self.store.load()[0]["runs"][-1]["coverage"][0]
+            self.assertEqual((latest["status"], latest["error"]), ("deferred", "rate-limit cooldown"))
+
+    def test_weekly_collection_releases_arxiv_before_other_sources(self):
+        good = [{"source": "arxiv-api", "status": "ok", "count": 0}]
+        def collect_weekly(_cfg):
+            state, rev = self.store.load()
+            self.assertNotIn("arxiv_collection_lease", state)
+            self.assertEqual(state["runs"][-1]["status"], "partial")
+            state["runs"].append({"id": "parallel", "type": "collect", "at": iso(),
+                                  "report_kind": "daily", "coverage": good})
+            self.store.save(state, rev)
+            return [], [{"source": "dblp", "status": "failed"}]
+        with patch.object(Arxiv, "collect", return_value=([], list(good))), patch("paper_digest.cli.weekly", side_effect=collect_weekly), redirect_stdout(io.StringIO()):
+            result = cli.main(["--state", str(self.path), "collect", "--weekly", "--out", str(self.path.parent / "batch.json")])
+        self.assertEqual(result, 2)
+        state, _ = self.store.load()
+        self.assertEqual(len(state["runs"]), 2)
+        self.assertEqual(state["runs"][0]["coverage"][-1]["source"], "dblp")
+        self.assertEqual(state["runs"][1]["id"], "parallel")
+        self.assertNotIn("来源异常与限制", render(state, "daily")["markdown"])
+
+    def test_empty_daily_does_not_reuse_yesterdays_success(self):
+        state = empty()
+        state["runs"] = [{"type": "collect", "at": "2026-11-23T01:01:00+00:00",
+                          "coverage": [{"source": "arxiv-api", "status": "ok"}]}]
+        run_at = datetime(2026, 11, 24, 1, tzinfo=timezone.utc)
+        self.assertIn("未取得来源覆盖记录", render(state, "daily", now=run_at)["markdown"])
 
     def test_new_version_requires_new_review(self):
         state, paper, _ = fixture()
@@ -335,9 +440,10 @@ class PipelineTests(unittest.TestCase):
     def test_seed_enrichment_does_not_hide_partial_collection(self):
         state, _, _ = fixture()
         state['runs'] = [
-            {'type': 'collect', 'coverage': [{'source': 's2-citations', 'status': 'failed'}]},
+            {'type': 'collect', 'at': iso(), 'report_kind': 'weekly', 'coverage': [{'source': 's2-citations', 'status': 'failed'}]},
             {'type': 'seed', 'coverage': [{'source': 'arxiv-id-lookup', 'status': 'ok'}]}]
-        self.assertIn('s2-citations: failed', render(state, 'daily')['markdown'])
+        self.assertIn('s2-citations: failed', render(state, 'weekly')['markdown'])
+        self.assertIn('未取得来源覆盖记录', render(state, 'daily')['markdown'])
 
     def test_rss_empty_channel_valid_but_error_page_rejected(self):
         self.assertEqual(parse_rss(b'<rss><channel><pubDate>today</pubDate></channel></rss>', 'cs.SE'), [])
@@ -345,7 +451,7 @@ class PipelineTests(unittest.TestCase):
             parse_rss(b'<html><body>temporarily blocked</body></html>', 'cs.SE')
 
     def test_cross_listing_preserves_primary_and_secondary_categories(self):
-        data = b'''<feed xmlns="http://www.w3.org/2005/Atom" xmlns:x="http://arxiv.org/schemas/atom"><entry>
+        data = b'''<feed xmlns="http://www.w3.org/2005/Atom" xmlns:x="http://arxiv.org/schemas/atom" xmlns:o="http://a9.com/-/spec/opensearch/1.1/"><o:totalResults>1</o:totalResults><entry>
         <id>https://arxiv.org/abs/2609.33382v1</id><title>test</title><summary>test</summary>
         <category term="cs.AI"/><category term="cs.SE"/><x:primary_category term="cs.AI"/>
         </entry></feed>'''
