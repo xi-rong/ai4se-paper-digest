@@ -28,8 +28,10 @@ def add_reviews(state, reviews):
         paper = state["papers"][pid]
         if review["version"] != paper.get("version"):
             raise ValueError("review version must match collected version")
-        if review["priority"] not in ("P1", "P2", "P3", "exclude"):
+        if review["priority"] not in ("P0", "P1", "P2", "P3", "exclude"):
             raise ValueError("invalid priority")
+        if review["priority"] == "P0" and review["task_type"] != "multi_repo_coordinated":
+            raise ValueError("P0 requires coordinated changes to multiple target repositories")
         if review["task_type"] not in TASKS:
             raise ValueError("invalid task_type")
         if review["basis"] not in ("abstract", "fulltext"):

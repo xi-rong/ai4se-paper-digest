@@ -1,6 +1,7 @@
 import argparse
 import json
 import sys
+import time
 import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -10,6 +11,46 @@ from .review import add_reviews, add_translations
 from .reports import render, selected
 from .mailer import send
 from .operations import check_config, status_summary
+
+
+def arxiv_cooling(state, now):
+    for run in reversed(state["runs"]):
+        attempted = [c for c in run.get("coverage", []) if c.get("source") == "arxiv-api"
+                     and c.get("status") != "deferred"]
+        if run.get("type") != "collect" or not attempted:
+            continue
+        for row in attempted:
+            if row.get("http_status") == 429:
+                until = datetime.fromisoformat(run["at"]) + timedelta(minutes=30)
+                if row.get("retry_at"):
+                    until = max(until, datetime.fromisoformat(row["retry_at"]))
+                if now < until:
+                    return True
+        break
+    return False
+
+
+def save_arxiv_run(store, run, owner, records, observations, complete):
+    """Merge the fetched batch with current state. A conflict never repeats network queries."""
+    for attempt in range(3):
+        state, revision = store.load()
+        if owner:
+            if (state.get("arxiv_collection_lease") or {}).get("owner") != owner:
+                raise Conflict("arXiv collection lease lost; reload and retry")
+            del state["arxiv_collection_lease"]
+        count = upsert(state, records)
+        known = [r for r in observations if r["id"] in state["papers"]]
+        run["discovery_candidates"] = [r for r in observations if r["id"] not in state["papers"]]
+        upsert(state, known)
+        if complete:
+            state["cursors"]["arxiv"] = run["to"]
+        run["new_versions"] = count
+        state["runs"].append(run)
+        try:
+            return store.save(state, revision)
+        except Conflict:
+            if attempt == 2:
+                raise
 
 
 def main(argv=None):
@@ -75,16 +116,7 @@ def main(argv=None):
         # A competing run continues with other sources but never duplicates arXiv calls.
         owner = uuid.uuid4().hex
         acquired = False
-        last_collect = next((r for r in reversed(state["runs"]) if r.get("type") == "collect" and
-                             any(c.get("source") == "arxiv-api" and c.get("status") != "deferred"
-                                 for c in r.get("coverage", []))), {})
-        last_at = last_collect.get("at")
-        cooling = bool(last_at and now - datetime.fromisoformat(last_at) < timedelta(minutes=30) and
-                       any(c.get("source") == "arxiv-api" and c.get("http_status") == 429
-                           for c in last_collect.get("coverage", [])))
         for attempt in range(3):
-            if cooling:
-                break
             lease = state.get("arxiv_collection_lease") or {}
             if lease.get("until") and datetime.fromisoformat(lease["until"]) > now:
                 break
@@ -102,38 +134,45 @@ def main(argv=None):
         if args.days is not None:
             # Explicit backfills may widen, never narrow the uncovered interval.
             start = min(start, now - timedelta(days=args.days))
-        if acquired:
+        cooling = arxiv_cooling(state, now)
+        if acquired and not cooling:
             records, coverage = Arxiv(cfg).collect(start, now)
-            # A second task may have saved other sources while the API was running.
-            state, revision = store.load()
-            lease = state.get("arxiv_collection_lease") or {}
-            if lease.get("owner") != owner:
-                raise Conflict("arXiv collection lease lost; reload and retry")
-            state.pop("arxiv_collection_lease", None)
         else:
             records, coverage = [], [{"source": "arxiv-api", "status": "deferred",
                                       "error": "rate-limit cooldown" if cooling else "another collection is running; cursor retained"}]
-        count = upsert(state, records)
-        if all(c["status"] == "ok" for c in coverage):
-            state["cursors"]["arxiv"] = now.isoformat()
-        extra = []
+        complete = bool(coverage) and all(c["status"] == "ok" for c in coverage)
+        observations = []
         if args.rss:
-            observations, rss_coverage = rss(cfg)
-            coverage += rss_coverage
-            known = [r for r in observations if r["id"] in state["papers"]]
-            extra += [r for r in observations if r["id"] not in state["papers"]]
-            upsert(state, known)
+            if acquired:
+                # Space the first RSS call from the last API call, including across cloud jobs.
+                time.sleep(max(3.1, cfg["arxiv"]["interval_seconds"]))
+                observations, rss_coverage = rss(cfg)
+                coverage.extend(rss_coverage)
+            else:
+                coverage.append({"source": "arxiv-rss", "status": "deferred", "error": "another collection is running"})
+        # Release the arXiv lease before contacting potentially slow weekly-only sources.
+        if args.weekly:
+            coverage.append({"source": "weekly-sources", "status": "deferred"})
+        run_id = uuid.uuid4().hex
+        run = {"id": run_id, "at": iso(), "type": "collect", "report_kind": "weekly" if args.weekly else "daily",
+               "from": start.isoformat(), "to": now.isoformat(), "coverage": coverage,
+               "status": "ok" if all(c["status"] == "ok" for c in coverage) else "partial"}
+        state, revision = save_arxiv_run(store, run, owner if acquired else None, records, observations, complete)
         if args.weekly:
             other, other_coverage = weekly(cfg)
-            extra += other
-            coverage += other_coverage
-        run = {"id": uuid.uuid4().hex, "at": iso(), "type": "collect", "from": start.isoformat(),
-               "to": now.isoformat(), "coverage": coverage, "new_versions": count,
-               "status": "ok" if all(c["status"] == "ok" for c in coverage) else "partial"}
-        # Persist raw weekly discoveries and RSS-only IDs for later enrichment.
-        run["discovery_candidates"] = extra
-        state["runs"].append(run)
-        store.save(state, revision)
+            for attempt in range(3):
+                state, revision = store.load()
+                run = next(r for r in reversed(state["runs"]) if r["id"] == run_id)
+                run["coverage"] = [c for c in run["coverage"] if c["source"] != "weekly-sources"] + other_coverage
+                run["discovery_candidates"].extend(other)
+                run["status"] = "ok" if all(c["status"] == "ok" for c in run["coverage"]) else "partial"
+                try:
+                    state, revision = store.save(state, revision)
+                    break
+                except Conflict:
+                    if attempt == 2:
+                        raise
+        extra, coverage, count = run["discovery_candidates"], run["coverage"], run["new_versions"]
         output = {"run": run, "papers": review_queue(state["papers"].values()),
                   "additional_candidates": extra}
         path = Path(args.out)

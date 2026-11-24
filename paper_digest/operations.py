@@ -46,7 +46,7 @@ def status_summary(state):
     summary = None
     if last:
         # Do not print candidate abstracts, raw payloads, request bodies, or credentials.
-        keys = ("source", "status", "count", "pages", "error", "http_status")
+        keys = ("source", "status", "count", "pages", "error", "http_status", "retry_at")
         summary = {k: last.get(k) for k in ("id", "at", "type", "status", "from", "to", "new_versions")}
         summary["coverage"] = [{k: c[k] for k in keys if k in c} for c in last.get("coverage", [])]
     return {"revision": state.get("revision", 0), "papers": len(state.get("papers", {})),
