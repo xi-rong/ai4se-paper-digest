@@ -11,10 +11,17 @@ def check_config(config, mode):
     except (ValueError, TypeError, KeyError, ZoneInfoNotFoundError):
         errors.append("invalid timezone")
     schedule = config.get("schedule", {})
-    if not re.fullmatch(r"(?:[01]\d|2[0-3]):[0-5]\d", str(schedule.get("daily", ""))):
-        errors.append("invalid daily schedule")
-    if not re.fullmatch(r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) (?:[01]\d|2[0-3]):[0-5]\d", str(schedule.get("weekly", ""))):
-        errors.append("invalid weekly schedule")
+    clock = r"(?:[01]\d|2[0-3]):[0-5]\d"
+    for kind in ("daily", "weekly"):
+        interval = schedule.get(kind + "_interval_days")
+        if kind + "_interval_days" in schedule and (type(interval) is not int or interval < 1):
+            errors.append("invalid " + kind + " interval")
+        pattern = clock
+        if kind == "weekly" and interval is None:
+            # Accept configurations from the former weekday-based schedule.
+            pattern = r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) " + clock
+        if not re.fullmatch(pattern, str(schedule.get(kind, ""))):
+            errors.append("invalid " + kind + " schedule")
     notes.append("schedule is configuration intent; inspect cloud scheduler separately")
     if mode == "local":
         notes.append("local state is not shared across cloud tasks")

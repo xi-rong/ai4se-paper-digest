@@ -239,6 +239,22 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             add_reviews(state, [dict(r, priority="P0", task_type="external_repo_context")])
 
+    def test_twelve_day_recap_selects_by_first_discovery(self):
+        state, p, _ = fixture()
+        paper = state["papers"][p["id"]]
+        now = datetime(2026, 12, 3, 1, tzinfo=timezone.utc)
+        for age, included in [(timedelta(days=8), True), (timedelta(days=12), True),
+                              (timedelta(days=12, seconds=1), False), (timedelta(seconds=-1), False)]:
+            with self.subTest(age=age):
+                paper["first_discovered_at"] = (now - age).isoformat()
+                msg = render(state, "weekly", now=now)
+                self.assertEqual(msg is not None, included)
+                if included:
+                    for field in ("subject", "html", "markdown"):
+                        self.assertIn("近 12 天阅读回顾", msg[field])
+                    self.assertIn("P1", msg["subject"])
+        self.assertIn("三天论文速递", render(state, "daily")["subject"])
+
     def test_third_beijing_calendar_day_is_labelled_recent(self):
         state, p, _ = fixture()
         state["papers"][p["id"]]["submitted_at"] = "2026-11-21T16:00:00Z"

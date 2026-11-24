@@ -34,7 +34,7 @@ def new_daily_paper(paper, now):
         return False
 
 
-def selected(state, kind, max_papers=10, now=None):
+def selected(state, kind, max_papers=10, now=None, *, recap_days=12):
     now = now or datetime.now(timezone.utc)
     sent = {key for message in state["outbox"].values() if message["kind"] != "weekly"
             and message["status"] == "sent" for key in message["event_keys"]}
@@ -45,7 +45,8 @@ def selected(state, kind, max_papers=10, now=None):
         if not review or review["priority"] == "exclude":
             continue
         if kind == "weekly":
-            if datetime.fromisoformat(paper["first_discovered_at"]) < now - timedelta(days=7):
+            discovered = datetime.fromisoformat(paper["first_discovered_at"])
+            if not now - timedelta(days=recap_days) <= discovered <= now:
                 continue
         elif event_key(paper) in sent:
             continue
@@ -164,7 +165,7 @@ def _markdown(title, top, papers, issues, weekly_note):
         body.append(" · ".join(f"[{label}]({url})" for label, url in paper["links"]))
         blocks.append("\n\n".join(body))
     if weekly_note:
-        blocks.append("## 本周样本与行动\n\n" + weekly_note)
+        blocks.append("## 本期样本与行动\n\n" + weekly_note)
     if issues:
         blocks.append("## 来源异常与限制\n\n" + "\n".join("- " + issue for issue in issues))
     return "\n\n".join(blocks)
@@ -182,17 +183,17 @@ def _html(title, date, top, papers, issues, weekly_note):
         cards.append('<tr><td style="padding:0 18px 16px"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#ffffff;border:1px solid #e1e8f1;border-radius:12px"><tr><td style="padding:20px 20px 12px"><span style="font-size:12px;font-weight:700;color:' + badge_color + '">' + e(paper["priority"]) + ' · 论文 ' + str(index).zfill(2) + '</span><h2 style="margin:9px 0 12px;color:#10253e;font-size:19px;line-height:1.4">' + e(paper["title"]) + '</h2><div style="padding:12px 14px;border-left:3px solid #5a8de5;background:#f2f6fd;font-size:15px;line-height:1.7;color:#1a3558">' + e(paper["title_zh"]).replace("\n", "<br>") + '</div><p style="margin:14px 0;font-size:12px;line-height:1.85;color:#41536b">' + meta + '</p><table role="presentation" width="100%" cellspacing="0" cellpadding="0">' + details + '</table><div style="padding-top:8px">' + links + '</div></td></tr></table></td></tr>')
     extra = ''
     if weekly_note:
-        extra += '<tr><td style="padding:0 18px 16px"><div style="background:#eaf3ff;padding:16px 18px;border-radius:10px;color:#173a68;font-size:14px;line-height:1.75"><strong>本周样本与行动</strong><br>' + e(weekly_note) + '</div></td></tr>'
+        extra += '<tr><td style="padding:0 18px 16px"><div style="background:#eaf3ff;padding:16px 18px;border-radius:10px;color:#173a68;font-size:14px;line-height:1.75"><strong>本期样本与行动</strong><br>' + e(weekly_note) + '</div></td></tr>'
     if issues:
         extra += '<tr><td style="padding:0 18px 16px"><div style="background:#fff6e6;border:1px solid #f4d9a2;padding:14px 16px;border-radius:10px;color:#79521b;font-size:13px;line-height:1.7"><strong>来源异常与限制</strong><br>' + '<br>'.join(e(issue) for issue in issues) + '</div></td></tr>'
     return ('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + e(title) + '</title></head>'
-            '<body style="margin:0;padding:0;background:#eef2f7;color:#172b45;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#eef2f7"><tr><td align="center" style="padding:20px 0"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#f7f9fc"><tr><td style="padding:26px 24px 22px;background:#122c4b;color:white"><div style="font-size:11px;letter-spacing:.13em;color:#b8d0ed;font-weight:700">AI4SE · RESEARCH DIGEST</div><h1 style="font-size:24px;line-height:1.3;margin:10px 0 5px">' + e(title) + '</h1><div style="font-size:12px;color:#c8d8ea">' + e(date) + ' · ' + str(len(papers)) + ' 篇精选</div></td></tr><tr><td style="padding:18px"><div style="padding:17px 18px;background:#e7f0ff;border-radius:10px;color:#17375d"><div style="font-size:12px;letter-spacing:.05em;font-weight:700;color:#356ab8">今日 / 本期最值得读</div><div style="margin-top:7px;font-size:15px;line-height:1.75">' + e(top).replace("\n", "<br>") + '</div></div></td></tr>' + ''.join(cards) + extra + '<tr><td style="padding:4px 24px 22px;color:#8090a3;font-size:12px;line-height:1.6">AI4SE 个人论文追踪 · 按研究相关性筛选</td></tr></table></td></tr></table></body></html>')
+            '<body style="margin:0;padding:0;background:#eef2f7;color:#172b45;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#eef2f7"><tr><td align="center" style="padding:20px 0"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#f7f9fc"><tr><td style="padding:26px 24px 22px;background:#122c4b;color:white"><div style="font-size:11px;letter-spacing:.13em;color:#b8d0ed;font-weight:700">AI4SE · RESEARCH DIGEST</div><h1 style="font-size:24px;line-height:1.3;margin:10px 0 5px">' + e(title) + '</h1><div style="font-size:12px;color:#c8d8ea">' + e(date) + ' · ' + str(len(papers)) + ' 篇精选</div></td></tr><tr><td style="padding:18px"><div style="padding:17px 18px;background:#e7f0ff;border-radius:10px;color:#17375d"><div style="font-size:12px;letter-spacing:.05em;font-weight:700;color:#356ab8">本期最值得读</div><div style="margin-top:7px;font-size:15px;line-height:1.75">' + e(top).replace("\n", "<br>") + '</div></div></td></tr>' + ''.join(cards) + extra + '<tr><td style="padding:4px 24px 22px;color:#8090a3;font-size:12px;line-height:1.6">AI4SE 个人论文追踪 · 按研究相关性筛选</td></tr></table></td></tr></table></body></html>')
 
 
-def render(state, kind, coverage=None, max_papers=10, now=None):
+def render(state, kind, coverage=None, max_papers=10, now=None, *, recap_days=12):
     now = now or datetime.now(timezone.utc)
     date = now.astimezone(ZoneInfo("Asia/Shanghai")).strftime("%Y-%m-%d")
-    items = selected(state, kind, max_papers, now)
+    items = selected(state, kind, max_papers, now, recap_days=recap_days)
     if not items and kind != "daily":
         return None
     if kind == "daily" and not items:
@@ -200,7 +201,7 @@ def render(state, kind, coverage=None, max_papers=10, now=None):
         if any(m.get("kind") == "daily" and m.get("status") == "sent" and
                m.get("subject", "").endswith(date) for m in state.get("outbox", {}).values()):
             return None
-    title = {"daily": "AI4SE 论文日报", "weekly": "AI4SE 本周阅读回顾", "history": "AI4SE 初始阅读清单 · 历史回顾"}[kind] + " · " + date
+    title = {"daily": "AI4SE 三天论文速递", "weekly": f"AI4SE 近 {recap_days} 天阅读回顾", "history": "AI4SE 初始阅读清单 · 历史回顾"}[kind] + " · " + date
     if kind in ("daily", "weekly"):
         counts = Counter(review["priority"] for _, review in items)
         alerts = [f"{label} {counts[priority]} 篇" for priority, label in ALERT_LABELS.items() if counts[priority]]
@@ -216,8 +217,8 @@ def render(state, kind, coverage=None, max_papers=10, now=None):
         top = "本次已审读结果中没有符合近三天且未推送条件的论文。"
     weekly_note = ""
     if kind == "weekly":
-        weekly_note = f"本期列出 {len(items)} 篇本周发现并已审读的论文，样本不代表整个领域。"
-        weekly_note += " 本周进展按下列精确版本回顾；未完成版本差异核查，不能据此声称存在重要更新。"
+        weekly_note = f"本期列出 {len(items)} 篇近 {recap_days} 天首次发现并已审读的论文，样本不代表整个领域。"
+        weekly_note += " 本期进展按下列精确版本回顾；未完成版本差异核查，不能据此声称存在重要更新。"
         weekly_note += " 任务范围与阅读依据：" + "；".join(
             paper["id"] + ":v" + str(paper.get("version")) + "（" +
             TASK_LABEL[review["task_type"]] + "，" + review["basis"] + "）"
