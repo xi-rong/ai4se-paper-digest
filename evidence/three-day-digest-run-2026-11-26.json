@@ -1,0 +1,164 @@
+{
+  "recorded_at_utc": "2026-11-26T01:02:41.729794+00:00",
+  "automation_id": "Automation_ffb53eaffd6c8191b4bb2505104e87b0",
+  "source_head": "82b4b09e3a3738c1b8e8fe4cad4dbc832524e5e6",
+  "source_update": "Safely fast-forwarded origin/main 80a2779 to82b4b09; existing work/ preserved. Used merged source for collection, preview and delivery.",
+  "environment_id": "ccarenv_b64_Y2NhcmVudl9lMzhhYjNmZDRhMjA4MTkxYjI0MDNiYTBmNzA2MzI3Nw",
+  "source_config_id": "7c9e72f1717826f513d15d554beb9e7f15ad82ca3d7f9dbc343d5bf3a5b9a41c~cecfg_31ca7bccb17c819b814b4a67c52cc321",
+  "observations_current": true,
+  "network_policy": "enforced",
+  "mail_binding": "ready",
+  "checks": "49 tests passed; configuration valid",
+  "collection": {
+    "id": "8fe453e426e24a55bf89c06424377d69",
+    "at": "2026-11-26T01:01:27.605106+00:00",
+    "type": "collect",
+    "report_kind": "daily",
+    "from": "2026-11-15T01:02:41.720670+00:00",
+    "to": "2026-11-26T01:00:55.101805+00:00",
+    "coverage": [
+      {
+        "source": "arxiv-api",
+        "query": "cat:cs.SE",
+        "from": "2026-11-15T01:02:41.720670+00:00",
+        "to": "2026-11-26T01:00:55.101805+00:00",
+        "pages": 0,
+        "status": "failed",
+        "count": 0,
+        "error": "RequestError",
+        "http_status": 429
+      },
+      {
+        "source": "arxiv-api",
+        "query": "(cat:cs.AI OR cat:cs.CL OR cat:cs.LG) AND (all:\"software engineering\" OR all:\"program repair\" OR all:\"bug fix\" OR all:\"coding agent\" OR all:\"software agent\" OR all:\"SWE-bench\" OR all:\"cross-repository\" OR all:\"fault localization\" OR all:\"regression test\")",
+        "from": "2026-11-15T01:02:41.720670+00:00",
+        "to": "2026-11-26T01:00:55.101805+00:00",
+        "pages": 0,
+        "status": "deferred",
+        "count": 0,
+        "error": "rate-limit cooldown"
+      },
+      {
+        "source": "arxiv-rss:cs.SE",
+        "status": "ok",
+        "count": 38,
+        "public_batch_at": "Wed, 25 Nov 2026 00:00:00 -0500",
+        "response_bytes": 87372
+      },
+      {
+        "source": "arxiv-rss:cs.AI",
+        "status": "ok",
+        "count": 447,
+        "public_batch_at": "Wed, 25 Nov 2026 00:00:00 -0500",
+        "response_bytes": 966350
+      },
+      {
+        "source": "arxiv-rss:cs.CL",
+        "status": "ok",
+        "count": 193,
+        "public_batch_at": "Wed, 25 Nov 2026 00:00:00 -0500",
+        "response_bytes": 410329
+      },
+      {
+        "source": "arxiv-rss:cs.LG",
+        "status": "ok",
+        "count": 391,
+        "public_batch_at": "Wed, 25 Nov 2026 00:00:00 -0500",
+        "response_bytes": 833584
+      }
+    ],
+    "status": "partial",
+    "new_versions": 0
+  },
+  "scope": {
+    "timezone": "Asia/Shanghai",
+    "first_submission_date_start": "2026-11-24",
+    "first_submission_date_end": "2026-11-26",
+    "known_in_window": 0,
+    "selected_count": 0,
+    "new_reviews": 0,
+    "new_translations": 0,
+    "translation_needed_read": true,
+    "empty": true,
+    "reason": "cs.SE HTTP429; remaining API query deferred without request in same run; RSS successful. No eligible verified records. Explicit source limitations, no absence claim.",
+    "unreviewed_RSS_observations": 1065,
+    "limits": "RSS observations lack exact version and first-submission metadata, not individually reviewed or promoted. No P0/P1 assertion, fulltext claim or important version claim. Renderer generated subject and focus retained unchanged.",
+    "remaining_shortlist": 848
+  },
+  "prior_pending": {
+    "id": "644fc5938ec1494e6edba3d64893c587",
+    "status": "retry",
+    "first_attempt_at": "2026-11-12T01:04:50.648491+00:00",
+    "last_error": {
+      "type": "RequestError",
+      "status": 401,
+      "uncertain": false
+    }
+  },
+  "prior_pending_unchanged": true,
+  "prior_pending_replayed": false,
+  "state": {
+    "before_head": "d051c11aa7d3fd0b55f1f65c2b18ef175e6741af",
+    "after_head": "49eb61eee1dd9a15a3bf09e736213debaf208aae",
+    "revision": 153,
+    "papers": 1550,
+    "reviews": 69,
+    "cursors": {
+      "arxiv": "2026-11-22T01:02:41.720670+00:00"
+    },
+    "outbox_statuses": {
+      "70849d806da51fac48e919e06d267951": "superseded",
+      "f875b9f3ee3640a7857cd037f68d6648": "sent",
+      "a5ad7059c9d77f19f703044ce517583e": "sent",
+      "12ffa47b936245f72be3813916bcd3f0": "sent",
+      "0433850674929cb2e23f9a7ab09573f9": "sent",
+      "f9b3736e202816c79bc6fa6aa2ad8517": "sent",
+      "2765dbca7462af8d334bab0b1d39ea71": "sent",
+      "381038cbec59bd1af43d3b09ff404296": "sent",
+      "644fc5938ec1494e6edba3d64893c587": "retry",
+      "9ff82a20d2771bfe6329689c4e9c0a5d": "sent",
+      "8790bcf2a76ec78bf9f0767958858bb8": "sent",
+      "109505a54925c11372b8bd3abc6ef83b": "sent",
+      "9611da51fd47bc25c2cf7b6e79cde4d6": "sent",
+      "e6d207360d48a2bf75763278955407a6": "sent",
+      "f206789f227920ee7d10e9c5b593fb38": "sent",
+      "18897dc48a7aa84b725af72379aea616": "sent",
+      "aa05ba97ec392659044552434361e2b0": "sent",
+      "1ceec5ae5159d599a61a6364742c7106": "sent",
+      "ad17739c19db474d5b95a688d9da70d1": "sent",
+      "d88d56b3c1cc12d114d77f11fd07a2a1": "sent",
+      "55e61d50a755cfc8500b3776111d91e9": "sent",
+      "b092a67d6d3afe864c3d4bdee03c0ca1": "sent",
+      "3aef98953502f4a3eeababf861494579": "sent",
+      "fd96bfc64570d45868e5ceaf0f094d4f": "sent",
+      "9d6c6498c8fe4dcfce5f724762b3f255": "sent"
+    }
+  },
+  "message": {
+    "id": "9d6c6498c8fe4dcfce5f724762b3f255",
+    "kind": "daily",
+    "subject": "AI4SE 三天论文速递 · 2026-11-26",
+    "status": "sent",
+    "provider_id": "<202611260101.13658265820@smtp-relay.mailin.fr>",
+    "first_attempt_at": "2026-11-26T01:01:54.743684+00:00",
+    "sent_at": "2026-11-26T01:01:58.246538+00:00",
+    "event_keys": [],
+    "payload_hash": "9a047526ce900a16dc82daa9601722e45485a0d34309cd902a08ee81443526f2"
+  },
+  "recipient": "syb38324@126.com",
+  "post_attempts": 1,
+  "transport": "Original project mailer via inherited HTTPS proxy and TLS validation; provider ID received, exact POST status not captured.",
+  "delivery_query": {
+    "query": "success",
+    "events": []
+  },
+  "constraints": {
+    "other_recipients_used": false,
+    "allowlist_modified": false,
+    "schedule_modified": false,
+    "external_scheduler_used": false,
+    "egress_ip_inferred": false,
+    "old_messages_resent": false,
+    "state_conflicts_observed": false
+  }
+}

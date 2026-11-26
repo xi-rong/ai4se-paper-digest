@@ -1,5 +1,13 @@
 # 云端设置与新聊天交接
 
+## 2026-11-26 三天论文速递：来源不完整的空速递已受理
+
+先安全fetch并从80a2779快进至82b4b09，保留work/；后续全部使用合并源码和--storage git。指定Cloud环境/源配置匹配、观测current、网络enforced、密钥ready，配置与49项检查通过。新代码包含三天速递、十二天回顾、P0和重点主题、单次429后暂停剩余API查询等变化。此次仅执行三天速递daily，未调整或执行独立十二天回顾。
+
+collect --rss的cs.SE零成功页/HTTP429，其余API查询依新规则直接deferred未请求；RSS SE/AI/CL/LG分别38/447/193/391，1065个额外发现观测。整体partial，游标保留2026-11-22T01:02:41.720670+00:00，未绕过限流补抓。RSS缺精确版本和首次投稿日期，未冒充已审读或可选论文。北京时间11月24–26日范围无已核验记录，新增review/翻译0，translation-needed输出已读为空。没有P0/P1或重要版本判断；剩余848条队列及RSS发现未逐条审读。
+
+按渲染器生成“AI4SE 三天论文速递 · 2026-11-26”主题、重点/限制说明，核验空列表、HTML/文本和429说明后独立入队；只说明本次可核实结果，不声称没有新论文。唯一收件人syb38324@126.com，原mailer一次POST，durable outbox/租约/幂等/CAS。北京时间09:01:58 Brevo受理，provider ID <202611260101.13658265820@smtp-relay.mailin.fr>；即时事件查询成功但为空，尚未确认delivered/入箱。远端revision153，头49eb61eee1dd9a15a3bf09e736213debaf208aae，1550篇、69份review。旧范围外401待发逐字段不变未重发，sent/superseded未重置，未修改白名单/调度或推断出口IP。证据evidence/three-day-digest-run-2026-11-26.json。
+
 ## 2026-11-24 日报：来源不完整的空日报已受理
 
 以a984dd6在指定Cloud环境及源配置执行，观测current、网络enforced、密钥ready；原生Git fetch确认最新，保留work/，39项检查通过。collect --rss两组arXiv查询零成功页/HTTP429，RSS SE/AI/CL/LG分别43/351/142/304，821个额外发现观测。整体partial、游标保留2026-11-22T01:02:41.720670+00:00，未绕过限流额外补抓。RSS缺精确版本与首次投稿元数据，未冒充可纳入论文或实际审读成果。
